@@ -16,15 +16,12 @@ function App() {
     <Router>
       <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="https://codingthesmartway.com" target="_blank">
+            <a class="navbar-brand" href="/">
               <img src={logo} width="30" height="30" alt="Uberflip" />
             </a>
             <Link to="/" className="navbar-brand">Bulk Buster</Link>
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav mr-auto">
-                <li className="navbar-item">
-                  <Link to="/" className="nav-link">Home</Link>
-                </li>
                 <li className="navbar-item">
                   <Link to="/upload" className="nav-link">Upload</Link>
                 </li>
