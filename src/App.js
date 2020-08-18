@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // App Components
-import home from "./components/home";
-import upload from "./components/upload";
-import replace from "./components/replace";
-import testdelete from "./components/delete";
+import home from "./hooks/home";
+import upload from "./hooks/upload";
+import replace from "./hooks/replace";
+import testdelete from "./hooks/delete";
 
 // Styling
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,8 +15,8 @@ function App() {
   return (
     <Router>
       <div className="container">
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">
+          <nav className="navbar navbar-expand-sm navbar-light bg-light">
+            <a className="navbar-brand" href="/">
               <img src={logo} width="30" height="30" alt="Uberflip" />
             </a>
             <Link to="/" className="navbar-brand">Bulk Buster</Link>
