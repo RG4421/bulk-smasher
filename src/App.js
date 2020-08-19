@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // App Components
-import home from "./hooks/home";
-import upload from "./hooks/upload";
-import replace from "./hooks/replace";
-import testdelete from "./hooks/delete";
+import home from "./hooks/home.hook";
+import upload from "./hooks/upload.hook";
+import replace from "./hooks/replace.hook";
+import testdelete from "./hooks/delete.hook";
 
 // Styling
 import "bootstrap/dist/css/bootstrap.min.css";
