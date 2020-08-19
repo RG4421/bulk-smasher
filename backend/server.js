@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 var uploadsRouter = require('./routes/uploads.js');
+
 app.use('/upload', uploadsRouter);
 
 // Listening to requests sent by client
