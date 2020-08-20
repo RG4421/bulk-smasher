@@ -12,17 +12,19 @@ function Upload(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log("test button");
+        const data = {
+            clientId, 
+            clientSecret,
+            selectValue,
+            file
+        };
 
-        // const clientId_post = {
-        //     clientId
-        // };
-        // Axios.post('http://localhost:8080/upload', clientId_post)
-        //     .then((res) => {
-        //         console.log(res);
-        //     }).catch((e) => {
-        //         console.log(e);
-        //     });
+        Axios.post('http://localhost:8080/upload', data)
+            .then((res) => {
+                console.log(res);
+            }).catch((e) => {
+                console.log(e);
+            });
     }
         
     return (
@@ -55,7 +57,7 @@ function Upload(props) {
                     <select
                         value={selectValue}
                         onChange={e => setSelectValue(e.target.value)}
-                        required
+                        
                     >
                         <option default>Please Select...</option>
                         <option value="Tags">Tags</option>
@@ -70,7 +72,7 @@ function Upload(props) {
                         accept=".csv"
                         value={file}
                         onChange={e => setFile(e.target.value)}
-                        required
+                        
                     />
                 </div>
                 <div className="form-group">
@@ -78,12 +80,15 @@ function Upload(props) {
                 </div>
             </form>
 
-            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+            <label>ID: 56efa0d5771bed2e16474830a1179ac5</label>
+            <label>Secret: 5f4cfc14e79620602b978096f14c5d07c6262da9</label>
+
+            {/* <h5 style={{marginTop: 50}}>CSV Preview:</h5>
             <CsvToHtmlTable
                 data={file}
                 csvDelimiter=","
                 tableClassName="table table-striped table-hover"
-            />
+            /> */}
             </div>
         </>
     );
