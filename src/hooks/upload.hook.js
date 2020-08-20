@@ -79,10 +79,6 @@ function Upload(props) {
                     <input onClick={handleSubmit} type="submit" value="Upload" className="btn btn-primary"/>
                 </div>
             </form>
-
-            <label>ID: 56efa0d5771bed2e16474830a1179ac5</label>
-            <label>Secret: 5f4cfc14e79620602b978096f14c5d07c6262da9</label>
-
             {/* <h5 style={{marginTop: 50}}>CSV Preview:</h5>
             <CsvToHtmlTable
                 data={file}
