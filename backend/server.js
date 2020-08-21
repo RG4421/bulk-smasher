@@ -1,23 +1,25 @@
-try
-{
-    var express    = require('express');
-    var app        = express();
-    var cors       = require('cors');
-    var port       = 8080;
-
-    console.log("\nAll necessary packages included...");
-}
-catch(e) { console.log("Errors including packages: " + (e)); };
+const express = require('express');
+const app     = express();
+const https   = require('https');
+const cors    = require('cors');
+const fs      = require('fs');
+const key     = fs.readFileSync('./key.pem');
+const cert    = fs.readFileSync('./cert.pem');
+const server  = https.createServer({key: key, cert: cert }, app);
+const port    = 8080;
 
 app.use(cors());
 app.use(express.json());
 
-var uploadsRouter = require('./routes/uploads.js');
+const uploadRouter = require('./routes/uploads.js');
+//const replaceRouter = require('./routes/replaces.js');
+//const deleteRouter = require('./routes/deletes.js');
 
-app.use('/upload', uploadsRouter);
+app.use('/upload', uploadRouter);
+//app.use('/replace', replaceRouter);
+//app.use('/delete', deleteRouter);
 
-// Listening to requests sent by client
-app.listen(port, function() 
+server.listen(port, function() 
 {
-  console.log('Server deployed...\nListening at address localhost:' + port + '\n');
+  console.log('Secure server deployed...\nListening at address localhost:' + port + '\n');
 });

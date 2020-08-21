@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { parse } from 'papaparse';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
@@ -7,7 +8,20 @@ function Upload(props) {
     const [clientId, setClientId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [selectValue, setSelectValue] = useState('');
-    const [file, setFile] = useState('');
+    const [fileContents, setFileContents] = useState('');
+
+    const handleFile = (e) => {
+        const content = e.target.result;
+        setFileContents(content);
+        const result = parse(content, {header: true});
+        console.log(result);
+    }
+      
+    const readFile = (file) => {
+        let fileData = new FileReader();
+        fileData.onloadend = handleFile;
+        fileData.readAsText(file);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,10 +30,12 @@ function Upload(props) {
             clientId, 
             clientSecret,
             selectValue,
-            file
+            fileContents
         };
 
-        Axios.post('http://localhost:8080/upload', data)
+        console.log(data);
+
+        Axios.post('https://localhost:8080/upload', data)
             .then((res) => {
                 console.log(res);
             }).catch((e) => {
@@ -69,10 +85,9 @@ function Upload(props) {
                 <label>Upload CSV:</label>
                 <div className="form-group">
                     <input type="file"
+                        placeholder="Upload CSV"
                         accept=".csv"
-                        value={file}
-                        onChange={e => setFile(e.target.value)}
-                        
+                        onChange={e => readFile(e.target.files[0])}
                     />
                 </div>
                 <div className="form-group">
@@ -80,15 +95,12 @@ function Upload(props) {
                 </div>
             </form>
 
-            <label>ID: 56efa0d5771bed2e16474830a1179ac5</label>
-            <label>Secret: 5f4cfc14e79620602b978096f14c5d07c6262da9</label>
-
-            {/* <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
             <CsvToHtmlTable
-                data={file}
+                data={fileContents}
                 csvDelimiter=","
                 tableClassName="table table-striped table-hover"
-            /> */}
+            />
             </div>
         </>
     );
