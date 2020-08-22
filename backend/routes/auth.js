@@ -1,5 +1,4 @@
 var axios = require('axios');
-var request = require('request');
 
 async function authenticateCreds(id, secret) {
     const URL = 'https://v2.api.uberflip.com/authorize';

@@ -28,13 +28,33 @@ router.route('/').post((req, res) =>
                 case 'Tags':
                     console.log(selectValue);
 
-                    // Test API call to get all tags
+                    //Test API call to get all tags
                     try {
                         const result = await axios({
                             url: 'https://v2.api.uberflip.com/tags',
                             method: 'get',
                             headers: {
                                 'Authorization': `Bearer ${token}`,
+                            },
+                        });
+
+                        const tagGroupID = result.data.data[0].tag_group_id;                        
+
+                    } catch (err) {
+                        console.log(err);
+                    }
+
+                    //Test API call to post a new tag
+                    try {
+                        const result = await axios({
+                            url: 'https://v2.api.uberflip.com/tags',
+                            method: 'post',
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                            },
+                            data: {
+                                tag_group_id: "482475",
+                                name: "Test 12345",
                             },
                         });
 
