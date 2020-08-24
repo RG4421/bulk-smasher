@@ -24,15 +24,14 @@ async function authenticateCreds(id, secret) {
           console.log(err);
         }
         return result;
-      }
+    }
     
     async function fetchToken() {
         const tokenData = await fetchUser();
         const token = tokenData.data.access_token;
 
         return token;
-      };
-    
+    };
     return fetchToken();
 }
 

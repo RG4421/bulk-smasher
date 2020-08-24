@@ -11,13 +11,13 @@ const port    = 8080;
 app.use(cors());
 app.use(express.json());
 
-const uploadRouter = require('./routes/uploads.js');
+const uploadRouter = require('./routes/upload-router.js');
 //const replaceRouter = require('./routes/replaces.js');
-//const deleteRouter = require('./routes/deletes.js');
+const deleteRouter = require('./routes/delete-router.js');
 
 app.use('/upload', uploadRouter);
 //app.use('/replace', replaceRouter);
-//app.use('/delete', deleteRouter);
+app.use('/delete', deleteRouter);
 
 server.listen(port, function() 
 {
