@@ -92,7 +92,7 @@ function Upload(props) {
                     />
                 </div>
                 <div className="form-group">
-                    <input onClick={handleSubmit} type="submit" value="Upload" className="btn btn-primary"/>
+                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
                 </div>
             </form>
 

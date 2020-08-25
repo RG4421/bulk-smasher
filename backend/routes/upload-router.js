@@ -1,8 +1,11 @@
 const router = require('express').Router();
 const axios = require('axios');
 
+// Utility functions
 const auth = require('./utilities/auth');
 const parser = require('./utilities/csv-parser')
+
+// Functions
 const createTags = require('./upload-functions/create-tags')
 const fetchTags = require('./upload-functions/fetch-tags')
 const fetchItemTags = require('./upload-functions/fetch-item-tags')
@@ -31,7 +34,6 @@ router.route('/').post((req, res) =>
 
             switch(selectValue) {
                 case 'Tags':
-                    //console.log(fileContents);
                     const parsedData = await parser.parseCSV(fileContents);
                     console.log(parsedData);
 
