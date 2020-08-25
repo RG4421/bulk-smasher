@@ -31,8 +31,9 @@ router.route('/').post((req, res) =>
 
             switch(selectValue) {
                 case 'Tags':
-                    console.log(fileContents);
+                    //console.log(fileContents);
                     const parsedData = await parser.parseCSV(fileContents);
+                    console.log(parsedData);
 
                     break;
                 case 'User Profiles':
@@ -42,6 +43,9 @@ router.route('/').post((req, res) =>
                     console.log(selectValue);
                     break;
                 case 'Marketing Streams':
+                    console.log(selectValue);
+                    break;
+                case 'Canonical URLs':
                     console.log(selectValue);
                     break;
                 default:

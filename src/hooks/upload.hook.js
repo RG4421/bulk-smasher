@@ -11,9 +11,9 @@ function Upload(props) {
     const [fileContents, setFileContents] = useState('');
 
     const handleFile = (e) => {
-        const content = e.target.result;
-        setFileContents(content);
-        const result = parse(content, {header: true});
+        const data = e.target.result;
+        setFileContents(data);
+        const result = parse(data, {header: true});
         console.log(result);
     }
       
@@ -79,6 +79,7 @@ function Upload(props) {
                         <option value="Tags">Tags</option>
                         <option value="User Profiles">User Profiles</option>
                         <option value="Metadescription/SEOs">Metadescription/SEOs</option>
+                        <option value="Canonical URLs">Canonical URLs</option>
                         <option value="Marketing Streams">Marketing Streams</option>
                     </select>
                 </div>
