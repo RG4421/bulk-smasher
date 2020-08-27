@@ -6,7 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 <img src="https://github.com/uberflip/bulk-buster/blob/master/preview.png" width="1114" height="728">
 
-
 ## Available Scripts
 
 In the project directory, you can run:
