@@ -1,23 +1,27 @@
 async function parseCSV (csv) {
 
-    var tempResult = [];
     var tempObj = {};
+    var tempResult = [];
     var result = [];    
+
     var rows = csv.split("\n");
 
-    // Removing carriage return character
-    for (var i = 0; i < rows.length - 1; i++) {
-        var newLine = rows[i].split("\r");
-        tempObj = newLine[0];
+    // Removing carriage returns from CSV
+    for (var i = 0; i < rows.length; i++) {
+        var newRow = rows[i].split("\r");
+        tempObj = newRow[0];
         tempResult.push(tempObj)
     }
 
     // Storing headers
     var headers = tempResult[0].split(",");
 
-    // Building result JSON object
+    // Building JSON object
+    // Starting at 1 to skip headers
     for (var j = 1; j < tempResult.length; j++) {
         var currentRow = tempResult[j].split(",");
+
+        // Re-instantiating object to remove re-writes
         var obj = {};
         for (var k = 0; k < headers.length; k++) {
                 obj[headers[k]] = currentRow[k];
@@ -25,7 +29,6 @@ async function parseCSV (csv) {
         result.push(obj);
     }
     return result;
-    //return JSON.stringify(result);
 }
 
 module.exports = { parseCSV };

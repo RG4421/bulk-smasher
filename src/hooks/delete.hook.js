@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { parse } from 'papaparse';
+import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
 function Delete(props)
@@ -8,7 +9,6 @@ function Delete(props)
     const [clientSecret, setClientSecret] = useState('');
     const [checked, setChecked] = useState(false);
     const [fileContents, setFileContents] = useState('');
-
 
     const handleFile = (e) => {
         const data = e.target.result;
@@ -26,25 +26,26 @@ function Delete(props)
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (checked === true ) {
-            alert("Delete all is enabled")
-            window.confirm("Are you sure to delete these items?")
-            console.log(checked);
-        }
-
         const data = {
             clientId, 
             clientSecret,
         };
 
-        console.log(data);
-
-        Axios.post('https://localhost:8080/delete/all', data)
-            .then((res) => {
-                console.log(res);
-            }).catch((e) => {
-                console.log(e);
-            });
+        // Run delete all tags function
+        if (checked === true ) {
+            if (window.confirm("Are you sure to delete all items?")) {
+                Axios.post('https://localhost:8080/delete/all', data)
+                .then((res) => {
+                    alert("Delete operation successful!");
+                    console.log(res);
+                }).catch((e) => {
+                    alert("Delete operation failed!");
+                    console.log(e);
+                });
+            } else {
+                alert("Delete operation cancelled!");
+            }
+        }
     }
 
     return (
@@ -90,6 +91,12 @@ function Delete(props)
                         <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
                 </div>
             </form>
+            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+            <CsvToHtmlTable
+                data={fileContents}
+                csvDelimiter=","
+                tableClassName="table table-striped table-hover"
+            />
         </div>
     )
 }

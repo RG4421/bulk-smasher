@@ -3,14 +3,14 @@ const axios = require('axios');
 
 // Utility functions
 const auth = require('./utilities/auth');
-const parser = require('./utilities/csv-parser')
+const parser = require('./utilities/csv-parser');
 
 // Functions
-const createTags = require('./upload-functions/create-tags')
-const fetchTags = require('./upload-functions/fetch-tags')
-const fetchItemTags = require('./upload-functions/fetch-item-tags')
+const create = require('./upload-functions/create');
+const compare = require('./upload-functions/compare');
+const fetch = require('./upload-functions/fetch');
 
-// Setup request to pull all existing requests for reporting
+// Request handle all upload requests
 router.route('/').post((req, res) => 
 {
     var clientId = req.body.clientId;
@@ -27,15 +27,18 @@ router.route('/').post((req, res) =>
 
     async function operator () {
 
-        const token = await auth.authenticateCreds(clientId, clientSecret);
+        const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
-        if (token) {
-            console.log("API Authentication Successful with token " + token);
+        if (authToken) {
+            console.log("--- API Authentication Successful ---\n");
 
             switch(selectValue) {
                 case 'Tags':
-                    const parsedData = await parser.parseCSV(fileContents);
-                    console.log(parsedData);
+                    const newTags = await parser.parseCSV(fileContents);
+                    const existingTags = await fetch.tagId(authToken);
+                    const compareTags = await compare.tags(existingTags, newTags);
+                    //const createTags = await create.tags(token, csvData);
+                    // Add tags to items
 
                     break;
                 case 'User Profiles':
@@ -60,11 +63,6 @@ router.route('/').post((req, res) =>
     operator();
 
     res.json(creds);
-});
-
-router.route('/test').get((req, res) => 
-{
-    res.json("The get request worked");
 });
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-async function fetchTagGroup (token) {
+// Fetches tag group id
+async function tagGroup (token) {
   try {
     const result = await axios({
         url: 'https://v2.api.uberflip.com/tags',
@@ -10,7 +11,6 @@ async function fetchTagGroup (token) {
         },
     });
     const tagGroupId = result.data.data[0].tag_group_id;
-    
     return tagGroupId;
 
   } catch (err) {
@@ -18,7 +18,8 @@ async function fetchTagGroup (token) {
   }
 }
 
-async function fetchTagId (token) {
+// Fetches all tag ids
+async function tagId (token) {
   try {
     const result = await axios({
         url: 'https://v2.api.uberflip.com/tags',
@@ -27,13 +28,30 @@ async function fetchTagId (token) {
             'Authorization': `Bearer ${token}`,
         },
     });
-    const metadata = result.data.data;
-    
-    return metadata;
+    const tagMetadata = result.data.data;
+    return tagMetadata;
 
   } catch (err) {
       console.log(err);
   }
 }
 
-module.exports = { fetchTagGroup, fetchTagId };
+// Fetches all items
+async function itemTags (token) {
+  try {
+    const result = await axios({
+        url: 'https://v2.api.uberflip.com/items',
+        method: 'get',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+    });
+    const tagId = result.data.data[0].id;
+    return tagId;
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+module.exports = { tagGroup, tagId, itemTags };

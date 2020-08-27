@@ -46,7 +46,7 @@ function Upload(props) {
     return (
         <>
         <div style={{marginTop: 10}}>
-            <h3>Bulk Uploader</h3>
+            <h3>Bulk Upload</h3>
             <form style={{marginLeft: 30}}>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">

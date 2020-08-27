@@ -5,6 +5,7 @@ async function authenticateCreds(id, secret) {
     const CLIENT_ID = id;
     const CLIENT_SECRET = secret;
 
+    // Fetching user metadata
     async function fetchUser() {
         let result;
         try {
@@ -26,6 +27,7 @@ async function authenticateCreds(id, secret) {
         return result;
     }
     
+    // Extracting token for API calls
     async function fetchToken() {
         const tokenData = await fetchUser();
         const token = tokenData.data.access_token;

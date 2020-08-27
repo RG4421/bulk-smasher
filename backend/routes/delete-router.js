@@ -1,8 +1,12 @@
 const router = require('express').Router();
 const axios = require('axios');
+
+// Utility functions
 const auth = require('./utilities/auth');
-const tags = require('./upload-functions/fetch-tags')
-const deleteTags = require('./delete-functions/delete-tags');
+
+// Functions
+const fetch = require('./upload-functions/fetch')
+const deleteTags = require('./delete-functions/delete');
 
 router.route('/all').post((req, res) => 
 {
@@ -15,17 +19,12 @@ router.route('/all').post((req, res) =>
 
         //Test API call to post a new tag
         if (token) {
-            console.log("API Authentication Successful with token " + token);
-            const tagIds = await tags.fetchTagId(token);
+            console.log("--- API Authentication Successful ---");
+            const tagIds = await fetch.tagId(token);
             const deleteAllTags = await deleteTags.deleteAll(token, tagIds);
         }
     }
     deleteAllTags();
-});
-
-router.route('/test').get((req, res) => 
-{
-    res.json("The get request worked");
 });
 
 module.exports = router;
