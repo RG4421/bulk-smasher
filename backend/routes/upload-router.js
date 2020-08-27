@@ -37,8 +37,10 @@ router.route('/').post((req, res) =>
                     const newTags = await parser.parseCSV(fileContents);
                     const existingTags = await fetch.tagId(authToken);
                     const compareTags = await compare.tags(existingTags, newTags);
-                    //const createTags = await create.tags(token, csvData);
-                    // Add tags to items
+                    const createTags = await create.tags(authToken, compareTags);
+
+                    //Build item tager
+                    //const tagItems = await create.tagOnItem(authToken, fileContents);
 
                     break;
                 case 'User Profiles':

@@ -2,14 +2,13 @@ const axios = require('axios');
 
 async function tags (existingTags, newTags) {
 
-    const itemTagResult = [];
-    const createTagResult = [];
+    let uniqueTags = new Set();
    
     // Looping through tags CSV
     // Storing Id for result array
     for (var i = 0; i < newTags.length; i++) {
         var item = newTags[i];
-        var itemId = item.item_id;
+        //var itemId = item.item_id;
         var props = Object.keys(newTags[i]);
 
         // Looping through each tag Id props
@@ -17,25 +16,16 @@ async function tags (existingTags, newTags) {
         for (var j = 1; j < props.length; j++) {
             var tagName = props[j];
             var newTag = item[tagName];
-
-            // Re-instantiating object to ignore re-writes
-            const obj = {};
+            uniqueTags.add(newTag);
 
             // Looping through existing tags 
             for (var k = 0; k < existingTags.length; k++) {
                 const existingTag = existingTags[k].name;
-                                         
-                // Checking for duplicate tags
-                // If no tag name match, push tag into result array
-                if (newTag !== existingTag) {
-                    obj[itemId] = newTag;
-                    itemTagResult.push(obj);
-                    break;
-                }
+                uniqueTags.delete(existingTag);
             }
         }
     }
-    console.log(itemTagResult);
+    return uniqueTags;
 }
 
 module.exports = { tags };
