@@ -23,5 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 tags.csv*
+delete.csv*
 cert.pem*
 key.pem*

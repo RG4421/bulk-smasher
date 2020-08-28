@@ -7,8 +7,8 @@ function Delete(props)
 {
     const [clientId, setClientId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const [checked, setChecked] = useState(false);
     const [fileContents, setFileContents] = useState('');
+    const [checked, setChecked] = useState(false);
 
     const handleFile = (e) => {
         const data = e.target.result;
@@ -26,15 +26,21 @@ function Delete(props)
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const data = {
+        const bulkData = {
             clientId, 
             clientSecret,
         };
 
+        const csvDelete = {
+            clientId,
+            clientSecret,
+            fileContents
+        }
+
         // Run delete all tags function
         if (checked === true ) {
             if (window.confirm("Are you sure to delete all items?")) {
-                Axios.post('https://localhost:8080/delete/all', data)
+                Axios.post('https://localhost:8080/delete/all', bulkData)
                 .then((res) => {
                     alert("Delete operation successful!");
                     console.log(res);
@@ -45,6 +51,14 @@ function Delete(props)
             } else {
                 alert("Delete operation cancelled!");
             }
+        // Delete specific tags based on CSV
+        } else {
+            Axios.post('https://localhost:8080/delete/', csvDelete)
+            .then((res) => {
+                console.log(res);
+            }).catch((e) => {
+                console.log(e);
+            });
         }
     }
 
@@ -71,7 +85,8 @@ function Delete(props)
                         required
                     ></input>
                 </div>
-                <label>Upload CSV:</label>
+                <h5 style={{marginTop: 30}}>Select Bulk Operator</h5>
+                <label>Delete Specific Tags:</label>
                 <div className="form-group">
                     <input type="file"
                         placeholder="Upload CSV"
