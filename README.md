@@ -1,4 +1,4 @@
-# <img src="https://flipbot.uberflip.com/flipbot-app-logo.png" height="30"> Bulk Smasher
+# <img src="https://github.com/uberflip/bulk-smasher/blob/master/src/logo.jpg" height="30"> Bulk Smasher
 
 ## App to perform bulk operations using the Uberflip API
 
