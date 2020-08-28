@@ -4,7 +4,7 @@ function home(props) {
 
     return (
         <div>
-            <h5>Welcome to Bulk Buster!</h5>
+            <h5>Welcome to Bulk Smasher!</h5>
             
             <p>This tool performs bulk tasks using the Uberflip API.</p>
 

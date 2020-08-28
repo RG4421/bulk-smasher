@@ -9,7 +9,7 @@ import testdelete from "./hooks/delete.hook";
 
 // Styling
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "./logo.png";
+import logo from "./logo.jpg";
 
 function App() {
   return (
@@ -17,9 +17,9 @@ function App() {
       <div className="container">
           <nav className="navbar navbar-expand-sm navbar-light bg-light">
             <a className="navbar-brand" href="/">
-              <img src={logo} width="30" height="30" alt="Uberflip" />
+              <img src={logo} width="80" height="80" alt="Uberflip Hulk" />
             </a>
-            <Link to="/" className="navbar-brand">Bulk Buster</Link>
+            <Link to="/" className="navbar-brand">Bulk Smasher</Link>
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
