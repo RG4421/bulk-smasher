@@ -10,7 +10,7 @@ async function deleteAll(token, tagIds) {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-            console.log(`Deleted tag id ${tag.id}`);
+            console.log(`Deleted tag ${tag.name}`);
 
         } catch (err) {
             console.log(err);

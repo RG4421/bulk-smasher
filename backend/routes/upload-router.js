@@ -34,14 +34,12 @@ router.route('/').post((req, res) =>
 
             switch(selectValue) {
                 case 'Tags':
-                    const newTags = await parser.parseCSV(fileContents);
+                    const newTags      = await parser.parseCSV(fileContents);
                     const existingTags = await fetch.tagId(authToken);
-                    const compareTags = await compare.tags(existingTags, newTags);
-                    const createTags = await create.tags(authToken, compareTags);
-
-                    //Build item tager
-                    //const tagItems = await create.tagOnItem(authToken, fileContents);
-
+                    const compareTags  = await compare.tags(existingTags, newTags);
+                    const createTags   = await create.tags(authToken, compareTags);
+                    const tagIds       = await fetch.tagId(authToken);
+                    const tagItems     = await create.tagItems(authToken, newTags, tagIds);
                     break;
                 case 'User Profiles':
                     console.log(selectValue);
@@ -56,7 +54,7 @@ router.route('/').post((req, res) =>
                     console.log(selectValue);
                     break;
                 default:
-                    console.log("Make selection");
+                    console.log("Please make a proper selection!");
                     break;
             }
         }
