@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { parse } from 'papaparse';
+import React, { useState, useEffect } from 'react';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
@@ -7,14 +6,30 @@ function Delete(props)
 {
     const [clientId, setClientId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
+    const [selectValue, setSelectValue] = useState('');
     const [fileContents, setFileContents] = useState('');
     const [checked, setChecked] = useState(false);
+    const [showDeleteAll, setShowDeleteAll] = useState(false);
+    const [showDeleteList, setShowDeleteList] = useState(false);
 
+    useEffect(() => {
+        if (selectValue === "All Tags") {
+            setShowDeleteAll(true);
+            setShowDeleteList(false);
+
+        } else if (selectValue === "Specific Tags") {
+            setShowDeleteAll(false);
+            setShowDeleteList(true);
+        } else {
+            setShowDeleteAll(false);
+            setShowDeleteList(false);
+        }
+    }, [selectValue]);
+
+    // Functions
     const handleFile = (e) => {
         const data = e.target.result;
         setFileContents(data);
-        const result = parse(data, {header: true});
-        console.log(result);
     }
       
     const readFile = (file) => {
@@ -22,6 +37,39 @@ function Delete(props)
         fileData.onloadend = handleFile;
         fileData.readAsText(file);
     }
+
+    const DeleteAll = () => (
+        <div className="form-group">
+            <input 
+                type="checkbox"
+                checked={checked}
+                onChange={e => setChecked(!checked)}
+            ></input>
+            <label>Delete All</label>
+        </div>
+    )
+
+    const DeleteList = () => (
+        <div className="form-group">
+            <label><a href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
+            <div>
+                <input type="file"
+                    placeholder="Upload CSV"
+                    accept=".csv"
+                    onChange={e => readFile(e.target.files[0])}
+                />
+            </div>
+
+            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+            <div>
+                <CsvToHtmlTable
+                    data={fileContents}
+                    csvDelimiter=","
+                    tableClassName="table table-striped table-hover"
+                />
+            </div>
+        </div>            
+    )
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -39,21 +87,26 @@ function Delete(props)
 
         // Run delete all tags function
         if (checked === true ) {
-            if (window.confirm("Are you sure to delete all items?")) {
-                Axios.post('https://localhost:8080/delete/all', bulkData)
+            if (window.confirm("Are you sure you want to delete all tags?")) {
+                Axios.post('https://localhost:8080/delete/allTags', bulkData)
                 .then((res) => {
-                    alert("Delete operation successful!");
-                    console.log(res);
+                    console.log("Delete operation successful " + res);
                 }).catch((e) => {
-                    alert("Delete operation failed!");
-                    console.log(e);
+                    console.log("Delete operation failed " + e);
                 });
             } else {
-                alert("Delete operation cancelled!");
+                console.log("Delete operation cancelled!");
             }
         // Delete specific tags based on CSV
-        } else {
-            Axios.post('https://localhost:8080/delete/', csvDelete)
+        } else if (selectValue === "Tag List") {
+            Axios.post('https://localhost:8080/delete/tagList', csvDelete)
+            .then((res) => {
+                console.log(res);
+            }).catch((e) => {
+                console.log(e);
+            });
+        } else if (selectValue === "Marketing Stream") {
+            Axios.post('https://localhost:8080/delete/streamItems', csvDelete)
             .then((res) => {
                 console.log(res);
             }).catch((e) => {
@@ -68,8 +121,8 @@ function Delete(props)
             <form style={{marginLeft: 30}}>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
-                    <label>Client ID:</label>
                     <input
+                        placeholder="Client ID"
                         type="text"
                         value={clientId}
                         onChange={e => setClientId(e.target.value)}
@@ -77,8 +130,8 @@ function Delete(props)
                     ></input>
                 </div>
                 <div className="form-group">
-                    <label>Client Secret:</label>
                     <input 
+                        placeholder="Client Secret"
                         type="text"
                         value={clientSecret}
                         onChange={e => setClientSecret(e.target.value)}
@@ -86,32 +139,24 @@ function Delete(props)
                     ></input>
                 </div>
                 <h5 style={{marginTop: 30}}>Select Bulk Operator</h5>
-                <label>Delete Specific Tags:</label>
                 <div className="form-group">
-                    <input type="file"
-                        placeholder="Upload CSV"
-                        accept=".csv"
-                        onChange={e => readFile(e.target.files[0])}
-                    />
+                    <select
+                        value={selectValue}
+                        onChange={e => setSelectValue(e.target.value)}
+                    >
+                        <option default>Please Select...</option>
+                        <option value="All Tags">All Tags</option>
+                        <option value="Tag List">Tag List</option>
+                    </select>
                 </div>
-                <div className="form-group">
-                    <input 
-                        type="checkbox"
-                        checked={checked}
-                        onChange={e => setChecked(!checked)}
-                    ></input>
-                    <label>Delete All</label>
-                </div>
+
+                { showDeleteList ? <DeleteList/> : null } 
+                { showDeleteAll  ? <DeleteAll /> : null }
+
                 <div className="form-group">
                         <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
                 </div>
             </form>
-            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
-            <CsvToHtmlTable
-                data={fileContents}
-                csvDelimiter=","
-                tableClassName="table table-striped table-hover"
-            />
         </div>
     )
 }

@@ -54,4 +54,23 @@ async function itemTags (token) {
   }
 }
 
-module.exports = { tagGroup, tagId, itemTags };
+async function streamItemIds (token, streamId, itemId) {
+  try {
+    const result = await axios({
+        url: `https://v2.api.uberflip.com/streams/${streamId}/items/${itemId}`,
+        method: 'get',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+    });
+    console.log(result);
+    //const tagId = result.data.data[0].id;
+    //return tagId;
+
+  } catch (err) {
+    console.log(err);
+  }
+
+}
+
+module.exports = { tagGroup, tagId, itemTags, streamItemIds };

@@ -1,4 +1,4 @@
-async function parseCSV (csv) {
+async function tagsCSV (csv) {
 
     var tempObj = {};
     var tempResult = [];
@@ -31,4 +31,8 @@ async function parseCSV (csv) {
     return result;
 }
 
-module.exports = { parseCSV };
+async function marketingStreamCSV (csv) {
+    console.log(csv);
+}
+
+module.exports = { tagsCSV, marketingStreamCSV };
