@@ -111,7 +111,7 @@ function Upload(props) {
                         required
                     ></input>
                 </div>
-                <h5 style={{marginTop: 30}}>Select Bulk Operator</h5>
+                <h5 style={{marginTop: 30}}>Select Upload Operator</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
@@ -119,9 +119,9 @@ function Upload(props) {
                     >
                         <option default value="null">Please Select...</option>
                         <option value="Tags">Tags</option>
-                        <option value="User Profiles">User Profiles</option>
+                        {/* <option value="User Profiles">User Profiles</option>
                         <option value="Metadescription/SEOs">Metadescription/SEOs</option>
-                        <option value="Canonical URLs">Canonical URLs</option>
+                        <option value="Canonical URLs">Canonical URLs</option> */}
                         <option value="Marketing Streams">Marketing Streams</option>
                     </select>
                 </div>

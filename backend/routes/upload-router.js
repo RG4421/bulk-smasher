@@ -4,10 +4,10 @@ const axios = require('axios');
 // Utility functions
 const auth = require('./utilities/auth');
 const parse = require('./utilities/csv-parser');
+const compare = require('./utilities/compare');
 
 // Functions
 const create = require('./upload-functions/create');
-const compare = require('./upload-functions/compare');
 const fetch = require('./upload-functions/fetch');
 
 // Request handle all upload requests

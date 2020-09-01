@@ -3,10 +3,12 @@ const axios = require('axios');
 
 // Utility functions
 const auth = require('./utilities/auth');
+const parse = require('./utilities/csv-parser');
+const compare = require('./utilities/compare');
 
 // Functions
 const fetch = require('./upload-functions/fetch')
-const deleteTags = require('./delete-functions/delete');
+const deleteFunc = require('./delete-functions/delete');
 
 router.route('/allTags').post((req, res) =>
 {
@@ -19,9 +21,9 @@ router.route('/allTags').post((req, res) =>
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
             const tagIds = await fetch.tagId(authToken);
-            const deleteAllTags = await deleteTags.deleteAll(authToken, tagIds);
+            const deleteTags = await deleteFunc.deleteAll(authToken, tagIds);
 
-            return res.status(201).json('Deleted All Tags');
+            return res.status(201).json('All Tags Deleted');
         }
     }
     deleteAllTags();
@@ -39,9 +41,9 @@ router.route('/tagList').post((req, res) =>
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
             const tagIds = await fetch.tagId(authToken);
-            const deleteList = await deleteTags.deleteList(authToken, fileContents, tagIds);
+            const deleteList = await deleteFunc.deleteList(authToken, fileContents, tagIds);
 
-            return res.status(201).json('Deleted Tag List');
+            return res.status(201).json('Requested Tag List Deleted');
         }
     }
     deleteTagList();
@@ -57,9 +59,16 @@ router.route('/streamItems').post((req, res) => {
 
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
-            //const streamItemIds = await fetch.streamItemIds(authToken, )
+            const csvData = await parse.CSV(fileContents);
+            const streamItemIds = await fetch.streamItems(authToken, csvData);
+            //const deleteItems = await deleteFunc.deleteStreamItems(authToken, streamItemIds);
 
-            return res.status(201).json('Deleted Stream Items');
+            const test = await compare.tags(csvData, streamItemIds);
+            console.log(test);
+
+            //rebuild fetch stream items so compare function can return unique list to delete
+
+            return res.status(201).json('Requested Stream Items Deleted');
         }
     }
     deleteStreamItems();

@@ -50,4 +50,8 @@ async function deleteList (token, csv, tagIds) {
     }
 }
 
-module.exports = { deleteAll, deleteList }
+async function deleteStreamItems (token, streamData) {
+    console.log(streamData);
+}
+
+module.exports = { deleteAll, deleteList, deleteStreamItems }

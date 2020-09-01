@@ -1,4 +1,4 @@
-async function tagsCSV (csv) {
+async function CSV (csv) {
 
     var tempObj = {};
     var tempResult = [];
@@ -31,8 +31,4 @@ async function tagsCSV (csv) {
     return result;
 }
 
-async function marketingStreamCSV (csv) {
-    console.log(csv);
-}
-
-module.exports = { tagsCSV, marketingStreamCSV };
+module.exports = { CSV };

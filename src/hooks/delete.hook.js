@@ -17,9 +17,10 @@ function Delete(props)
             setShowDeleteAll(true);
             setShowDeleteList(false);
 
-        } else if (selectValue === "Specific Tags") {
+        } else if (selectValue === "Tag List" || selectValue === "Stream Items") {
             setShowDeleteAll(false);
             setShowDeleteList(true);
+
         } else {
             setShowDeleteAll(false);
             setShowDeleteList(false);
@@ -83,7 +84,8 @@ function Delete(props)
             clientId,
             clientSecret,
             fileContents
-        }
+        };
+
 
         // Run delete all tags function
         if (checked === true ) {
@@ -105,7 +107,7 @@ function Delete(props)
             }).catch((e) => {
                 console.log(e);
             });
-        } else if (selectValue === "Marketing Stream") {
+        } else if (selectValue === "Stream Items") {
             Axios.post('https://localhost:8080/delete/streamItems', csvDelete)
             .then((res) => {
                 console.log(res);
@@ -138,7 +140,7 @@ function Delete(props)
                         required
                     ></input>
                 </div>
-                <h5 style={{marginTop: 30}}>Select Bulk Operator</h5>
+                <h5 style={{marginTop: 30}}>Select Delete Operator:</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
@@ -147,6 +149,9 @@ function Delete(props)
                         <option default>Please Select...</option>
                         <option value="All Tags">All Tags</option>
                         <option value="Tag List">Tag List</option>
+                        <option value="Stream Items">Stream Items</option>
+                        {/* <option value="Hidden Items">Hidden Items</option>
+                        <option value="Older Content">Older Content</option> */}
                     </select>
                 </div>
 

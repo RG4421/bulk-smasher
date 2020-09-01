@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 async function tags (existingTags, newTags) {
 
     let uniqueTags = new Set();

@@ -22,7 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-tags.csv*
-delete.csv*
+tagUpload.csv*
+tagDelete.csv*
+streamItemsDelete.csv*
 cert.pem*
 key.pem*
