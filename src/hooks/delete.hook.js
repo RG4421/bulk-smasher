@@ -21,6 +21,11 @@ function Delete(props)
             setShowDeleteAll(false);
             setShowDeleteList(true);
 
+        } else if (selectValue === "Hidden Items") {
+            // ADD IN NEW BUTTON
+            setShowDeleteAll(false);
+            setShowDeleteList(false);
+
         } else {
             setShowDeleteAll(false);
             setShowDeleteList(false);
@@ -150,8 +155,8 @@ function Delete(props)
                         <option value="All Tags">All Tags</option>
                         <option value="Tag List">Tag List</option>
                         <option value="Stream Items">Stream Items</option>
-                        {/* <option value="Hidden Items">Hidden Items</option>
-                        <option value="Older Content">Older Content</option> */}
+                        <option value="Hidden Items">Hidden Items</option>
+                        {/* <option value="Older Content">Older Content</option> */}
                     </select>
                 </div>
 
