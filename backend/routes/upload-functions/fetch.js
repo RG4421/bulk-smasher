@@ -73,7 +73,7 @@ async function streamItems (token, data) {
       const streamItemData = result.data.data;
       const obj = {};
       obj['stream_id'] = streamId;
-      resultArr.push(obj)
+      resultArr.push(obj);
 
       for (var j = 0; j < streamItemData.length; j++) {
           obj['item_id'] = streamItemData[j].id;

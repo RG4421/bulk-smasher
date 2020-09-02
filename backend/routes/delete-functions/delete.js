@@ -50,8 +50,32 @@ async function deleteList (token, csv, tagIds) {
     }
 }
 
-async function deleteStreamItems (token, streamData) {
-    console.log(streamData);
+async function deleteStreamItems (token, csvData) {
+
+    for (var i = 0; i < csvData.length; i++) {
+        var streamId = csvData[i].stream_id;
+        var temp = csvData[i];
+        var props = Object.keys(temp);
+
+        for (var j = 1; j < props.length; j++) {
+            var itemName = props[j];
+            var itemId = temp[itemName];
+            
+            try {
+                const result = await axios({
+                    url: `https://v2.api.uberflip.com/streams/${streamId}/items/${itemId}`,
+                    method: 'delete',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                });
+                console.log(`Deleted item ${itemId} from ${streamId}`);
+
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    }
 }
 
 module.exports = { deleteAll, deleteList, deleteStreamItems }

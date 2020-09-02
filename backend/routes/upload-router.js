@@ -24,7 +24,7 @@ router.route('/tags').post((req, res) =>
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
 
-            const newTags      = await parse.tagsCSV(fileContents);
+            const newTags      = await parse.CSV(fileContents);
             const existingTags = await fetch.tagId(authToken);
             const compareTags  = await compare.tags(existingTags, newTags);
             const createTags   = await create.tags(authToken, compareTags);

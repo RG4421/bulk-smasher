@@ -60,12 +60,8 @@ router.route('/streamItems').post((req, res) => {
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
             const csvData = await parse.CSV(fileContents);
-            const streamItemIds = await fetch.streamItems(authToken, csvData);
-            //const deleteItems = await deleteFunc.deleteStreamItems(authToken, streamItemIds);
-
-            const test = await compare.tags(csvData, streamItemIds);
-            console.log(test);
-
+            //const streamItemIds = await fetch.streamItems(authToken, csvData);
+            const deleteItems = await deleteFunc.deleteStreamItems(authToken, csvData);
             //rebuild fetch stream items so compare function can return unique list to delete
 
             return res.status(201).json('Requested Stream Items Deleted');
