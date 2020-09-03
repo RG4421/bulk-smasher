@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+// Delete all tags in instance
 async function deleteAll (token, tagIds) {
     for (const tag of tagIds) {
         try {
@@ -18,6 +19,7 @@ async function deleteAll (token, tagIds) {
     }
 }
 
+// Delete list of tags
 async function deleteList (token, csv, tagIds) {
 
     var rows = csv.split("\n");
@@ -50,17 +52,18 @@ async function deleteList (token, csv, tagIds) {
     }
 }
 
-async function deleteStreamItems (token, csvData) {
+// Delete items in stream
+async function deleteStreamItems (token, csv) {
 
-    for (var i = 0; i < csvData.length; i++) {
-        var streamId = csvData[i].stream_id;
-        var temp = csvData[i];
+    for (var i = 0; i < csv.length; i++) {
+        var streamId = csv[i].stream_id;
+        var temp = csv[i];
         var props = Object.keys(temp);
 
         for (var j = 1; j < props.length; j++) {
             var itemName = props[j];
             var itemId = temp[itemName];
-            
+
             try {
                 const result = await axios({
                     url: `https://v2.api.uberflip.com/streams/${streamId}/items/${itemId}`,

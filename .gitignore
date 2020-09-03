@@ -25,5 +25,6 @@ yarn-error.log*
 tagUpload.csv*
 tagDelete.csv*
 streamItemsDelete.csv*
+hiddenItemsDelete.csv*
 cert.pem*
 key.pem*

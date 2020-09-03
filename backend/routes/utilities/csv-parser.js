@@ -1,8 +1,7 @@
-async function CSV (csv) {
-
+async function CSV(csv) {
     var tempObj = {};
     var tempResult = [];
-    var result = [];    
+    var result = [];
 
     var rows = csv.split("\n");
 
@@ -10,9 +9,8 @@ async function CSV (csv) {
     for (var i = 0; i < rows.length; i++) {
         var newRow = rows[i].split("\r");
         tempObj = newRow[0];
-        tempResult.push(tempObj)
+        tempResult.push(tempObj);
     }
-
     // Storing headers
     var headers = tempResult[0].split(",");
 
@@ -24,7 +22,7 @@ async function CSV (csv) {
         // Re-instantiating object to remove re-writes
         var obj = {};
         for (var k = 0; k < headers.length; k++) {
-                obj[headers[k]] = currentRow[k];
+        obj[headers[k]] = currentRow[k];
         }
         result.push(obj);
     }

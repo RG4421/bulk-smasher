@@ -68,9 +68,47 @@ router.route('/streamItems').post((req, res) => {
     deleteStreamItems();
 });
 
-router.route('hiddenItems').post((req, res) => {
+router.route('/hiddenItems').post((req, res) => {
+    var clientId = req.body.clientId;
+    var clientSecret = req.body.clientSecret;
+    var fileContents = req.body.fileContents;
 
-    // ADD IN NEW LOGIC
+    async function deleteHiddenItems () {
+        const authToken = await auth.authenticateCreds(clientId, clientSecret);
+
+        if (authToken) {
+            console.log("\n--- API Authentication Successful ---\n");
+            const csvData = await parse.CSV(fileContents);
+            const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
+            const deleteItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
+
+            return res.status(201).json('Hidden Stream Items Deleted');
+        }
+    }
+    deleteHiddenItems();
+});
+
+router.route('/pastContent').post((req, res) => {
+    var clientId = req.body.clientId;
+    var clientSecret = req.body.clientSecret;
+    var selectDate = req.body.selectDate;
+    var fileContents = req.body.fileContents;
+
+    async function deletePastContent () {
+        const authToken = await auth.authenticateCreds(clientId, clientSecret);
+
+        if (authToken) {
+            console.log("\n--- API Authentication Successful ---\n");
+            const csvData = await parse.CSV(fileContents);
+            const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
+            const deleteItems = await deleteFunc.deleteStreamItems(authToken, pastContent);
+
+            console.log(deleteItems);
+
+            return res.status(201).json('Old Stream Items Deleted');
+        }
+    }
+    deletePastContent();
 });
 
 module.exports = router;

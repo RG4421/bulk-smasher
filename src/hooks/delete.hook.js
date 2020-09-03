@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
@@ -8,27 +10,33 @@ function Delete(props)
     const [clientSecret, setClientSecret] = useState('');
     const [selectValue, setSelectValue] = useState('');
     const [fileContents, setFileContents] = useState('');
+    const [selectDate, setSelectDate] = useState(new Date());
     const [checked, setChecked] = useState(false);
     const [showDeleteAll, setShowDeleteAll] = useState(false);
     const [showDeleteList, setShowDeleteList] = useState(false);
+    const [showDatePicker, setShowDatePicker] = useState(false);
 
     useEffect(() => {
         if (selectValue === "All Tags") {
             setShowDeleteAll(true);
             setShowDeleteList(false);
+            setShowDatePicker(false);
 
-        } else if (selectValue === "Tag List" || selectValue === "Stream Items") {
+        } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items") {
             setShowDeleteAll(false);
             setShowDeleteList(true);
-
-        } else if (selectValue === "Hidden Items") {
-            // ADD IN NEW BUTTON
+            setShowDatePicker(false);
+        
+        } else if (selectValue === "Past Content") {
             setShowDeleteAll(false);
             setShowDeleteList(false);
+            setShowDatePicker(true);
 
         } else {
             setShowDeleteAll(false);
             setShowDeleteList(false);
+            setShowDatePicker(false);
+
         }
     }, [selectValue]);
 
@@ -77,6 +85,37 @@ function Delete(props)
         </div>            
     )
 
+    const DeleteDate = () => (
+        <div className="form-group">
+            <label>Select date to remove prior content: </label>
+            <div>
+                <DatePicker
+                    selected={selectDate}
+                    onChange={date => setSelectDate(date)}
+                    isClearable
+                />
+            </div>
+
+            <label><a href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
+            <div>
+                <input type="file"
+                    placeholder="Upload CSV"
+                    accept=".csv"
+                    onChange={e => readFile(e.target.files[0])}
+                />
+            </div>
+
+            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+            <div>
+                <CsvToHtmlTable
+                    data={fileContents}
+                    csvDelimiter=","
+                    tableClassName="table table-striped table-hover"
+                />
+            </div>
+        </div>
+    )
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -90,6 +129,13 @@ function Delete(props)
             clientSecret,
             fileContents
         };
+
+        const dateData = {
+            clientId,
+            clientSecret,
+            selectDate,
+            fileContents
+        }
 
 
         // Run delete all tags function
@@ -112,6 +158,7 @@ function Delete(props)
             }).catch((e) => {
                 console.log(e);
             });
+        // Delete stream items based on CSV
         } else if (selectValue === "Stream Items") {
             Axios.post('https://localhost:8080/delete/streamItems', csvDelete)
             .then((res) => {
@@ -119,6 +166,26 @@ function Delete(props)
             }).catch((e) => {
                 console.log(e);
             });
+        // Delete hidden items in streams based on CSV
+        } else if (selectValue === "Hidden Items") {
+            Axios.post('https://localhost:8080/delete/hiddenItems', csvDelete)
+            .then((res) => {
+                console.log(res);
+            }).catch((e) => {
+                console.log(e);
+            });
+        // Delete past content based on date selected and CSV
+        } else if (selectValue === "Past Content") {
+            if (window.confirm("Are you sure you want to delete items prior to " + selectDate + "?")) {
+                Axios.post('https://localhost:8080/delete/pastContent', dateData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Delete operation cancelled!");
+            }
         }
     }
 
@@ -154,14 +221,15 @@ function Delete(props)
                         <option default>Please Select...</option>
                         <option value="All Tags">All Tags</option>
                         <option value="Tag List">Tag List</option>
-                        <option value="Stream Items">Stream Items</option>
+                        <option value="Stream Items">Marketing Stream Items</option>
                         <option value="Hidden Items">Hidden Items</option>
-                        {/* <option value="Older Content">Older Content</option> */}
+                        <option value="Past Content">Past Content</option>
                     </select>
                 </div>
 
                 { showDeleteList ? <DeleteList/> : null } 
                 { showDeleteAll  ? <DeleteAll /> : null }
+                { showDatePicker  ? <DeleteDate /> : null }
 
                 <div className="form-group">
                         <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
