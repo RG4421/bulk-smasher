@@ -20,7 +20,8 @@ router.route('/allTags').post((req, res) =>
 
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
-            const tagIds = await fetch.tagId(authToken);
+
+            const tagIds     = await fetch.tagId(authToken);
             const deleteTags = await deleteFunc.deleteAll(authToken, tagIds);
 
             return res.status(201).json('All Tags Deleted');
@@ -40,7 +41,8 @@ router.route('/tagList').post((req, res) =>
 
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
-            const tagIds = await fetch.tagId(authToken);
+
+            const tagIds     = await fetch.tagId(authToken);
             const deleteList = await deleteFunc.deleteList(authToken, fileContents, tagIds);
 
             return res.status(201).json('Requested Tag List Deleted');
@@ -59,7 +61,8 @@ router.route('/streamItems').post((req, res) => {
 
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
-            const csvData = await parse.CSV(fileContents);
+
+            const csvData     = await parse.CSV(fileContents);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, csvData);
 
             return res.status(201).json('Requested Stream Items Deleted');
@@ -78,7 +81,8 @@ router.route('/hiddenItems').post((req, res) => {
 
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
-            const csvData = await parse.CSV(fileContents);
+
+            const csvData     = await parse.CSV(fileContents);
             const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
 
@@ -99,7 +103,8 @@ router.route('/pastContent').post((req, res) => {
 
         if (authToken) {
             console.log("\n--- API Authentication Successful ---\n");
-            const csvData = await parse.CSV(fileContents);
+            
+            const csvData     = await parse.CSV(fileContents);
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, pastContent);
 

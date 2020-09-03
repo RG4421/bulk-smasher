@@ -11,7 +11,7 @@ function Upload(props) {
     const [showUpload, setShowUpload] = useState(false);
 
     useEffect(() => {
-        if (selectValue !== "null") {
+        if (selectValue === "Tags" || selectValue === "Marketing Streams") {
             setShowUpload(true);
         } else {
             setShowUpload(false);

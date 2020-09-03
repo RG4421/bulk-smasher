@@ -65,4 +65,6 @@ async function tagItems (token, data, tagIds) {
     }
 }
 
-module.exports = { tags, tagItems };
+module.exports = { 
+    tags, 
+    tagItems };

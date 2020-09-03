@@ -11,14 +11,12 @@ const create = require('./upload-functions/create');
 const fetch = require('./upload-functions/fetch');
 
 // Request handle all upload requests
-router.route('/tags').post((req, res) => 
-{
+router.route('/tags').post((req, res) => {
     var clientId = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
 
-    async function tagOperator () {
-
+    async function uploadTags () {
         const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
         if (authToken) {
@@ -34,7 +32,26 @@ router.route('/tags').post((req, res) =>
             return res.status(201).json('Deleted Tag List');
         }
     }
-    tagOperator();
+    uploadTags();
+});
+
+router.route('/marketingStream').post((req, res) => {
+    var clientId = req.body.clientId;
+    var clientSecret = req.body.clientSecret;
+    var fileContents = req.body.fileContents;
+
+    async function uploadMarketingStream () {
+        const authToken = await auth.authenticateCreds(clientId, clientSecret);
+
+        if (authToken) {
+            console.log("\n--- API Authentication Successful ---\n");
+        
+            const newMarketingStreams = await parse.CSV(fileContents);
+            console.log(newMarketingStreams);
+
+        }
+    }
+    uploadMarketingStream();
 });
 
 module.exports = router;
