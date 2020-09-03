@@ -64,6 +64,8 @@ async function deleteStreamItems (token, csv) {
             var itemName = props[j];
             var itemId = temp[itemName];
 
+            console.log(`Deleted item ${itemId} from ${streamId}`);
+
             try {
                 const result = await axios({
                     url: `https://v2.api.uberflip.com/streams/${streamId}/items/${itemId}`,

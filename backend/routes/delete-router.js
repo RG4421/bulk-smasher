@@ -19,11 +19,13 @@ router.route('/allTags').post((req, res) =>
         const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
         if (authToken) {
-            console.log("\n--- API Authentication Successful ---\n");
+            console.time('--- API Call Timer ---');
+            console.log('\n--- API Authentication Successful ---\n');
 
             const tagIds     = await fetch.tagId(authToken);
             const deleteTags = await deleteFunc.deleteAll(authToken, tagIds);
 
+            console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('All Tags Deleted');
         }
     }
@@ -40,11 +42,13 @@ router.route('/tagList').post((req, res) =>
         const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
         if (authToken) {
-            console.log("\n--- API Authentication Successful ---\n");
+            console.time('--- API Call Timer ---');
+            console.log('\n--- API Authentication Successful ---\n');
 
             const tagIds     = await fetch.tagId(authToken);
             const deleteList = await deleteFunc.deleteList(authToken, fileContents, tagIds);
 
+            console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Requested Tag List Deleted');
         }
     }
@@ -60,11 +64,13 @@ router.route('/streamItems').post((req, res) => {
         const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
         if (authToken) {
-            console.log("\n--- API Authentication Successful ---\n");
+            console.time('--- API Call Timer ---');
+            console.log('\n--- API Authentication Successful ---\n');
 
             const csvData     = await parse.CSV(fileContents);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, csvData);
 
+            console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Requested Stream Items Deleted');
         }
     }
@@ -80,12 +86,14 @@ router.route('/hiddenItems').post((req, res) => {
         const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
         if (authToken) {
-            console.log("\n--- API Authentication Successful ---\n");
+            console.time('--- API Call Timer ---');
+            console.log('\n--- API Authentication Successful ---\n');
 
             const csvData     = await parse.CSV(fileContents);
             const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
 
+            console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Hidden Stream Items Deleted');
         }
     }
@@ -102,14 +110,14 @@ router.route('/pastContent').post((req, res) => {
         const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
         if (authToken) {
-            console.log("\n--- API Authentication Successful ---\n");
+            console.time('--- API Call Timer ---');
+            console.log('\n--- API Authentication Successful ---\n');
             
             const csvData     = await parse.CSV(fileContents);
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, pastContent);
 
-            console.log(deleteItems);
-
+            console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Old Stream Items Deleted');
         }
     }

@@ -20,6 +20,7 @@ router.route('/tags').post((req, res) => {
         const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
         if (authToken) {
+            console.time('--- API Call Timer ---');
             console.log("\n--- API Authentication Successful ---\n");
 
             const newTags      = await parse.CSV(fileContents);
@@ -29,6 +30,7 @@ router.route('/tags').post((req, res) => {
             const tagIds       = await fetch.tagId(authToken);
             const tagItems     = await create.tagItems(authToken, newTags, tagIds);
             
+            console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Deleted Tag List');
         }
     }
@@ -44,11 +46,13 @@ router.route('/marketingStream').post((req, res) => {
         const authToken = await auth.authenticateCreds(clientId, clientSecret);
 
         if (authToken) {
+            console.time('--- API Call Timer ---');
             console.log("\n--- API Authentication Successful ---\n");
         
             const newMarketingStreams = await parse.CSV(fileContents);
             console.log(newMarketingStreams);
 
+            console.timeEnd('--- API Call Timer ---');
         }
     }
     uploadMarketingStream();
