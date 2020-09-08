@@ -12,10 +12,12 @@ app.use(cors());
 app.use(express.json());
 
 const uploadRouter = require('./routes/upload-router.js');
+const hideRouter = require('./routes/hide-router');
 //const replaceRouter = require('./routes/replaces.js');
 const deleteRouter = require('./routes/delete-router.js');
 
 app.use('/upload', uploadRouter);
+app.use('/hide', hideRouter);
 //app.use('/replace', replaceRouter);
 app.use('/delete', deleteRouter);
 

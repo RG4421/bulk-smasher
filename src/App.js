@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // App Components
-import home from "./hooks/home.hook";
-import upload from "./hooks/upload.hook";
-import replace from "./hooks/replace.hook";
-import testdelete from "./hooks/delete.hook";
+import homeHook from "./components/home.hook";
+import uploadHook from "./components/upload.hook";
+import replaceHook from "./components/replace.hook";
+import deleteHook from "./components/delete.hook";
 
 // Styling
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -36,10 +36,10 @@ function App() {
           </nav>
           <br/>
 
-          <Route path="/" exact component={home} />
-          <Route path="/upload" component={upload} />
-          <Route path="/replace" component={replace} />
-          <Route path="/delete" component={testdelete} />
+          <Route path="/" exact component={homeHook} />
+          <Route path="/upload" component={uploadHook} />
+          <Route path="/replace" component={replaceHook} />
+          <Route path="/delete" component={deleteHook} />
       </div>
     </Router>
   );

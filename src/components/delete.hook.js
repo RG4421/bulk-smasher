@@ -12,6 +12,7 @@ function Delete(props)
     const [fileContents, setFileContents] = useState('');
     const [selectDate, setSelectDate] = useState(new Date());
     const [checked, setChecked] = useState(false);
+    const [selectPast, setSelectPast] = useState('');
     const [showDeleteAll, setShowDeleteAll] = useState(false);
     const [showDeleteList, setShowDeleteList] = useState(false);
     const [showDatePicker, setShowDatePicker] = useState(false);
@@ -21,22 +22,18 @@ function Delete(props)
             setShowDeleteAll(true);
             setShowDeleteList(false);
             setShowDatePicker(false);
-
         } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items") {
             setShowDeleteAll(false);
             setShowDeleteList(true);
             setShowDatePicker(false);
-        
         } else if (selectValue === "Past Content") {
             setShowDeleteAll(false);
             setShowDeleteList(false);
             setShowDatePicker(true);
-
         } else {
             setShowDeleteAll(false);
             setShowDeleteList(false);
             setShowDatePicker(false);
-
         }
     }, [selectValue]);
 
@@ -87,6 +84,17 @@ function Delete(props)
 
     const DeleteDate = () => (
         <div className="form-group">
+            <div className="form-group">
+                <select
+                    value={selectPast}
+                    onChange={e => setSelectPast(e.target.value)}
+                >
+                    <option default>Select to delete or hide...</option>
+                    <option value="Delete">Delete</option>
+                    <option value="Hide">Hide</option>
+                </select>
+            </div>
+
             <label>Select date to remove prior content: </label>
             <div>
                 <DatePicker
@@ -174,15 +182,26 @@ function Delete(props)
             }).catch((e) => {
                 console.log(e);
             });
-        // Delete past content based on date selected and CSV
+        // Delete/hide past content based on date selected and CSV
         } else if (selectValue === "Past Content") {
-            if (window.confirm("Are you sure you want to delete items prior to " + selectDate + "?")) {
-                Axios.post('https://localhost:8080/delete/pastContent', dateData)
-                .then((res) => {
-                    console.log(res);
-                }).catch((e) => {
-                    console.log(e);
-                });
+            if (selectPast === "Delete") {
+                if (window.confirm("Are you sure you want to DELETE items prior to " + selectDate + "?")) {
+                    Axios.post('https://localhost:8080/delete/pastContent', dateData)
+                    .then((res) => {
+                        console.log(res);
+                    }).catch((e) => {
+                        console.log(e);
+                    });
+                }
+            } else if (selectPast === "Hide") {
+                if (window.confirm("Are you sure you want to HIDE items prior to " + selectDate + "?")) {
+                    Axios.post('https://localhost:8080/hide/pastContent', dateData)
+                    .then((res) => {
+                        console.log(res);
+                    }).catch((e) => {
+                        console.log(e);
+                    });
+                }
             } else {
                 console.log("Delete operation cancelled!");
             }
@@ -227,9 +246,9 @@ function Delete(props)
                     </select>
                 </div>
 
-                { showDeleteList ? <DeleteList/> : null } 
+                { showDeleteList ? <DeleteList/> : null }
                 { showDeleteAll  ? <DeleteAll /> : null }
-                { showDatePicker  ? <DeleteDate /> : null }
+                { showDatePicker ? <DeleteDate /> : null }
 
                 <div className="form-group">
                         <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>

@@ -86,4 +86,5 @@ async function deleteStreamItems (token, csv) {
 module.exports = { 
     deleteAll, 
     deleteList, 
-    deleteStreamItems }
+    deleteStreamItems 
+}

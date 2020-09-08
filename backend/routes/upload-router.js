@@ -1,18 +1,17 @@
 const router = require('express').Router();
-const axios = require('axios');
 
 // Utility functions
-const auth = require('./utilities/auth');
-const parse = require('./utilities/csv-parser');
+const auth    = require('./utilities/auth');
+const parse   = require('./utilities/csv-parser');
 const compare = require('./utilities/compare');
+const fetch   = require('./utilities/fetch');
 
 // Functions
 const create = require('./upload-functions/create');
-const fetch = require('./upload-functions/fetch');
 
 // Request handle all upload requests
 router.route('/tags').post((req, res) => {
-    var clientId = req.body.clientId;
+    var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
 
@@ -38,7 +37,7 @@ router.route('/tags').post((req, res) => {
 });
 
 router.route('/marketingStream').post((req, res) => {
-    var clientId = req.body.clientId;
+    var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
 

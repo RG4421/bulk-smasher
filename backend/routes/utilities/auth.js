@@ -9,20 +9,20 @@ async function authenticateCreds(id, secret) {
     async function fetchUser() {
         let result;
         try {
-          result = await axios({
-            url: URL,
-            method: 'post',
-            data: {
-              grant_type: 'client_credentials',
-              client_id: CLIENT_ID,
-              client_secret: CLIENT_SECRET,
-            },
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          });
+            result = await axios({
+                url: URL,
+                method: 'post',
+                data: {
+                    grant_type: 'client_credentials',
+                    client_id: CLIENT_ID,
+                    client_secret: CLIENT_SECRET,
+                },
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
         return result;
     }
@@ -37,4 +37,6 @@ async function authenticateCreds(id, secret) {
     return fetchToken();
 }
 
-module.exports = { authenticateCreds };
+module.exports = { 
+    authenticateCreds 
+};

@@ -119,10 +119,10 @@ function Upload(props) {
                     >
                         <option default value="null">Please Select...</option>
                         <option value="Tags">Tags</option>
+                        <option value="Marketing Streams">Marketing Streams</option>
                         {/* <option value="User Profiles">User Profiles</option>
                         <option value="Metadescription/SEOs">Metadescription/SEOs</option>
                         <option value="Canonical URLs">Canonical URLs</option> */}
-                        <option value="Marketing Streams">Marketing Streams</option>
                     </select>
                 </div>
 

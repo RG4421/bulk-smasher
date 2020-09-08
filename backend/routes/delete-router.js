@@ -1,18 +1,16 @@
 const router = require('express').Router();
-const axios = require('axios');
 
 // Utility functions
-const auth = require('./utilities/auth');
+const auth  = require('./utilities/auth');
 const parse = require('./utilities/csv-parser');
-const compare = require('./utilities/compare');
+const fetch = require('./utilities/fetch')
 
 // Functions
-const fetch = require('./upload-functions/fetch')
 const deleteFunc = require('./delete-functions/delete');
 
 router.route('/allTags').post((req, res) =>
 {
-    var clientId = req.body.clientId;
+    var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
 
     async function deleteAllTags () {
@@ -34,7 +32,7 @@ router.route('/allTags').post((req, res) =>
 
 router.route('/tagList').post((req, res) => 
 {
-    var clientId = req.body.clientId;
+    var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
 
@@ -56,7 +54,7 @@ router.route('/tagList').post((req, res) =>
 });
 
 router.route('/streamItems').post((req, res) => {
-    var clientId = req.body.clientId;
+    var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
 
@@ -78,7 +76,7 @@ router.route('/streamItems').post((req, res) => {
 });
 
 router.route('/hiddenItems').post((req, res) => {
-    var clientId = req.body.clientId;
+    var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
 
@@ -101,9 +99,9 @@ router.route('/hiddenItems').post((req, res) => {
 });
 
 router.route('/pastContent').post((req, res) => {
-    var clientId = req.body.clientId;
+    var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
-    var selectDate = req.body.selectDate;
+    var selectDate   = req.body.selectDate;
     var fileContents = req.body.fileContents;
 
     async function deletePastContent () {
@@ -118,6 +116,7 @@ router.route('/pastContent').post((req, res) => {
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, pastContent);
 
             console.timeEnd('--- API Call Timer ---');
+
             return res.status(201).json('Old Stream Items Deleted');
         }
     }
