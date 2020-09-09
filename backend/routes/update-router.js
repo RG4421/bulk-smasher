@@ -6,7 +6,7 @@ const parse = require('./utilities/csv-parser');
 const fetch = require('./utilities/fetch');
 
 // Functions
-const hide = require('./hide-functions/hide');
+const update = require('./update-functions/update');
 
 router.route('/pastContent').post((req, res) => {
     var clientId     = req.body.clientId;
@@ -15,7 +15,7 @@ router.route('/pastContent').post((req, res) => {
     var fileContents = req.body.fileContents;
 
     async function hidePastContent () {
-        const authToken = await auth.authenticateCreds(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -23,7 +23,7 @@ router.route('/pastContent').post((req, res) => {
             
             const csvData     = await parse.CSV(fileContents);
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
-            const hideItems   = await hide.pastContent(authToken, pastContent);
+            const hideItems   = await update.pastContent(authToken, pastContent);
 
             console.timeEnd('--- API Call Timer ---');
         }

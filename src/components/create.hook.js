@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
-function Upload(props) {
+function Create(props) {
 
     const [clientId, setClientId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
@@ -62,7 +62,7 @@ function Upload(props) {
 
         switch(selectValue) {
             case 'Tags':
-                Axios.post('https://localhost:8080/upload/tags', tagData)
+                Axios.post('https://localhost:8080/create/tags', tagData)
                 .then((res) => {
                     console.log(res);
                 }).catch((e) => {
@@ -90,7 +90,7 @@ function Upload(props) {
     return (
         <>
         <div style={{marginTop: 10}}>
-            <h3>Bulk Upload</h3>
+            <h3>Bulk Create</h3>
             <form style={{marginLeft: 30}}>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
@@ -111,7 +111,7 @@ function Upload(props) {
                         required
                     ></input>
                 </div>
-                <h5 style={{marginTop: 30}}>Select Upload Operator</h5>
+                <h5 style={{marginTop: 30}}>Select Operator</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
@@ -137,4 +137,4 @@ function Upload(props) {
     );
 }
 
-export default Upload;
+export default Create;

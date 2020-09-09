@@ -26,5 +26,6 @@ tagUpload.csv*
 tagDelete.csv*
 streamItemsDelete.csv*
 hiddenItemsDelete.csv*
+marketingStreamError.csv*
 cert.pem*
 key.pem*

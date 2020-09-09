@@ -7,16 +7,16 @@ const compare = require('./utilities/compare');
 const fetch   = require('./utilities/fetch');
 
 // Functions
-const create = require('./upload-functions/create');
+const create = require('./create-functions/create');
 
-// Request handle all upload requests
+// Request handle all create requests
 router.route('/tags').post((req, res) => {
     var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
 
-    async function uploadTags () {
-        const authToken = await auth.authenticateCreds(clientId, clientSecret);
+    async function createTags () {
+        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -26,14 +26,13 @@ router.route('/tags').post((req, res) => {
             const existingTags = await fetch.tagId(authToken);
             const compareTags  = await compare.tags(existingTags, newTags);
             const createTags   = await create.tags(authToken, compareTags);
-            const tagIds       = await fetch.tagId(authToken);
-            const tagItems     = await create.tagItems(authToken, newTags, tagIds);
+            const tagItems     = await create.tagItems(authToken, newTags, existingTags);
             
             console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Deleted Tag List');
         }
     }
-    uploadTags();
+    createTags();
 });
 
 router.route('/marketingStream').post((req, res) => {
@@ -41,8 +40,8 @@ router.route('/marketingStream').post((req, res) => {
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
 
-    async function uploadMarketingStream () {
-        const authToken = await auth.authenticateCreds(clientId, clientSecret);
+    async function createMarketingStream () {
+        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -54,7 +53,7 @@ router.route('/marketingStream').post((req, res) => {
             console.timeEnd('--- API Call Timer ---');
         }
     }
-    uploadMarketingStream();
+    createMarketingStream();
 });
 
 module.exports = router;

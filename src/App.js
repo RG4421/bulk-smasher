@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // App Components
-import homeHook from "./components/home.hook";
-import uploadHook from "./components/upload.hook";
-import replaceHook from "./components/replace.hook";
+import homeHook   from "./components/home.hook";
+import createHook from "./components/create.hook";
+import updateHook from "./components/update.hook";
 import deleteHook from "./components/delete.hook";
 
 // Styling
@@ -23,10 +23,10 @@ function App() {
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
-                  <Link to="/upload" className="nav-link">Upload</Link>
+                  <Link to="/create" className="nav-link">Create</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/replace" className="nav-link">Replace</Link>
+                  <Link to="/update" className="nav-link">Update</Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="/delete" className="nav-link">Delete</Link>
@@ -37,8 +37,8 @@ function App() {
           <br/>
 
           <Route path="/" exact component={homeHook} />
-          <Route path="/upload" component={uploadHook} />
-          <Route path="/replace" component={replaceHook} />
+          <Route path="/create" component={createHook} />
+          <Route path="/update" component={updateHook} />
           <Route path="/delete" component={deleteHook} />
       </div>
     </Router>

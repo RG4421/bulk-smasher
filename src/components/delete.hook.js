@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { CsvToHtmlTable } from 'react-csv-to-table';
@@ -6,32 +6,56 @@ import Axios from 'axios';
 
 function Delete(props)
 {
-    const [clientId, setClientId] = useState('');
-    const [clientSecret, setClientSecret] = useState('');
-    const [selectValue, setSelectValue] = useState('');
-    const [fileContents, setFileContents] = useState('');
-    const [selectDate, setSelectDate] = useState(new Date());
-    const [checked, setChecked] = useState(false);
-    const [selectPast, setSelectPast] = useState('');
-    const [showDeleteAll, setShowDeleteAll] = useState(false);
-    const [showDeleteList, setShowDeleteList] = useState(false);
-    const [showDatePicker, setShowDatePicker] = useState(false);
+    const [clientId, setClientId]                 = useState('');
+    const [clientSecret, setClientSecret]         = useState('');
+    const [selectValue, setSelectValue]           = useState('');
+    const [fileContents, setFileContents]         = useState('');
+    const [userId, setUserId]                     = useState('');
+    const [titleId, setTitleId]                   = useState('');
+    const [selectDate, setSelectDate]             = useState(new Date());
+    const [checked, setChecked]                   = useState(false);
+    const [showDeleteAll, setShowDeleteAll]       = useState(false);
+    const [showDeleteList, setShowDeleteList]     = useState(false);
+    const [showDatePicker, setShowDatePicker]     = useState(false);
+    const [showLegacyFields, setShowLegacyFields] = useState(false);
+
+    const clientIdRef = useRef();
+    const clientSecretRef = useRef();
 
     useEffect(() => {
         if (selectValue === "All Tags") {
+            clientIdRef.current.placeholder = "Client ID";
+            clientSecretRef.current.placeholder = "Client Secret";
             setShowDeleteAll(true);
+            setShowLegacyFields(false);
             setShowDeleteList(false);
             setShowDatePicker(false);
         } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items") {
+            clientIdRef.current.placeholder = "Client ID";
+            clientSecretRef.current.placeholder = "Client Secret";
             setShowDeleteAll(false);
+            setShowLegacyFields(false);
             setShowDeleteList(true);
             setShowDatePicker(false);
         } else if (selectValue === "Past Content") {
+            clientIdRef.current.placeholder = "Client ID";
+            clientSecretRef.current.placeholder = "Client Secret";
             setShowDeleteAll(false);
+            setShowLegacyFields(false);
             setShowDeleteList(false);
             setShowDatePicker(true);
-        } else {
+        } else if (selectValue === "Flipbook Folders") {
+            clientIdRef.current.placeholder = "API Key";
+            clientSecretRef.current.placeholder = "Signature";
             setShowDeleteAll(false);
+            setShowLegacyFields(true);
+            setShowDeleteList(true);
+            setShowDatePicker(false);
+        } else {
+            clientIdRef.current.placeholder = "Client ID";
+            clientSecretRef.current.placeholder = "Client Secret";
+            setShowDeleteAll(false);
+            setShowLegacyFields(false);
             setShowDeleteList(false);
             setShowDatePicker(false);
         }
@@ -71,7 +95,7 @@ function Delete(props)
                 />
             </div>
 
-            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+            <h5 style={{marginTop: 80}}>CSV Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -84,17 +108,6 @@ function Delete(props)
 
     const DeleteDate = () => (
         <div className="form-group">
-            <div className="form-group">
-                <select
-                    value={selectPast}
-                    onChange={e => setSelectPast(e.target.value)}
-                >
-                    <option default>Select to delete or hide...</option>
-                    <option value="Delete">Delete</option>
-                    <option value="Hide">Hide</option>
-                </select>
-            </div>
-
             <label>Select date to remove prior content: </label>
             <div>
                 <DatePicker
@@ -104,7 +117,7 @@ function Delete(props)
                 />
             </div>
 
-            <label><a href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
+            <label style={{marginTop: 20}}><a href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
             <div>
                 <input type="file"
                     placeholder="Upload CSV"
@@ -113,7 +126,7 @@ function Delete(props)
                 />
             </div>
 
-            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+            <h5 style={{marginTop: 80}}>CSV Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -124,15 +137,37 @@ function Delete(props)
         </div>
     )
 
+    const LegacyFields = () => (
+        <div className="form-group">
+            <div className="form-group">
+                <input
+                    placeholder="User ID"
+                    type="text"
+                    value={userId}
+                    onChange={e => setUserId(e.target.value)}
+                    required
+                ></input>
+            </div>
+            <div className="form-group">
+                <input 
+                    placeholder="Title ID"
+                    type="text"
+                    value={titleId}
+                    onChange={e => setTitleId(e.target.value)}
+                ></input>
+            </div>
+        </div>
+    )
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const bulkData = {
+        const authData = {
             clientId, 
             clientSecret,
         };
 
-        const csvDelete = {
+        const csvData = {
             clientId,
             clientSecret,
             fileContents
@@ -143,13 +178,21 @@ function Delete(props)
             clientSecret,
             selectDate,
             fileContents
-        }
+        };
+
+        const legacyData = {
+            clientId,
+            clientSecret,
+            selectDate,
+            userId,
+            fileContents
+        };
 
 
         // Run delete all tags function
         if (checked === true ) {
             if (window.confirm("Are you sure you want to delete all tags?")) {
-                Axios.post('https://localhost:8080/delete/allTags', bulkData)
+                Axios.post('https://localhost:8080/delete/allTags', authData)
                 .then((res) => {
                     console.log("Delete operation successful " + res);
                 }).catch((e) => {
@@ -160,7 +203,7 @@ function Delete(props)
             }
         // Delete specific tags based on CSV
         } else if (selectValue === "Tag List") {
-            Axios.post('https://localhost:8080/delete/tagList', csvDelete)
+            Axios.post('https://localhost:8080/delete/tagList', csvData)
             .then((res) => {
                 console.log(res);
             }).catch((e) => {
@@ -168,7 +211,7 @@ function Delete(props)
             });
         // Delete stream items based on CSV
         } else if (selectValue === "Stream Items") {
-            Axios.post('https://localhost:8080/delete/streamItems', csvDelete)
+            Axios.post('https://localhost:8080/delete/streamItems', csvData)
             .then((res) => {
                 console.log(res);
             }).catch((e) => {
@@ -176,7 +219,7 @@ function Delete(props)
             });
         // Delete hidden items in streams based on CSV
         } else if (selectValue === "Hidden Items") {
-            Axios.post('https://localhost:8080/delete/hiddenItems', csvDelete)
+            Axios.post('https://localhost:8080/delete/hiddenItems', csvData)
             .then((res) => {
                 console.log(res);
             }).catch((e) => {
@@ -184,27 +227,21 @@ function Delete(props)
             });
         // Delete/hide past content based on date selected and CSV
         } else if (selectValue === "Past Content") {
-            if (selectPast === "Delete") {
-                if (window.confirm("Are you sure you want to DELETE items prior to " + selectDate + "?")) {
-                    Axios.post('https://localhost:8080/delete/pastContent', dateData)
-                    .then((res) => {
-                        console.log(res);
-                    }).catch((e) => {
-                        console.log(e);
-                    });
-                }
-            } else if (selectPast === "Hide") {
-                if (window.confirm("Are you sure you want to HIDE items prior to " + selectDate + "?")) {
-                    Axios.post('https://localhost:8080/hide/pastContent', dateData)
-                    .then((res) => {
-                        console.log(res);
-                    }).catch((e) => {
-                        console.log(e);
-                    });
-                }
-            } else {
-                console.log("Delete operation cancelled!");
+            if (window.confirm("Are you sure you want to DELETE items prior to " + selectDate + "?")) {
+                Axios.post('https://localhost:8080/delete/pastContent', dateData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
             }
+        } else if (selectValue === "Flipbook Folders") {
+            Axios.post('https://localhost:8080/delete/flipbookFolders', legacyData)
+            .then((res) => {
+                console.log(res);
+            }).catch((e) => {
+                console.log(e);
+            });
         }
     }
 
@@ -215,6 +252,7 @@ function Delete(props)
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
                     <input
+                        ref={clientIdRef}
                         placeholder="Client ID"
                         type="text"
                         value={clientId}
@@ -224,6 +262,7 @@ function Delete(props)
                 </div>
                 <div className="form-group">
                     <input 
+                        ref={clientSecretRef}
                         placeholder="Client Secret"
                         type="text"
                         value={clientSecret}
@@ -231,7 +270,10 @@ function Delete(props)
                         required
                     ></input>
                 </div>
-                <h5 style={{marginTop: 30}}>Select Delete Operator:</h5>
+
+                { showLegacyFields ? <LegacyFields /> : null }
+
+                <h5 style={{marginTop: 30}}>Select Operator:</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
@@ -241,8 +283,9 @@ function Delete(props)
                         <option value="All Tags">All Tags</option>
                         <option value="Tag List">Tag List</option>
                         <option value="Stream Items">Marketing Stream Items</option>
-                        <option value="Hidden Items">Hidden Items</option>
+                        <option value="Hidden Items">Hidden Marketing Stream Items</option>
                         <option value="Past Content">Past Content</option>
+                        <option value="Flipbook Folders">Flipbook Folders</option>
                     </select>
                 </div>
 
