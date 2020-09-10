@@ -10,8 +10,7 @@ function Delete(props)
     const [clientSecret, setClientSecret]         = useState('');
     const [selectValue, setSelectValue]           = useState('');
     const [fileContents, setFileContents]         = useState('');
-    const [userId, setUserId]                     = useState('');
-    const [titleId, setTitleId]                   = useState('');
+    const [hubId, setHubId]                       = useState('');
     const [selectDate, setSelectDate]             = useState(new Date());
     const [checked, setChecked]                   = useState(false);
     const [showDeleteAll, setShowDeleteAll]       = useState(false);
@@ -141,19 +140,11 @@ function Delete(props)
         <div className="form-group">
             <div className="form-group">
                 <input
-                    placeholder="User ID"
+                    placeholder="Hub ID"
                     type="text"
-                    value={userId}
-                    onChange={e => setUserId(e.target.value)}
+                    value={hubId}
+                    onChange={e => setHubId(e.target.value)}
                     required
-                ></input>
-            </div>
-            <div className="form-group">
-                <input 
-                    placeholder="Title ID"
-                    type="text"
-                    value={titleId}
-                    onChange={e => setTitleId(e.target.value)}
                 ></input>
             </div>
         </div>
@@ -183,8 +174,7 @@ function Delete(props)
         const legacyData = {
             clientId,
             clientSecret,
-            selectDate,
-            userId,
+            hubId,
             fileContents
         };
 

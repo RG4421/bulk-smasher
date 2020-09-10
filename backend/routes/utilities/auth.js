@@ -1,12 +1,12 @@
 var axios = require('axios');
 
-async function authenticateCredsV1(key, signature, userId) {
+async function authenticateCredsV1(key, signature, hubId) {
     const URL = 'https://api.uberflip.com/';
     const KEY = key;
     const SIGNATURE = signature;
-    const USER_ID = userId;
+    const HUB_ID = hubId;
 
-    // Fetching user metadata
+    // Fetching HubUser metadata
     async function fetchUser() {
         let result;
         try {
@@ -15,30 +15,27 @@ async function authenticateCredsV1(key, signature, userId) {
                 method: 'get',
                 params: {
                     Version: '0.1',
-                    Method: 'AuthenticateRemoteUser',
+                    Method: 'AuthenticateHubUser',
                     APIKey: KEY,
                     Signature: SIGNATURE,
-                    UserId: USER_ID
+                    HubId: HUB_ID,
+                    ResponseType: 'JSON'
                 },
-                // headers: {
-                //     'Content-Type': 'application/json'
-                // }
             });
         } catch (err) {
             console.log(err);
         }
-        //return result;
-        console.log(result);
+        return result;
     }
     
     // Extracting token for API calls
-    // async function fetchToken() {
-    //     const tokenData = await fetchUser();
-    //     const token = tokenData.Token;
+    async function fetchToken() {
+        const tokenData = await fetchUser();
+        const token = tokenData.data[0].Token;
 
-    //     return token;
-    // };
-    // return fetchToken();
+        return token;
+    };
+    return fetchToken();
 }
 
 async function authenticateCredsV2(id, secret) {
