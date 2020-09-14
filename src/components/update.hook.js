@@ -16,9 +16,12 @@ function Update(props)
 
 
     useEffect(() => {
-        if (selectValue === "Past Content") {
+        if (selectValue === "Hide Past Content" || selectValue === "Show Past Content") {
             setShowDatePicker(true);
             setShowUpdatePreview(false);
+        } else if (selectValue === "Author") {
+            setShowDatePicker(false);
+            setShowUpdatePreview(true);
         } else {
             setShowDatePicker(false);
             setShowUpdatePreview(false);
@@ -61,7 +64,6 @@ function Update(props)
 
     const HideItemsPicker = () => (
         <div className="form-group">
-           
             <label>Select date to remove prior content: </label>
             <div>
                 <DatePicker
@@ -98,12 +100,35 @@ function Update(props)
             clientId,
             clientSecret,
             selectDate,
-            fileContents
+            fileContents,
+            selectValue
         }
 
-        if (selectValue === "Past Content") {
+        if (selectValue === "Hide Past Content") {
             if (window.confirm("Are you sure you want to HIDE items prior to " + selectDate + "?")) {
-                Axios.post('https://localhost:8080/update/pastContent', dateData)
+                Axios.post('https://localhost:8080/update/hidePastContent', dateData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Update operation cancelled!");
+            }
+        } else if (selectValue === "Show Past Content") {
+            if (window.confirm("Are you sure you want to SHOW items prior to " + selectDate + "?")) {
+                Axios.post('https://localhost:8080/update/showPastContent', dateData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Update operation cancelled!");
+            }
+        } else if (selectValue === "Author") {
+            if (window.confirm("Are you sure you want to UPDATE these items?")) {
+                Axios.post('https://localhost:8080/update/author', dateData)
                 .then((res) => {
                     console.log(res);
                 }).catch((e) => {
@@ -145,7 +170,11 @@ function Update(props)
                         onChange={e => setSelectValue(e.target.value)}
                     >
                         <option default>Please Select...</option>
-                        <option value="Past Content">Hide Past Content</option>
+                        <option value="Hide Past Content">Hide Past Content</option>
+                        <option value="Show Past Content">Show Past Content</option>
+                        <option value="Author">Item Author</option>
+                        <option value="SEO">Item SEO</option>
+                        <option value="Metadata">Item Metadata</option>
                     </select>
                 </div>
 
@@ -153,7 +182,7 @@ function Update(props)
                 { showUpdatePreview ? <UpdateListPreview />: null }
 
                 <div className="form-group">
-                        <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
+                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
                 </div>
             </form>
         </div>
