@@ -29,7 +29,7 @@ router.route('/tags').post((req, res) => {
             const tagItems     = await create.tagItems(authToken, newTags, existingTags);
             
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('Deleted Tag List');
+            return res.status(200).json('Created tag list');
         }
     }
     createTags();
@@ -51,6 +51,7 @@ router.route('/marketingStream').post((req, res) => {
             console.log(newMarketingStreams);
 
             console.timeEnd('--- API Call Timer ---');
+            return res.status(200).json('Marketing stream created');
         }
     }
     createMarketingStream();

@@ -3,8 +3,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
-function Update(props) 
-{
+
+function Update(props) {
 
     const [clientId, setClientId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
@@ -14,12 +14,11 @@ function Update(props)
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [showUpdatePreview, setShowUpdatePreview] = useState(false);
 
-
     useEffect(() => {
         if (selectValue === "Hide Past Content" || selectValue === "Show Past Content") {
             setShowDatePicker(true);
             setShowUpdatePreview(false);
-        } else if (selectValue === "Author") {
+        } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata") {
             setShowDatePicker(false);
             setShowUpdatePreview(true);
         } else {
@@ -129,6 +128,28 @@ function Update(props)
         } else if (selectValue === "Author") {
             if (window.confirm("Are you sure you want to UPDATE these items?")) {
                 Axios.post('https://localhost:8080/update/author', dateData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Update operation cancelled!");
+            }
+        } else if (selectValue === "SEO") {
+            if (window.confirm("Are you sure you want to UPDATE these items?")) {
+                Axios.post('https://localhost:8080/update/seo', dateData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Update operation cancelled!");
+            }
+        } else if (selectValue === "Metadata") {
+            if (window.confirm("Are you sure you want to UPDATE these items?")) {
+                Axios.post('https://localhost:8080/update/metadata', dateData)
                 .then((res) => {
                     console.log(res);
                 }).catch((e) => {

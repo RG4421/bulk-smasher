@@ -24,7 +24,7 @@ router.route('/allTags').post((req, res) =>
             const deleteTags = await deleteFunc.deleteAll(authToken, tagIds);
 
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('All Tags Deleted');
+            return res.status(200).json('All Tags Deleted');
         }
     }
     deleteAllTags();
@@ -47,7 +47,7 @@ router.route('/tagList').post((req, res) =>
             const deleteList = await deleteFunc.deleteList(authToken, fileContents, tagIds);
 
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('Requested Tag List Deleted');
+            return res.status(200).json('Requested Tag List Deleted');
         }
     }
     deleteTagList();
@@ -69,7 +69,7 @@ router.route('/streamItems').post((req, res) => {
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, csvData);
 
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('Requested Stream Items Deleted');
+            return res.status(200).json('Requested Stream Items Deleted');
         }
     }
     deleteStreamItems();
@@ -92,7 +92,7 @@ router.route('/hiddenItems').post((req, res) => {
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
 
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('Hidden Stream Items Deleted');
+            return res.status(200).json('Hidden Stream Items Deleted');
         }
     }
     deleteHiddenItems();
@@ -117,7 +117,7 @@ router.route('/pastContent').post((req, res) => {
 
             console.timeEnd('--- API Call Timer ---');
 
-            return res.status(201).json('Old Stream Items Deleted');
+            return res.status(200).json('Old Stream Items Deleted');
         }
     }
     deletePastContent();
@@ -142,7 +142,7 @@ router.route('/flipbookFolders').post((req, res) => {
             console.log(csvData);
 
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('Old Stream Items Deleted');
+            return res.status(200).json('Old Stream Items Deleted');
         }
     }
     deleteFlipbookFolders();
