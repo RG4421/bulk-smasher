@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { 
+    useState, 
+    useEffect 
+} from 'react';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
+
+import '../styles/container.css'
 
 function Create(props) {
 
@@ -89,9 +94,9 @@ function Create(props) {
         
     return (
         <>
-        <div style={{marginTop: 10}}>
+        <div className="newContainer">
+            <form>
             <h3>Bulk Create</h3>
-            <form style={{marginLeft: 30}}>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
                     <input 
@@ -129,7 +134,7 @@ function Create(props) {
                 { showUpload ? <CSVUpload/> : null } 
 
                 <div className="form-group">
-                        <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
+                        <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
                 </div>
             </form>
         </div>

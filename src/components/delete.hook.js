@@ -1,21 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { 
+    useState, 
+    useEffect, 
+    useRef 
+} from 'react';
+import Axios from 'axios';
+import { CsvToHtmlTable } from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { CsvToHtmlTable } from 'react-csv-to-table';
-import Axios from 'axios';
 
 function Delete(props)
 {
-    const [clientId, setClientId]                 = useState('');
-    const [clientSecret, setClientSecret]         = useState('');
-    const [selectValue, setSelectValue]           = useState('');
-    const [fileContents, setFileContents]         = useState('');
-    const [hubId, setHubId]                       = useState('');
-    const [selectDate, setSelectDate]             = useState(new Date());
-    const [checked, setChecked]                   = useState(false);
-    const [showDeleteAll, setShowDeleteAll]       = useState(false);
-    const [showDeleteList, setShowDeleteList]     = useState(false);
-    const [showDatePicker, setShowDatePicker]     = useState(false);
+    const [clientId, setClientId] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
+    const [selectValue, setSelectValue] = useState('');
+    const [fileContents, setFileContents] = useState('');
+    const [hubId, setHubId] = useState('');
+    const [selectDate, setSelectDate] = useState(new Date());
+    const [checked, setChecked] = useState(false);
+    const [showDeleteAll, setShowDeleteAll] = useState(false);
+    const [showDeleteList, setShowDeleteList] = useState(false);
+    const [showDatePicker, setShowDatePicker] = useState(false);
     const [showLegacyFields, setShowLegacyFields] = useState(false);
 
     const clientIdRef = useRef();
@@ -78,7 +82,7 @@ function Delete(props)
                 type="checkbox"
                 checked={checked}
                 onChange={e => setChecked(!checked)}
-            ></input>
+            />
             <label>Delete All</label>
         </div>
     )
@@ -107,7 +111,7 @@ function Delete(props)
 
     const DeleteDate = () => (
         <div className="form-group">
-            <label>Select date to remove prior content: </label>
+            <label>Select a date to remove past content: </label>
             <div>
                 <DatePicker
                     selected={selectDate}
@@ -171,74 +175,78 @@ function Delete(props)
             fileContents
         };
 
-        const legacyData = {
-            clientId,
-            clientSecret,
-            hubId,
-            fileContents
-        };
-
-
         // Run delete all tags function
         if (checked === true ) {
-            if (window.confirm("Are you sure you want to delete all tags?")) {
+            let ans = window.prompt("Type 'DELETE ALL TAGS' to execute.");
+            if (ans === "DELETE ALL TAGS") {
                 Axios.post('https://localhost:8080/delete/allTags', authData)
                 .then((res) => {
-                    console.log("Delete operation successful " + res);
+                    alert("Delete operation successful " + res);
                 }).catch((e) => {
                     console.log("Delete operation failed " + e);
                 });
             } else {
-                console.log("Delete operation cancelled!");
+               alert("Delete operation cancelled.");
             }
         // Delete specific tags based on CSV
         } else if (selectValue === "Tag List") {
-            Axios.post('https://localhost:8080/delete/tagList', csvData)
-            .then((res) => {
-                console.log(res);
-            }).catch((e) => {
-                console.log(e);
-            });
+            let ans = window.prompt("Type 'DELETE TAG LIST' to execute.");
+            if (ans === "DELETE TAG LIST") {
+                Axios.post('https://localhost:8080/delete/tagList', csvData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                alert("Delete operation cancelled.");
+            }
         // Delete stream items based on CSV
         } else if (selectValue === "Stream Items") {
-            Axios.post('https://localhost:8080/delete/streamItems', csvData)
-            .then((res) => {
-                console.log(res);
-            }).catch((e) => {
-                console.log(e);
-            });
+            let ans = window.prompt("Type 'DELETE STREAM ITEMS' to execute.");
+            if (ans === "DELETE STREAM ITEMS") {
+                Axios.post('https://localhost:8080/delete/streamItems', csvData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                alert("Delete operation cancelled.");
+            }
         // Delete hidden items in streams based on CSV
         } else if (selectValue === "Hidden Items") {
-            Axios.post('https://localhost:8080/delete/hiddenItems', csvData)
-            .then((res) => {
-                console.log(res);
-            }).catch((e) => {
-                console.log(e);
-            });
+            let ans = window.prompt("Type 'DELETE HIDDEN ITEMS' to execute.");
+            if (ans === "DELETE HIDDEN ITEMS") {
+                Axios.post('https://localhost:8080/delete/hiddenItems', csvData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                alert("Delete operation cancelled.");
+            }
         // Delete/hide past content based on date selected and CSV
         } else if (selectValue === "Past Content") {
-            if (window.confirm("Are you sure you want to DELETE items prior to " + selectDate + "?")) {
+            let ans = window.prompt("Type 'DELETE PAST ITEMS' to delete items before " + selectDate + ".");
+            if (ans === "DELETE PAST ITEMS") {
                 Axios.post('https://localhost:8080/delete/pastContent', dateData)
                 .then((res) => {
                     console.log(res);
                 }).catch((e) => {
                     console.log(e);
                 });
+            } else {
+                alert("Delete operation cancelled.");
             }
-        } else if (selectValue === "Flipbook Folders") {
-            Axios.post('https://localhost:8080/delete/flipbookFolders', legacyData)
-            .then((res) => {
-                console.log(res);
-            }).catch((e) => {
-                console.log(e);
-            });
         }
     }
 
     return (
-        <div style={{marginTop: 10}}>
+        <div className="newContainer">
+            <form>
             <h3>Bulk Delete</h3>
-            <form style={{marginLeft: 30}}>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
                     <input
@@ -263,19 +271,18 @@ function Delete(props)
 
                 { showLegacyFields ? <LegacyFields /> : null }
 
-                <h5 style={{marginTop: 30}}>Select Operator:</h5>
+                <h5 style={{marginTop: 30}}>Select Operator</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
                         onChange={e => setSelectValue(e.target.value)}
                     >
                         <option default>Please Select...</option>
-                        <option value="All Tags">All Tags</option>
                         <option value="Tag List">Tag List</option>
                         <option value="Stream Items">Marketing Stream Items</option>
                         <option value="Hidden Items">Hidden Marketing Stream Items</option>
                         <option value="Past Content">Past Content</option>
-                        <option value="Flipbook Folders">Flipbook Folders</option>
+                        <option value="All Tags">All Tags</option>
                     </select>
                 </div>
 
@@ -284,7 +291,7 @@ function Delete(props)
                 { showDatePicker ? <DeleteDate /> : null }
 
                 <div className="form-group">
-                        <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
+                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
                 </div>
             </form>
         </div>

@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { 
+    useState, 
+    useEffect
+} from 'react';
+import Axios from 'axios';
+import { CsvToHtmlTable }from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import { CsvToHtmlTable } from 'react-csv-to-table';
-import Axios from 'axios';
 
 function Update(props) {
 
@@ -58,12 +61,12 @@ function Update(props) {
                     tableClassName="table table-striped table-hover"
                 />
             </div>
-        </div>            
+        </div>   
     )
 
     const HideItemsPicker = () => (
         <div className="form-group">
-            <label>Select date to remove prior content: </label>
+            <label>Select date to remove past content: </label>
             <div>
                 <DatePicker
                     selected={selectDate}
@@ -112,7 +115,7 @@ function Update(props) {
                     console.log(e);
                 });
             } else {
-                console.log("Update operation cancelled!");
+                console.log("Update operation cancelled.");
             }
         } else if (selectValue === "Show Past Content") {
             if (window.confirm("Are you sure you want to SHOW items prior to " + selectDate + "?")) {
@@ -123,7 +126,7 @@ function Update(props) {
                     console.log(e);
                 });
             } else {
-                console.log("Update operation cancelled!");
+                console.log("Update operation cancelled.");
             }
         } else if (selectValue === "Author") {
             if (window.confirm("Are you sure you want to UPDATE these items?")) {
@@ -134,7 +137,7 @@ function Update(props) {
                     console.log(e);
                 });
             } else {
-                console.log("Update operation cancelled!");
+                console.log("Update operation cancelled.");
             }
         } else if (selectValue === "SEO") {
             if (window.confirm("Are you sure you want to UPDATE these items?")) {
@@ -145,7 +148,7 @@ function Update(props) {
                     console.log(e);
                 });
             } else {
-                console.log("Update operation cancelled!");
+                console.log("Update operation cancelled.");
             }
         } else if (selectValue === "Metadata") {
             if (window.confirm("Are you sure you want to UPDATE these items?")) {
@@ -156,15 +159,15 @@ function Update(props) {
                     console.log(e);
                 });
             } else {
-                console.log("Update operation cancelled!");
+                console.log("Update operation cancelled.");
             }
         }
     }
 
     return (
-        <div style={{marginTop: 10}}>
+        <div className="newContainer">
+            <form>
             <h3>Bulk Update</h3>
-            <form style={{marginLeft: 30}}>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
                     <input
@@ -184,7 +187,7 @@ function Update(props) {
                         required
                     ></input>
                 </div>
-                <h5 style={{marginTop: 30}}>Select Operator:</h5>
+                <h5 style={{marginTop: 30}}>Select Operator</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
@@ -203,7 +206,7 @@ function Update(props) {
                 { showUpdatePreview ? <UpdateListPreview />: null }
 
                 <div className="form-group">
-                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-primary"/>
+                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
                 </div>
             </form>
         </div>
