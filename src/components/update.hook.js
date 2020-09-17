@@ -75,7 +75,7 @@ function Update(props) {
                 />
             </div>
 
-            <label style={{marginTop: 20}}><a href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
+            <label style={{marginTop: 20}}><a href="https://docs.google.com/spreadsheets/d/1IoKWwlaJFmgkLYsGBh-2frUKVbSwNupsMdWeZOUH9qI/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
             <div>
                 <input type="file"
                     placeholder="Upload CSV"
@@ -84,7 +84,7 @@ function Update(props) {
                 />
             </div>
 
-            <h5 style={{marginTop: 80}}>CSV Preview:</h5>
+            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -129,7 +129,7 @@ function Update(props) {
                 console.log("Update operation cancelled.");
             }
         } else if (selectValue === "Author") {
-            if (window.confirm("Are you sure you want to UPDATE these items?")) {
+            if (window.confirm("Are you sure you want to UPDATE the AUTHOR of these items?")) {
                 Axios.post('https://localhost:8080/update/author', dateData)
                 .then((res) => {
                     console.log(res);
@@ -140,7 +140,7 @@ function Update(props) {
                 console.log("Update operation cancelled.");
             }
         } else if (selectValue === "SEO") {
-            if (window.confirm("Are you sure you want to UPDATE these items?")) {
+            if (window.confirm("Are you sure you want to UPDATE the SEO of these items?")) {
                 Axios.post('https://localhost:8080/update/seo', dateData)
                 .then((res) => {
                     console.log(res);
@@ -151,7 +151,7 @@ function Update(props) {
                 console.log("Update operation cancelled.");
             }
         } else if (selectValue === "Metadata") {
-            if (window.confirm("Are you sure you want to UPDATE these items?")) {
+            if (window.confirm("Are you sure you want to UPDATE the METADATA of these items?")) {
                 Axios.post('https://localhost:8080/update/metadata', dateData)
                 .then((res) => {
                     console.log(res);

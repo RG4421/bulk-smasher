@@ -11,3 +11,7 @@
         max-width: 300px;
     }
 }
+
+input, select {
+    width: 50%;
+}

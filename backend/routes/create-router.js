@@ -29,13 +29,13 @@ router.route('/tags').post((req, res) => {
             const tagItems     = await create.tagItems(authToken, newTags, existingTags);
             
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Created tag list');
+            return res.status(201).json('Tag list created');
         }
     }
     createTags();
 });
 
-router.route('/marketingStream').post((req, res) => {
+router.route('/streams').post((req, res) => {
     var clientId     = req.body.clientId;
     var clientSecret = req.body.clientSecret;
     var fileContents = req.body.fileContents;
@@ -51,7 +51,7 @@ router.route('/marketingStream').post((req, res) => {
             console.log(newMarketingStreams);
 
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Marketing stream created');
+            return res.status(201).json('Marketing streams created');
         }
     }
     createMarketingStream();

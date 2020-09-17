@@ -98,7 +98,7 @@ function Delete(props)
                 />
             </div>
 
-            <h5 style={{marginTop: 80}}>CSV Preview:</h5>
+            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -129,7 +129,7 @@ function Delete(props)
                 />
             </div>
 
-            <h5 style={{marginTop: 80}}>CSV Preview:</h5>
+            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}

@@ -67,4 +67,5 @@ async function tagItems (token, data, tagIds) {
 
 module.exports = { 
     tags, 
-    tagItems };
+    tagItems
+};

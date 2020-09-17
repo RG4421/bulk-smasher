@@ -16,7 +16,7 @@ function Create(props) {
     const [showUpload, setShowUpload] = useState(false);
 
     useEffect(() => {
-        if (selectValue === "Tags" || selectValue === "Marketing Streams") {
+        if (selectValue === "Tags" || selectValue === "Streams") {
             setShowUpload(true);
         } else {
             setShowUpload(false);
@@ -59,36 +59,34 @@ function Create(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const tagData = {
+        const csvData = {
             clientId, 
             clientSecret,
             fileContents
         };
 
-        switch(selectValue) {
-            case 'Tags':
-                Axios.post('https://localhost:8080/create/tags', tagData)
+        if (selectValue === "Tags") {
+            if (window.confirm("Are you sure you want to CREATE and TAG these items?")) {
+                Axios.post('https://localhost:8080/create/tags', csvData)
                 .then((res) => {
                     console.log(res);
                 }).catch((e) => {
                     console.log(e);
                 });
-                break;
-            case 'User Profiles':
-                console.log(selectValue);
-                break;
-            case 'Metadescription/SEOs':
-                console.log(selectValue);
-                break;
-            case 'Marketing Streams':
-                console.log(selectValue);
-                break;
-            case 'Canonical URLs':
-                console.log(selectValue);
-                break;
-            default:
-                console.log("Please make a proper selection!");
-                break;
+            } else {
+                console.log("Create operation cancelled.");
+            }
+        } else if (selectValue === "Streams") {
+            if (window.confirm("Are you sure you want to CREATE these STREAMS?")) {
+                Axios.post('https://localhost:8080/create/streams', csvData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Create operation cancelled.");
+            }
         }
     }
         
@@ -124,10 +122,8 @@ function Create(props) {
                     >
                         <option default value="null">Please Select...</option>
                         <option value="Tags">Tags</option>
-                        <option value="Marketing Streams">Marketing Streams</option>
-                        {/* <option value="User Profiles">User Profiles</option>
-                        <option value="Metadescription/SEOs">Metadescription/SEOs</option>
-                        <option value="Canonical URLs">Canonical URLs</option> */}
+                        <option value="Streams">Streams</option>
+                        <option value="User Profiles">User Profiles</option>
                     </select>
                 </div>
 
