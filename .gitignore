@@ -22,13 +22,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-tagUpload.csv*
-tagDelete.csv*
-streamItemsDelete.csv*
-hiddenItemsDelete.csv*
-marketingStreamError.csv*
-TestAuthor.csv*
-metadataTest.csv*
-seoTest.csv*
+author_Update.csv*
+hiddenPastItems-Delete.csv*
+metadata-Update.csv*
+seo-Update.csv*
+streamItems-Delete.csv*
+tag-Create.csv*
+tag-Delete.csv*
+user-Create.csv
+
 cert.pem*
 key.pem*

@@ -21,51 +21,57 @@ async function tags (token, data) {
             console.log(`Tag ${tagName} created`);
 
         } catch (err) {
-            console.log(err);
+            console.log(err.response.data.errors);
         }
     }
 }
 
-async function tagItems (token, data, tagIds) {
+async function users (token, data) {
+    const user = [];
 
     // Looping through CSV data
     for (var i = 0; i < data.length; i++) {
-        const obj = data[i];
-        const itemId = obj.item_id;
-        var props = Object.keys(obj);
+        const obj = {};
+        const props = data[i];
 
-        // Looping through props of CSV data
-        for (var j = 1; j < props.length; j++) {
-            var tagName = props[j];
-            var tag = obj[tagName];
+        const firstName = props.first_name;
+        const lastName = props.last_name;
+        const email = props.email;
+        const twitterHandle = props.twitter_handle;
+        const linkedIn = props.linkedin_profile_url;
+        const bio = props.bio;
+        const group = props.group;
 
-            // Comparing CSV props to existing tags to be added
-            for (var k = 0; k < tagIds.length; k++) {
-                const tagId = tagIds[k].id;
-                const tagName = tagIds[k].name;
+        obj['email'] = email;
+        obj['group'] = group;
+        user.push(obj);
 
-                // Added tag to item if CSV tag matches existing tag name
-                if (tag === tagName) {
-                    try {                        
-                        const result = await axios({
-                            url: `https://v2.api.uberflip.com/items/${itemId}/tags/${tagId}`,
-                            method: 'put',
-                            headers: {
-                                'Authorization': `Bearer ${token}`,
-                            },
-                        });
-                        console.log(`Tag ${tagName} added added to ${itemId}`);
-            
-                    } catch (err) {
-                        console.log(err);
-                    }
+        try {                        
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/users`,
+                method: 'post',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                data: {
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    twitter_handle: twitterHandle,
+                    linkedin_profile_url : linkedIn,
+                    bio: bio
                 }
-            }
-        }
+            });
+            console.log(`User ${firstName} ${lastName} created`);
+
+        } catch (err) {
+            console.log(err.response.data.errors);
+        }       
     }
+    return user;
 }
 
 module.exports = { 
-    tags, 
-    tagItems
+    tags,
+    users
 };

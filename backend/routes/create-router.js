@@ -8,6 +8,7 @@ const fetch   = require('./utilities/fetch');
 
 // Functions
 const create = require('./create-functions/create');
+const update = require('./update-functions/update');
 
 // Request handle all create requests
 router.route('/tags').post((req, res) => {
@@ -26,8 +27,9 @@ router.route('/tags').post((req, res) => {
             const existingTags = await fetch.tagId(authToken);
             const compareTags  = await compare.tags(existingTags, newTags);
             const createTags   = await create.tags(authToken, compareTags);
-            const tagItems     = await create.tagItems(authToken, newTags, existingTags);
+            const tagItems     = await update.tagItems(authToken, newTags, existingTags);
             
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Tag list created');
         }
@@ -47,14 +49,44 @@ router.route('/streams').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log("\n--- API Authentication Successful ---\n");
         
-            const newMarketingStreams = await parse.CSV(fileContents);
-            console.log(newMarketingStreams);
+            const csvData = await parse.CSV(fileContents);
+            console.log(csvData);
 
+            // waiting for more infomation
+
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Marketing streams created');
         }
     }
     createMarketingStream();
+});
+
+router.route('/users').post((req, res) => {
+    var clientId     = req.body.clientId;
+    var clientSecret = req.body.clientSecret;
+    var fileContents = req.body.fileContents;
+
+    async function createUserProfile () {
+        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+
+        if (authToken) {
+            console.time('--- API Call Timer ---');
+            console.log("\n--- API Authentication Successful ---\n");
+        
+            const csvData       = await parse.CSV(fileContents);
+            const newUsers      = await create.users(authToken, csvData);
+            const existingUsers = await fetch.users(authToken);
+            const userGroups    = await fetch.groups(authToken);
+            const compareUsers  = await compare.users(existingUsers, newUsers, userGroups);
+            const updateGroups  = await update.groups(authToken, compareUsers);
+            
+            console.log('\n');
+            console.timeEnd('--- API Call Timer ---');
+            return res.status(201).json('User profiles created');
+        }
+    }
+    createUserProfile();
 });
 
 module.exports = router;

@@ -26,4 +26,38 @@ async function tags (existingTags, newTags) {
     return uniqueTags;
 }
 
-module.exports = { tags };
+async function users (existingUsers, newUsers, userGroups) {
+    const resArr = [];
+
+    // Looping through new users 
+    // Extracting their email and group to create master list
+    for (var i = 0; i < newUsers.length; i++) {
+        const newUser = newUsers[i];
+        const email = newUser.email;
+        const group = newUser.group;
+
+        // Looping through existing users to pull id
+        for (var j = 0; j < existingUsers.length; j++) {
+            const obj = {};
+            const user = existingUsers[j];
+        
+            for (var k = 0; k < userGroups.length; k++) {
+                const groups = userGroups[k];
+                const groupId = groups.id;
+                const groupName = groups.name;
+
+                if ( (group === groupName) && (email === user.email) ) {
+                    obj['userId'] = user.id;
+                    obj['groupId'] = groupId;
+                    resArr.push(obj);
+                }
+            }
+        }
+    }
+    return resArr;
+}
+
+module.exports = { 
+    tags,
+    users
+};

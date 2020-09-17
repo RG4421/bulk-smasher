@@ -26,6 +26,7 @@ router.route('/hidePastContent').post((req, res) => {
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
             const hideItems   = await update.pastContent(authToken, pastContent, selectValue);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Past content status set to hidden');
         }
@@ -51,6 +52,7 @@ router.route('/showPastContent').post((req, res) => {
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
             const showItems   = await update.pastContent(authToken, pastContent, selectValue);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Past content status set to display');
         }
@@ -73,6 +75,7 @@ router.route('/author').post((req, res) => {
             const csvData = await parse.CSV(fileContents);
             const author = await update.author(authToken, csvData);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Author of items updated');
         }
@@ -95,6 +98,7 @@ router.route('/seo').post((req, res) => {
             const csvData = await parse.CSV(fileContents);
             const seo = await update.seo(authToken, csvData);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Author of items updated');
         }
@@ -117,6 +121,7 @@ router.route('/metadata').post((req, res) => {
             const csvData = await parse.CSV(fileContents);
             const metadata = await update.metadata(authToken, csvData);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Author of items updated');
         }

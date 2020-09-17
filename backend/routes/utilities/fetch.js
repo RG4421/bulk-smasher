@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 // Fetches tag group id
-async function tagGroup(token) {
+async function tagGroup (token) {
     try {
         const result = await axios({
             url: "https://v2.api.uberflip.com/tags",
@@ -15,13 +15,14 @@ async function tagGroup(token) {
         });
         const tagGroupId = result.data.data[0].tag_group_id;
         return tagGroupId;
+
     } catch (err) {
-        console.log(err);
+        console.log(err.response.data.errors);
     }
 }
 
 // Fetches all tag ids
-async function tagId(token) {
+async function tagId (token) {
     try {
         const result = await axios({
             url: "https://v2.api.uberflip.com/tags",
@@ -35,13 +36,14 @@ async function tagId(token) {
         });
         const tagMetadata = result.data.data;
         return tagMetadata;
+
     } catch (err) {
-        console.log(err);
+        console.log(err.response.data.errors);
     }
 }
 
 // Fetches all items
-async function itemTags(token) {
+async function itemTags (token) {
     try {
         const result = await axios({
             url: "https://v2.api.uberflip.com/items",
@@ -55,13 +57,14 @@ async function itemTags(token) {
         });
         const tagId = result.data.data[0].id;
         return tagId;
+
     } catch (err) {
-        console.log(err);
+        console.log(err.response.data.errors);
     }
 }
 
 // Fetching stream item's hidden items
-async function hiddenStreamItems(token, data) {
+async function hiddenStreamItems (token, data) {
     const resultArr = [];
 
     for (var i = 0; i < data.length; i++) {
@@ -89,14 +92,14 @@ async function hiddenStreamItems(token, data) {
             }
         resultArr.push(streamIds);
         } catch (err) {
-            console.log(err);
+            console.log(err.response.data.errors);
         }
     }
     return resultArr;
 }
 
 // Fetching stream item's prior to selected date
-async function pastContentItems(token, data, date) {
+async function pastContentItems (token, data, date) {
     const resultArr = [];
 
     for (var i = 0; i < data.length; i++) {
@@ -125,11 +128,70 @@ async function pastContentItems(token, data, date) {
                 }
             }
             resultArr.push(streamIds);
+
             } catch (err) {
-                console.log(err);
+                console.log(err.response.data.errors);
             }
         }
     return resultArr;
+}
+
+async function users (token) {
+    const resArr = [];
+
+    try {
+        const result = await axios({
+            url: "https://v2.api.uberflip.com/users",
+            method: "get",
+            params: {
+                limit: 100,
+            },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        const data = result.data.data;
+
+        for (var i = 0; i < data.length; i++) {
+            const obj = {};
+            obj['id'] = data[i].id;
+            obj['email'] = data[i].email;
+            resArr.push(obj);
+        }
+        return resArr;
+
+    } catch (err) {
+        console.log(err.response.data.errors);
+    }
+}
+
+async function groups (token) {
+    const resArr = [];
+
+    try {
+        const result = await axios({
+            url: "https://v2.api.uberflip.com/user-groups",
+            method: "get",
+            params: {
+                limit: 100,
+            },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        const data = result.data.data;
+        
+        for (var i = 0; i < data.length; i++) {
+            const obj = {};
+            obj['id'] = data[i].id;
+            obj['name'] = data[i].name;
+            resArr.push(obj);
+        }
+        return resArr;
+
+    } catch (err) {
+        console.log(err.response.data.errors);
+    }
 }
 
 module.exports = {
@@ -138,4 +200,6 @@ module.exports = {
     itemTags,
     hiddenStreamItems,
     pastContentItems,
+    users,
+    groups
 };

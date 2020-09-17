@@ -16,7 +16,7 @@ function Create(props) {
     const [showUpload, setShowUpload] = useState(false);
 
     useEffect(() => {
-        if (selectValue === "Tags" || selectValue === "Streams") {
+        if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "User Profiles") {
             setShowUpload(true);
         } else {
             setShowUpload(false);
@@ -79,6 +79,17 @@ function Create(props) {
         } else if (selectValue === "Streams") {
             if (window.confirm("Are you sure you want to CREATE these STREAMS?")) {
                 Axios.post('https://localhost:8080/create/streams', csvData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Create operation cancelled.");
+            }
+        } else if (selectValue === "User Profiles") {
+            if (window.confirm("Are you sure you want to CREATE these USERS?")) {
+                Axios.post('https://localhost:8080/create/users', csvData)
                 .then((res) => {
                     console.log(res);
                 }).catch((e) => {

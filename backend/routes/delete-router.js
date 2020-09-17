@@ -23,6 +23,7 @@ router.route('/allTags').post((req, res) =>
             const tagIds     = await fetch.tagId(authToken);
             const deleteTags = await deleteFunc.deleteAll(authToken, tagIds);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('All Tags Deleted');
         }
@@ -46,6 +47,7 @@ router.route('/tagList').post((req, res) =>
             const tagIds     = await fetch.tagId(authToken);
             const deleteList = await deleteFunc.deleteList(authToken, fileContents, tagIds);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Requested Tag List Deleted');
         }
@@ -68,6 +70,7 @@ router.route('/streamItems').post((req, res) => {
             const csvData     = await parse.CSV(fileContents);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, csvData);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Requested Stream Items Deleted');
         }
@@ -91,6 +94,7 @@ router.route('/hiddenItems').post((req, res) => {
             const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Hidden Stream Items Deleted');
         }
@@ -115,8 +119,8 @@ router.route('/pastContent').post((req, res) => {
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
             const deleteItems = await deleteFunc.deleteStreamItems(authToken, pastContent);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-
             return res.status(200).json('Old Stream Items Deleted');
         }
     }
@@ -139,8 +143,8 @@ router.route('/flipbookFolders').post((req, res) => {
             console.log('\n--- API Authentication Successful ---\n');
 
             const csvData = await parse.CSV(fileContents);
-            console.log(csvData);
 
+            console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(200).json('Old Stream Items Deleted');
         }

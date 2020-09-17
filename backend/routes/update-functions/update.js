@@ -9,13 +9,13 @@ async function pastContent (token, csv, selectValue) {
     }
 
     for (var i = 0; i < csv.length; i++) {
-        var streamId = csv[i].stream_id;
-        var temp = csv[i];
-        var props = Object.keys(temp);
+        const streamId = csv[i].stream_id;
+        const temp = csv[i];
+        const props = Object.keys(temp);
 
         for (var j = 1; j < props.length; j++) {
-            var itemName = props[j];
-            var itemId = temp[itemName];
+            const itemName = props[j];
+            const itemId = temp[itemName];
 
             try {
                 const result = await axios({
@@ -43,17 +43,17 @@ async function pastContent (token, csv, selectValue) {
 async function author (token, csv) {
 
     for (var i = 0; i < csv.length; i++) {
-        var temp = csv[i];
-        var itemId = temp.item_id;
-        var authorId = temp.author_id;
-        var props = Object.keys(temp);
+        const temp = csv[i];
+        const itemId = temp.item_id;
+        const authorId = temp.author_id;
+        const props = Object.keys(temp);
 
         for (var j = 2; j < props.length; j++) {
-            var authorName = props[j];
-            var fullName = temp[authorName];
-            var name = fullName.split(' ');
-            var firstName = name[0];
-            var lastName = name[1];
+            const authorName = props[j];
+            const fullName = temp[authorName];
+            const name = fullName.split(' ');
+            const firstName = name[0];
+            const lastName = name[1];
 
             try {
                 const result = await axios({
@@ -85,11 +85,11 @@ async function author (token, csv) {
 async function seo (token, csv) {
 
     for (var i = 0; i < csv.length; i++) {
-        var temp = csv[i];
-        var itemId = temp.item_id;
-        var canonURL = temp.canonical_url;
-        var seoTitle = temp.seo_title;
-        var seoDesc = temp.seo_description;
+        const temp = csv[i];
+        const itemId = temp.item_id;
+        const canonURL = temp.canonical_url;
+        const seoTitle = temp.seo_title;
+        const seoDesc = temp.seo_description;
 
         try {
             const result = await axios({
@@ -118,14 +118,14 @@ async function seo (token, csv) {
 async function metadata (token, csv) {
 
     for (var i = 0; i < csv.length; i++) {
-        var temp = csv[i];
-        var itemId = temp.item_id;
-        var description = temp.description;
-        var thumbnailUrl = temp.thumbnail_url;
-        var author = temp.author;
-        var authorId = temp.author_id;
-        var status = temp.status;
-        var bool = 0;
+        const temp = csv[i];
+        const itemId = temp.item_id;
+        const description = temp.description;
+        const thumbnailUrl = temp.thumbnail_url;
+        const author = temp.author;
+        const authorId = temp.author_id;
+        const status = temp.status;
+        const bool = 0;
 
         if (status === 'Show') {
             bool = false;
@@ -166,9 +166,73 @@ async function metadata (token, csv) {
     }
 }
 
+async function tagItems (token, data, tagIds) {
+
+    // Looping through CSV data
+    for (var i = 0; i < data.length; i++) {
+        const obj = data[i];
+        const itemId = obj.item_id;
+        const props = Object.keys(obj);
+
+        // Looping through props of CSV data
+        for (var j = 1; j < props.length; j++) {
+            const tagName = props[j];
+            const tag = obj[tagName];
+
+            // Comparing CSV props to existing tags to be added
+            for (var k = 0; k < tagIds.length; k++) {
+                const tagId = tagIds[k].id;
+                const tagName = tagIds[k].name;
+
+                // Added tag to item if CSV tag matches existing tag name
+                if (tag === tagName) {
+                    try {                        
+                        const result = await axios({
+                            url: `https://v2.api.uberflip.com/items/${itemId}/tags/${tagId}`,
+                            method: 'put',
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                            },
+                        });
+                        console.log(`Tag ${tagName} added to ${itemId}`);
+            
+                    } catch (err) {
+                        console.log(err.response.data.errors);
+                    }
+                }
+            }
+        }
+    }
+}
+
+async function groups (token, data) {
+
+    // Looping through CSV data
+    for (var i = 0; i < data.length; i++) {
+        const userId = data[i].userId;
+        const groupId = data[i].groupId;
+
+        try {                        
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/users/${userId}/user-groups/${groupId}`,
+                method: 'put',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            console.log(`User ${userId} added to ${groupId}`);
+
+        } catch (err) {
+            console.log(err.response.data.errors);
+        }
+    }
+}
+
 module.exports = { 
     pastContent,
     author,
     seo,
-    metadata
+    metadata,
+    tagItems,
+    groups
 };
