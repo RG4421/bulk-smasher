@@ -9,11 +9,11 @@ const fetch = require('./utilities/fetch');
 const update = require('./update-functions/update');
 
 router.route('/hidePastContent').post((req, res) => {
-    const APIKey     = req.body.APIKey;
+    const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
-    const selectDate   = req.body.selectDate;
+    const selectDate = req.body.selectDate;
     const fileContents = req.body.fileContents;
-    const selectValue  = req.body.selectValue;
+    const selectValue = req.body.selectValue;
 
     async function hidePastContent () {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
@@ -22,9 +22,9 @@ router.route('/hidePastContent').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
             
-            const csvData     = await parse.CSV(fileContents);
+            const csvData = await parse.CSV(fileContents);
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
-            const hideItems   = await update.pastContent(authToken, pastContent, selectValue);
+            await update.pastContent(authToken, pastContent, selectValue);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -35,11 +35,11 @@ router.route('/hidePastContent').post((req, res) => {
 });
 
 router.route('/showPastContent').post((req, res) => {
-    const APIKey     = req.body.APIKey;
+    const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
-    const selectDate   = req.body.selectDate;
+    const selectDate = req.body.selectDate;
     const fileContents = req.body.fileContents;
-    const selectValue  = req.body.selectValue;
+    const selectValue = req.body.selectValue;
 
     async function showPastContent () {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
@@ -48,9 +48,9 @@ router.route('/showPastContent').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
             
-            const csvData     = await parse.CSV(fileContents);
+            const csvData = await parse.CSV(fileContents);
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
-            const showItems   = await update.pastContent(authToken, pastContent, selectValue);
+            await update.pastContent(authToken, pastContent, selectValue);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -61,7 +61,7 @@ router.route('/showPastContent').post((req, res) => {
 });
 
 router.route('/author').post((req, res) => {
-    const APIKey     = req.body.APIKey;
+    const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
     
@@ -73,7 +73,7 @@ router.route('/author').post((req, res) => {
             console.log('\n--- API Authentication Successful ---\n');
 
             const csvData = await parse.CSV(fileContents);
-            const author = await update.author(authToken, csvData);
+            await update.author(authToken, csvData);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -84,7 +84,7 @@ router.route('/author').post((req, res) => {
 });
 
 router.route('/seo').post((req, res) => {
-    const APIKey     = req.body.APIKey;
+    const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
     
@@ -96,7 +96,7 @@ router.route('/seo').post((req, res) => {
             console.log('\n--- API Authentication Successful ---\n');
 
             const csvData = await parse.CSV(fileContents);
-            const seo = await update.seo(authToken, csvData);
+            await update.seo(authToken, csvData);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -107,7 +107,7 @@ router.route('/seo').post((req, res) => {
 });
 
 router.route('/metadata').post((req, res) => {
-    const APIKey     = req.body.APIKey;
+    const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
     
@@ -119,7 +119,7 @@ router.route('/metadata').post((req, res) => {
             console.log('\n--- API Authentication Successful ---\n');
 
             const csvData = await parse.CSV(fileContents);
-            const metadata = await update.metadata(authToken, csvData);
+            await update.metadata(authToken, csvData);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -130,7 +130,7 @@ router.route('/metadata').post((req, res) => {
 });
 
 router.route('/populateStreams').post((req, res) => {
-    const APIKey     = req.body.APIKey;
+    const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
     
@@ -142,7 +142,7 @@ router.route('/populateStreams').post((req, res) => {
             console.log('\n--- API Authentication Successful ---\n');
 
             const csvData = await parse.CSV(fileContents);
-            const streams = await update.streams(authToken, csvData);
+            await update.streams(authToken, csvData);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');

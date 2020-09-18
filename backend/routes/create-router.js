@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
 // Utility functions
-const auth    = require('./utilities/auth');
-const parse   = require('./utilities/csv-parser');
+const auth = require('./utilities/auth');
+const parse = require('./utilities/csv-parser');
 const compare = require('./utilities/compare');
-const fetch   = require('./utilities/fetch');
+const fetch = require('./utilities/fetch');
 
 // Functions
 const create = require('./create-functions/create');
@@ -12,8 +12,8 @@ const update = require('./update-functions/update');
 
 // Request handle all create requests
 router.route('/tags').post((req, res) => {
-    var APIKey       = req.body.APIKey;
-    var APISecret    = req.body.APISecret;
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function createTags () {
@@ -23,11 +23,11 @@ router.route('/tags').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log("\n--- API Authentication Successful ---\n");
 
-            const newTags      = await parse.CSV(fileContents);
+            const newTags = await parse.CSV(fileContents);
             const existingTags = await fetch.tagId(authToken);
-            const compareTags  = await compare.tags(existingTags, newTags);
-            const createTags   = await create.tags(authToken, compareTags);
-            const tagItems     = await update.tagItems(authToken, newTags, existingTags);
+            const compareTags = await compare.tags(existingTags, newTags);
+            await create.tags(authToken, compareTags);
+            await update.tagItems(authToken, newTags, existingTags);
             
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -38,8 +38,8 @@ router.route('/tags').post((req, res) => {
 });
 
 router.route('/streams').post((req, res) => {
-    var APIKey       = req.body.APIKey;
-    var APISecret    = req.body.APISecret;
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function createMarketingStream () {
@@ -50,7 +50,7 @@ router.route('/streams').post((req, res) => {
             console.log("\n--- API Authentication Successful ---\n");
         
             const csvData = await parse.CSV(fileContents);
-            const streams = await create.streams(authToken, csvData);
+            await create.streams(authToken, csvData);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -61,8 +61,8 @@ router.route('/streams').post((req, res) => {
 });
 
 router.route('/users').post((req, res) => {
-    var APIKey       = req.body.APIKey;
-    var APISecret    = req.body.APISecret;
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function createUserProfile () {
@@ -72,12 +72,12 @@ router.route('/users').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log("\n--- API Authentication Successful ---\n");
         
-            const csvData       = await parse.CSV(fileContents);
-            const newUsers      = await create.users(authToken, csvData);
+            const csvData = await parse.CSV(fileContents);
+            const newUsers = await create.users(authToken, csvData);
             const existingUsers = await fetch.users(authToken);
-            const userGroups    = await fetch.groups(authToken);
-            const compareUsers  = await compare.users(existingUsers, newUsers, userGroups);
-            const updateGroups  = await update.groups(authToken, compareUsers);
+            const userGroups = await fetch.groups(authToken);
+            const compareUsers = await compare.users(existingUsers, newUsers, userGroups);
+            await update.groups(authToken, compareUsers);
             
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');

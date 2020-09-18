@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 // Utility functions
-const auth  = require('./utilities/auth');
+const auth = require('./utilities/auth');
 const parse = require('./utilities/csv-parser');
 const fetch = require('./utilities/fetch')
 
@@ -10,7 +10,7 @@ const deleteFunc = require('./delete-functions/delete');
 
 router.route('/allTags').post((req, res) =>
 {
-    var APIKey    = req.body.APIKey;
+    var APIKey = req.body.APIKey;
     var APISecret = req.body.APISecret;
 
     async function deleteAllTags () {
@@ -20,8 +20,8 @@ router.route('/allTags').post((req, res) =>
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
 
-            const tagIds     = await fetch.tagId(authToken);
-            const deleteTags = await deleteFunc.deleteAll(authToken, tagIds);
+            const tagIds = await fetch.tagId(authToken);
+            await deleteFunc.deleteAll(authToken, tagIds);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -33,8 +33,8 @@ router.route('/allTags').post((req, res) =>
 
 router.route('/tagList').post((req, res) => 
 {
-    var APIKey       = req.body.APIKey;
-    var APISecret    = req.body.APISecret;
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function deleteTagList () {
@@ -44,8 +44,8 @@ router.route('/tagList').post((req, res) =>
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
 
-            const tagIds     = await fetch.tagId(authToken);
-            const deleteList = await deleteFunc.deleteList(authToken, fileContents, tagIds);
+            const tagIds = await fetch.tagId(authToken);
+            await deleteFunc.deleteList(authToken, fileContents, tagIds);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -56,8 +56,8 @@ router.route('/tagList').post((req, res) =>
 });
 
 router.route('/streamItems').post((req, res) => {
-    var APIKey       = req.body.APIKey;
-    var APISecret    = req.body.APISecret;
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function deleteStreamItems () {
@@ -67,8 +67,8 @@ router.route('/streamItems').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
 
-            const csvData     = await parse.CSV(fileContents);
-            const deleteItems = await deleteFunc.deleteStreamItems(authToken, csvData);
+            const csvData = await parse.CSV(fileContents);
+            await deleteFunc.deleteStreamItems(authToken, csvData);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -79,8 +79,8 @@ router.route('/streamItems').post((req, res) => {
 });
 
 router.route('/hiddenItems').post((req, res) => {
-    var APIKey       = req.body.APIKey;
-    var APISecret    = req.body.APISecret;
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function deleteHiddenItems () {
@@ -90,9 +90,9 @@ router.route('/hiddenItems').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
 
-            const csvData     = await parse.CSV(fileContents);
+            const csvData = await parse.CSV(fileContents);
             const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
-            const deleteItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
+            await deleteFunc.deleteStreamItems(authToken, hiddenItems);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -103,9 +103,9 @@ router.route('/hiddenItems').post((req, res) => {
 });
 
 router.route('/pastContent').post((req, res) => {
-    var APIKey       = req.body.APIKey;
-    var APISecret    = req.body.APISecret;
-    var selectDate   = req.body.selectDate;
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
+    var selectDate = req.body.selectDate;
     var fileContents = req.body.fileContents;
 
     async function deletePastContent () {
@@ -115,9 +115,9 @@ router.route('/pastContent').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
             
-            const csvData     = await parse.CSV(fileContents);
+            const csvData = await parse.CSV(fileContents);
             const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
-            const deleteItems = await deleteFunc.deleteStreamItems(authToken, pastContent);
+            await deleteFunc.deleteStreamItems(authToken, pastContent);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -128,9 +128,9 @@ router.route('/pastContent').post((req, res) => {
 });
 
 router.route('/flipbookFolders').post((req, res) => {
-    var key          = req.body.APIKey;
-    var signature    = req.body.APISecret;
-    var hubId        = req.body.hubId;
+    var key = req.body.APIKey;
+    var signature = req.body.APISecret;
+    var hubId = req.body.hubId;
     var fileContents = req.body.fileContents;
 
     async function deleteFlipbookFolders () {
@@ -142,7 +142,7 @@ router.route('/flipbookFolders').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
 
-            const csvData = await parse.CSV(fileContents);
+            await parse.CSV(fileContents);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
