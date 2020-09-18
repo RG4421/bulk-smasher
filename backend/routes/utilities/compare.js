@@ -33,8 +33,6 @@ async function users (existingUsers, newUsers, userGroups) {
     // Extracting their email and group to create master list
     for (var i = 0; i < newUsers.length; i++) {
         const newUser = newUsers[i];
-        const email = newUser.email;
-        const group = newUser.group;
 
         // Looping through existing users to pull id
         for (var j = 0; j < existingUsers.length; j++) {
@@ -46,7 +44,7 @@ async function users (existingUsers, newUsers, userGroups) {
                 const groupId = groups.id;
                 const groupName = groups.name;
 
-                if ( (group === groupName) && (email === user.email) ) {
+                if ( (newUser.group === groupName) && (newUser.email === user.email) ) {
                     obj['userId'] = user.id;
                     obj['groupId'] = groupId;
                     resArr.push(obj);

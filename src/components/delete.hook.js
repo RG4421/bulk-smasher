@@ -10,8 +10,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function Delete(props)
 {
-    const [clientId, setClientId] = useState('');
-    const [clientSecret, setClientSecret] = useState('');
+    const [APIKey, setAPIKey] = useState('');
+    const [APISecret, setAPISecret] = useState('');
     const [selectValue, setSelectValue] = useState('');
     const [fileContents, setFileContents] = useState('');
     const [hubId, setHubId] = useState('');
@@ -27,22 +27,22 @@ function Delete(props)
 
     useEffect(() => {
         if (selectValue === "All Tags") {
-            clientIdRef.current.placeholder = "Client ID";
-            clientSecretRef.current.placeholder = "Client Secret";
+            clientIdRef.current.placeholder = "API Key";
+            clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(true);
             setShowLegacyFields(false);
             setShowDeleteList(false);
             setShowDatePicker(false);
         } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items") {
-            clientIdRef.current.placeholder = "Client ID";
-            clientSecretRef.current.placeholder = "Client Secret";
+            clientIdRef.current.placeholder = "API Key";
+            clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(false);
             setShowLegacyFields(false);
             setShowDeleteList(true);
             setShowDatePicker(false);
         } else if (selectValue === "Past Content") {
-            clientIdRef.current.placeholder = "Client ID";
-            clientSecretRef.current.placeholder = "Client Secret";
+            clientIdRef.current.placeholder = "API Key";
+            clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(false);
             setShowLegacyFields(false);
             setShowDeleteList(false);
@@ -55,8 +55,8 @@ function Delete(props)
             setShowDeleteList(true);
             setShowDatePicker(false);
         } else {
-            clientIdRef.current.placeholder = "Client ID";
-            clientSecretRef.current.placeholder = "Client Secret";
+            clientIdRef.current.placeholder = "API Key";
+            clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(false);
             setShowLegacyFields(false);
             setShowDeleteList(false);
@@ -158,19 +158,19 @@ function Delete(props)
         e.preventDefault();
 
         const authData = {
-            clientId, 
-            clientSecret,
+            APIKey, 
+            APISecret,
         };
 
         const csvData = {
-            clientId,
-            clientSecret,
+            APIKey,
+            APISecret,
             fileContents
         };
 
         const dateData = {
-            clientId,
-            clientSecret,
+            APIKey,
+            APISecret,
             selectDate,
             fileContents
         };
@@ -244,27 +244,27 @@ function Delete(props)
     }
 
     return (
-        <div className="newContainer">
+        <div className="container">
             <form>
             <h3>Bulk Delete</h3>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
                     <input
                         ref={clientIdRef}
-                        placeholder="Client ID"
+                        placeholder="API Key"
                         type="text"
-                        value={clientId}
-                        onChange={e => setClientId(e.target.value)}
+                        value={APIKey}
+                        onChange={e => setAPIKey(e.target.value)}
                         required
                     ></input>
                 </div>
                 <div className="form-group">
                     <input 
                         ref={clientSecretRef}
-                        placeholder="Client Secret"
+                        placeholder="API Secret"
                         type="text"
-                        value={clientSecret}
-                        onChange={e => setClientSecret(e.target.value)}
+                        value={APISecret}
+                        onChange={e => setAPISecret(e.target.value)}
                         required
                     ></input>
                 </div>

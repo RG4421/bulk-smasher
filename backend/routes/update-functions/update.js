@@ -228,11 +228,43 @@ async function groups (token, data) {
     }
 }
 
+async function streams (token, data) {
+
+    // Looping through CSV data
+    for (var i = 0; i < data.length; i++) {
+        const obj = data[i];
+        const streamId = obj.stream_id;
+        const props = Object.keys(obj);
+
+        // Looping through props of CSV data
+        // Skipping item id
+        for (var j = 1; j < props.length; j++) {
+            const item = props[j];
+            const itemId = obj[item];
+
+            try {                        
+                const result = await axios({
+                    url: `https://v2.api.uberflip.com/streams/${streamId}/items/${itemId}`,
+                    method: 'patch',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                });
+                console.log(`Stream ${streamId} added item ${itemId}`);
+    
+            } catch (err) {
+                console.log(err.response.data.errors);
+            }
+        }
+    }
+}
+
 module.exports = { 
     pastContent,
     author,
     seo,
     metadata,
     tagItems,
-    groups
+    groups,
+    streams
 };

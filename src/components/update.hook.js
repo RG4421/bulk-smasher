@@ -9,8 +9,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function Update(props) {
 
-    const [clientId, setClientId] = useState('');
-    const [clientSecret, setClientSecret] = useState('');
+    const [APIKey, setAPIKey] = useState('');
+    const [APISecret, setAPISecret] = useState('');
     const [selectValue, setSelectValue] = useState('');
     const [fileContents, setFileContents] = useState('');
     const [selectDate, setSelectDate] = useState(new Date());
@@ -21,7 +21,7 @@ function Update(props) {
         if (selectValue === "Hide Past Content" || selectValue === "Show Past Content") {
             setShowDatePicker(true);
             setShowUpdatePreview(false);
-        } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata") {
+        } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream") {
             setShowDatePicker(false);
             setShowUpdatePreview(true);
         } else {
@@ -99,8 +99,8 @@ function Update(props) {
         e.preventDefault();
 
         const dateData = {
-            clientId,
-            clientSecret,
+            APIKey,
+            APISecret,
             selectDate,
             fileContents,
             selectValue
@@ -161,29 +161,40 @@ function Update(props) {
             } else {
                 console.log("Update operation cancelled.");
             }
+        } else if (selectValue === "Populate Stream") {
+            if (window.confirm("Are you sure you want to UPDATE these STREAMS?")) {
+                Axios.post('https://localhost:8080/update/populateStreams', dateData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Update operation cancelled.");
+            }
         }
     }
 
     return (
-        <div className="newContainer">
+        <div className="container">
             <form>
             <h3>Bulk Update</h3>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
                     <input
-                        placeholder="Client ID"
+                        placeholder="API Key"
                         type="text"
-                        value={clientId}
-                        onChange={e => setClientId(e.target.value)}
+                        value={APIKey}
+                        onChange={e => setAPIKey(e.target.value)}
                         required
                     ></input>
                 </div>
                 <div className="form-group">
                     <input 
-                        placeholder="Client Secret"
+                        placeholder="API Secret"
                         type="text"
-                        value={clientSecret}
-                        onChange={e => setClientSecret(e.target.value)}
+                        value={APISecret}
+                        onChange={e => setAPISecret(e.target.value)}
                         required
                     ></input>
                 </div>
@@ -194,6 +205,7 @@ function Update(props) {
                         onChange={e => setSelectValue(e.target.value)}
                     >
                         <option default>Please Select...</option>
+                        <option value="Populate Stream">Populate Stream</option>
                         <option value="Hide Past Content">Hide Past Content</option>
                         <option value="Show Past Content">Show Past Content</option>
                         <option value="Author">Item Author</option>

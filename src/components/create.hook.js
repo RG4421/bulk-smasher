@@ -9,8 +9,8 @@ import '../styles/container.css'
 
 function Create(props) {
 
-    const [clientId, setClientId] = useState('');
-    const [clientSecret, setClientSecret] = useState('');
+    const [APIKey, setAPIKey] = useState('');
+    const [APISecret, setAPISecret] = useState('');
     const [selectValue, setSelectValue] = useState('null');
     const [fileContents, setFileContents] = useState('');
     const [showUpload, setShowUpload] = useState(false);
@@ -60,8 +60,8 @@ function Create(props) {
         e.preventDefault();
 
         const csvData = {
-            clientId, 
-            clientSecret,
+            APIKey, 
+            APISecret,
             fileContents
         };
 
@@ -103,25 +103,25 @@ function Create(props) {
         
     return (
         <>
-        <div className="newContainer">
+        <div className="container">
             <form>
             <h3>Bulk Create</h3>
                 <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
                 <div className="form-group">
                     <input 
-                        placeholder="Client ID"
+                        placeholder="API Key"
                         type="text"
-                        value={clientId}
-                        onChange={e => setClientId(e.target.value)}
+                        value={APIKey}
+                        onChange={e => setAPIKey(e.target.value)}
                         required
                     ></input>
                 </div>
                 <div className="form-group">
                     <input
-                        placeholder="Client Secret"
+                        placeholder="API Secret"
                         type="text"
-                        value={clientSecret}
-                        onChange={e => setClientSecret(e.target.value)}
+                        value={APISecret}
+                        onChange={e => setAPISecret(e.target.value)}
                         required
                     ></input>
                 </div>

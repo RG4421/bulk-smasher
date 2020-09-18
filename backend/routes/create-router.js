@@ -12,12 +12,12 @@ const update = require('./update-functions/update');
 
 // Request handle all create requests
 router.route('/tags').post((req, res) => {
-    var clientId     = req.body.clientId;
-    var clientSecret = req.body.clientSecret;
+    var APIKey       = req.body.APIKey;
+    var APISecret    = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function createTags () {
-        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -38,21 +38,19 @@ router.route('/tags').post((req, res) => {
 });
 
 router.route('/streams').post((req, res) => {
-    var clientId     = req.body.clientId;
-    var clientSecret = req.body.clientSecret;
+    var APIKey       = req.body.APIKey;
+    var APISecret    = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function createMarketingStream () {
-        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
             console.log("\n--- API Authentication Successful ---\n");
         
             const csvData = await parse.CSV(fileContents);
-            console.log(csvData);
-
-            // waiting for more infomation
+            const streams = await create.streams(authToken, csvData);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -63,12 +61,12 @@ router.route('/streams').post((req, res) => {
 });
 
 router.route('/users').post((req, res) => {
-    var clientId     = req.body.clientId;
-    var clientSecret = req.body.clientSecret;
+    var APIKey       = req.body.APIKey;
+    var APISecret    = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function createUserProfile () {
-        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');

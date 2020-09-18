@@ -29,7 +29,9 @@ seo-Update.csv*
 streamItems-Delete.csv*
 tag-Create.csv*
 tag-Delete.csv*
-user-Create.csv
+user-Create.csv*
+stream-Create.csv*
+populateStream-Update.csv*
 
 cert.pem*
 key.pem*

@@ -10,11 +10,11 @@ const deleteFunc = require('./delete-functions/delete');
 
 router.route('/allTags').post((req, res) =>
 {
-    var clientId     = req.body.clientId;
-    var clientSecret = req.body.clientSecret;
+    var APIKey    = req.body.APIKey;
+    var APISecret = req.body.APISecret;
 
     async function deleteAllTags () {
-        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -33,12 +33,12 @@ router.route('/allTags').post((req, res) =>
 
 router.route('/tagList').post((req, res) => 
 {
-    var clientId     = req.body.clientId;
-    var clientSecret = req.body.clientSecret;
+    var APIKey       = req.body.APIKey;
+    var APISecret    = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function deleteTagList () {
-        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -56,12 +56,12 @@ router.route('/tagList').post((req, res) =>
 });
 
 router.route('/streamItems').post((req, res) => {
-    var clientId     = req.body.clientId;
-    var clientSecret = req.body.clientSecret;
+    var APIKey       = req.body.APIKey;
+    var APISecret    = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function deleteStreamItems () {
-        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -79,12 +79,12 @@ router.route('/streamItems').post((req, res) => {
 });
 
 router.route('/hiddenItems').post((req, res) => {
-    var clientId     = req.body.clientId;
-    var clientSecret = req.body.clientSecret;
+    var APIKey       = req.body.APIKey;
+    var APISecret    = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
     async function deleteHiddenItems () {
-        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -103,13 +103,13 @@ router.route('/hiddenItems').post((req, res) => {
 });
 
 router.route('/pastContent').post((req, res) => {
-    var clientId     = req.body.clientId;
-    var clientSecret = req.body.clientSecret;
+    var APIKey       = req.body.APIKey;
+    var APISecret    = req.body.APISecret;
     var selectDate   = req.body.selectDate;
     var fileContents = req.body.fileContents;
 
     async function deletePastContent () {
-        const authToken = await auth.authenticateCredsV2(clientId, clientSecret);
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
@@ -128,8 +128,8 @@ router.route('/pastContent').post((req, res) => {
 });
 
 router.route('/flipbookFolders').post((req, res) => {
-    var key          = req.body.clientId;
-    var signature    = req.body.clientSecret;
+    var key          = req.body.APIKey;
+    var signature    = req.body.APISecret;
     var hubId        = req.body.hubId;
     var fileContents = req.body.fileContents;
 

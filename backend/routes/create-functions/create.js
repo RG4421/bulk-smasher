@@ -71,7 +71,62 @@ async function users (token, data) {
     return user;
 }
 
+async function streams (token, data) {
+
+    // Looping through CSV data
+    for (var i = 0; i < data.length; i++) {
+        var service;
+        const props = data[i];
+        const hubId = props.hub_id;
+        const title = props.title;
+        const description = props.title;
+        const noRobots = props.no_robots;
+        const listView = props.list_view;
+        const readMore = props.read_more;
+        const canonicalMeta = props.canonical_meta;
+        const canonicalRedirect = props.canonical_redirect;
+
+        if (props.service === "marketing") {
+            service = "custom";
+        } else if (props.service === "sales") {
+            service = "targeted";
+        } else if (props.service === "blogpost") {
+            service = "blogpost";
+        }
+
+        try {                        
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/streams`,
+                method: 'post',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                data: {
+                    hub_id: hubId,
+                    title: title,
+                    description: description,
+                    service: service,
+                    no_robots: noRobots,
+                    template_data: {
+                        list_view: listView,
+                        read_more: readMore,
+                        canonical_meta: canonicalMeta,
+                        canonical_redirect: canonicalRedirect
+                    },
+                    hidden: true,
+                    exclude_from_search: true
+                }
+            });
+            console.log(`${title} stream created`);
+
+        } catch (err) {
+            console.log(err.response.data.errors);
+        }
+    }
+}
+
 module.exports = { 
     tags,
-    users
+    users,
+    streams
 };
