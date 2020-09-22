@@ -1,7 +1,8 @@
 import React from 'react';
 
-function home(props) {
+function home (props) {
 
+    // Build of webpage
     return (
         <div className="newContainer">
             <p>This tool performs bulk tasks using the Uberflip API.</p>

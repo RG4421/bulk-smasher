@@ -17,6 +17,7 @@ function Update(props) {
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [showUpdatePreview, setShowUpdatePreview] = useState(false);
 
+    // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "Hide Past Content" || selectValue === "Show Past Content") {
             setShowDatePicker(true);
@@ -106,6 +107,7 @@ function Update(props) {
             selectValue
         }
 
+        // Updating past content to hidden
         if (selectValue === "Hide Past Content") {
             if (window.confirm("Are you sure you want to HIDE items prior to " + selectDate + "?")) {
                 Axios.post('https://localhost:8080/update/hidePastContent', dateData)
@@ -117,6 +119,7 @@ function Update(props) {
             } else {
                 console.log("Update operation cancelled.");
             }
+        // Updated past content to be shown
         } else if (selectValue === "Show Past Content") {
             if (window.confirm("Are you sure you want to SHOW items prior to " + selectDate + "?")) {
                 Axios.post('https://localhost:8080/update/showPastContent', dateData)
@@ -128,6 +131,7 @@ function Update(props) {
             } else {
                 console.log("Update operation cancelled.");
             }
+        // Update author of stream items
         } else if (selectValue === "Author") {
             if (window.confirm("Are you sure you want to UPDATE the AUTHOR of these items?")) {
                 Axios.post('https://localhost:8080/update/author', dateData)
@@ -139,6 +143,7 @@ function Update(props) {
             } else {
                 console.log("Update operation cancelled.");
             }
+        // Update SEO metadata of stream items
         } else if (selectValue === "SEO") {
             if (window.confirm("Are you sure you want to UPDATE the SEO of these items?")) {
                 Axios.post('https://localhost:8080/update/seo', dateData)
@@ -150,6 +155,7 @@ function Update(props) {
             } else {
                 console.log("Update operation cancelled.");
             }
+        // Update items metadata
         } else if (selectValue === "Metadata") {
             if (window.confirm("Are you sure you want to UPDATE the METADATA of these items?")) {
                 Axios.post('https://localhost:8080/update/metadata', dateData)
@@ -161,6 +167,7 @@ function Update(props) {
             } else {
                 console.log("Update operation cancelled.");
             }
+        // Populate stream with items
         } else if (selectValue === "Populate Stream") {
             if (window.confirm("Are you sure you want to UPDATE these STREAMS?")) {
                 Axios.post('https://localhost:8080/update/populateStreams', dateData)
@@ -175,6 +182,7 @@ function Update(props) {
         }
     }
 
+    // Build of webpage
     return (
         <div className="container">
             <form>

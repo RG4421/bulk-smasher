@@ -25,6 +25,7 @@ function Delete(props)
     const clientIdRef = useRef();
     const clientSecretRef = useRef();
 
+    // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "All Tags") {
             clientIdRef.current.placeholder = "API Key";
@@ -243,6 +244,7 @@ function Delete(props)
         }
     }
 
+    // Build of webpage
     return (
         <div className="container">
             <form>

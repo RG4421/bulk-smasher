@@ -4,7 +4,6 @@ import React, {
 } from 'react';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
-
 import '../styles/container.css'
 
 function Create(props) {
@@ -15,6 +14,7 @@ function Create(props) {
     const [fileContents, setFileContents] = useState('');
     const [showUpload, setShowUpload] = useState(false);
 
+    // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "User Profiles") {
             setShowUpload(true);
@@ -23,6 +23,7 @@ function Create(props) {
         }
     }, [selectValue]);
 
+    // Functions
     const handleFile = (e) => {
         const data = e.target.result;
         setFileContents(data);
@@ -65,6 +66,7 @@ function Create(props) {
             fileContents
         };
 
+        // Create tags
         if (selectValue === "Tags") {
             if (window.confirm("Are you sure you want to CREATE and TAG these items?")) {
                 Axios.post('https://localhost:8080/create/tags', csvData)
@@ -76,6 +78,7 @@ function Create(props) {
             } else {
                 console.log("Create operation cancelled.");
             }
+        // Create streams
         } else if (selectValue === "Streams") {
             if (window.confirm("Are you sure you want to CREATE these STREAMS?")) {
                 Axios.post('https://localhost:8080/create/streams', csvData)
@@ -87,6 +90,7 @@ function Create(props) {
             } else {
                 console.log("Create operation cancelled.");
             }
+        // Create user profiles
         } else if (selectValue === "User Profiles") {
             if (window.confirm("Are you sure you want to CREATE these USERS?")) {
                 Axios.post('https://localhost:8080/create/users', csvData)
@@ -100,7 +104,8 @@ function Create(props) {
             }
         }
     }
-        
+    
+    // Build of webpage
     return (
         <>
         <div className="container">

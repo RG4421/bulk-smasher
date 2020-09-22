@@ -10,7 +10,6 @@ const fetch = require('./utilities/fetch');
 const create = require('./create-functions/create');
 const update = require('./update-functions/update');
 
-// Request handle all create requests
 router.route('/tags').post((req, res) => {
     var APIKey = req.body.APIKey;
     var APISecret = req.body.APISecret;
