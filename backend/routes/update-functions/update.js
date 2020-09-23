@@ -1,19 +1,19 @@
 const axios = require('axios');
 
 async function pastContent (token, csv, selectValue) {
-    var BOOL = 0;
+    let BOOL = 0;
     if (selectValue === 'Hide Past Content') {
         BOOL = true;
     } else if (selectValue === 'Show Past Content') {
         BOOL = false;
     }
 
-    for (var i = 0; i < csv.length; i++) {
+    for (let i = 0; i < csv.length; i++) {
         const streamId = csv[i].stream_id;
         const temp = csv[i];
         const props = Object.keys(temp);
 
-        for (var j = 1; j < props.length; j++) {
+        for (let j = 1; j < props.length; j++) {
             const itemName = props[j];
             const itemId = temp[itemName];
 
@@ -42,13 +42,13 @@ async function pastContent (token, csv, selectValue) {
 
 async function author (token, csv) {
 
-    for (var i = 0; i < csv.length; i++) {
+    for (let i = 0; i < csv.length; i++) {
         const temp = csv[i];
         const itemId = temp.item_id;
         const authorId = temp.author_id;
         const props = Object.keys(temp);
 
-        for (var j = 2; j < props.length; j++) {
+        for (let j = 2; j < props.length; j++) {
             const authorName = props[j];
             const fullName = temp[authorName];
             const name = fullName.split(' ');
@@ -84,7 +84,7 @@ async function author (token, csv) {
 
 async function seo (token, csv) {
 
-    for (var i = 0; i < csv.length; i++) {
+    for (let i = 0; i < csv.length; i++) {
         const temp = csv[i];
         const itemId = temp.item_id;
         const canonURL = temp.canonical_url;
@@ -117,7 +117,7 @@ async function seo (token, csv) {
 
 async function metadata (token, csv) {
 
-    for (var i = 0; i < csv.length; i++) {
+    for (let i = 0; i < csv.length; i++) {
         const temp = csv[i];
         const itemId = temp.item_id;
         const description = temp.description;
@@ -133,9 +133,9 @@ async function metadata (token, csv) {
             bool = true;
         }
 
-        var name = author.split(' ');
-        var firstName = name[0];
-        var lastName = name[1];
+        let name = author.split(' ');
+        let firstName = name[0];
+        let lastName = name[1];
 
         try {
             const result = await axios({
@@ -169,18 +169,18 @@ async function metadata (token, csv) {
 async function tagItems (token, data, tagIds) {
 
     // Looping through CSV data
-    for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         const obj = data[i];
         const itemId = obj.item_id;
         const props = Object.keys(obj);
 
         // Looping through props of CSV data
-        for (var j = 1; j < props.length; j++) {
+        for (let j = 1; j < props.length; j++) {
             const tagName = props[j];
             const tag = obj[tagName];
 
             // Comparing CSV props to existing tags to be added
-            for (var k = 0; k < tagIds.length; k++) {
+            for (let k = 0; k < tagIds.length; k++) {
                 const tagId = tagIds[k].id;
                 const tagName = tagIds[k].name;
 
@@ -208,7 +208,7 @@ async function tagItems (token, data, tagIds) {
 async function groups (token, data) {
 
     // Looping through CSV data
-    for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         const userId = data[i].userId;
         const groupId = data[i].groupId;
 
@@ -231,14 +231,14 @@ async function groups (token, data) {
 async function streams (token, data) {
 
     // Looping through CSV data
-    for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         const obj = data[i];
         const streamId = obj.stream_id;
         const props = Object.keys(obj);
 
         // Looping through props of CSV data
         // Skipping item id
-        for (var j = 1; j < props.length; j++) {
+        for (let j = 1; j < props.length; j++) {
             const item = props[j];
             const itemId = obj[item];
 
@@ -259,6 +259,60 @@ async function streams (token, data) {
     }
 }
 
+async function embedContent (token, data) {
+
+    for (let i = 0; i < data.length; i++) {
+        let itemId = data[i].id;
+        let content = data[i].content;
+        var datetime = new Date();
+
+        let updatedContent = content.replace("youtube.com", "youtube-nocookie.com");
+
+        // console.log(`Item ${itemId}`);
+        // console.log(`${updatedContent}`);
+        // console.log("\n");
+
+        try {
+            const itemResult = await axios({
+                url: `https://v2.api.uberflip.com/items/${itemId}`,
+                method: 'patch',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                params: {
+                    limit: 100,
+                },
+                data: {
+                    content: {
+                        draft: `${updatedContent}`
+                    }
+                }
+            });
+            console.log(`Item ${itemId} embed URL updated`);
+
+            try {
+                const publishResult = await axios({
+                    url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                    method: 'post',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    data: {
+                        published_at: datetime
+                    }
+                });
+                console.log(`Item ${itemId} published`);
+
+            } catch (err) {
+                console.log(err.response.data.errors);
+            }
+
+        } catch (err) {
+            console.log(err.response.data.errors);
+        }
+    }
+}
+
 module.exports = { 
     pastContent,
     author,
@@ -266,5 +320,6 @@ module.exports = {
     metadata,
     tagItems,
     groups,
-    streams
+    streams,
+    embedContent,
 };

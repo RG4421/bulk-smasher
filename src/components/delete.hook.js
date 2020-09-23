@@ -90,7 +90,7 @@ function Delete(props)
 
     const DeleteList = () => (
         <div className="form-group">
-            <label><a href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
+            <label><a href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
             <div>
                 <input type="file"
                     placeholder="Upload CSV"

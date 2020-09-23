@@ -37,7 +37,7 @@ function Create(props) {
 
     const CSVUpload = () => (
         <div className="form-group">
-            <label><a href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?ouid=113458187230889125546&usp=sheets_home&ths=true" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
+            <label><a href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
             <div>
                 <input type="file"
                     placeholder="Upload CSV"

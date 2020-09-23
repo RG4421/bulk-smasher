@@ -3,15 +3,15 @@ const router = require('express').Router();
 // Utility functions
 const auth = require('./utilities/auth');
 const parse = require('./utilities/csv-parser');
-const fetch = require('./utilities/fetch')
+const fetch = require('./utilities/fetch');
 
 // Functions
 const deleteFunc = require('./delete-functions/delete');
 
 router.route('/allTags').post((req, res) =>
 {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
 
     async function deleteAllTags () {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
@@ -33,9 +33,9 @@ router.route('/allTags').post((req, res) =>
 
 router.route('/tagList').post((req, res) => 
 {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
 
     async function deleteTagList () {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
@@ -56,9 +56,9 @@ router.route('/tagList').post((req, res) =>
 });
 
 router.route('/streamItems').post((req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
 
     async function deleteStreamItems () {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
@@ -79,9 +79,9 @@ router.route('/streamItems').post((req, res) => {
 });
 
 router.route('/hiddenItems').post((req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
 
     async function deleteHiddenItems () {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
@@ -103,10 +103,10 @@ router.route('/hiddenItems').post((req, res) => {
 });
 
 router.route('/pastContent').post((req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    var selectDate = req.body.selectDate;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const selectDate = req.body.selectDate;
+    const fileContents = req.body.fileContents;
 
     async function deletePastContent () {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
@@ -128,15 +128,13 @@ router.route('/pastContent').post((req, res) => {
 });
 
 router.route('/flipbookFolders').post((req, res) => {
-    var key = req.body.APIKey;
-    var signature = req.body.APISecret;
-    var hubId = req.body.hubId;
-    var fileContents = req.body.fileContents;
+    const key = req.body.APIKey;
+    const signature = req.body.APISecret;
+    const hubId = req.body.hubId;
+    const fileContents = req.body.fileContents;
 
     async function deleteFlipbookFolders () {
         const authToken = await auth.authenticateCredsV1(key, signature, hubId);
-
-        console.log(authToken);
 
         if (authToken) {
             console.time('--- API Call Timer ---');

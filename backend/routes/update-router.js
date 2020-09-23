@@ -152,4 +152,26 @@ router.route('/populateStreams').post((req, res) => {
     populateStreams();
 });
 
+router.route('/itemContent').post((req, res) => {
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+
+    async function itemContent () {
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+
+        if (authToken) {
+            console.time('--- API Call Timer ---');
+            console.log('\n--- API Authentication Successful ---\n');
+
+            const blogItems = await fetch.blogItems(authToken);
+            const updateItems = await update.embedContent(authToken, blogItems);
+
+            console.log('\n');
+            console.timeEnd('--- API Call Timer ---');
+            return res.status(200).json('AWS Executed');
+        }
+    }
+    itemContent();
+});
+
 module.exports = router;

@@ -76,7 +76,7 @@ function Update(props) {
                 />
             </div>
 
-            <label style={{marginTop: 20}}><a href="https://docs.google.com/spreadsheets/d/1IoKWwlaJFmgkLYsGBh-2frUKVbSwNupsMdWeZOUH9qI/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
+            <label style={{marginTop: 20}}><a href="https://docs.google.com/spreadsheets/d/1IoKWwlaJFmgkLYsGBh-2frUKVbSwNupsMdWeZOUH9qI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
             <div>
                 <input type="file"
                     placeholder="Upload CSV"
@@ -179,6 +179,18 @@ function Update(props) {
             } else {
                 console.log("Update operation cancelled.");
             }
+        // Populate items embedded content
+        } else if (selectValue === "Item Embedded Content") {
+            if (window.confirm("Are you sure you want to UPDATE these ITEMS EMBEDDED CONTENT?")) {
+                Axios.post('https://localhost:8080/update/itemContent', dateData)
+                .then((res) => {
+                    console.log(res);
+                }).catch((e) => {
+                    console.log(e);
+                });
+            } else {
+                console.log("Update operation cancelled.");
+            }
         }
     }
 
@@ -219,6 +231,7 @@ function Update(props) {
                         <option value="Author">Item Author</option>
                         <option value="SEO">Item SEO</option>
                         <option value="Metadata">Item Metadata</option>
+                        <option valule="Item Embedded Content">Item Embedded Content</option>
                     </select>
                 </div>
 
