@@ -6,6 +6,7 @@ import Axios from 'axios';
 import { CsvToHtmlTable }from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import check from '../check.png'
 
 function Update(props) {
 
@@ -13,79 +14,68 @@ function Update(props) {
     const [APISecret, setAPISecret] = useState('');
     const [selectValue, setSelectValue] = useState('');
     const [fileContents, setFileContents] = useState('');
+    const [serverResponse, setServerResponse] = useState('');
     const [selectDate, setSelectDate] = useState(new Date());
     const [showDatePicker, setShowDatePicker] = useState(false);
-    const [showUpdatePreview, setShowUpdatePreview] = useState(false);
+    const [showUpload, setShowUpload] = useState(false);
+    const [showCSVPreview, setShowCSVPreview] = useState(false);
+    const [showServerResponse, setShowServerResponse] = useState(false);
 
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "Hide Past Content" || selectValue === "Show Past Content") {
             setShowDatePicker(true);
-            setShowUpdatePreview(false);
+            setShowUpload(false);
+            setShowCSVPreview(false);
+            setShowServerResponse(false);
         } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream") {
             setShowDatePicker(false);
-            setShowUpdatePreview(true);
+            setShowUpload(true);
+            setShowCSVPreview(true);
+            setShowServerResponse(false);
         } else {
             setShowDatePicker(false);
-            setShowUpdatePreview(false);
+            setShowUpload(false);
+            setShowCSVPreview(false);
+            setShowServerResponse(false);
         }
     }, [selectValue]);
 
     // Functions
-    const handleFile = (e) => {
+    const HandleFile = (e) => {
         const data = e.target.result;
         setFileContents(data);
     }
       
-    const readFile = (file) => {
+    const ReadFile = (file) => {
         let fileData = new FileReader();
-        fileData.onloadend = handleFile;
+        fileData.onloadend = HandleFile;
         fileData.readAsText(file);
     }
 
-    const UpdateListPreview = () => (
+    const ServerResponse = () => (
         <div className="form-group">
-            <label><a href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit#gid=0" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
+            <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
+            <label> {serverResponse.status} - {serverResponse.data}</label>
+        </div>
+    )
+
+    const CSVUpload = () => (
+        <div className="form-group">
+            <label><a href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
             <div>
                 <input type="file"
                     placeholder="Upload CSV"
                     accept=".csv"
-                    onChange={e => readFile(e.target.files[0])}
-                />
-            </div>
-
-            <h5 style={{marginTop: 80}}>CSV Preview:</h5>
-            <div>
-                <CsvToHtmlTable
-                    data={fileContents}
-                    csvDelimiter=","
-                    tableClassName="table table-striped table-hover"
+                    onChange={e => ReadFile(e.target.files[0])}
                 />
             </div>
         </div>   
     )
 
-    const HideItemsPicker = () => (
+    const CSVPreview = () => (
         <div className="form-group">
-            <label>Select date to remove past content: </label>
-            <div>
-                <DatePicker
-                    selected={selectDate}
-                    onChange={date => setSelectDate(date)}
-                    isClearable
-                />
-            </div>
-
-            <label style={{marginTop: 20}}><a href="https://docs.google.com/spreadsheets/d/1IoKWwlaJFmgkLYsGBh-2frUKVbSwNupsMdWeZOUH9qI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
-            <div>
-                <input type="file"
-                    placeholder="Upload CSV"
-                    accept=".csv"
-                    onChange={e => readFile(e.target.files[0])}
-                />
-            </div>
-
-            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+           <h5 style={{marginTop: 20}}>CSV Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -96,10 +86,23 @@ function Update(props) {
         </div>
     )
 
-    const handleSubmit = (e) => {
+    const DateSelector = () => (
+        <div className="form-group">
+            <label>Select date to remove past content: </label>
+            <div>
+                <DatePicker
+                    selected={selectDate}
+                    onChange={date => setSelectDate(date)}
+                    isClearable
+                />
+            </div>
+        </div>
+    )
+
+    const HandleSubmit = (e) => {
         e.preventDefault();
 
-        const dateData = {
+        const data = {
             APIKey,
             APISecret,
             selectDate,
@@ -110,11 +113,18 @@ function Update(props) {
         // Updating past content to hidden
         if (selectValue === "Hide Past Content") {
             if (window.confirm("Are you sure you want to HIDE items prior to " + selectDate + "?")) {
-                Axios.post('https://localhost:8080/update/hidePastContent', dateData)
+                Axios.post('https://localhost:8080/update/hidePastContent', data)
                 .then((res) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                     console.log(res);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -122,11 +132,18 @@ function Update(props) {
         // Updated past content to be shown
         } else if (selectValue === "Show Past Content") {
             if (window.confirm("Are you sure you want to SHOW items prior to " + selectDate + "?")) {
-                Axios.post('https://localhost:8080/update/showPastContent', dateData)
+                Axios.post('https://localhost:8080/update/showPastContent', data)
                 .then((res) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                     console.log(res);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -134,11 +151,18 @@ function Update(props) {
         // Update author of stream items
         } else if (selectValue === "Author") {
             if (window.confirm("Are you sure you want to UPDATE the AUTHOR of these items?")) {
-                Axios.post('https://localhost:8080/update/author', dateData)
+                Axios.post('https://localhost:8080/update/author', data)
                 .then((res) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                     console.log(res);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -146,11 +170,18 @@ function Update(props) {
         // Update SEO metadata of stream items
         } else if (selectValue === "SEO") {
             if (window.confirm("Are you sure you want to UPDATE the SEO of these items?")) {
-                Axios.post('https://localhost:8080/update/seo', dateData)
+                Axios.post('https://localhost:8080/update/seo', data)
                 .then((res) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                     console.log(res);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -158,11 +189,18 @@ function Update(props) {
         // Update items metadata
         } else if (selectValue === "Metadata") {
             if (window.confirm("Are you sure you want to UPDATE the METADATA of these items?")) {
-                Axios.post('https://localhost:8080/update/metadata', dateData)
+                Axios.post('https://localhost:8080/update/metadata', data)
                 .then((res) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                     console.log(res);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -170,11 +208,18 @@ function Update(props) {
         // Populate stream with items
         } else if (selectValue === "Populate Stream") {
             if (window.confirm("Are you sure you want to UPDATE these STREAMS?")) {
-                Axios.post('https://localhost:8080/update/populateStreams', dateData)
+                Axios.post('https://localhost:8080/update/populateStreams', data)
                 .then((res) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                     console.log(res);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -182,11 +227,18 @@ function Update(props) {
         // Populate items embedded content
         } else if (selectValue === "Item Embedded Content") {
             if (window.confirm("Are you sure you want to UPDATE these ITEMS EMBEDDED CONTENT?")) {
-                Axios.post('https://localhost:8080/update/itemContent', dateData)
+                Axios.post('https://localhost:8080/update/itemContent', data)
                 .then((res) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                     console.log(res);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -235,11 +287,13 @@ function Update(props) {
                     </select>
                 </div>
 
-                { showDatePicker ? <HideItemsPicker /> : null }
-                { showUpdatePreview ? <UpdateListPreview />: null }
+                { showServerResponse ? <ServerResponse/> : null } 
+                { showDatePicker ? <DateSelector/> : null } 
+                { showUpload ? <CSVUpload/> : null }
+                { showCSVPreview ? <CSVPreview/> : null } 
 
                 <div className="form-group">
-                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
+                    <input onClick={HandleSubmit} type="submit" value="Execute" className="btn btn-success"/>
                 </div>
             </form>
         </div>

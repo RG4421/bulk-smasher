@@ -5,6 +5,7 @@ import React, {
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 import '../styles/container.css'
+import check from '../check.png'
 
 function Create(props) {
 
@@ -12,14 +13,21 @@ function Create(props) {
     const [APISecret, setAPISecret] = useState('');
     const [selectValue, setSelectValue] = useState('null');
     const [fileContents, setFileContents] = useState('');
+    const [serverResponse, setServerResponse] = useState('');
     const [showUpload, setShowUpload] = useState(false);
+    const [showCSVPreview, setShowCSVPreview] = useState(false);
+    const [showServerResponse, setShowServerResponse] = useState(false);
 
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
-        if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "User Profiles") {
+        if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "User Profiles" || selectValue === "Test") {
             setShowUpload(true);
+            setShowCSVPreview(true);
+            setShowServerResponse(false);
         } else {
             setShowUpload(false);
+            setShowCSVPreview(false);
+            setShowServerResponse(false);
         }
     }, [selectValue]);
 
@@ -35,6 +43,13 @@ function Create(props) {
         fileData.readAsText(file);
     }
 
+    const ServerResponse = () => (
+        <div className="form-group">
+            <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
+            <label> {serverResponse.status} - {serverResponse.data}</label>
+        </div>
+    )
+
     const CSVUpload = () => (
         <div className="form-group">
             <label><a href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
@@ -45,8 +60,12 @@ function Create(props) {
                     onChange={e => readFile(e.target.files[0])}
                 />
             </div>
+        </div>   
+    )
 
-            <h5 style={{marginTop: 50}}>CSV Preview:</h5>
+    const CSVPreview = () => (
+        <div className="form-group">
+           <h5 style={{marginTop: 20}}>CSV Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -54,13 +73,13 @@ function Create(props) {
                     tableClassName="table table-striped table-hover"
                 />
             </div>
-        </div>   
+        </div>
     )
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const csvData = {
+        const data = {
             APIKey, 
             APISecret,
             fileContents
@@ -69,10 +88,17 @@ function Create(props) {
         // Create tags
         if (selectValue === "Tags") {
             if (window.confirm("Are you sure you want to CREATE and TAG these items?")) {
-                Axios.post('https://localhost:8080/create/tags', csvData)
+                Axios.post('https://localhost:8080/create/tags', data)
                 .then((res) => {
-                    console.log(res);
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                 }).catch((e) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                     console.log(e);
                 });
             } else {
@@ -81,11 +107,17 @@ function Create(props) {
         // Create streams
         } else if (selectValue === "Streams") {
             if (window.confirm("Are you sure you want to CREATE these STREAMS?")) {
-                Axios.post('https://localhost:8080/create/streams', csvData)
+                Axios.post('https://localhost:8080/create/streams', data)
                 .then((res) => {
-                    console.log(res);
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Create operation cancelled.");
@@ -93,11 +125,17 @@ function Create(props) {
         // Create user profiles
         } else if (selectValue === "User Profiles") {
             if (window.confirm("Are you sure you want to CREATE these USERS?")) {
-                Axios.post('https://localhost:8080/create/users', csvData)
+                Axios.post('https://localhost:8080/create/users', data)
                 .then((res) => {
-                    console.log(res);
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
                 }).catch((e) => {
-                    console.log(e);
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
                 });
             } else {
                 console.log("Create operation cancelled.");
@@ -143,7 +181,9 @@ function Create(props) {
                     </select>
                 </div>
 
-                { showUpload ? <CSVUpload/> : null } 
+                { showServerResponse ? <ServerResponse/> : null } 
+                { showUpload ? <CSVUpload/> : null }
+                { showCSVPreview ? <CSVPreview/> : null } 
 
                 <div className="form-group">
                         <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>

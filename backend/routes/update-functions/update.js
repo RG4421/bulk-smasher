@@ -206,6 +206,7 @@ async function tagItems (token, data, tagIds) {
 }
 
 async function groups (token, data) {
+    let resArr = [];
 
     // Looping through CSV data
     for (let i = 0; i < data.length; i++) {
@@ -221,11 +222,13 @@ async function groups (token, data) {
                 },
             });
             console.log(`User ${userId} added to ${groupId}`);
+            resArr.push(`User ${userId} added to ${groupId}`);
 
         } catch (err) {
             console.log(err.response.data.errors);
         }
     }
+    return resArr;
 }
 
 async function streams (token, data) {
@@ -267,10 +270,6 @@ async function embedContent (token, data) {
         var datetime = new Date();
 
         let updatedContent = content.replace("youtube.com", "youtube-nocookie.com");
-
-        // console.log(`Item ${itemId}`);
-        // console.log(`${updatedContent}`);
-        // console.log("\n");
 
         try {
             const itemResult = await axios({

@@ -72,6 +72,7 @@ async function users (token, data) {
 }
 
 async function streams (token, data) {
+    let resArr = [];
 
     // Looping through CSV data
     for (var i = 0; i < data.length; i++) {
@@ -118,11 +119,13 @@ async function streams (token, data) {
                 }
             });
             console.log(`${title} stream created`);
+            resArr.push(`${title} stream created`);
 
         } catch (err) {
             console.log(err.response.data.errors);
         }
     }
+    return resArr;
 }
 
 module.exports = { 

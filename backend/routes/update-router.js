@@ -28,7 +28,7 @@ router.route('/hidePastContent').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Past content status set to hidden');
+            return res.status(200).json('Past content status set to hidden!');
         }
     }
     hidePastContent();
@@ -54,7 +54,7 @@ router.route('/showPastContent').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Past content status set to display');
+            return res.status(200).json('Past content status set to show!');
         }
     }
     showPastContent();
@@ -77,7 +77,7 @@ router.route('/author').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Author of items updated');
+            return res.status(200).json('Author of items updated!');
         }
     }
     author();
@@ -100,7 +100,7 @@ router.route('/seo').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Author of items updated');
+            return res.status(200).json('SEO metadata of items updated!');
         }
     }
     seoMetadata();
@@ -123,7 +123,7 @@ router.route('/metadata').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Author of items updated');
+            return res.status(200).json('Metadata of items updated!');
         }
     }
     itemMetadata();
@@ -146,7 +146,7 @@ router.route('/populateStreams').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Streams populated with new items');
+            return res.status(200).json('Streams populated with new items!');
         }
     }
     populateStreams();
@@ -168,7 +168,7 @@ router.route('/itemContent').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('AWS Executed');
+            return res.status(200).json('AWS Executed!');
         }
     }
     itemContent();

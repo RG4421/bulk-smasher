@@ -25,7 +25,7 @@ router.route('/allTags').post((req, res) =>
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('All Tags Deleted');
+            return res.status(200).json('All tags deleted!');
         }
     }
     deleteAllTags();
@@ -49,7 +49,7 @@ router.route('/tagList').post((req, res) =>
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Requested Tag List Deleted');
+            return res.status(200).json('Tag list deleted!');
         }
     }
     deleteTagList();
@@ -72,7 +72,7 @@ router.route('/streamItems').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Requested Stream Items Deleted');
+            return res.status(200).json('Stream list items deleted!');
         }
     }
     deleteStreamItems();
@@ -96,7 +96,7 @@ router.route('/hiddenItems').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Hidden Stream Items Deleted');
+            return res.status(200).json('Hidden stream items deleted!');
         }
     }
     deleteHiddenItems();
@@ -121,33 +121,33 @@ router.route('/pastContent').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Old Stream Items Deleted');
+            return res.status(200).json('Past stream items deleted!');
         }
     }
     deletePastContent();
 });
 
-router.route('/flipbookFolders').post((req, res) => {
-    const key = req.body.APIKey;
-    const signature = req.body.APISecret;
-    const hubId = req.body.hubId;
+router.route('/streams').post((req, res) => {
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
 
-    async function deleteFlipbookFolders () {
-        const authToken = await auth.authenticateCredsV1(key, signature, hubId);
+    async function streams () {
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         if (authToken) {
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
 
-            await parse.CSV(fileContents);
+            const csvData = await parse.CSV(fileContents);
+            await deleteFunc.streams(authToken, csvData);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Old Stream Items Deleted');
+            return res.status(200).json('Streams list deleted!');
         }
     }
-    deleteFlipbookFolders();
+    streams();
 });
 
 module.exports = router;

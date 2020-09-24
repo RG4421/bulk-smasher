@@ -30,7 +30,7 @@ router.route('/tags').post((req, res) => {
             
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('Tag list created');
+            return res.status(201).json('Tags successfully created and applied!');
         }
     }
     createTags();
@@ -53,7 +53,7 @@ router.route('/streams').post((req, res) => {
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('Marketing streams created');
+            return res.status(201).json('Marketing streams created!');
         }
     }
     createMarketingStream();
@@ -80,7 +80,7 @@ router.route('/users').post((req, res) => {
             
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(201).json('User profiles created');
+            return res.status(201).json('User profiles created and groups assigned!');
         }
     }
     createUserProfile();

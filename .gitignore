@@ -33,6 +33,7 @@ user-Create.csv*
 stream-Create.csv*
 populateStream-Update.csv*
 embedItem-Update.csv*
+stream - Delete.csv*
 
 cert.pem*
 key.pem*

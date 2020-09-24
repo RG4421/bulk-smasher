@@ -81,10 +81,29 @@ async function deleteStreamItems (token, csv) {
     }
 }
 
-// Delete past content from source stream: DELETE https://v2.api.uberflip.com/items/{itemId}
+// Delete streams in CSV
+async function streams (token, data) {
+    for (const stream of data) {
+
+        try {
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/streams/${stream.stream_id}`,
+                method: 'delete',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            console.log(`Deleted stream ${stream.stream_id}`);
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
 
 module.exports = { 
     deleteAll, 
     deleteList, 
-    deleteStreamItems 
+    deleteStreamItems,
+    streams
 }
