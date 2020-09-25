@@ -6,8 +6,10 @@ import React, {
 import Axios from 'axios';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
 import check from '../check.png'
+import Loader from 'react-loader-spinner'
+import "react-datepicker/dist/react-datepicker.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 function Delete(props)
 {
@@ -25,6 +27,7 @@ function Delete(props)
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
     const [showServerResponse, setShowServerResponse] = useState(false);
+    const [showLoader, setShowLoader] = useState(false);
 
     const clientIdRef = useRef();
     const clientSecretRef = useRef();
@@ -40,15 +43,17 @@ function Delete(props)
             setShowCSVPreview(false);
             setShowServerResponse(false);
             setShowLegacyFields(false);
+            setShowLoader(false);
         } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items" || selectValue === "Streams") {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(false);
             setShowDatePicker(false);
             setShowUpload(true);
-            setShowCSVPreview(true);
+            setShowCSVPreview(false);
             setShowServerResponse(false);
             setShowLegacyFields(false);
+            setShowLoader(false);
         } else if (selectValue === "Past Content") {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "API Secret";
@@ -58,6 +63,7 @@ function Delete(props)
             setShowCSVPreview(false);
             setShowServerResponse(false);
             setShowLegacyFields(false);
+            setShowLoader(false);
         } else if (selectValue === "Flipbook Folders") {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "Signature";
@@ -67,6 +73,7 @@ function Delete(props)
             setShowCSVPreview(false);
             setShowServerResponse(false);
             setShowLegacyFields(true);
+            setShowLoader(false);
         } else {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "API Secret";
@@ -76,6 +83,7 @@ function Delete(props)
             setShowCSVPreview(false);
             setShowServerResponse(false);
             setShowLegacyFields(false);
+            setShowLoader(false);
         }
     }, [selectValue]);
 
@@ -89,6 +97,7 @@ function Delete(props)
         let fileData = new FileReader();
         fileData.onloadend = HandleFile;
         fileData.readAsText(file);
+        setShowCSVPreview(true);
     }
 
     const DeleteAll = () => (
@@ -103,7 +112,7 @@ function Delete(props)
     )
 
     const ServerResponse = () => (
-        <div className="form-group">
+        <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
             <label> {serverResponse.status} - {serverResponse.data}</label>
         </div>
@@ -111,10 +120,8 @@ function Delete(props)
 
     const CSVUpload = () => (
         <div className="form-group">
-            <label><a href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
-            <div>
+            <div style={{marginTop: 30}}>
                 <input type="file"
-                    placeholder="Upload CSV"
                     accept=".csv"
                     onChange={e => ReadFile(e.target.files[0])}
                 />
@@ -124,13 +131,27 @@ function Delete(props)
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 20}}>CSV Preview:</h5>
+           <h5 style={{marginTop: 30}}>Data Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
                     csvDelimiter=","
                     tableClassName="table table-striped table-hover"
                 />
+            </div>
+        </div>
+    )
+
+    const APILoader = () => (
+        <div className="form-group" style={{marginTop: 30}}>
+            <div style={{display: "flex"}}>
+                <Loader
+                    type="Bars"
+                    color="#0e8643"
+                    height="30"
+                    weight="30"
+                />
+                <label style={{marginLeft: -15}}>Executing operator...</label>
             </div>
         </div>
     )
@@ -176,10 +197,13 @@ function Delete(props)
         if (checked === true ) {
             let ans = window.prompt("Type 'DELETE ALL TAGS' to execute.");
             if (ans === "DELETE ALL TAGS") {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/delete/allTags', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -196,10 +220,13 @@ function Delete(props)
         } else if (selectValue === "Tag List") {
             let ans = window.prompt("Type 'DELETE TAG LIST' to execute.");
             if (ans === "DELETE TAG LIST") {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/delete/tagList', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -216,10 +243,13 @@ function Delete(props)
         } else if (selectValue === "Stream Items") {
             let ans = window.prompt("Type 'DELETE STREAM ITEMS' to execute.");
             if (ans === "DELETE STREAM ITEMS") {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/delete/streamItems', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -236,10 +266,13 @@ function Delete(props)
         } else if (selectValue === "Hidden Items") {
             let ans = window.prompt("Type 'DELETE HIDDEN ITEMS' to execute.");
             if (ans === "DELETE HIDDEN ITEMS") {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/delete/hiddenItems', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -256,10 +289,13 @@ function Delete(props)
         } else if (selectValue === "Past Content") {
             let ans = window.prompt("Type 'DELETE PAST ITEMS' to delete items before " + selectDate + ".");
             if (ans === "DELETE PAST ITEMS") {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/delete/pastContent', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -275,10 +311,13 @@ function Delete(props)
         } else if (selectValue === "Streams") {
             let ans = window.prompt("Type 'DELETE STREAMS' to delete these streams.");
             if (ans === "DELETE STREAMS") {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/delete/streams', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -339,13 +378,14 @@ function Delete(props)
                     </select>
                 </div>
 
+                { showLoader ? <APILoader/> : null } 
                 { showServerResponse ? <ServerResponse/> : null }
                 { showDeleteAll  ? <DeleteAll /> : null }
                 { showDatePicker ? <DateSelector/> : null } 
                 { showUpload ? <CSVUpload/> : null }
                 { showCSVPreview ? <CSVPreview/> : null } 
 
-                <div className="form-group">
+                <div className="form-group" style={{marginTop: 30}}>
                     <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
                 </div>
             </form>

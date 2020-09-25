@@ -23,7 +23,7 @@ async function authenticateCredsV1(key, signature, hubId) {
                 },
             });
         } catch (err) {
-            console.log(err);
+            return err;
         }
         return result;
     }
@@ -60,7 +60,7 @@ async function authenticateCredsV2(key, secret) {
                 }
             });
         } catch (err) {
-            console.log(err);
+            return err;
         }
         return result;
     }

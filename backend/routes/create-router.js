@@ -31,6 +31,8 @@ router.route('/tags').post((req, res) => {
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
             return res.status(201).json('Tags successfully created and applied!');
+        } else {
+            return res.status(401).json('Authentication unsuccessful');
         }
     }
     createTags();

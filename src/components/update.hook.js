@@ -5,8 +5,10 @@ import React, {
 import Axios from 'axios';
 import { CsvToHtmlTable }from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
 import check from '../check.png'
+import Loader from 'react-loader-spinner'
+import "react-datepicker/dist/react-datepicker.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 function Update(props) {
 
@@ -20,6 +22,7 @@ function Update(props) {
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
     const [showServerResponse, setShowServerResponse] = useState(false);
+    const [showLoader, setShowLoader] = useState(false);
 
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
@@ -31,7 +34,7 @@ function Update(props) {
         } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream") {
             setShowDatePicker(false);
             setShowUpload(true);
-            setShowCSVPreview(true);
+            setShowCSVPreview(false);
             setShowServerResponse(false);
         } else {
             setShowDatePicker(false);
@@ -51,10 +54,11 @@ function Update(props) {
         let fileData = new FileReader();
         fileData.onloadend = HandleFile;
         fileData.readAsText(file);
+        setShowCSVPreview(true);
     }
 
     const ServerResponse = () => (
-        <div className="form-group">
+        <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
             <label> {serverResponse.status} - {serverResponse.data}</label>
         </div>
@@ -62,10 +66,8 @@ function Update(props) {
 
     const CSVUpload = () => (
         <div className="form-group">
-            <label><a href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CSV Templates</a></label>
-            <div>
+            <div style={{marginTop: 30}}>
                 <input type="file"
-                    placeholder="Upload CSV"
                     accept=".csv"
                     onChange={e => ReadFile(e.target.files[0])}
                 />
@@ -75,7 +77,7 @@ function Update(props) {
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 20}}>CSV Preview:</h5>
+           <h5 style={{marginTop: 30}}>Data Preview:</h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -86,10 +88,24 @@ function Update(props) {
         </div>
     )
 
+    const APILoader = () => (
+        <div className="form-group" style={{marginTop: 30}}>
+            <div style={{display: "flex"}}>
+                <Loader
+                    type="Bars"
+                    color="#0e8643"
+                    height="30"
+                    weight="30"
+                />
+                <label style={{marginLeft: -15}}>Executing operator...</label>
+            </div>
+        </div>
+    )
+
     const DateSelector = () => (
         <div className="form-group">
             <label>Select date to remove past content: </label>
-            <div>
+            <div style={{width: 600}}>
                 <DatePicker
                     selected={selectDate}
                     onChange={date => setSelectDate(date)}
@@ -113,10 +129,13 @@ function Update(props) {
         // Updating past content to hidden
         if (selectValue === "Hide Past Content") {
             if (window.confirm("Are you sure you want to HIDE items prior to " + selectDate + "?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/update/hidePastContent', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -132,10 +151,13 @@ function Update(props) {
         // Updated past content to be shown
         } else if (selectValue === "Show Past Content") {
             if (window.confirm("Are you sure you want to SHOW items prior to " + selectDate + "?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/update/showPastContent', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -151,10 +173,13 @@ function Update(props) {
         // Update author of stream items
         } else if (selectValue === "Author") {
             if (window.confirm("Are you sure you want to UPDATE the AUTHOR of these items?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/update/author', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -170,10 +195,13 @@ function Update(props) {
         // Update SEO metadata of stream items
         } else if (selectValue === "SEO") {
             if (window.confirm("Are you sure you want to UPDATE the SEO of these items?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/update/seo', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -189,10 +217,13 @@ function Update(props) {
         // Update items metadata
         } else if (selectValue === "Metadata") {
             if (window.confirm("Are you sure you want to UPDATE the METADATA of these items?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/update/metadata', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -208,10 +239,13 @@ function Update(props) {
         // Populate stream with items
         } else if (selectValue === "Populate Stream") {
             if (window.confirm("Are you sure you want to UPDATE these STREAMS?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/update/populateStreams', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -227,10 +261,13 @@ function Update(props) {
         // Populate items embedded content
         } else if (selectValue === "Item Embedded Content") {
             if (window.confirm("Are you sure you want to UPDATE these ITEMS EMBEDDED CONTENT?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
                 Axios.post('https://localhost:8080/update/itemContent', data)
                 .then((res) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
+                    setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
                     console.log(res);
@@ -287,12 +324,13 @@ function Update(props) {
                     </select>
                 </div>
 
+                { showLoader ? <APILoader/> : null } 
                 { showServerResponse ? <ServerResponse/> : null } 
                 { showDatePicker ? <DateSelector/> : null } 
                 { showUpload ? <CSVUpload/> : null }
                 { showCSVPreview ? <CSVPreview/> : null } 
 
-                <div className="form-group">
+                <div className="form-group" style={{marginTop: 30}}>
                     <input onClick={HandleSubmit} type="submit" value="Execute" className="btn btn-success"/>
                 </div>
             </form>
