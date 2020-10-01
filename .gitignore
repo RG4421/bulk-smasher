@@ -34,6 +34,7 @@ stream-Create.csv*
 populateStream-Update.csv*
 embedItem-Update.csv*
 stream - Delete.csv*
+demo-PopulateStreams.csv*
 
 cert.pem*
 key.pem*

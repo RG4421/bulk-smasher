@@ -67,10 +67,14 @@ async function authenticateCredsV2(key, secret) {
     
     // Extracting token for API calls
     async function fetchToken() {
-        const tokenData = await fetchUser();
-        const token = tokenData.data.access_token;
-
-        return token;
+        try {
+            const tokenData = await fetchUser();
+            const token = tokenData.data.access_token;
+            return token;
+            
+        } catch (err) {
+            return err;
+        }
     };
     return fetchToken();
 }

@@ -16,11 +16,13 @@ function Create(props) {
     const [APISecret, setAPISecret] = useState('');
     const [selectValue, setSelectValue] = useState('null');
     const [fileContents, setFileContents] = useState('');
-    const [serverResponse, setServerResponse] = useState('');
+    const [serverSuccess, setServerSuccess] = useState('');
+    const [serverError, setServerError] = useState('');
+
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
-    const [showServerResponse, setShowServerResponse] = useState(false);
-    const [showFailedResponse, setShowFailedResponse] = useState(false);
+    const [showServerSuccess, setShowServerSuccess] = useState(false);
+    const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
 
     // Handling what fields are displayed depending on selectValue
@@ -28,14 +30,14 @@ function Create(props) {
         if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "User Profiles" || selectValue === "Test") {
             setShowUpload(true);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
-            setShowFailedResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowLoader(false);
         } else {
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
-            setShowFailedResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowLoader(false);
         }
     }, [selectValue]);
@@ -54,17 +56,17 @@ function Create(props) {
         console.log(file.name);
     }
 
-    const ServerResponse = () => (
+    const ServerSuccess = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
-            <label> {serverResponse.status} - {serverResponse.data}</label>
+            <label> {serverSuccess.status} - {serverSuccess.data}</label>
         </div>
     )
 
-    const FailedResponse = () => (
+    const ServerError = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
-            <label> {serverResponse.status} - {serverResponse.data}</label>
+            <label> {serverError.status} - {serverError}</label>
         </div>
     )
 
@@ -125,12 +127,12 @@ function Create(props) {
                 Axios.post('https://localhost:8080/create/tags', data)
                 .then((res) => {
                     setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
+                    setServerSuccess(res);
+                    setShowServerSuccess(true);
                     console.log(res);
                 }).catch((e) => {
-                    setServerResponse(e);
-                    setShowFailedResponse(true);
+                    setServerSuccess(e);
+                    setShowServerError(true);
                     console.log(e);
                 });
             } else {
@@ -146,14 +148,14 @@ function Create(props) {
                 Axios.post('https://localhost:8080/create/streams', data)
                 .then((res) => {
                     setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
+                    setServerSuccess(res);
+                    setShowServerSuccess(true);
                     console.log(res);
                 }).catch((e) => {
                     setShowUpload(false);
                     setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    setServerSuccess(e);
+                    setShowServerSuccess(true);
                 });
             } else {
                 console.log("Create operation cancelled.");
@@ -168,14 +170,45 @@ function Create(props) {
                 Axios.post('https://localhost:8080/create/users', data)
                 .then((res) => {
                     setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
+                    setServerSuccess(res);
+                    setShowServerSuccess(true);
                     console.log(res);
                 }).catch((e) => {
                     setShowUpload(false);
                     setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    setServerSuccess(e);
+                    setShowServerSuccess(true);
+                });
+            } else {
+                console.log("Create operation cancelled.");
+            }
+        } else if (selectValue === "Test") {
+            if (window.confirm("Are you sure you want to this TEST call?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
+                Axios.post('https://localhost:8080/create/test', data)
+                .then((res) => {
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    } else {
+                        throw new Error();
+                    }
+                }).catch((e) => {
+                    if (e.response) {
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response);
+                        setShowServerSuccess(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Create operation cancelled.");
@@ -218,12 +251,13 @@ function Create(props) {
                         <option value="Tags">Tags</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
+                        <option value="Test">Test</option>
                     </select>
                 </div>
 
                 { showLoader ? <APILoader/> : null } 
-                { showServerResponse ? <ServerResponse/> : null }
-                { showFailedResponse ? <FailedResponse/> : null } 
+                { showServerSuccess ? <ServerSuccess/> : null }
+                { showServerError ? <ServerError/> : null } 
                 { showUpload ? <CSVUpload/> : null }
                 { showCSVPreview ? <CSVPreview/> : null } 
 

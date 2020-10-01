@@ -262,14 +262,65 @@ async function streams (token, data) {
     }
 }
 
-async function embedContent (token, data) {
+async function embedContent (token, data, search, replace) {
 
     for (let i = 0; i < data.length; i++) {
         let itemId = data[i].id;
         let content = data[i].content;
         var datetime = new Date();
 
-        let updatedContent = content.replace("youtube.com", "youtube-nocookie.com");
+        let updatedContent = content.replace(search, replace);
+
+        try {
+            const itemResult = await axios({
+                url: `https://v2.api.uberflip.com/items/${itemId}`,
+                method: 'patch',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                params: {
+                    limit: 100,
+                },
+                data: {
+                    content: {
+                        draft: `${updatedContent}`
+                    }
+                }
+            });
+            console.log(`Item ${itemId} embed URL updated`);
+
+            try {
+                const publishResult = await axios({
+                    url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                    method: 'post',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    data: {
+                        published_at: datetime
+                    }
+                });
+                console.log(`Item ${itemId} published`);
+
+            } catch (err) {
+                console.log(err.response.data.errors);
+            }
+
+        } catch (err) {
+            console.log(err.response.data.errors);
+        }
+    }
+}
+
+async function AWSTest (token, data, search, replace) {
+
+    for (let i = 0; i < data.length; i++) {
+                
+        let itemId = data[i].id;
+        let content = data[i].content.published;
+        var datetime = new Date();
+
+        let updatedContent = content.replace(search, replace);
 
         try {
             const itemResult = await axios({
@@ -321,4 +372,5 @@ module.exports = {
     groups,
     streams,
     embedContent,
+    AWSTest
 };

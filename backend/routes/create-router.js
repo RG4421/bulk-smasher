@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const boom = require('boom');
 
 // Utility functions
 const auth = require('./utilities/auth');
@@ -9,6 +10,15 @@ const fetch = require('./utilities/fetch');
 // Functions
 const create = require('./create-functions/create');
 const update = require('./update-functions/update');
+
+const asyncMiddleware = (fn) => (req, res, next) => {
+    Promise.resolve(fn(req, res, next)).catch((err) => {
+        if (!err.isBoom) {
+            return next(boom.badImplementation(err));
+        }
+        next(err);
+    });
+};
 
 router.route('/tags').post((req, res) => {
     var APIKey = req.body.APIKey;
@@ -87,5 +97,28 @@ router.route('/users').post((req, res) => {
     }
     createUserProfile();
 });
+
+router.route('/test').post(asyncMiddleware(async (req, res) => {
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
+
+    if (!APIKey) {
+        res.status(401).send("This is an error");
+        // throw boom.badRequest("Missing API Key");
+    }
+
+//     const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+
+//     if (!authToken) {
+//         return res.status(400).json('Authentication unsuccessful, confirm your API keys');
+//     }
+
+//     console.time('--- API Call Timer ---');
+//     console.log("\n--- API Authentication Successful ---\n");
+    
+//     console.log('\n');
+//     console.timeEnd('--- API Call Timer ---');
+//     return res.status(201).json('Test function called');
+}));
 
 module.exports = router;

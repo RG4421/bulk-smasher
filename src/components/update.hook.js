@@ -16,8 +16,15 @@ function Update(props) {
     const [APISecret, setAPISecret] = useState('');
     const [selectValue, setSelectValue] = useState('');
     const [fileContents, setFileContents] = useState('');
+    const [uniqueSearch, setUniqueSearch] = useState('');
+    const [streamId, setStreamId] = useState('');
+    const [itemSearch, setItemSearch] = useState('');
+    const [itemReplace, setItemReplace] = useState('');
     const [serverResponse, setServerResponse] = useState('');
+
     const [selectDate, setSelectDate] = useState(new Date());
+    const [showStreamId, setShowStreamId] = useState(false);
+    const [showFindReplaceContent, setShowFindReplaceContent] = useState(false);
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
@@ -31,16 +38,36 @@ function Update(props) {
             setShowUpload(false);
             setShowCSVPreview(false);
             setShowServerResponse(false);
+            setShowFindReplaceContent(false);
+            setShowStreamId(false);
         } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream") {
             setShowDatePicker(false);
             setShowUpload(true);
             setShowCSVPreview(false);
             setShowServerResponse(false);
+            setShowFindReplaceContent(false);
+            setShowStreamId(false);
+        } else if (selectValue === "Item Embedded Content") {
+            setShowDatePicker(false);
+            setShowUpload(false);
+            setShowCSVPreview(false);
+            setShowServerResponse(false);
+            setShowStreamId(false);
+            setShowFindReplaceContent(true);
+        } else if (selectValue === "Stream Embedded Content") {
+            setShowDatePicker(false);
+            setShowUpload(false);
+            setShowCSVPreview(false);
+            setShowServerResponse(false);
+            setShowStreamId(true);
+            setShowFindReplaceContent(true);
         } else {
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
             setShowServerResponse(false);
+            setShowStreamId(false);
+            setShowFindReplaceContent(false);
         }
     }, [selectValue]);
 
@@ -56,6 +83,51 @@ function Update(props) {
         fileData.readAsText(file);
         setShowCSVPreview(true);
     }
+
+    const Streams = () => (
+        <div className="form-group">
+            <input
+                placeholder="Stream ID"
+                type="text"
+                value={streamId}
+                onChange={e => setStreamId(e.target.value)}
+                required
+            ></input>
+        </div>
+    )
+
+    const FindAndReplace = () => (
+
+        <div className="form-group">
+            <div className="form-group">
+                <input 
+                    placeholder="Unique Item Search"
+                    type="text"
+                    value={uniqueSearch}
+                    onChange={e => setUniqueSearch(e.target.value)}
+                    required
+                ></input>
+            </div>
+            <div className="form-group">
+                <input 
+                    placeholder="Search Value"
+                    type="text"
+                    value={itemSearch}
+                    onChange={e => setItemSearch(e.target.value)}
+                    required
+                ></input>
+            </div>
+            <div className="form-group">
+                <input 
+                    placeholder="Replace Value"
+                    type="text"
+                    value={itemReplace}
+                    onChange={e => setItemReplace(e.target.value)}
+                    required
+                ></input>
+            </div>
+        </div>
+    )
 
     const ServerResponse = () => (
         <div className="form-group" style={{marginTop: 30}}>
@@ -116,6 +188,7 @@ function Update(props) {
     )
 
     const HandleSubmit = (e) => {
+        setShowServerResponse(false);
         e.preventDefault();
 
         const data = {
@@ -123,7 +196,11 @@ function Update(props) {
             APISecret,
             selectDate,
             fileContents,
-            selectValue
+            selectValue,
+            uniqueSearch,
+            streamId,
+            itemSearch,
+            itemReplace
         }
 
         // Updating past content to hidden
@@ -267,6 +344,32 @@ function Update(props) {
 
                 Axios.post('https://localhost:8080/update/itemContent', data)
                 .then((res) => {
+                    setShowStreamId(false);
+                    setShowFindReplaceContent(false);
+                    setShowLoader(false);
+                    setServerResponse(res);
+                    setShowServerResponse(true);
+                    console.log(res);
+                }).catch((e) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerResponse(e);
+                    setShowServerResponse(true);
+                });
+            } else {
+                console.log("Update operation cancelled.");
+            }
+        }
+        else if (selectValue === "Stream Embedded Content") {
+            if (window.confirm(`Are you sure you want to UPDATE stream ${streamId} ITEM EMBEDDED CONTENT?`)) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
+                Axios.post('https://localhost:8080/update/streamItemContent', data)
+                .then((res) => {
+                    setShowStreamId(false);
+                    setShowFindReplaceContent(false);
                     setShowLoader(false);
                     setServerResponse(res);
                     setShowServerResponse(true);
@@ -320,12 +423,15 @@ function Update(props) {
                         <option value="Author">Item Author</option>
                         <option value="SEO">Item SEO</option>
                         <option value="Metadata">Item Metadata</option>
-                        <option valule="Item Embedded Content">Item Embedded Content</option>
+                        <option value="Item Embedded Content">All Items Embedded Content</option>
+                        <option value="Stream Embedded Content">Stream Items Embedded Content</option>
                     </select>
                 </div>
 
-                { showLoader ? <APILoader/> : null } 
-                { showServerResponse ? <ServerResponse/> : null } 
+                { showLoader ? <APILoader/> : null }
+                { showServerResponse ? <ServerResponse/> : null }
+                { showStreamId ? <Streams/> : null }
+                { showFindReplaceContent ? <FindAndReplace/> : null } 
                 { showDatePicker ? <DateSelector/> : null } 
                 { showUpload ? <CSVUpload/> : null }
                 { showCSVPreview ? <CSVPreview/> : null } 

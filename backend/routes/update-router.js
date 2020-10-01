@@ -155,6 +155,9 @@ router.route('/populateStreams').post((req, res) => {
 router.route('/itemContent').post((req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
+    const uniqueSearch = req.body.uniqueSearch;
+    const itemSearch = req.body.itemSearch;
+    const itemReplace = req.body.itemReplace;
 
     async function itemContent () {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
@@ -163,12 +166,38 @@ router.route('/itemContent').post((req, res) => {
             console.time('--- API Call Timer ---');
             console.log('\n--- API Authentication Successful ---\n');
 
-            const blogItems = await fetch.blogItems(authToken);
-            const updateItems = await update.embedContent(authToken, blogItems);
+            const blogItems = await fetch.allBlogItems(authToken, uniqueSearch);
+            const updateItems = await update.embedContent(authToken, blogItems, itemSearch, itemReplace);
 
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('AWS Executed!');
+            return res.status(200).json('All blog items updated with new content!');
+        }
+    }
+    itemContent();
+});
+
+router.route('/streamItemContent').post((req, res) => {
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const uniqueSearch = req.body.uniqueSearch;
+    const streamId = req.body.streamId;
+    const itemSearch = req.body.itemSearch;
+    const itemReplace = req.body.itemReplace;
+
+    async function itemContent () {
+        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+
+        if (authToken) {
+            console.time('--- API Call Timer ---');
+            console.log('\n--- API Authentication Successful ---\n');
+
+            const streamItems = await fetch.streamsBlogItems(authToken, streamId, uniqueSearch);
+            const updateTest = await update.embedContent(authToken, streamItems, itemSearch, itemReplace);
+
+            console.log('\n');
+            console.timeEnd('--- API Call Timer ---');
+            return res.status(200).json(`Stream ${streamId} content updated with new content!`);
         }
     }
     itemContent();

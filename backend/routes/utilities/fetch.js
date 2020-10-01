@@ -220,11 +220,11 @@ async function streams (token, data) {
     }
 }
 
-async function blogItems (token) {
+async function allBlogItems (token, uniqueSearch) {
     let runCount = 1;
     const resArr = [];
 
-    async function allItems (i) {
+    async function allItems () {
         try {
             const result = await axios({
                 url: `https://v2.api.uberflip.com/items/`,
@@ -245,7 +245,7 @@ async function blogItems (token) {
                 let id = result.data.data[i].id;
                 let obj = {};
                 
-                if (content.includes('<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="471" src="https://www.youtube.com/embed/')) {
+                if (content.includes(uniqueSearch)) {
                     obj['id'] = id;
                     obj['content'] = content;
                     resArr.push(obj);
@@ -269,6 +269,27 @@ async function blogItems (token) {
     return resArr;
 }
 
+async function streamsBlogItems (token, streamId) {
+
+    try {
+        const result = await axios({
+            url: `https://v2.api.uberflip.com/streams/${streamId}/items`,
+            method: "get",
+            params: {
+                limit: 100,
+                type: 'blogs',
+            },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return result.data.data;
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 module.exports = {
     tagGroup,
     tagId,
@@ -278,21 +299,6 @@ module.exports = {
     users,
     groups,
     streams,
-    blogItems
+    allBlogItems,
+    streamsBlogItems
 };
-
-//631655792
-{/* <p><iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="471" src="https://www.youtube.com/embed/ucuE47L14D0" width="838"></iframe></p>
-
-<p>&nbsp;</p>
-
-<p>Utopia&#39;s Chief Technology Officer shares success story of how they have maximised savings from running SAP on AWS for new innovations such as intelligent data capture powered by machine learning to enrich and enhance the value of master data in enterprise systems including SAP for manufacturing and heavy industries.</p>
- */}
-
-
-//631656035
-{/* <p><iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="471" src="https://www.youtube.com/embed/Dw_yKZznPPY" width="838"></iframe></p>
-
-<div>&nbsp;</div>
-
-<div>Hear how Bristol-Myers Squibb built an enterprise data lakes on AWS using serverless technology to improve its scalability and reduce costs</div> */}
