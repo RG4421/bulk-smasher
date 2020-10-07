@@ -66,7 +66,7 @@ function Create (props) {
     const ServerError = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
-            <label> {serverError.status} - {serverError}</label>
+            <label> {serverError.status} - {serverError.data.message}</label>
         </div>
     )
 
@@ -220,11 +220,15 @@ function Create (props) {
                         throw new Error('API ERROR');
                     }
                 }).catch((e) => {
+                    console.log(e);
+                    console.debug(e);
+
                     if (e.response) {
+                        setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response);
-                        setShowServerSuccess(true);
+                        setServerError(e.response)
+                        setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
                     } else {

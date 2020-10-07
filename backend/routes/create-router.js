@@ -113,36 +113,18 @@ router.route('/items').post(async (req, res) => {
 //           TESTING
 // ----------------------------
 
-const asyncMiddleware = (fn) => (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch((err) => {
-        if (!err.isBoom) {
-            return next(boom.badImplementation(err));
-        }
-        next(err);
-    });
-};
-
-router.route('/test').post(asyncMiddleware(async (req, res, next) => {
+router.route('/test').post(async (req, res, next) => {
     var APIKey = req.body.APIKey;
     var APISecret = req.body.APISecret;
 
-    const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
-
-    return res.status(400).json({
-        message: authToken
-    });
-    // if (!authToken) {
-    //     throw boom.badRequest("Authentication unsuccessful, check your API credentials!");
-    // }
-
-    //const existingUsers = await fetch.users(authToken);
-
-        // console.time('--- API Call Timer ---');
-
-        // console.log('\n');
-        // console.timeEnd('--- API Call Timer ---');
-        // return res.status(201).json('Test function called');
-
-}));
+    try {
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    } catch (e) {
+        console.log(e.message);
+        return res.status(400).json({
+            message: e.message
+        });
+    }
+});
 
 module.exports = router;
