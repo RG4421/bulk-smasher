@@ -10,7 +10,7 @@ import Loader from 'react-loader-spinner'
 import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
-function Create(props) {
+function Create (props) {
 
     const [APIKey, setAPIKey] = useState('');
     const [APISecret, setAPISecret] = useState('');
@@ -195,8 +195,8 @@ function Create(props) {
                         setServerSuccess(res);
                         setShowServerSuccess(true);
                         console.log(res);    
-                    } else {
-                        throw new Error();
+                    } else if (res.status <= 300){
+                        throw new Error('API ERROR');
                     }
                 }).catch((e) => {
                     if (e.response) {

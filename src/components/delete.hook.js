@@ -102,12 +102,12 @@ function Delete(props)
 
     const DeleteAll = () => (
         <div className="form-group">
+            <label>Delete All</label>
             <input 
                 type="checkbox"
                 checked={checked}
                 onChange={e => setChecked(!checked)}
             />
-            <label>Delete All</label>
         </div>
     )
 
@@ -199,6 +199,7 @@ function Delete(props)
             if (ans === "DELETE ALL TAGS") {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowDeleteAll(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/delete/allTags', data)

@@ -11,15 +11,6 @@ const fetch = require('./utilities/fetch');
 const create = require('./create-functions/create');
 const update = require('./update-functions/update');
 
-const asyncMiddleware = (fn) => (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch((err) => {
-        if (!err.isBoom) {
-            return next(boom.badImplementation(err));
-        }
-        next(err);
-    });
-};
-
 router.route('/tags').post((req, res) => {
     var APIKey = req.body.APIKey;
     var APISecret = req.body.APISecret;
@@ -36,7 +27,8 @@ router.route('/tags').post((req, res) => {
             const existingTags = await fetch.tagId(authToken);
             const compareTags = await compare.tags(existingTags, newTags);
             await create.tags(authToken, compareTags);
-            await update.tagItems(authToken, newTags, existingTags);
+            const allTags = await fetch.tagId(authToken);
+            await update.tagItems(authToken, newTags, allTags);
             
             console.log('\n');
             console.timeEnd('--- API Call Timer ---');
@@ -98,27 +90,38 @@ router.route('/users').post((req, res) => {
     createUserProfile();
 });
 
-router.route('/test').post(asyncMiddleware(async (req, res) => {
+const asyncMiddleware = (fn) => (req, res, next) => {
+    Promise.resolve(fn(req, res, next)).catch((err) => {
+        if (!err.isBoom) {
+            return next(boom.badImplementation(err));
+        }
+        next(err);
+    });
+};
+
+
+// TESTING
+router.route('/test').post(asyncMiddleware(async (req, res, next) => {
     var APIKey = req.body.APIKey;
     var APISecret = req.body.APISecret;
 
-    if (!APIKey) {
-        res.status(401).send("This is an error");
-        // throw boom.badRequest("Missing API Key");
-    }
+    const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-//     const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    return res.status(400).json({
+        message: authToken
+    });
+    // if (!authToken) {
+    //     throw boom.badRequest("Authentication unsuccessful, check your API credentials!");
+    // }
 
-//     if (!authToken) {
-//         return res.status(400).json('Authentication unsuccessful, confirm your API keys');
-//     }
+    //const existingUsers = await fetch.users(authToken);
 
-//     console.time('--- API Call Timer ---');
-//     console.log("\n--- API Authentication Successful ---\n");
-    
-//     console.log('\n');
-//     console.timeEnd('--- API Call Timer ---');
-//     return res.status(201).json('Test function called');
+        // console.time('--- API Call Timer ---');
+
+        // console.log('\n');
+        // console.timeEnd('--- API Call Timer ---');
+        // return res.status(201).json('Test function called');
+
 }));
 
 module.exports = router;

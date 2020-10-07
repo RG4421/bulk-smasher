@@ -75,23 +75,25 @@ async function streams (token, data) {
     let resArr = [];
 
     // Looping through CSV data
-    for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         var service;
-        const props = data[i];
-        const hubId = props.hub_id;
-        const title = props.title;
-        const description = props.title;
-        const noRobots = props.no_robots;
-        const listView = props.list_view;
-        const readMore = props.read_more;
-        const canonicalMeta = props.canonical_meta;
-        const canonicalRedirect = props.canonical_redirect;
+        const prop = data[i];
+        const hubId = prop.hub_id;
+        const title = prop.title;
+        const description = prop.title;
+        const noRobots = prop.no_robots;
+        const listView = prop.list_view;
+        const readMore = prop.read_more;
+        const canonicalMeta = prop.canonical_meta;
+        const canonicalRedirect = prop.canonical_redirect;
 
-        if (props.service === "marketing") {
+        const itemProps = Object.keys(prop);
+
+        if (prop.service === "marketing") {
             service = "custom";
-        } else if (props.service === "sales") {
+        } else if (prop.service === "sales") {
             service = "targeted";
-        } else if (props.service === "blogpost") {
+        } else if (prop.service === "blogpost") {
             service = "blogpost";
         }
 
@@ -118,7 +120,29 @@ async function streams (token, data) {
                     exclude_from_search: true
                 }
             });
-            console.log(`${title} stream created`);
+            const streamId = result.data.id;
+            console.log(`${title} stream created with ID ${streamId}`);
+
+            // Looping through props of CSV data
+            // Skipping previous props
+            for (let j = 9; j < itemProps.length; j++) {
+                const item = itemProps[j];
+                const itemId = prop[item];
+
+                try {                        
+                    const result = await axios({
+                        url: `https://v2.api.uberflip.com/streams/${streamId}/items/${itemId}`,
+                        method: 'patch',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        },
+                    });
+                    console.log(`Added item ${itemId} to ${streamId}`);
+        
+                } catch (err) {
+                    console.log(err.response.data.errors);
+                }
+            }
             resArr.push(`${title} stream created`);
 
         } catch (err) {

@@ -60,7 +60,7 @@ async function authenticateCredsV2(key, secret) {
                 }
             });
         } catch (err) {
-            return err;
+            throw Error('Authentication failed - check your API credentials', err);
         }
         return result;
     }
@@ -71,9 +71,8 @@ async function authenticateCredsV2(key, secret) {
             const tokenData = await fetchUser();
             const token = tokenData.data.access_token;
             return token;
-            
         } catch (err) {
-            return err;
+            throw Error('Authentication failed - no bearer token returned', err);
         }
     };
     return fetchToken();

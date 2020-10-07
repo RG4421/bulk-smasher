@@ -166,15 +166,16 @@ async function metadata (token, csv) {
     }
 }
 
-async function tagItems (token, data, tagIds) {
+async function tagItems (token, newTags, tagIds) {
 
     // Looping through CSV data
-    for (let i = 0; i < data.length; i++) {
-        const obj = data[i];
+    for (let i = 0; i < newTags.length; i++) {
+        const obj = newTags[i];
         const itemId = obj.item_id;
         const props = Object.keys(obj);
 
         // Looping through props of CSV data
+        // Skipping itemId
         for (let j = 1; j < props.length; j++) {
             const tagName = props[j];
             const tag = obj[tagName];
@@ -186,6 +187,7 @@ async function tagItems (token, data, tagIds) {
 
                 // Added tag to item if CSV tag matches existing tag name
                 if (tag === tagName) {
+
                     try {                        
                         const result = await axios({
                             url: `https://v2.api.uberflip.com/items/${itemId}/tags/${tagId}`,
