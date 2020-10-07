@@ -27,7 +27,7 @@ function Create (props) {
 
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
-        if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "User Profiles" || selectValue === "Test") {
+        if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "Items" || selectValue === "User Profiles" || selectValue === "Test") {
             setShowUpload(true);
             setShowCSVPreview(false);
             setShowServerSuccess(false);
@@ -161,6 +161,27 @@ function Create (props) {
                 console.log("Create operation cancelled.");
             }
         // Create user profiles
+        } else if (selectValue === "Items") {
+            if (window.confirm("Are you sure you want to CREATE these ITEMS?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
+                Axios.post('https://localhost:8080/create/items', data)
+                .then((res) => {
+                    setShowLoader(false);
+                    setServerSuccess(res);
+                    setShowServerSuccess(true);
+                    console.log(res);
+                }).catch((e) => {
+                    setShowUpload(false);
+                    setShowCSVPreview(true);
+                    setServerSuccess(e);
+                    setShowServerSuccess(true);
+                });
+            } else {
+                console.log("Create operation cancelled.");
+            }
         } else if (selectValue === "User Profiles") {
             if (window.confirm("Are you sure you want to CREATE these USERS?")) {
                 setShowUpload(false);
@@ -250,8 +271,9 @@ function Create (props) {
                         <option default value="null">Please Select...</option>
                         <option value="Tags">Tags</option>
                         <option value="Streams">Streams</option>
+                        <option value="Items">Items</option>
                         <option value="User Profiles">User Profiles</option>
-                        <option value="Test">Test</option>
+                        <option value="Test">***Test***</option>
                     </select>
                 </div>
 

@@ -19,7 +19,6 @@ app.use('/create', createRouter);
 app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);
 
-server.listen(port, function() 
-{
+server.listen(port, function() {
   console.log('Secure server deployed...\nListening at address localhost:' + port + '\n');
 });

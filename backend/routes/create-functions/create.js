@@ -152,8 +152,79 @@ async function streams (token, data) {
     return resArr;
 }
 
+async function items (token, data) {
+
+    for (let i = 0; i < data.length; i++) {
+        const prop = data[i];
+        const hubId = prop.hub_id;
+        const streamId = prop.stream_id;
+        const title = prop.title;
+        const description = prop.description;
+        const content = prop.content;
+        const thumbnailUrl = prop.thumbnail_url;
+        const author = prop.author;
+        const seoTitle = prop.seo_title;
+        const seoDescription = prop.seo_description;
+        const canonicalURL = prop.canonical_url;
+        const dateTime = new Date();
+
+        try {
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/items`,
+                method: 'post',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                data: {
+                    hub_id: hubId,
+                    stream: {
+                        id: streamId,
+                        ordinal: i
+                    },
+                    title: title,
+                    description: description,
+                    content: content,
+                    author: {
+                        first_name: author,
+                    },
+                    seo_title: seoTitle,
+                    seo_description: seoDescription,
+                    thumbnail_url: thumbnailUrl,
+                    canonical_url: canonicalURL,
+                    published_at: dateTime,
+                    hidden: false,
+                }
+            });
+            const itemId = result.data.id;
+            console.log(`Item ${itemId} created in stream ${streamId}`);
+
+            try {
+                const publishResult = await axios({
+                    url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                    method: 'post',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    data: {
+                        published_at: dateTime
+                    }
+                });
+                console.log(`Item ${itemId} published`);
+
+            } catch (err) {
+                console.log(err.response.data.errors);
+            }
+
+        } catch (err) {
+            console.log(err.response.data.errors);
+        }
+    }
+}
+
+
 module.exports = { 
     tags,
     users,
-    streams
+    streams,
+    items
 };
