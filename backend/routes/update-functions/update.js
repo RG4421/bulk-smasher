@@ -1,4 +1,5 @@
 const axios = require('axios');
+const dateFormat = require('dateFormat');
 
 async function pastContent (token, csv, selectValue) {
     let BOOL = 0;
@@ -167,9 +168,11 @@ async function metadata (token, csv) {
 }
 
 async function tagItems (token, newTags, tagIds) {
+    let logObj = [];
 
     // Looping through CSV data
     for (let i = 0; i < newTags.length; i++) {
+        const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
         const obj = newTags[i];
         const itemId = obj.item_id;
         const props = Object.keys(obj);
@@ -196,15 +199,20 @@ async function tagItems (token, newTags, tagIds) {
                                 'Authorization': `Bearer ${token}`,
                             },
                         });
-                        console.log(`Tag ${tagName} added to ${itemId}`);
+                        const resultString = `${dateTime}  -  UPDATED ITEM - Tag '${tagName}' added to ${itemId}\n`;
+                        logObj.push(resultString);
+                        console.log(resultString);
             
                     } catch (err) {
-                        console.log(err.response.data.errors);
+                        const errorMessage = `${dateTime}  -  Error updating item ${itemId} with tag '${tagName}'` + err.response.data.errors;
+                        logObj.push(errorMessage);
+                        throw Error(`${dateTime}  -  Error updating item ${itemId} with tag '${tagName}'`);
                     }
                 }
             }
         }
     }
+    return logObj;
 }
 
 async function groups (token, data) {

@@ -7,6 +7,7 @@ import Axios from 'axios';
 import check from '../check.png'
 import cross from '../cross.png'
 import Loader from 'react-loader-spinner'
+
 import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 

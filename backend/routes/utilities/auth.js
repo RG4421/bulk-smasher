@@ -1,4 +1,4 @@
-var axios = require('axios');
+const axios = require('axios');
 
 async function authenticateCredsV1(key, signature, hubId) {
     const URL = 'https://api.uberflip.com/';
@@ -58,9 +58,9 @@ async function authenticateCredsV2(key, secret) {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            });
+            });            
         } catch (err) {
-            throw Error('Authentication failed - check your API credentials', err);
+            throw Error('Uberflip Authentication failed - check your API credentials', err);
         }
         return result;
     }
@@ -72,7 +72,7 @@ async function authenticateCredsV2(key, secret) {
             const token = tokenData.data.access_token;
             return token;
         } catch (err) {
-            throw Error('Authentication failed - no bearer token returned', err);
+            throw Error('Uberflip Authentication failed - check your API credentials', err);
         }
     };
     return fetchToken();

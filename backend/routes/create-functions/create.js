@@ -1,9 +1,13 @@
 const axios = require('axios');
+const dateFormat = require('dateFormat');
 
 async function tags (token, data) {
+    let logObj = [];
 
     // Pulling in unique tags to be created
     for (let tagName of data) {
+        const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+
         try {
             const tagGroupId = async => tags.fetchTagGroup(token);
             
@@ -18,12 +22,17 @@ async function tags (token, data) {
                     name: tagName,
                 },
             });
-            console.log(`Tag ${tagName} created`);
+            const resultString = `${dateTime}  -  CREATED TAG - '${tagName}'\n`;
+            logObj.push(resultString);
+            console.log(resultString);
 
         } catch (err) {
-            console.log(err.response.data.errors);
+            const errorMessage = `${dateTime}  -  ERROR at ${tagName}` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(`${dateTime}  -  Error creating tag '${tagName}'`);
         }
     }
+    return logObj;
 }
 
 async function users (token, data) {
