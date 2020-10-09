@@ -5,7 +5,9 @@ import React, {
 import Axios from 'axios';
 import { CsvToHtmlTable }from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
+
 import check from '../check.png'
+import cross from '../cross.png'
 import Loader from 'react-loader-spinner'
 import "react-datepicker/dist/react-datepicker.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -20,7 +22,8 @@ function Update(props) {
     const [streamId, setStreamId] = useState('');
     const [itemSearch, setItemSearch] = useState('');
     const [itemReplace, setItemReplace] = useState('');
-    const [serverResponse, setServerResponse] = useState('');
+    const [serverSuccess, setServerSuccess] = useState('');
+    const [serverError, setServerError] = useState('');
 
     const [selectDate, setSelectDate] = useState(new Date());
     const [showStreamId, setShowStreamId] = useState(false);
@@ -28,7 +31,8 @@ function Update(props) {
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
-    const [showServerResponse, setShowServerResponse] = useState(false);
+    const [showServerSuccess, setShowServerSuccess] = useState(false);
+    const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
 
     // Handling what fields are displayed depending on selectValue
@@ -37,35 +41,40 @@ function Update(props) {
             setShowDatePicker(true);
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowFindReplaceContent(false);
             setShowStreamId(false);
         } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream") {
             setShowDatePicker(false);
             setShowUpload(true);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowFindReplaceContent(false);
             setShowStreamId(false);
         } else if (selectValue === "Item Embedded Content") {
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowStreamId(false);
             setShowFindReplaceContent(true);
         } else if (selectValue === "Stream Embedded Content") {
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowStreamId(true);
             setShowFindReplaceContent(true);
         } else {
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowStreamId(false);
             setShowFindReplaceContent(false);
         }
@@ -83,6 +92,69 @@ function Update(props) {
         fileData.readAsText(file);
         setShowCSVPreview(true);
     }
+
+    const ServerSuccess = () => (
+        <div className="form-group" style={{marginTop: 30}}>
+            <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
+            <label> {serverSuccess.data}</label>
+        </div>
+    )
+
+    const ServerError = () => (
+        <div className="form-group" style={{marginTop: 30}}>
+            <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
+            <label> {serverError.status} {serverError.data.message}</label>
+        </div>
+    )
+    const CSVUpload = () => (
+        <div className="form-group">
+            <div style={{marginTop: 30}}>
+                <input type="file"
+                    accept=".csv"
+                    onChange={e => ReadFile(e.target.files[0])}
+                />
+            </div>
+        </div>   
+    )
+
+    const CSVPreview = () => (
+        <div className="form-group">
+           <h5 style={{marginTop: 30}}>Data Preview:</h5>
+            <div>
+                <CsvToHtmlTable
+                    data={fileContents}
+                    csvDelimiter=","
+                    tableClassName="table table-striped table-hover"
+                />
+            </div>
+        </div>
+    )
+
+    const APILoader = () => (
+        <div className="form-group" style={{marginTop: 30}}>
+            <div style={{display: "flex"}}>
+                <Loader
+                    type="Bars"
+                    color="#0e8643"
+                    height="30"
+                    weight="30"
+                />
+                <label style={{marginLeft: -15}}>Executing operator...</label>
+            </div>
+        </div>
+    )
+
+    const DateSelector = () => (
+        <div className="form-group">
+            <label>Select date to remove past content: </label>
+            <div>
+                <DatePicker
+                    selected={selectDate}
+                    onChange={date => setSelectDate(date)}
+                />
+            </div>
+        </div>
+    )
 
     const Streams = () => (
         <div className="form-group">
@@ -129,66 +201,7 @@ function Update(props) {
         </div>
     )
 
-    const ServerResponse = () => (
-        <div className="form-group" style={{marginTop: 30}}>
-            <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
-            <label> {serverResponse.status} - {serverResponse.data}</label>
-        </div>
-    )
-
-    const CSVUpload = () => (
-        <div className="form-group">
-            <div style={{marginTop: 30}}>
-                <input type="file"
-                    accept=".csv"
-                    onChange={e => ReadFile(e.target.files[0])}
-                />
-            </div>
-        </div>   
-    )
-
-    const CSVPreview = () => (
-        <div className="form-group">
-           <h5 style={{marginTop: 30}}>Data Preview:</h5>
-            <div>
-                <CsvToHtmlTable
-                    data={fileContents}
-                    csvDelimiter=","
-                    tableClassName="table table-striped table-hover"
-                />
-            </div>
-        </div>
-    )
-
-    const APILoader = () => (
-        <div className="form-group" style={{marginTop: 30}}>
-            <div style={{display: "flex"}}>
-                <Loader
-                    type="Bars"
-                    color="#0e8643"
-                    height="30"
-                    weight="30"
-                />
-                <label style={{marginLeft: -15}}>Executing operator...</label>
-            </div>
-        </div>
-    )
-
-    const DateSelector = () => (
-        <div className="form-group">
-            <label>Select date to remove past content: </label>
-            <div style={{width: 600}}>
-                <DatePicker
-                    selected={selectDate}
-                    onChange={date => setSelectDate(date)}
-                    isClearable
-                />
-            </div>
-        </div>
-    )
-
     const HandleSubmit = (e) => {
-        setShowServerResponse(false);
         e.preventDefault();
 
         const data = {
@@ -206,21 +219,31 @@ function Update(props) {
         // Updating past content to hidden
         if (selectValue === "Hide Past Content") {
             if (window.confirm("Are you sure you want to HIDE items prior to " + selectDate + "?")) {
+                setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/hidePastContent', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -228,21 +251,31 @@ function Update(props) {
         // Updated past content to be shown
         } else if (selectValue === "Show Past Content") {
             if (window.confirm("Are you sure you want to SHOW items prior to " + selectDate + "?")) {
+                setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/showPastContent', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -250,21 +283,31 @@ function Update(props) {
         // Update author of stream items
         } else if (selectValue === "Author") {
             if (window.confirm("Are you sure you want to UPDATE the AUTHOR of these items?")) {
+                setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/author', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -272,21 +315,31 @@ function Update(props) {
         // Update SEO metadata of stream items
         } else if (selectValue === "SEO") {
             if (window.confirm("Are you sure you want to UPDATE the SEO of these items?")) {
+                setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/seo', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -294,21 +347,31 @@ function Update(props) {
         // Update items metadata
         } else if (selectValue === "Metadata") {
             if (window.confirm("Are you sure you want to UPDATE the METADATA of these items?")) {
+                setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/metadata', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -316,21 +379,36 @@ function Update(props) {
         // Populate stream with items
         } else if (selectValue === "Populate Stream") {
             if (window.confirm("Are you sure you want to UPDATE these STREAMS?")) {
+                setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/populateStreams', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    } else if (res.status <= 300){
+                        throw new Error('API ERROR');
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    console.log(e);
+                    console.debug(e);
+
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -338,23 +416,31 @@ function Update(props) {
         // Populate items embedded content
         } else if (selectValue === "Item Embedded Content") {
             if (window.confirm("Are you sure you want to UPDATE these ITEMS EMBEDDED CONTENT?")) {
+                setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/itemContent', data)
                 .then((res) => {
-                    setShowStreamId(false);
-                    setShowFindReplaceContent(false);
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -362,23 +448,31 @@ function Update(props) {
         }
         else if (selectValue === "Stream Embedded Content") {
             if (window.confirm(`Are you sure you want to UPDATE stream ${streamId} ITEM EMBEDDED CONTENT?`)) {
+                setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/streamItemContent', data)
                 .then((res) => {
-                    setShowStreamId(false);
-                    setShowFindReplaceContent(false);
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Update operation cancelled.");
@@ -388,6 +482,7 @@ function Update(props) {
 
     // Build of webpage
     return (
+    <>
         <div className="container">
             <form>
             <h3>Bulk Update</h3>
@@ -428,19 +523,21 @@ function Update(props) {
                     </select>
                 </div>
 
-                { showLoader ? <APILoader/> : null }
-                { showServerResponse ? <ServerResponse/> : null }
-                { showStreamId ? <Streams/> : null }
+                { showLoader             ? <APILoader/> : null }
+                { showServerSuccess      ? <ServerSuccess/> : null }
+                { showServerError        ? <ServerError/> : null }
+                { showStreamId           ? <Streams/> : null }
                 { showFindReplaceContent ? <FindAndReplace/> : null } 
-                { showDatePicker ? <DateSelector/> : null } 
-                { showUpload ? <CSVUpload/> : null }
-                { showCSVPreview ? <CSVPreview/> : null } 
+                { showDatePicker         ? <DateSelector/> : null } 
+                { showUpload             ? <CSVUpload/> : null }
+                { showCSVPreview         ? <CSVPreview/> : null } 
 
                 <div className="form-group" style={{marginTop: 30}}>
                     <input onClick={HandleSubmit} type="submit" value="Execute" className="btn btn-success"/>
                 </div>
             </form>
         </div>
+    </>
     )
 }
 

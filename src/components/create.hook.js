@@ -4,10 +4,10 @@ import React, {
 } from 'react';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
+
 import check from '../check.png'
 import cross from '../cross.png'
 import Loader from 'react-loader-spinner'
-
 import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
@@ -60,14 +60,14 @@ function Create (props) {
     const ServerSuccess = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
-            <label> {serverSuccess.status} - {serverSuccess.data}</label>
+            <label> {serverSuccess.data}</label>
         </div>
     )
 
     const ServerError = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
-            <label> {serverError.status} - {serverError.data.message}</label>
+            <label> {serverError.status} {serverError.data.message}</label>
         </div>
     )
 
@@ -127,14 +127,24 @@ function Create (props) {
 
                 Axios.post('https://localhost:8080/create/tags', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerSuccess(res);
-                    setShowServerSuccess(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setServerSuccess(e);
-                    setShowServerError(true);
-                    console.log(e);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Create operation cancelled.");
@@ -148,15 +158,24 @@ function Create (props) {
 
                 Axios.post('https://localhost:8080/create/streams', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerSuccess(res);
-                    setShowServerSuccess(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerSuccess(e);
-                    setShowServerSuccess(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Create operation cancelled.");
@@ -170,15 +189,24 @@ function Create (props) {
 
                 Axios.post('https://localhost:8080/create/items', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerSuccess(res);
-                    setShowServerSuccess(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerSuccess(e);
-                    setShowServerSuccess(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Create operation cancelled.");
@@ -191,15 +219,27 @@ function Create (props) {
 
                 Axios.post('https://localhost:8080/create/users', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerSuccess(res);
-                    setShowServerSuccess(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerSuccess(e);
-                    setShowServerSuccess(true);
+                    console.log(e);
+                    console.debug(e);
+
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 console.log("Create operation cancelled.");
@@ -244,7 +284,7 @@ function Create (props) {
     
     // Build of webpage
     return (
-        <>
+    <>
         <div className="container">
             <form>
             <h3>Bulk Create</h3>
@@ -274,26 +314,26 @@ function Create (props) {
                         onChange={e => setSelectValue(e.target.value)}
                     >
                         <option default value="null">Please Select...</option>
+                        <option value="Items">Items</option>
                         <option value="Tags">Tags</option>
                         <option value="Streams">Streams</option>
-                        <option value="Items">Items</option>
                         <option value="User Profiles">User Profiles</option>
-                        <option value="Test">***Test***</option>
+                        {/* <option value="Test">***Test***</option> */}
                     </select>
                 </div>
 
-                { showLoader ? <APILoader/> : null } 
+                { showLoader        ? <APILoader/> : null } 
                 { showServerSuccess ? <ServerSuccess/> : null }
-                { showServerError ? <ServerError/> : null } 
-                { showUpload ? <CSVUpload/> : null }
-                { showCSVPreview ? <CSVPreview/> : null } 
+                { showServerError   ? <ServerError/> : null } 
+                { showUpload        ? <CSVUpload/> : null }
+                { showCSVPreview    ? <CSVPreview/> : null } 
 
                 <div className="form-group" style={{marginTop: 30}}>
-                        <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
+                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
                 </div>
             </form>
         </div>
-        </>
+    </>
     );
 }
 

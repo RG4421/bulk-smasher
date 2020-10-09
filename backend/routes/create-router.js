@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const timer = require('execution-time')();
 const dateFormat = require('dateFormat');
 const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
@@ -19,35 +20,34 @@ const update = require('./update-functions/update');
 -----------
 */
 router.route('/tags').post(async (req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
 
     try {
+        timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         
-        console.time('--- API Call Timer ---');
-
         const newTags = await parse.CSV(fileContents);
         const existingTags = await fetch.tagId(authToken);
         const compareTags = await compare.tags(existingTags, newTags);
         const createdTags = await create.tags(authToken, compareTags);
         const allTags = await fetch.tagId(authToken);
         const updatedTags = await update.tagItems(authToken, newTags, allTags);
-        
-        console.timeEnd('--- API Call Timer ---');
 
         let log = createdTags.concat(updatedTags);
-        await fileHandler.createLog(`BULK BUSTER LOG - CREATE TAGS \n\n` + log.join(""));
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE TAGS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-        return res.status(201).json('Tags successfully created and applied!');
+        return res.status(201).json(`Tags successfully created and applied - Runtime: ${time.words}`);
         
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime}\n${e.message}\n`;
-        await fileHandler.createLog(errorMessage.toString());
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
-            message: e.message
+            message: errorMessage
         });
     }
 });
@@ -58,26 +58,32 @@ router.route('/tags').post(async (req, res) => {
 -----------
 */
 router.route('/streams').post(async (req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
 
-    const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-    if (authToken) {
-        console.time('--- API Call Timer ---');
-        console.log("\n--- API Authentication Successful ---\n");
-    
         const csvData = await parse.CSV(fileContents);
-        await create.streams(authToken, csvData);
+        const createdStreams = await create.streams(authToken, csvData);
 
-        console.log('\n');
-        console.timeEnd('--- API Call Timer ---');
-        return res.status(201).json('Marketing streams created!');
-    } else {
-        return res.status(401).json('Authentication unsuccessful');
+        let log = createdStreams;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(201).json(`Streams successfully created and populated - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-
 });
 
 /*
@@ -86,28 +92,35 @@ router.route('/streams').post(async (req, res) => {
 -----------
 */
 router.route('/users').post(async (req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
 
-    const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-    if (authToken) {
-        console.time('--- API Call Timer ---');
-        console.log("\n--- API Authentication Successful ---\n");
-    
         const csvData = await parse.CSV(fileContents);
         const newUsers = await create.users(authToken, csvData);
         const existingUsers = await fetch.users(authToken);
         const userGroups = await fetch.groups(authToken);
-        const compareUsers = await compare.users(existingUsers, newUsers, userGroups);
-        await update.groups(authToken, compareUsers);
+        const compareUsers = await compare.users(existingUsers, newUsers.user, userGroups);
+        const updatedUsers = await update.groups(authToken, compareUsers);
+
+        let log = newUsers.logObj.concat(updatedUsers);
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE USERS (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(201).json(`User profiles created and groups assigned - Runtime: ${time.words}`);
         
-        console.log('\n');
-        console.timeEnd('--- API Call Timer ---');
-        return res.status(201).json('User profiles created and groups assigned!');
-    } else {
-        return res.status(401).json('Authentication unsuccessful');
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
 });
 
@@ -121,20 +134,27 @@ router.route('/items').post(async (req, res) => {
     var APISecret = req.body.APISecret;
     var fileContents = req.body.fileContents;
 
-    const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-    if (authToken) {
-        console.time('--- API Call Timer ---');
-        console.log("\n--- API Authentication Successful ---\n");
-    
         const csvData = await parse.CSV(fileContents);
-        await create.items(authToken, csvData);
-        
-        console.log('\n');
-        console.timeEnd('--- API Call Timer ---');
-        return res.status(201).json('Items created!');
-    } else {
-        return res.status(401).json('Authentication unsuccessful');
+        const createdItems = await create.items(authToken, csvData);
+
+        let log = createdItems;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(201).json(`User profiles created and groups assigned - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
 });
 

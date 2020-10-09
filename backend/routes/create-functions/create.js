@@ -6,7 +6,7 @@ async function tags (token, data) {
 
     // Pulling in unique tags to be created
     for (let tagName of data) {
-        const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         try {
             const tagGroupId = async => tags.fetchTagGroup(token);
@@ -22,35 +22,37 @@ async function tags (token, data) {
                     name: tagName,
                 },
             });
-            const resultString = `${dateTime}  -  CREATED TAG - '${tagName}'\n`;
+            let resultString = `${dateTime}  -  CREATED TAG  -  '${tagName}'\n`;
             logObj.push(resultString);
             console.log(resultString);
 
         } catch (err) {
             const errorMessage = `${dateTime}  -  ERROR at ${tagName}` + err.response.data.errors;
             logObj.push(errorMessage);
-            throw Error(`${dateTime}  -  Error creating tag '${tagName}'`);
+            throw Error(errorMessage);
         }
     }
     return logObj;
 }
 
 async function users (token, data) {
-    const user = [];
+    let logObj = [];
+    let user = [];
 
     // Looping through CSV data
-    for (var i = 0; i < data.length; i++) {
-        const obj = {};
-        const props = data[i];
+    for (let i = 0; i < data.length; i++) {
+        let obj = {};
+        let props = data[i];
 
-        const firstName = props.first_name;
-        const lastName = props.last_name;
-        const email = props.email;
-        const twitterHandle = props.twitter_handle;
-        const linkedIn = props.linkedin_profile_url;
-        const bio = props.bio;
-        const group = props.group;
+        let firstName = props.first_name;
+        let lastName = props.last_name;
+        let email = props.email;
+        let twitterHandle = props.twitter_handle;
+        let linkedIn = props.linkedin_profile_url;
+        let bio = props.bio;
+        let group = props.group;
 
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
         obj['email'] = email;
         obj['group'] = group;
         user.push(obj);
@@ -71,32 +73,42 @@ async function users (token, data) {
                     bio: bio
                 }
             });
-            console.log(`User ${firstName} ${lastName} created`);
+            let resultFName = result.data.first_name;
+            let resultLName = result.data.last_name;
+            let userId = result.data.id;
+
+            let resultString = `${dateTime}  -  CREATED USER  -  '${resultFName} ${resultLName}' with ID '${userId}'\n`;
+            logObj.push(resultString);
+            console.log(resultString);
 
         } catch (err) {
-            console.log(err.response.data.errors);
+            let errorMessage = `${dateTime}  -  ERROR at '${firstName} ${lastName}'` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(errorMessage);
         }       
     }
-    return user;
+    let returnObj = {user, logObj}
+    return returnObj;
 }
 
 async function streams (token, data) {
-    let resArr = [];
+    let logObj = [];
 
     // Looping through CSV data
     for (let i = 0; i < data.length; i++) {
         var service;
-        const prop = data[i];
-        const hubId = prop.hub_id;
-        const title = prop.title;
-        const description = prop.title;
-        const noRobots = prop.no_robots;
-        const listView = prop.list_view;
-        const readMore = prop.read_more;
-        const canonicalMeta = prop.canonical_meta;
-        const canonicalRedirect = prop.canonical_redirect;
+        let prop = data[i];
+        let hubId = prop.hub_id;
+        let title = prop.title;
+        let description = prop.title;
+        let noRobots = prop.no_robots;
+        let listView = prop.list_view;
+        let readMore = prop.read_more;
+        let canonicalMeta = prop.canonical_meta;
+        let canonicalRedirect = prop.canonical_redirect;
 
-        const itemProps = Object.keys(prop);
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let itemProps = Object.keys(prop);
 
         if (prop.service === "marketing") {
             service = "custom";
@@ -129,14 +141,18 @@ async function streams (token, data) {
                     exclude_from_search: true
                 }
             });
-            const streamId = result.data.id;
-            console.log(`${title} stream created with ID ${streamId}`);
+            let streamTitle = result.data.title; 
+            let streamId = result.data.id;
+
+            let resultString = `${dateTime}  -  CREATED STREAM  -  '${streamTitle}' stream created with ID '${streamId}'\n`;
+            logObj.push(resultString);
+            console.log(resultString);
 
             // Looping through props of CSV data
             // Skipping previous props
             for (let j = 9; j < itemProps.length; j++) {
-                const item = itemProps[j];
-                const itemId = prop[item];
+                let item = itemProps[j];
+                let itemId = prop[item];
 
                 try {                        
                     const result = await axios({
@@ -146,36 +162,43 @@ async function streams (token, data) {
                             'Authorization': `Bearer ${token}`,
                         },
                     });
-                    console.log(`Added item ${itemId} to ${streamId}`);
+                    let resultString = `${dateTime}  -  UPDATED STREAM  -  Item ${itemId} added to '${streamId}'\n`;
+                    logObj.push(resultString);
+                    console.log(resultString);
         
                 } catch (err) {
-                    console.log(err.response.data.errors);
+                    let errorMessage = `${dateTime}  -  ERROR stream ${streamTitle} at ${itemId}` + err.response.data.errors;
+                    logObj.push(errorMessage);
+                    throw Error(errorMessage);
                 }
             }
-            resArr.push(`${title} stream created`);
 
         } catch (err) {
-            console.log(err.response.data.errors);
+            let errorMessage = `${dateTime}  -  ERROR at creating stream '${title}'` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(errorMessage);
         }
     }
-    return resArr;
+    return logObj;
 }
 
 async function items (token, data) {
+    let logObj = [];
 
     for (let i = 0; i < data.length; i++) {
-        const prop = data[i];
-        const hubId = prop.hub_id;
-        const streamId = prop.stream_id;
-        const title = prop.title;
-        const description = prop.description;
-        const content = prop.content;
-        const thumbnailUrl = prop.thumbnail_url;
-        const author = prop.author;
-        const seoTitle = prop.seo_title;
-        const seoDescription = prop.seo_description;
-        const canonicalURL = prop.canonical_url;
-        const dateTime = new Date();
+        let prop = data[i];
+        let hubId = prop.hub_id;
+        let streamId = prop.stream_id;
+        let title = prop.title;
+        let description = prop.description;
+        let content = prop.content;
+        let thumbnailUrl = prop.thumbnail_url;
+        let author = prop.author;
+        let seoTitle = prop.seo_title;
+        let seoDescription = prop.seo_description;
+        let canonicalURL = prop.canonical_url;
+        let date = new Date();
+        const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         try {
             const result = await axios({
@@ -200,12 +223,14 @@ async function items (token, data) {
                     seo_description: seoDescription,
                     thumbnail_url: thumbnailUrl,
                     canonical_url: canonicalURL,
-                    published_at: dateTime,
+                    published_at: date,
                     hidden: false,
                 }
             });
-            const itemId = result.data.id;
-            console.log(`Item ${itemId} created in stream ${streamId}`);
+            let itemId = result.data.id;           
+            let resultString = `${dateTime}  -  CREATED ITEM  -  Item '${itemId}' created in stream ${streamId}\n`;
+            logObj.push(resultString);
+            console.log(resultString);
 
             try {
                 const publishResult = await axios({
@@ -218,18 +243,24 @@ async function items (token, data) {
                         published_at: dateTime
                     }
                 });
-                console.log(`Item ${itemId} published`);
+
+                let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' published\n`;
+                logObj.push(resultString);
+                console.log(resultString);
 
             } catch (err) {
-                console.log(err.response.data.errors);
+                let errorMessage = `${dateTime}  -  Error publishing item '${itemId}'` + err.response.data.errors;
+                logObj.push(errorMessage);
+                throw Error(errorMessage);
             }
-
         } catch (err) {
-            console.log(err.response.data.errors);
+            let errorMessage = `${dateTime}  -  Error creating item '${title}'` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(errorMessage);        
         }
     }
+    return logObj;
 }
-
 
 module.exports = { 
     tags,

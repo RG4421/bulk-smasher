@@ -2,7 +2,9 @@ const axios = require('axios');
 const dateFormat = require('dateFormat');
 
 async function pastContent (token, csv, selectValue) {
+    let logObj = [];
     let BOOL = 0;
+
     if (selectValue === 'Hide Past Content') {
         BOOL = true;
     } else if (selectValue === 'Show Past Content') {
@@ -10,13 +12,14 @@ async function pastContent (token, csv, selectValue) {
     }
 
     for (let i = 0; i < csv.length; i++) {
-        const streamId = csv[i].stream_id;
-        const temp = csv[i];
-        const props = Object.keys(temp);
+        let streamId = csv[i].stream_id;
+        let temp = csv[i];
+        let props = Object.keys(temp);
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         for (let j = 1; j < props.length; j++) {
-            const itemName = props[j];
-            const itemId = temp[itemName];
+            let itemName = props[j];
+            let itemId = temp[itemName];
 
             try {
                 const result = await axios({
@@ -32,13 +35,18 @@ async function pastContent (token, csv, selectValue) {
                         hidden: BOOL,
                     },
                 });
-                console.log(`Item ${itemId} updated`);
+                let resultString = `${dateTime}  -  UPDATED PAST CONTENT  -  Item '${itemId}' updated!\n`;
+                logObj.push(resultString);
+                console.log(resultString);
 
             } catch (err) {
-                console.log(err.response.data.errors);
+                let errorMessage = `${dateTime}  -  ERROR at updating item '${itemId}'` + err.response.data.errors;
+                logObj.push(errorMessage);
+                throw Error(errorMessage);
             }
         }
     }
+    return logObj;
 }
 
 async function author (token, csv) {
@@ -199,14 +207,14 @@ async function tagItems (token, newTags, tagIds) {
                                 'Authorization': `Bearer ${token}`,
                             },
                         });
-                        const resultString = `${dateTime}  -  UPDATED ITEM - Tag '${tagName}' added to ${itemId}\n`;
+                        let resultString = `${dateTime}  -  UPDATED ITEM  -  Tag '${tagName}' added to item ${itemId}\n`;
                         logObj.push(resultString);
                         console.log(resultString);
             
                     } catch (err) {
-                        const errorMessage = `${dateTime}  -  Error updating item ${itemId} with tag '${tagName}'` + err.response.data.errors;
+                        let errorMessage = `${dateTime}  -  Error updating item ${itemId} with tag '${tagName}'` + err.response.data.errors;
                         logObj.push(errorMessage);
-                        throw Error(`${dateTime}  -  Error updating item ${itemId} with tag '${tagName}'`);
+                        throw Error(errorMessage);
                     }
                 }
             }
@@ -216,14 +224,15 @@ async function tagItems (token, newTags, tagIds) {
 }
 
 async function groups (token, data) {
-    let resArr = [];
+    let logObj = [];
 
     // Looping through CSV data
     for (let i = 0; i < data.length; i++) {
-        const userId = data[i].userId;
-        const groupId = data[i].groupId;
+        let userId = data[i].userId;
+        let groupId = data[i].groupId;
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
-        try {                        
+        try {                    
             const result = await axios({
                 url: `https://v2.api.uberflip.com/users/${userId}/user-groups/${groupId}`,
                 method: 'put',
@@ -231,14 +240,17 @@ async function groups (token, data) {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-            console.log(`User ${userId} added to ${groupId}`);
-            resArr.push(`User ${userId} added to ${groupId}`);
+            let resultString = `${dateTime}  -  UPDATED GROUP  -  User '${userId}' added to group '${groupId}'\n`;
+            logObj.push(resultString);
+            console.log(resultString);
 
         } catch (err) {
-            console.log(err.response.data.errors);
+            let errorMessage = `${dateTime}  -  Error updating user '${userId}' to group '${groupId}'` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(errorMessage);
         }
     }
-    return resArr;
+    return logObj;
 }
 
 async function streams (token, data) {
@@ -277,7 +289,7 @@ async function embedContent (token, data, search, replace) {
     for (let i = 0; i < data.length; i++) {
         let itemId = data[i].id;
         let content = data[i].content;
-        var datetime = new Date();
+        let datetime = new Date();
 
         let updatedContent = content.replace(search, replace);
 
@@ -328,7 +340,7 @@ async function AWSTest (token, data, search, replace) {
                 
         let itemId = data[i].id;
         let content = data[i].content.published;
-        var datetime = new Date();
+        let datetime = new Date();
 
         let updatedContent = content.replace(search, replace);
 

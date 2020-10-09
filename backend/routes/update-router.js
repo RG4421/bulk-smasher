@@ -1,37 +1,55 @@
 const router = require('express').Router();
+const timer = require('execution-time')();
+const dateFormat = require('dateFormat');
+const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
 // Utility functions
 const auth  = require('./utilities/auth');
 const parse = require('./utilities/csv-parser');
 const fetch = require('./utilities/fetch');
+const fileHandler = require('./utilities/file-handler');
 
 // Functions
 const update = require('./update-functions/update');
 
-router.route('/hidePastContent').post((req, res) => {
+/*
+-------------------
+ HIDE PAST CONTENT
+-------------------
+*/
+router.route('/hidePastContent').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const selectDate = req.body.selectDate;
     const fileContents = req.body.fileContents;
     const selectValue = req.body.selectValue;
+    const newDate = dateFormat(selectDate, "yyyy-mm-dd")
 
-    async function hidePastContent () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
-            
-            const csvData = await parse.CSV(fileContents);
-            const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
-            await update.pastContent(authToken, pastContent, selectValue);
+        const csvData = await parse.CSV(fileContents);
+        const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
+        const updatedContent = await update.pastContent(authToken, pastContent, selectValue);
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Past content status set to hidden!');
-        }
+        console.log(pastContent);
+
+        let log = updatedContent;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE PAST CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(200).json(`Content before ${newDate} set to hidden - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    hidePastContent();
 });
 
 router.route('/showPastContent').post((req, res) => {
