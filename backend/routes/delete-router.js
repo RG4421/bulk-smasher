@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
 // Utility functions
-const auth = require('./utilities/auth');
-const parse = require('./utilities/csv-parser');
-const fetch = require('./utilities/fetch');
+const auth = require('./utility-functions/auth');
+const parse = require('./utility-functions/csv-parser');
+const fetch = require('./utility-functions/fetch');
 
 // Functions
 const deleteFunc = require('./delete-functions/delete');

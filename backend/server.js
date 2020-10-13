@@ -45,7 +45,7 @@ server.listen(port, function(err)
                 from: "larsenfriis1@gmail.com",
                 to: "larsen.friis@uberflip.com",
                 subject: `Bulk Smasher - CRITICAL SERVER ERROR ` + dateTime,
-                text: `Error deploying Express server\nError: ${err}`
+                text: `Error deploying Bulk Smasher server\nError: ${err}`
             };
             
             transporter.sendMail(mailOptions, function(err) {
@@ -60,6 +60,6 @@ server.listen(port, function(err)
             console.log(dateTime + err);
         }
     } else {
-        console.log('Secure server deployed...\nListening at https://localhost:' + port + '\n');
+        console.log('Secure server deployed...\nListening at localhost:' + port + '\n');
     }
 });

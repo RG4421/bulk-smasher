@@ -4,10 +4,10 @@ const dateFormat = require('dateFormat');
 const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
 // Utility functions
-const auth  = require('./utilities/auth');
-const parse = require('./utilities/csv-parser');
-const fetch = require('./utilities/fetch');
-const fileHandler = require('./utilities/file-handler');
+const auth  = require('./utility-functions/auth');
+const parse = require('./utility-functions/csv-parser');
+const fetch = require('./utility-functions/fetch');
+const fileHandler = require('./utility-functions/file-handler');
 
 // Functions
 const update = require('./update-functions/update');
