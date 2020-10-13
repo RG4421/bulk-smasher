@@ -416,6 +416,8 @@ function Update(props) {
         // Populate items embedded content
         } else if (selectValue === "Item Embedded Content") {
             if (window.confirm("Are you sure you want to UPDATE these ITEMS EMBEDDED CONTENT?")) {
+                setShowStreamId(false);
+                setShowFindReplaceContent(false);
                 setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
@@ -448,6 +450,8 @@ function Update(props) {
         }
         else if (selectValue === "Stream Embedded Content") {
             if (window.confirm(`Are you sure you want to UPDATE stream ${streamId} ITEM EMBEDDED CONTENT?`)) {
+                setShowStreamId(false);
+                setShowFindReplaceContent(false);
                 setShowDatePicker(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);

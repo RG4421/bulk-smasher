@@ -99,40 +99,35 @@ async function hiddenStreamItems (token, data) {
 }
 
 // Fetching stream item's prior to selected date
-async function pastContentItems (token, data, date) {
+async function pastContentItems (token, date) {
     const resultArr = [];
 
-    for (let i = 0; i < data.length; i++) {
-        const streamId = data[i].stream_id;
+    try {
+        const result = await axios({
+            url: `https://v2.api.uberflip.com/items`,
+            method: "get",
+            params: {
+                limit: 100,
+            },
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        const streamItemData = result.data.data;
+        const streamIds = {};
 
-        try {
-            const result = await axios({
-                url: `https://v2.api.uberflip.com/streams/${streamId}/items`,
-                method: "get",
-                params: {
-                    limit: 100,
-                },
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            const streamItemData = result.data.data;
-            const streamIds = {};
-            streamIds["stream_id"] = streamId;
+        for (let j = 0; j < streamItemData.length; j++) {
+            const createdDate = streamItemData[j].created_at;
 
-            for (let j = 0; j < streamItemData.length; j++) {
-                const createdDate = streamItemData[j].created_at;
-
-                if (createdDate < date) {
-                    streamIds[`item_id${j}`] = streamItemData[j].id;
-                }
-            }
-            resultArr.push(streamIds);
-
-            } catch (err) {
-                console.log(err.response.data.errors);
+            if (createdDate < date) {
+                streamIds[`item_id${j}`] = streamItemData[j].id;
             }
         }
+        resultArr.push(streamIds);
+
+    } catch (err) {
+        console.log(err.response.data.errors);
+    }
     return resultArr;
 }
 
@@ -222,7 +217,7 @@ async function streams (token, data) {
 
 async function allBlogItems (token, uniqueSearch) {
     let runCount = 1;
-    const resArr = [];
+    let resArr = [];
 
     async function allItems () {
         try {
@@ -269,7 +264,8 @@ async function allBlogItems (token, uniqueSearch) {
     return resArr;
 }
 
-async function streamsBlogItems (token, streamId) {
+async function streamsBlogItems (token, streamId, uniqueSearch) {
+    let resArr = [];
 
     try {
         const result = await axios({
@@ -283,11 +279,23 @@ async function streamsBlogItems (token, streamId) {
                 Authorization: `Bearer ${token}`,
             },
         });
-        return result.data.data;
+        const resLength = result.data.data.length;
 
+        for (let i = 0; i < resLength; i++) {
+            let content = result.data.data[i].content.published;
+            let id = result.data.data[i].id;
+            let obj = {};
+            
+            if (content.includes(uniqueSearch)) {
+                obj['id'] = id;
+                obj['content'] = content;
+                resArr.push(obj);
+            }
+        }
     } catch (err) {
         console.log(err);
     }
+    return resArr;
 }
 
 module.exports = {

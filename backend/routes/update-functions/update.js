@@ -35,12 +35,33 @@ async function pastContent (token, csv, selectValue) {
                         hidden: BOOL,
                     },
                 });
-                let resultString = `${dateTime}  -  UPDATED PAST CONTENT  -  Item '${itemId}' updated!\n`;
+                let resultString = `${dateTime}  -  UPDATED PAST CONTENT  -  Item '${itemId}' updated\n`;
                 logObj.push(resultString);
                 console.log(resultString);
 
+                try {
+                    const publishResult = await axios({
+                        url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                        method: 'post',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        },
+                        data: {
+                            published_at: dateTime
+                        }
+                    });
+                    let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                    logObj.push(resultString);
+                    console.log(resultString);
+                    
+                } catch (err) {
+                    let errorMessage = `${dateTime}  -  ERROR publishing item '${itemId}'` + err.response.data.errors;
+                    logObj.push(errorMessage);
+                    throw Error(errorMessage);
+                }
+
             } catch (err) {
-                let errorMessage = `${dateTime}  -  ERROR at updating item '${itemId}'` + err.response.data.errors;
+                let errorMessage = `${dateTime}  -  ERROR  -  Updating item '${itemId}'` + err.response.data.errors;
                 logObj.push(errorMessage);
                 throw Error(errorMessage);
             }
@@ -50,19 +71,22 @@ async function pastContent (token, csv, selectValue) {
 }
 
 async function author (token, csv) {
+    let logObj = [];
 
     for (let i = 0; i < csv.length; i++) {
-        const temp = csv[i];
-        const itemId = temp.item_id;
-        const authorId = temp.author_id;
-        const props = Object.keys(temp);
+        let temp = csv[i];
+        let itemId = temp.item_id;
+        let authorId = temp.author_id;
+        let props = Object.keys(temp);
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+
 
         for (let j = 2; j < props.length; j++) {
-            const authorName = props[j];
-            const fullName = temp[authorName];
-            const name = fullName.split(' ');
-            const firstName = name[0];
-            const lastName = name[1];
+            let authorName = props[j];
+            let fullName = temp[authorName];
+            let name = fullName.split(' ');
+            let firstName = name[0];
+            let lastName = name[1];
 
             try {
                 const result = await axios({
@@ -82,23 +106,50 @@ async function author (token, csv) {
                         }
                     },
                 });
-                console.log(`Item ${itemId} author updated to ${fullName}`);
+                let resultString = `${dateTime}  -  UPDATED AUTHOR  -  Item '${itemId}' updated to '${fullName}'\n`;
+                logObj.push(resultString);
+
+                try {
+                    const publishResult = await axios({
+                        url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                        method: 'post',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        },
+                        data: {
+                            published_at: dateTime
+                        }
+                    });
+                    let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                    logObj.push(resultString);
+                    console.log(resultString);
+                    
+                } catch (err) {
+                    let errorMessage = `${dateTime}  -  ERROR publishing item '${itemId}'` + err.response.data.errors;
+                    logObj.push(errorMessage);
+                    throw Error(errorMessage);
+                }
 
             } catch (err) {
-                console.log(err.response.data.errors);
+                let errorMessage = `${dateTime}  -  ERROR  - Updating item '${itemId}' to author '${fullName}'` + err.response.data.errors;
+                logObj.push(errorMessage);
+                throw Error(errorMessage);
             }
         }
     }
+    return logObj;
 }
 
 async function seo (token, csv) {
+    let logObj = [];
 
     for (let i = 0; i < csv.length; i++) {
-        const temp = csv[i];
-        const itemId = temp.item_id;
-        const canonURL = temp.canonical_url;
-        const seoTitle = temp.seo_title;
-        const seoDesc = temp.seo_description;
+        let temp = csv[i];
+        let itemId = temp.item_id;
+        let canonURL = temp.canonical_url;
+        let seoTitle = temp.seo_title;
+        let seoDesc = temp.seo_description;
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         try {
             const result = await axios({
@@ -116,25 +167,55 @@ async function seo (token, csv) {
                     seo_description: seoDesc
                 },
             });
-            console.log(`Item ${itemId} SEO metadata updated`);
+            let resultString = `${dateTime}  -  UPDATED SEO -  Item '${itemId}' SEO metadata updated\n`;
+            logObj.push(resultString);
+            console.log(resultString);
+
+            try {
+                const publishResult = await axios({
+                    url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                    method: 'post',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    data: {
+                        published_at: dateTime
+                    }
+                });
+                let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                logObj.push(resultString);
+                console.log(resultString);
+                
+            } catch (err) {
+                let errorMessage = `${dateTime}  -  ERROR publishing item '${itemId}'` + err.response.data.errors;
+                logObj.push(errorMessage);
+                throw Error(errorMessage);
+            }
 
         } catch (err) {
-            console.log(err.response.data.errors);
+            let errorMessage = `${dateTime}  -  ERROR  - Updating item '${itemId}'` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(errorMessage);        
         }
     }
+    return logObj;
 }
 
 async function metadata (token, csv) {
+    let logObj = [];
 
     for (let i = 0; i < csv.length; i++) {
-        const temp = csv[i];
-        const itemId = temp.item_id;
-        const description = temp.description;
-        const thumbnailUrl = temp.thumbnail_url;
-        const author = temp.author;
-        const authorId = temp.author_id;
-        const status = temp.status;
-        const bool = 0;
+        let temp = csv[i];
+        let itemId = temp.item_id;
+        let description = temp.description;
+        let thumbnailUrl = temp.thumbnail_url;
+        let author = temp.author;
+        let authorId = temp.author_id;
+        let status = temp.status;
+        let bool = 0;
+        let time = new Date();
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+
 
         if (status === 'Show') {
             bool = false;
@@ -167,12 +248,38 @@ async function metadata (token, csv) {
                     }
                 },
             });
-            console.log(`Item ${itemId} SEO metadata updated`);
+            let resultString = `${dateTime}  -  UPDATED METADATA  -  Item '${itemId}' metadata updated\n`;
+            logObj.push(resultString);
+            console.log(resultString);
+
+            try {
+                const publishResult = await axios({
+                    url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                    method: 'post',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    data: {
+                        published_at: time
+                    }
+                });
+                let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                logObj.push(resultString);
+                console.log(resultString);
+                
+            } catch (err) {
+                let errorMessage = `${dateTime}  -  ERROR publishing item '${itemId}'` + err.response.data.errors;
+                logObj.push(errorMessage);
+                throw Error(errorMessage);
+            }
 
         } catch (err) {
-            console.log(err.response.data.errors);
+            let errorMessage = `${dateTime}  -  ERROR -  Updating item '${itemId}'` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(errorMessage);        
         }
     }
+    return logObj;
 }
 
 async function tagItems (token, newTags, tagIds) {
@@ -212,7 +319,7 @@ async function tagItems (token, newTags, tagIds) {
                         console.log(resultString);
             
                     } catch (err) {
-                        let errorMessage = `${dateTime}  -  Error updating item ${itemId} with tag '${tagName}'` + err.response.data.errors;
+                        let errorMessage = `${dateTime}  -  ERROR -  Updating item ${itemId} with tag '${tagName}'` + err.response.data.errors;
                         logObj.push(errorMessage);
                         throw Error(errorMessage);
                     }
@@ -245,7 +352,7 @@ async function groups (token, data) {
             console.log(resultString);
 
         } catch (err) {
-            let errorMessage = `${dateTime}  -  Error updating user '${userId}' to group '${groupId}'` + err.response.data.errors;
+            let errorMessage = `${dateTime}  -  ERROR  - Updating user '${userId}' to group '${groupId}'` + err.response.data.errors;
             logObj.push(errorMessage);
             throw Error(errorMessage);
         }
@@ -254,18 +361,20 @@ async function groups (token, data) {
 }
 
 async function streams (token, data) {
+    let logObj = [];
 
     // Looping through CSV data
     for (let i = 0; i < data.length; i++) {
-        const obj = data[i];
-        const streamId = obj.stream_id;
-        const props = Object.keys(obj);
+        let obj = data[i];
+        let streamId = obj.stream_id;
+        let props = Object.keys(obj);
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         // Looping through props of CSV data
         // Skipping item id
         for (let j = 1; j < props.length; j++) {
-            const item = props[j];
-            const itemId = obj[item];
+            let item = props[j];
+            let itemId = obj[item];
 
             try {                        
                 const result = await axios({
@@ -275,21 +384,28 @@ async function streams (token, data) {
                         'Authorization': `Bearer ${token}`,
                     },
                 });
-                console.log(`Stream ${streamId} added item ${itemId}`);
+                let resultString = `${dateTime}  -  UPDATED STREAM  -  Stream '${streamId}' added item '${itemId}'\n`;
+                logObj.push(resultString);
+                console.log(resultString);
     
             } catch (err) {
-                console.log(err.response.data.errors);
+                let errorMessage = `${dateTime}  -  ERROR  - Adding item '${itemId}' to Stream '${streamId}'` + err.response.data.errors;
+                logObj.push(errorMessage);
+                throw Error(errorMessage);
             }
         }
     }
+    return logObj;
 }
 
-async function embedContent (token, data, search, replace) {
+async function allEmbedContent (token, data, search, replace) {
+    let logObj = [];
 
     for (let i = 0; i < data.length; i++) {
         let itemId = data[i].id;
         let content = data[i].content;
-        let datetime = new Date();
+        let time = new Date();
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         let updatedContent = content.replace(search, replace);
 
@@ -309,7 +425,9 @@ async function embedContent (token, data, search, replace) {
                     }
                 }
             });
-            console.log(`Item ${itemId} embed URL updated`);
+            let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' embedded content updated\n`;
+            logObj.push(resultString);
+            console.log(resultString);
 
             try {
                 const publishResult = await axios({
@@ -319,28 +437,36 @@ async function embedContent (token, data, search, replace) {
                         'Authorization': `Bearer ${token}`,
                     },
                     data: {
-                        published_at: datetime
+                        published_at: time
                     }
                 });
-                console.log(`Item ${itemId} published`);
+                let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' published\n`;
+                logObj.push(resultString);
+                console.log(resultString);
 
             } catch (err) {
-                console.log(err.response.data.errors);
+                let errorMessage = `${dateTime}  -  ERROR  - Publishing item '${itemId}'` + err.response.data.errors;
+                logObj.push(errorMessage);
+                throw Error(errorMessage);
             }
 
         } catch (err) {
-            console.log(err.response.data.errors);
+            let errorMessage = `${dateTime}  -  ERROR  - Updating '${itemId}' embedded content` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(errorMessage);
         }
     }
+    return logObj;
 }
 
-async function AWSTest (token, data, search, replace) {
+async function streamEmbedContent (token, data, search, replace) {
+    let logObj = [];
 
     for (let i = 0; i < data.length; i++) {
-                
         let itemId = data[i].id;
-        let content = data[i].content.published;
-        let datetime = new Date();
+        let content = data[i].content;
+        let time = new Date();
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         let updatedContent = content.replace(search, replace);
 
@@ -356,11 +482,13 @@ async function AWSTest (token, data, search, replace) {
                 },
                 data: {
                     content: {
-                        draft: `${updatedContent}`
+                        draft: updatedContent
                     }
                 }
             });
-            console.log(`Item ${itemId} embed URL updated`);
+            let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' embedded content updated\n`;
+            logObj.push(resultString);
+            console.log(resultString);
 
             try {
                 const publishResult = await axios({
@@ -370,19 +498,26 @@ async function AWSTest (token, data, search, replace) {
                         'Authorization': `Bearer ${token}`,
                     },
                     data: {
-                        published_at: datetime
+                        published_at: time
                     }
                 });
-                console.log(`Item ${itemId} published`);
+                let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' published\n`;
+                logObj.push(resultString);
+                console.log(resultString);
 
             } catch (err) {
-                console.log(err.response.data.errors);
+                let errorMessage = `${dateTime}  -  ERROR  - Publishing item '${itemId}'` + err.response.data.errors;
+                logObj.push(errorMessage);
+                throw Error(errorMessage);
             }
 
         } catch (err) {
-            console.log(err.response.data.errors);
+            let errorMessage = `${dateTime}  -  ERROR  - Updating '${itemId}' embedded content` + err.response.data.errors;
+            logObj.push(errorMessage);
+            throw Error(errorMessage);
         }
     }
+    return logObj;
 }
 
 module.exports = { 
@@ -393,6 +528,6 @@ module.exports = {
     tagItems,
     groups,
     streams,
-    embedContent,
-    AWSTest
+    allEmbedContent,
+    streamEmbedContent
 };

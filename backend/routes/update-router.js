@@ -21,7 +21,6 @@ router.route('/hidePastContent').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const selectDate = req.body.selectDate;
-    const fileContents = req.body.fileContents;
     const selectValue = req.body.selectValue;
     const newDate = dateFormat(selectDate, "yyyy-mm-dd")
 
@@ -29,16 +28,13 @@ router.route('/hidePastContent').post(async (req, res) => {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        const csvData = await parse.CSV(fileContents);
-        const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
+        const pastContent = await fetch.pastContentItems(authToken, selectDate);
         const updatedContent = await update.pastContent(authToken, pastContent, selectValue);
-
-        console.log(pastContent);
 
         let log = updatedContent;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE PAST CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - HIDE PAST CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
 
         return res.status(200).json(`Content before ${newDate} set to hidden - Runtime: ${time.words}`);
 
@@ -52,150 +48,227 @@ router.route('/hidePastContent').post(async (req, res) => {
     }
 });
 
-router.route('/showPastContent').post((req, res) => {
+/*
+-------------------
+ SHOW PAST CONTENT
+-------------------
+*/
+router.route('/showPastContent').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const selectDate = req.body.selectDate;
-    const fileContents = req.body.fileContents;
     const selectValue = req.body.selectValue;
+    const newDate = dateFormat(selectDate, "yyyy-mm-dd")
 
-    async function showPastContent () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
-            
-            const csvData = await parse.CSV(fileContents);
-            const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
-            await update.pastContent(authToken, pastContent, selectValue);
+        const pastContent = await fetch.pastContentItems(authToken, selectDate);
+        const updatedContent = await update.pastContent(authToken, pastContent, selectValue);
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Past content status set to show!');
-        }
+        let log = updatedContent;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - SHOW PAST CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(200).json(`Content before ${newDate} set to show - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    showPastContent();
 });
 
-router.route('/author').post((req, res) => {
+/*
+-----------------
+   ITEM AUTHOR
+-----------------
+*/
+router.route('/author').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
     
-    async function author () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+        const csvData = await parse.CSV(fileContents);
+        const updatedAuthors = await update.author(authToken, csvData);
 
-            const csvData = await parse.CSV(fileContents);
-            await update.author(authToken, csvData);
+        let log = updatedAuthors;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM AUTHOR (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Author of items updated!');
-        }
+        return res.status(200).json(`Author of items updated - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    author();
 });
 
-router.route('/seo').post((req, res) => {
+/*
+----------
+   SEO
+----------
+*/
+router.route('/seo').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
-    
-    async function seoMetadata () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-            const csvData = await parse.CSV(fileContents);
-            await update.seo(authToken, csvData);
+        const csvData = await parse.CSV(fileContents);
+        const updatedSEO = await update.seo(authToken, csvData);
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('SEO metadata of items updated!');
-        }
+        let log = updatedSEO;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(200).json(`SEO metadata of items updated - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    seoMetadata();
 });
 
-router.route('/metadata').post((req, res) => {
+/*
+-------------
+   METADATA
+-------------
+*/
+router.route('/metadata').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
-    
-    async function itemMetadata () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-            const csvData = await parse.CSV(fileContents);
-            await update.metadata(authToken, csvData);
+        const csvData = await parse.CSV(fileContents);
+        const updatedMetadata = await update.metadata(authToken, csvData);
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Metadata of items updated!');
-        }
+        let log = updatedMetadata;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM METADATA (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(200).json(`SEO metadata of items updated - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    itemMetadata();
 });
 
-router.route('/populateStreams').post((req, res) => {
+/*
+-------------------
+  POPULATE STEAMS
+-------------------
+*/
+router.route('/populateStreams').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
-    
-    async function populateStreams () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-            const csvData = await parse.CSV(fileContents);
-            await update.streams(authToken, csvData);
+        const csvData = await parse.CSV(fileContents);
+        const updatedStreams = await update.streams(authToken, csvData);
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Streams populated with new items!');
-        }
+        let log = updatedStreams;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - POPULATE STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(200).json(`Streams populated with new items - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    populateStreams();
 });
 
-router.route('/itemContent').post((req, res) => {
+/*
+-------------------
+    ITEM CONTENT
+-------------------
+
+<p><iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="471" src="https://www.youtube/embed
+
+https://www.youtube
+
+https://www.youtube-nocookie
+
+*/
+router.route('/itemContent').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const uniqueSearch = req.body.uniqueSearch;
     const itemSearch = req.body.itemSearch;
     const itemReplace = req.body.itemReplace;
 
-    async function itemContent () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+        const blogItems = await fetch.allBlogItems(authToken, uniqueSearch);
+        const updateItems = await update.allEmbedContent(authToken, blogItems, itemSearch, itemReplace);
 
-            const blogItems = await fetch.allBlogItems(authToken, uniqueSearch);
-            const updateItems = await update.embedContent(authToken, blogItems, itemSearch, itemReplace);
+        let log = updateItems;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ALL ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('All blog items updated with new content!');
-        }
+        return res.status(200).json(`Blog items updated with new embed content - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    itemContent();
 });
 
-router.route('/streamItemContent').post((req, res) => {
+/*
+----------------------
+  STREAM ITEM CONTENT
+----------------------
+*/
+router.route('/streamItemContent').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const uniqueSearch = req.body.uniqueSearch;
@@ -203,22 +276,28 @@ router.route('/streamItemContent').post((req, res) => {
     const itemSearch = req.body.itemSearch;
     const itemReplace = req.body.itemReplace;
 
-    async function itemContent () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+        const streamItems = await fetch.streamsBlogItems(authToken, streamId, uniqueSearch);
+        const updateItems = await update.streamEmbedContent(authToken, streamItems, itemSearch, itemReplace);
 
-            const streamItems = await fetch.streamsBlogItems(authToken, streamId, uniqueSearch);
-            const updateTest = await update.embedContent(authToken, streamItems, itemSearch, itemReplace);
+        let log = updateItems;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - STREAM ${streamId} ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json(`Stream ${streamId} content updated with new content!`);
-        }
+        return res.status(200).json(`Stream ${streamId} blog items updated with new content - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    itemContent();
 });
 
 module.exports = router;

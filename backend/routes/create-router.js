@@ -38,7 +38,7 @@ router.route('/tags').post(async (req, res) => {
         let log = createdTags.concat(updatedTags);
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE TAGS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
         return res.status(201).json(`Tags successfully created and applied - Runtime: ${time.words}`);
         
@@ -72,7 +72,7 @@ router.route('/streams').post(async (req, res) => {
         let log = createdStreams;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
         return res.status(201).json(`Streams successfully created and populated - Runtime: ${time.words}`);
 
@@ -110,7 +110,7 @@ router.route('/users').post(async (req, res) => {
         let log = newUsers.logObj.concat(updatedUsers);
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE USERS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - USERS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
         return res.status(201).json(`User profiles created and groups assigned - Runtime: ${time.words}`);
         
@@ -144,7 +144,7 @@ router.route('/items').post(async (req, res) => {
         let log = createdItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
         return res.status(201).json(`User profiles created and groups assigned - Runtime: ${time.words}`);
 
