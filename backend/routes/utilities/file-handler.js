@@ -36,7 +36,7 @@ async function createLog (data) {
                 console.log(dateTime + err);
             }
 
-            transporter.sendMail(mailOptions, function(error, info) {
+            transporter.sendMail(mailOptions, function(error) {
                 if (error) {
                     throw error;
                 } else {
