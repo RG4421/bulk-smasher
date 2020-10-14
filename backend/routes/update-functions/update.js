@@ -321,7 +321,7 @@ async function tagItems (token, newTags, tagIds) {
                                 'Authorization': `Bearer ${token}`,
                             },
                         });
-                        let resultString = `${dateTime}  -  UPDATED ITEM  -  Tag '${tagName}' added to item '${itemId}'\n`;
+                        let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' tagged with '${tagName}'\n`;
                         logObj.push(resultString);
                         console.log(resultString);
             

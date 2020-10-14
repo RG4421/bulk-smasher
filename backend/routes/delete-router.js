@@ -1,153 +1,217 @@
 const router = require('express').Router();
+const timer = require('execution-time')();
 
 // Utility functions
 const auth = require('./utility-functions/auth');
 const parse = require('./utility-functions/csv-parser');
 const fetch = require('./utility-functions/fetch');
+const fileHandler = require('./utility-functions/file-handler');
 
 // Functions
 const deleteFunc = require('./delete-functions/delete');
 
-router.route('/allTags').post((req, res) =>
-{
+/*
+------------
+  ALL TAGS
+------------
+*/
+router.route('/allTags').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
 
-    async function deleteAllTags () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+        const tagIds = await fetch.tagId(authToken);
+        const deletedTags = await deleteFunc.deleteAll(authToken, tagIds);
 
-            const tagIds = await fetch.tagId(authToken);
-            await deleteFunc.deleteAll(authToken, tagIds);
+        let log = deletedTags;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ALL TAGS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('All tags deleted!');
-        }
+        return res.status(200).json(`All tags deleted - Runtime: ${time.words}`);
+        
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    deleteAllTags();
 });
 
-router.route('/tagList').post((req, res) => 
-{
-    const APIKey = req.body.APIKey;
-    const APISecret = req.body.APISecret;
-    const fileContents = req.body.fileContents;
-
-    async function deleteTagList () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
-
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
-
-            const tagIds = await fetch.tagId(authToken);
-            await deleteFunc.deleteList(authToken, fileContents, tagIds);
-
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Tag list deleted!');
-        }
-    }
-    deleteTagList();
-});
-
-router.route('/streamItems').post((req, res) => {
+/*
+------------
+  TAG LIST
+------------
+*/
+router.route('/tagList').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
 
-    async function deleteStreamItems () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+        const tagIds = await fetch.tagId(authToken);
+        const deletedTags = await deleteFunc.deleteList(authToken, fileContents, tagIds);
 
-            const csvData = await parse.CSV(fileContents);
-            await deleteFunc.deleteStreamItems(authToken, csvData);
+        let log = deletedTags;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - TAG LIST (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Stream list items deleted!');
-        }
+        return res.status(200).json(`Tag list deleted - Runtime: ${time.words}`);
+        
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    deleteStreamItems();
 });
 
-router.route('/hiddenItems').post((req, res) => {
+/*
+----------------
+  STREAM ITEMS
+----------------
+*/
+router.route('/streamItems').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
 
-    async function deleteHiddenItems () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        
+        const csvData = await parse.CSV(fileContents);
+        const deletedStreamsItems = await deleteFunc.deleteStreamItems(authToken, csvData);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+        let log = deletedStreamsItems;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAM ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-            const csvData = await parse.CSV(fileContents);
-            const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
-            await deleteFunc.deleteStreamItems(authToken, hiddenItems);
+        return res.status(200).json(`Stream items deleted - Runtime: ${time.words}`);
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Hidden stream items deleted!');
-        }
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    deleteHiddenItems();
 });
 
-router.route('/pastContent').post((req, res) => {
+/*
+----------------
+  HIDDEN ITEMS
+----------------
+*/
+router.route('/hiddenItems').post(async (req, res) => {
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
+
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        
+        const csvData = await parse.CSV(fileContents);
+        const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
+        const deletedItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
+
+        let log = deletedItems;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - HIDDEN ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+
+        return res.status(200).json(`Hidden stream items deleted - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
+    }
+});
+
+/*
+----------------
+  PAST CONTENT
+----------------
+*/
+router.route('/pastItems').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const selectDate = req.body.selectDate;
-    const fileContents = req.body.fileContents;
 
-    async function deletePastContent () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        
+        const pastContent = await fetch.pastContentItems(authToken, selectDate);
+        const deletedPast = await deleteFunc.deleteItems(authToken, pastContent);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
-            
-            const csvData = await parse.CSV(fileContents);
-            const pastContent = await fetch.pastContentItems(authToken, csvData, selectDate);
-            await deleteFunc.deleteStreamItems(authToken, pastContent);
+        let log = deletedPast;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - PAST ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Past stream items deleted!');
-        }
+        return res.status(200).json(`Past stream items deleted - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    deletePastContent();
 });
 
-router.route('/streams').post((req, res) => {
+/*
+-----------
+  STREAMS
+-----------
+*/
+router.route('/streams').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
 
-    async function streams () {
-        const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
-        if (authToken) {
-            console.time('--- API Call Timer ---');
-            console.log('\n--- API Authentication Successful ---\n');
+        const csvData = await parse.CSV(fileContents);
+        const deletedStreams = await deleteFunc.streams(authToken, csvData);
 
-            const csvData = await parse.CSV(fileContents);
-            await deleteFunc.streams(authToken, csvData);
+        let log = deletedStreams;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-            console.log('\n');
-            console.timeEnd('--- API Call Timer ---');
-            return res.status(200).json('Streams list deleted!');
-        }
+        return res.status(200).json(`Stream list deleted - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
+        //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
     }
-    streams();
 });
 
 module.exports = router;

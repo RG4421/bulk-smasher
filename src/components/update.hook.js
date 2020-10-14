@@ -522,8 +522,8 @@ function Update(props) {
                         <option value="Author">Item Author</option>
                         <option value="SEO">Item SEO</option>
                         <option value="Metadata">Item Metadata</option>
-                        <option value="Item Embedded Content">All Items Embedded Content</option>
-                        <option value="Stream Embedded Content">Stream Items Embedded Content</option>
+                        <option value="Item Embedded Content">All Item's Embedded Content</option>
+                        <option value="Stream Embedded Content">Stream Item's Embedded Content</option>
                     </select>
                 </div>
 

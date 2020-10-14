@@ -6,27 +6,32 @@ import React, {
 import Axios from 'axios';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
+
 import check from '../check.png'
+import cross from '../cross.png'
 import Loader from 'react-loader-spinner'
-import "react-datepicker/dist/react-datepicker.css";
+import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
-function Delete(props)
+function Delete (props)
 {
     const [APIKey, setAPIKey] = useState('');
     const [APISecret, setAPISecret] = useState('');
     const [selectValue, setSelectValue] = useState('');
     const [fileContents, setFileContents] = useState('');
     const [hubId, setHubId] = useState('');
-    const [serverResponse, setServerResponse] = useState('');
+    const [serverSuccess, setServerSuccess] = useState('');
+    const [serverError, setServerError] = useState('');
     const [selectDate, setSelectDate] = useState(new Date());
+
     const [checked, setChecked] = useState(false);
     const [showDeleteAll, setShowDeleteAll] = useState(false);
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [showLegacyFields, setShowLegacyFields] = useState(false);
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
-    const [showServerResponse, setShowServerResponse] = useState(false);
+    const [showServerSuccess, setShowServerSuccess] = useState(false);
+    const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
 
     const clientIdRef = useRef();
@@ -41,7 +46,8 @@ function Delete(props)
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowLegacyFields(false);
             setShowLoader(false);
         } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items" || selectValue === "Streams") {
@@ -51,7 +57,8 @@ function Delete(props)
             setShowDatePicker(false);
             setShowUpload(true);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);            
             setShowLegacyFields(false);
             setShowLoader(false);
         } else if (selectValue === "Past Content") {
@@ -61,7 +68,8 @@ function Delete(props)
             setShowDatePicker(true);
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);            
             setShowLegacyFields(false);
             setShowLoader(false);
         } else if (selectValue === "Flipbook Folders") {
@@ -71,7 +79,8 @@ function Delete(props)
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);            
             setShowLegacyFields(true);
             setShowLoader(false);
         } else {
@@ -81,7 +90,8 @@ function Delete(props)
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
-            setShowServerResponse(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
             setShowLegacyFields(false);
             setShowLoader(false);
         }
@@ -111,10 +121,17 @@ function Delete(props)
         </div>
     )
 
-    const ServerResponse = () => (
+    const ServerSuccess = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
-            <label> {serverResponse.status} - {serverResponse.data}</label>
+            <label> {serverSuccess.data}</label>
+        </div>
+    )
+
+    const ServerError = () => (
+        <div className="form-group" style={{marginTop: 30}}>
+            <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
+            <label> {serverError.status} {serverError.data.message}</label>
         </div>
     )
 
@@ -163,7 +180,6 @@ function Delete(props)
                 <DatePicker
                     selected={selectDate}
                     onChange={date => setSelectDate(date)}
-                    isClearable
                 />
             </div>
         </div>
@@ -204,15 +220,24 @@ function Delete(props)
 
                 Axios.post('https://localhost:8080/delete/allTags', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(false);
-                    setServerResponse(e);
-                    setShowServerResponse(true);                
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                alert("Delete operation cancelled.");
@@ -227,15 +252,24 @@ function Delete(props)
 
                 Axios.post('https://localhost:8080/delete/tagList', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 alert("Delete operation cancelled.");
@@ -250,15 +284,24 @@ function Delete(props)
 
                 Axios.post('https://localhost:8080/delete/streamItems', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 alert("Delete operation cancelled.");
@@ -273,15 +316,24 @@ function Delete(props)
 
                 Axios.post('https://localhost:8080/delete/hiddenItems', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 alert("Delete operation cancelled.");
@@ -292,19 +344,29 @@ function Delete(props)
             if (ans === "DELETE PAST ITEMS") {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowDatePicker(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/delete/pastContent', data)
+                Axios.post('https://localhost:8080/delete/pastItems', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 alert("Delete operation cancelled.");
@@ -318,15 +380,24 @@ function Delete(props)
 
                 Axios.post('https://localhost:8080/delete/streams', data)
                 .then((res) => {
-                    setShowLoader(false);
-                    setServerResponse(res);
-                    setShowServerResponse(true);
-                    console.log(res);
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
                 }).catch((e) => {
-                    setShowUpload(false);
-                    setShowCSVPreview(true);
-                    setServerResponse(e);
-                    setShowServerResponse(true);
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
                 });
             } else {
                 alert("Delete operation cancelled.");
@@ -373,14 +444,15 @@ function Delete(props)
                         <option value="Tag List">Tag List</option>
                         <option value="Stream Items">Marketing Stream Items</option>
                         <option value="Hidden Items">Hidden Marketing Stream Items</option>
-                        <option value="Past Content">Past Content</option>
+                        <option value="Past Content">Past Items</option>
                         <option value="Streams">Streams</option>
                         <option value="All Tags">All Tags</option>
                     </select>
                 </div>
 
                 { showLoader ? <APILoader/> : null } 
-                { showServerResponse ? <ServerResponse/> : null }
+                { showServerSuccess ? <ServerSuccess/> : null }
+                { showServerError   ? <ServerError/> : null } 
                 { showDeleteAll  ? <DeleteAll /> : null }
                 { showDatePicker ? <DateSelector/> : null } 
                 { showUpload ? <CSVUpload/> : null }
