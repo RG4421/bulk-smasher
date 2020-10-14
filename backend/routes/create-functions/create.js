@@ -27,9 +27,9 @@ async function tags (token, data) {
             console.log(resultString);
 
         } catch (err) {
-            const errorMessage = `${dateTime}  -  ERROR at ${tagName}` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            const errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating tag '${tagName}'\n`;
             logObj.push(errorMessage);
-            throw Error(errorMessage);
         }
     }
     return logObj;
@@ -82,9 +82,10 @@ async function users (token, data) {
             console.log(resultString);
 
         } catch (err) {
-            let errorMessage = `${dateTime}  -  ERROR at '${firstName} ${lastName}'` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating user '${firstName} ${lastName}'\n`;
+            console.log(errorMessage);
             logObj.push(errorMessage);
-            throw Error(errorMessage);
         }       
     }
     let returnObj = {user, logObj}
@@ -149,7 +150,7 @@ async function streams (token, data) {
             console.log(resultString);
 
             // Looping through props of CSV data
-            // Skipping previous props
+            // Skipping previous props to focus on stream items
             for (let j = 9; j < itemProps.length; j++) {
                 let item = itemProps[j];
                 let itemId = prop[item];
@@ -162,21 +163,23 @@ async function streams (token, data) {
                             'Authorization': `Bearer ${token}`,
                         },
                     });
-                    let resultString = `${dateTime}  -  UPDATED STREAM  -  Item ${itemId} added to '${streamId}'\n`;
+                    let resultString = `${dateTime}  -  UPDATED STREAM  -  Item '${itemId}' added to '${streamId}'\n`;
                     logObj.push(resultString);
                     console.log(resultString);
         
                 } catch (err) {
-                    let errorMessage = `${dateTime}  -  ERROR stream ${streamTitle} at ${itemId}` + err.response.data.errors;
+                    let thrownError = err.response.data.errors[0].message;
+                    let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Adding item '${itemId}' to stream '${streamTitle}'\n`;
+                    console.log(errorMessage);
                     logObj.push(errorMessage);
-                    throw Error(errorMessage);
                 }
             }
 
         } catch (err) {
-            let errorMessage = `${dateTime}  -  ERROR at creating stream '${title}'` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating stream '${title}'\n`;
+            console.log(errorMessage);
             logObj.push(errorMessage);
-            throw Error(errorMessage);
         }
     }
     return logObj;
@@ -228,7 +231,7 @@ async function items (token, data) {
                 }
             });
             let itemId = result.data.id;           
-            let resultString = `${dateTime}  -  CREATED ITEM  -  Item '${itemId}' created in stream ${streamId}\n`;
+            let resultString = `${dateTime}  -  CREATED ITEM  -  Item '${itemId}' created in stream '${streamId}'\n`;
             logObj.push(resultString);
             console.log(resultString);
 
@@ -243,20 +246,20 @@ async function items (token, data) {
                         published_at: dateTime
                     }
                 });
-
                 let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' published\n`;
                 logObj.push(resultString);
                 console.log(resultString);
 
             } catch (err) {
-                let errorMessage = `${dateTime}  -  Error publishing item '${itemId}'` + err.response.data.errors;
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                console.log(errorMessage);
                 logObj.push(errorMessage);
-                throw Error(errorMessage);
             }
         } catch (err) {
-            let errorMessage = `${dateTime}  -  Error creating item '${title}'` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating item '${title}'\n`;
             logObj.push(errorMessage);
-            throw Error(errorMessage);        
         }
     }
     return logObj;

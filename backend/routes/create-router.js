@@ -44,7 +44,7 @@ router.route('/tags').post(async (req, res) => {
         
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -78,7 +78,7 @@ router.route('/streams').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -116,7 +116,7 @@ router.route('/users').post(async (req, res) => {
         
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -150,7 +150,7 @@ router.route('/items').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage

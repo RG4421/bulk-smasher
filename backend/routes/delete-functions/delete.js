@@ -1,8 +1,13 @@
 const axios = require('axios');
+const dateFormat = require('dateFormat');
 
 // Delete all tags in instance
 async function deleteAll (token, tagIds) {
+    let logObj = [];
+
     for (const tag of tagIds) {
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+
         try {
             const result = await axios({
                 url: `https://v2.api.uberflip.com/tags/${tag.id}`,
@@ -11,12 +16,17 @@ async function deleteAll (token, tagIds) {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-            console.log(`Deleted tag ${tag.name}`);
+            let resultString = `${dateTime}  -  DELETED TAG  -  '${tag.name}'\n`;
+            logObj.push(resultString);
+            console.log(resultString);
 
         } catch (err) {
-            console.log(err);
+            let thrownError = err.response.data.errors[0].message;
+            const errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Deleting '${tag.name}'\n`;
+            logObj.push(errorMessage); 
         }
     }
+    return logObj
 }
 
 // Delete list of tags

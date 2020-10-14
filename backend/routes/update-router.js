@@ -40,7 +40,7 @@ router.route('/hidePastContent').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -76,7 +76,7 @@ router.route('/showPastContent').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -110,7 +110,7 @@ router.route('/author').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -144,7 +144,7 @@ router.route('/seo').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -178,7 +178,7 @@ router.route('/metadata').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -212,7 +212,7 @@ router.route('/populateStreams').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -255,7 +255,7 @@ router.route('/itemContent').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
@@ -292,7 +292,7 @@ router.route('/streamItemContent').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR - ${dateTime} - ${e.message}\n`;
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage

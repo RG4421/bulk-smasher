@@ -55,15 +55,16 @@ async function pastContent (token, csv, selectValue) {
                     console.log(resultString);
                     
                 } catch (err) {
-                    let errorMessage = `${dateTime}  -  ERROR publishing item '${itemId}'` + err.response.data.errors;
+                    let thrownError = err.response.data.errors[0].message;
+                    let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                    console.log(errorMessage);
                     logObj.push(errorMessage);
-                    throw Error(errorMessage);
                 }
 
             } catch (err) {
-                let errorMessage = `${dateTime}  -  ERROR  -  Updating item '${itemId}'` + err.response.data.errors;
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
                 logObj.push(errorMessage);
-                throw Error(errorMessage);
             }
         }
     }
@@ -125,15 +126,17 @@ async function author (token, csv) {
                     console.log(resultString);
                     
                 } catch (err) {
-                    let errorMessage = `${dateTime}  -  ERROR publishing item '${itemId}'` + err.response.data.errors;
+                    let thrownError = err.response.data.errors[0].message;
+                    let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                    console.log(errorMessage);
                     logObj.push(errorMessage);
-                    throw Error(errorMessage);
                 }
 
             } catch (err) {
-                let errorMessage = `${dateTime}  -  ERROR  - Updating item '${itemId}' to author '${fullName}'` + err.response.data.errors;
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}' to author '${fullName}'\n`;
+                console.log(errorMessage);
                 logObj.push(errorMessage);
-                throw Error(errorMessage);
             }
         }
     }
@@ -187,15 +190,17 @@ async function seo (token, csv) {
                 console.log(resultString);
                 
             } catch (err) {
-                let errorMessage = `${dateTime}  -  ERROR publishing item '${itemId}'` + err.response.data.errors;
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                console.log(errorMessage);
                 logObj.push(errorMessage);
-                throw Error(errorMessage);
             }
 
         } catch (err) {
-            let errorMessage = `${dateTime}  -  ERROR  - Updating item '${itemId}'` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
+            console.log(errorMessage);
             logObj.push(errorMessage);
-            throw Error(errorMessage);        
         }
     }
     return logObj;
@@ -268,15 +273,17 @@ async function metadata (token, csv) {
                 console.log(resultString);
                 
             } catch (err) {
-                let errorMessage = `${dateTime}  -  ERROR publishing item '${itemId}'` + err.response.data.errors;
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                console.log(errorMessage);
                 logObj.push(errorMessage);
-                throw Error(errorMessage);
             }
 
         } catch (err) {
-            let errorMessage = `${dateTime}  -  ERROR -  Updating item '${itemId}'` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
+            console.log(errorMessage);
             logObj.push(errorMessage);
-            throw Error(errorMessage);        
         }
     }
     return logObj;
@@ -314,14 +321,15 @@ async function tagItems (token, newTags, tagIds) {
                                 'Authorization': `Bearer ${token}`,
                             },
                         });
-                        let resultString = `${dateTime}  -  UPDATED ITEM  -  Tag '${tagName}' added to item ${itemId}\n`;
+                        let resultString = `${dateTime}  -  UPDATED ITEM  -  Tag '${tagName}' added to item '${itemId}'\n`;
                         logObj.push(resultString);
                         console.log(resultString);
             
                     } catch (err) {
-                        let errorMessage = `${dateTime}  -  ERROR -  Updating item ${itemId} with tag '${tagName}'` + err.response.data.errors;
+                        let thrownError = err.response.data.errors[0].message;
+                        let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}' with tag '${tagName}'\n`;
+                        console.log(errorMessage);
                         logObj.push(errorMessage);
-                        throw Error(errorMessage);
                     }
                 }
             }
@@ -352,9 +360,10 @@ async function groups (token, data) {
             console.log(resultString);
 
         } catch (err) {
-            let errorMessage = `${dateTime}  -  ERROR  - Updating user '${userId}' to group '${groupId}'` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating user '${userId}' to group '${groupId}'\n`;
+            console.log(errorMessage);
             logObj.push(errorMessage);
-            throw Error(errorMessage);
         }
     }
     return logObj;
@@ -389,9 +398,10 @@ async function streams (token, data) {
                 console.log(resultString);
     
             } catch (err) {
-                let errorMessage = `${dateTime}  -  ERROR  - Adding item '${itemId}' to Stream '${streamId}'` + err.response.data.errors;
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Adding item '${itemId}' to Stream '${streamId}'\n`;
+                console.log(errorMessage);
                 logObj.push(errorMessage);
-                throw Error(errorMessage);
             }
         }
     }
@@ -445,15 +455,16 @@ async function allEmbedContent (token, data, search, replace) {
                 console.log(resultString);
 
             } catch (err) {
-                let errorMessage = `${dateTime}  -  ERROR  - Publishing item '${itemId}'` + err.response.data.errors;
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                console.log(errorMessage);
                 logObj.push(errorMessage);
-                throw Error(errorMessage);
             }
-
         } catch (err) {
-            let errorMessage = `${dateTime}  -  ERROR  - Updating '${itemId}' embedded content` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating '${itemId}' embedded content\n`;
+            console.log(errorMessage);
             logObj.push(errorMessage);
-            throw Error(errorMessage);
         }
     }
     return logObj;
@@ -506,15 +517,17 @@ async function streamEmbedContent (token, data, search, replace) {
                 console.log(resultString);
 
             } catch (err) {
-                let errorMessage = `${dateTime}  -  ERROR  - Publishing item '${itemId}'` + err.response.data.errors;
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                console.log(errorMessage);
                 logObj.push(errorMessage);
-                throw Error(errorMessage);
             }
 
         } catch (err) {
-            let errorMessage = `${dateTime}  -  ERROR  - Updating '${itemId}' embedded content` + err.response.data.errors;
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating '${itemId}' embedded content\n`;
+            console.log(errorMessage);
             logObj.push(errorMessage);
-            throw Error(errorMessage);
         }
     }
     return logObj;
