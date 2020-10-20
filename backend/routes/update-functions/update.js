@@ -533,6 +533,165 @@ async function streamEmbedContent (token, data, search, replace) {
     return logObj;
 }
 
+async function items (token, csv) {
+    let logObj = [];
+
+    for (let i = 0; i < csv.length; i++) {
+        let prop = csv[i];
+        let itemId = prop.item_id;
+        let title = prop.title;
+        let description = prop.description;
+        let content = prop.content;
+        let author = prop.author;
+        let thumbnailUrl = prop.thumbnail_url;
+        let seoTitle = prop.seo_title;
+        let seoDescription = prop.seo_description;
+        let canonicalURL = prop.canonical_url;
+        let status = prop.status;
+        let bool = 0;
+
+        let time = new Date();
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+
+        if (status === 'Show') {
+            bool = false;
+        } else if (status === 'Hide') {
+            bool = true;
+        }
+
+        let name = author.split(' ');
+        let firstName = name[0];
+        let lastName = name[1];
+
+        try {
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/items/${itemId}`,
+                method: 'patch',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                params: {
+                    limit: 100,
+                },
+                data: {   
+                    title: title,            
+                    description: description,
+                    content: {
+                        draft: content,
+                    }, 
+                    author: {
+                        first_name: firstName,
+                        last_name: lastName,
+                    },
+                    seo_title: seoTitle,
+                    seo_description: seoDescription,
+                    thumbnail_url: thumbnailUrl,
+                    canonical_url: canonicalURL,
+                    hidden: bool,
+                },
+            });
+            let resultString = `${dateTime}  -  UPDATED ITEMS  -  Item '${itemId}' metadata updated\n`;
+            logObj.push(resultString);
+            console.log(resultString);
+
+            try {
+                const publishResult = await axios({
+                    url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                    method: 'post',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    data: {
+                        published_at: time
+                    }
+                });
+                let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                logObj.push(resultString);
+                console.log(resultString);
+                
+            } catch (err) {
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                console.log(errorMessage);
+                logObj.push(errorMessage);
+            }
+
+        } catch (err) {
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
+            console.log(errorMessage);
+            logObj.push(errorMessage);
+        }
+    }
+    return logObj;
+}
+
+async function appendCanonical (token, data, appendValue) {
+    let logObj = [];
+
+    for (let i = 0; i < data.length; i++) {
+        let time = new Date();
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let prop = data[i];
+        let itemId = prop.id;
+        let canonicalURL = prop.canonical_url;
+
+        console.log(canonicalURL);
+        console.log(appendValue);
+
+        //let newCanonical = canonicalURL.concat(appendValue);
+
+        // try {
+        //     const itemResult = await axios({
+        //         url: `https://v2.api.uberflip.com/items/${itemId}`,
+        //         method: 'patch',
+        //         headers: {
+        //             'Authorization': `Bearer ${token}`,
+        //         },
+        //         params: {
+        //             limit: 100,
+        //         },
+        //         data: {
+        //             canonical: newCanonical
+        //         }
+        //     });
+
+        //     let resultString = `${dateTime}  -  TAG SEARCH ITEMS  -  Item '${itemId}' canonical updated\n`;
+        //     logObj.push(resultString);
+        //     console.log(resultString);
+
+        //     try {
+        //         const publishResult = await axios({
+        //             url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+        //             method: 'post',
+        //             headers: {
+        //                 'Authorization': `Bearer ${token}`,
+        //             },
+        //             data: {
+        //                 published_at: time
+        //             }
+        //         });
+        //         let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+        //         logObj.push(resultString);
+        //         console.log(resultString);
+                
+        //     } catch (err) {
+        //         let thrownError = err.response.data.errors[0].message;
+        //         let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+        //         console.log(errorMessage);
+        //         logObj.push(errorMessage);
+        //     }
+
+        // } catch (err) {
+        //     let thrownError = err.response.data.errors[0].message;
+        //     let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating items canonical URL '${data[i]}'\n`;
+        //     console.log(errorMessage);
+        //     logObj.push(errorMessage);
+        // }
+    }
+    return logObj;
+}
+
 module.exports = { 
     pastContent,
     author,
@@ -542,5 +701,7 @@ module.exports = {
     groups,
     streams,
     allEmbedContent,
-    streamEmbedContent
+    streamEmbedContent,
+    items,
+    appendCanonical
 };

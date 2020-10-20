@@ -1,4 +1,5 @@
 const axios = require("axios");
+const dateFormat = require('dateFormat');
 
 // Fetches tag group id
 async function tagGroup (token) {
@@ -215,14 +216,14 @@ async function streams (token, data) {
     }
 }
 
-async function allBlogItems (token, uniqueSearch) {
+async function allBlogItems (token, searchKey) {
     let runCount = 1;
     let resArr = [];
 
     async function allItems () {
         try {
             const result = await axios({
-                url: `https://v2.api.uberflip.com/items/`,
+                url: `https://v2.api.uberflip.com/items`,
                 method: "get",
                 params: {
                     limit: 100,
@@ -240,7 +241,7 @@ async function allBlogItems (token, uniqueSearch) {
                 let id = result.data.data[i].id;
                 let obj = {};
                 
-                if (content.includes(uniqueSearch)) {
+                if (content.includes(searchKey)) {
                     obj['id'] = id;
                     obj['content'] = content;
                     resArr.push(obj);
@@ -264,7 +265,7 @@ async function allBlogItems (token, uniqueSearch) {
     return resArr;
 }
 
-async function streamsBlogItems (token, streamId, uniqueSearch) {
+async function streamsBlogItems (token, streamId, searchKey) {
     let resArr = [];
 
     try {
@@ -286,7 +287,7 @@ async function streamsBlogItems (token, streamId, uniqueSearch) {
             let id = result.data.data[i].id;
             let obj = {};
             
-            if (content.includes(uniqueSearch)) {
+            if (content.includes(searchKey)) {
                 obj['id'] = id;
                 obj['content'] = content;
                 resArr.push(obj);
@@ -296,6 +297,90 @@ async function streamsBlogItems (token, streamId, uniqueSearch) {
         console.log(err);
     }
     return resArr;
+}
+
+async function getTaggedItems (token, searchKey) {
+    let runCount = 1;
+    let logObj = [];
+    let resArr = [];
+
+    async function allItems () {
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+
+        try {
+            const itemsResult = await axios({
+                url: `https://v2.api.uberflip.com/items`,
+                method: "get",
+                params: {
+                    limit: 100,
+                    page: runCount
+                },
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const items = itemsResult.data.data;
+
+            for (let i = 0; i < items.length; i++) {
+                let itemId = itemsResult.data.data[i].id;
+                let itemCanonical = itemsResult.data.data[i].canonical_url;
+                console.log(`AT ${itemId}\n`);
+
+                try {
+                    const tagResult = await axios({
+                        url: `https://v2.api.uberflip.com/items/${itemId}/tags`,
+                        method: "get",
+                        params: {
+                            limit: 100,
+                        },
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
+                    const tags = tagResult.data.data;
+
+                    for (let j = 0; j < tags.length; j++) {
+                        if (tags[j].name !== searchKey) {
+                            let obj = {};
+                            let resultString = `${dateTime}  -  FETCHED ITEMS  -  Item '${itemId}' found\n`;
+                            obj['id'] = itemId;
+                            obj['canonical_url'] = itemCanonical;
+
+                            resArr.push(obj);
+                            logObj.push(resultString);
+                            console.log(resultString);
+                        } else {
+                            console.log("TAG MATCHED");
+                        }
+                    }
+                } catch (err) {
+                    let thrownError = err.response.data.errors[0].message;
+                    let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Listing tags for '${itemId}'\n`;
+                    console.log(errorMessage);
+                    logObj.push(errorMessage);
+                }
+            }
+            runCount++;
+
+            return {
+                totalPages: itemsResult.data.meta.total_pages,
+            }
+        } catch (err) {
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Listing all items\n`;
+            console.log(errorMessage);
+            logObj.push(errorMessage);
+        }
+    }
+
+    let { totalPages } = await allItems();
+
+    for (let i = 0; i < totalPages; i++) {
+        await allItems();
+    }
+
+    let returnObj = { resArr, logObj }  
+    return returnObj;
 }
 
 module.exports = {
@@ -308,5 +393,6 @@ module.exports = {
     groups,
     streams,
     allBlogItems,
-    streamsBlogItems
+    streamsBlogItems,
+    getTaggedItems
 };

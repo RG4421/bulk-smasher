@@ -1,11 +1,11 @@
-/* .newContainer {
+.newContainer {
     width: 500px;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media (min-width: 660px) {
+/* @media (min-width: 660px) {
     .container{
         width: 300px;
         max-width: 300px;

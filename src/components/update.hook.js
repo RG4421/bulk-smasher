@@ -22,11 +22,14 @@ function Update(props) {
     const [streamId, setStreamId] = useState('');
     const [itemSearch, setItemSearch] = useState('');
     const [itemReplace, setItemReplace] = useState('');
+    const [tagSearch, setTagSearch] = useState('');
+    const [canonAppend, setCanonAppend] = useState('');
     const [serverSuccess, setServerSuccess] = useState('');
     const [serverError, setServerError] = useState('');
 
     const [selectDate, setSelectDate] = useState(new Date());
     const [showStreamId, setShowStreamId] = useState(false);
+    const [showTagSearch, setShowTagSearch] = useState(false);
     const [showFindReplaceContent, setShowFindReplaceContent] = useState(false);
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [showUpload, setShowUpload] = useState(false);
@@ -38,6 +41,7 @@ function Update(props) {
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "Hide Past Content" || selectValue === "Show Past Content") {
+            setShowLoader(false);
             setShowDatePicker(true);
             setShowUpload(false);
             setShowCSVPreview(false);
@@ -45,7 +49,9 @@ function Update(props) {
             setShowServerError(false);
             setShowFindReplaceContent(false);
             setShowStreamId(false);
-        } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream") {
+            setShowTagSearch(false);
+        } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream" || selectValue === "Items") {
+            setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(true);
             setShowCSVPreview(false);
@@ -53,7 +59,9 @@ function Update(props) {
             setShowServerError(false);
             setShowFindReplaceContent(false);
             setShowStreamId(false);
+            setShowTagSearch(false);
         } else if (selectValue === "Item Embedded Content") {
+            setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
@@ -61,7 +69,9 @@ function Update(props) {
             setShowServerError(false);
             setShowStreamId(false);
             setShowFindReplaceContent(true);
+            setShowTagSearch(false);
         } else if (selectValue === "Stream Embedded Content") {
+            setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
@@ -69,7 +79,9 @@ function Update(props) {
             setShowServerError(false);
             setShowStreamId(true);
             setShowFindReplaceContent(true);
-        } else {
+            setShowTagSearch(false);
+        } else if (selectValue === "Tag Search") {
+            setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(false);
             setShowCSVPreview(false);
@@ -77,6 +89,17 @@ function Update(props) {
             setShowServerError(false);
             setShowStreamId(false);
             setShowFindReplaceContent(false);
+            setShowTagSearch(true);
+        } else {
+            setShowLoader(false);
+            setShowDatePicker(false);
+            setShowUpload(false);
+            setShowCSVPreview(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
+            setShowStreamId(false);
+            setShowFindReplaceContent(false);
+            setShowTagSearch(false);
         }
     }, [selectValue]);
 
@@ -168,6 +191,29 @@ function Update(props) {
         </div>
     )
 
+    const TagSearch = () => (
+        <div>
+            <div className="form-group">
+                <input
+                    placeholder="Tag Search"
+                    type="text"
+                    value={tagSearch}
+                    onChange={e => setTagSearch(e.target.value)}
+                    required
+                ></input>
+            </div>
+            <div className="form-group">
+                <input
+                    placeholder="Append Canonical"
+                    type="text"
+                    value={canonAppend}
+                    onChange={e => setCanonAppend(e.target.value)}
+                    required
+                ></input>
+            </div>
+        </div>
+    )
+
     const FindAndReplace = () => (
 
         <div className="form-group">
@@ -213,7 +259,9 @@ function Update(props) {
             uniqueSearch,
             streamId,
             itemSearch,
-            itemReplace
+            itemReplace,
+            tagSearch,
+            canonAppend
         }
 
         // Updating past content to hidden
@@ -221,6 +269,7 @@ function Update(props) {
             if (window.confirm("Are you sure you want to HIDE items prior to " + selectDate + "?")) {
                 setShowDatePicker(false);
                 setShowUpload(false);
+                setShowTagSearch(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
@@ -253,6 +302,7 @@ function Update(props) {
             if (window.confirm("Are you sure you want to SHOW items prior to " + selectDate + "?")) {
                 setShowDatePicker(false);
                 setShowUpload(false);
+                setShowTagSearch(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
@@ -285,6 +335,7 @@ function Update(props) {
             if (window.confirm("Are you sure you want to UPDATE the AUTHOR of these items?")) {
                 setShowDatePicker(false);
                 setShowUpload(false);
+                setShowTagSearch(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
@@ -316,6 +367,7 @@ function Update(props) {
         } else if (selectValue === "SEO") {
             if (window.confirm("Are you sure you want to UPDATE the SEO of these items?")) {
                 setShowDatePicker(false);
+                setShowTagSearch(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
@@ -348,6 +400,7 @@ function Update(props) {
         } else if (selectValue === "Metadata") {
             if (window.confirm("Are you sure you want to UPDATE the METADATA of these items?")) {
                 setShowDatePicker(false);
+                setShowTagSearch(false);
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
@@ -381,6 +434,7 @@ function Update(props) {
             if (window.confirm("Are you sure you want to UPDATE these STREAMS?")) {
                 setShowDatePicker(false);
                 setShowUpload(false);
+                setShowTagSearch(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
 
@@ -417,6 +471,7 @@ function Update(props) {
         } else if (selectValue === "Item Embedded Content") {
             if (window.confirm("Are you sure you want to UPDATE these ITEMS EMBEDDED CONTENT?")) {
                 setShowStreamId(false);
+                setShowTagSearch(false);
                 setShowFindReplaceContent(false);
                 setShowDatePicker(false);
                 setShowUpload(false);
@@ -447,10 +502,10 @@ function Update(props) {
             } else {
                 console.log("Update operation cancelled.");
             }
-        }
-        else if (selectValue === "Stream Embedded Content") {
+        } else if (selectValue === "Stream Embedded Content") {
             if (window.confirm(`Are you sure you want to UPDATE stream ${streamId} ITEM EMBEDDED CONTENT?`)) {
                 setShowStreamId(false);
+                setShowTagSearch(false);
                 setShowFindReplaceContent(false);
                 setShowDatePicker(false);
                 setShowUpload(false);
@@ -458,6 +513,74 @@ function Update(props) {
                 setShowLoader(true);
 
                 Axios.post('https://localhost:8080/update/streamItemContent', data)
+                .then((res) => {
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
+                }).catch((e) => {
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
+                });
+            } else {
+                console.log("Update operation cancelled.");
+            }
+        } else if (selectValue === "Items") {
+            if (window.confirm(`Are you sure you want to UPDATE the listed ITEMS?`)) {
+                setShowStreamId(false);
+                setShowTagSearch(false);
+                setShowFindReplaceContent(false);
+                setShowDatePicker(false);
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
+                Axios.post('https://localhost:8080/update/items', data)
+                .then((res) => {
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res);
+                        setShowServerSuccess(true);
+                        console.log(res);    
+                    }
+                }).catch((e) => {
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setServerError(e.response)
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
+                });
+            } else {
+                console.log("Update operation cancelled.");
+            }
+        } else if (selectValue === "Tag Search") {
+            if (window.confirm(`Are you sure you want to UPDATE the found ITEMS?`)) {
+                setShowStreamId(false);
+                setShowTagSearch(false);
+                setShowFindReplaceContent(false);
+                setShowDatePicker(false);
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowLoader(true);
+
+                Axios.post('https://localhost:8080/update/tagSearch', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -519,11 +642,13 @@ function Update(props) {
                         <option value="Populate Stream">Populate Stream</option>
                         <option value="Hide Past Content">Hide Past Content</option>
                         <option value="Show Past Content">Show Past Content</option>
+                        <option value="Items">Items</option>
                         <option value="Author">Item Author</option>
                         <option value="SEO">Item SEO</option>
                         <option value="Metadata">Item Metadata</option>
                         <option value="Item Embedded Content">All Item's Embedded Content</option>
                         <option value="Stream Embedded Content">Stream Item's Embedded Content</option>
+                        <option value="Tag Search">Tag Search</option>
                     </select>
                 </div>
 
@@ -531,6 +656,7 @@ function Update(props) {
                 { showServerSuccess      ? <ServerSuccess/> : null }
                 { showServerError        ? <ServerError/> : null }
                 { showStreamId           ? <Streams/> : null }
+                { showTagSearch          ? <TagSearch/> : null }
                 { showFindReplaceContent ? <FindAndReplace/> : null } 
                 { showDatePicker         ? <DateSelector/> : null } 
                 { showUpload             ? <CSVUpload/> : null }
