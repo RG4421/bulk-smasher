@@ -344,10 +344,9 @@ router.route('/tagSearch').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         const searchItems = await fetch.getTaggedItems(authToken, tagSearch);
-        console.log(searchItems);
         const updatedItems = await update.appendCanonical(authToken, searchItems.resArr, canonicalAppend);
 
-        let log = updatedItems;
+        let log = searchItems.logObj.concat(updatedItems);
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
         await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - TAG SEARCH ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));

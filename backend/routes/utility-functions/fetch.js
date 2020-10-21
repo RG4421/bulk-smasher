@@ -302,7 +302,7 @@ async function streamsBlogItems (token, streamId, searchKey) {
 async function getTaggedItems (token, searchKey) {
     let runCount = 1;
     let logObj = [];
-    let resArr = [];
+    let resArr = new Set();
 
     async function allItems () {
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
@@ -323,11 +323,9 @@ async function getTaggedItems (token, searchKey) {
 
             for (let i = 0; i < items.length; i++) {
                 let itemId = itemsResult.data.data[i].id;
-                let itemCanonical = itemsResult.data.data[i].canonical_url;
-                console.log(`AT ${itemId}\n`);
 
                 try {
-                    const tagResult = await axios({
+                    const result = await axios({
                         url: `https://v2.api.uberflip.com/items/${itemId}/tags`,
                         method: "get",
                         params: {
@@ -337,20 +335,16 @@ async function getTaggedItems (token, searchKey) {
                             Authorization: `Bearer ${token}`,
                         },
                     });
-                    const tags = tagResult.data.data;
+                    const tags = result.data.data;
 
                     for (let j = 0; j < tags.length; j++) {
-                        if (tags[j].name !== searchKey) {
-                            let obj = {};
-                            let resultString = `${dateTime}  -  FETCHED ITEMS  -  Item '${itemId}' found\n`;
-                            obj['id'] = itemId;
-                            obj['canonical_url'] = itemCanonical;
+                        let tagName = tags[j].name;
 
-                            resArr.push(obj);
+                        if (tags[j].name !== searchKey) {
+                            let resultString = `${dateTime}  -  FETCHED ITEMS '${itemId}' -  '${tagName}' not a match\n`;
+
+                            resArr.add(itemId);
                             logObj.push(resultString);
-                            console.log(resultString);
-                        } else {
-                            console.log("TAG MATCHED");
                         }
                     }
                 } catch (err) {
@@ -379,7 +373,8 @@ async function getTaggedItems (token, searchKey) {
         await allItems();
     }
 
-    let returnObj = { resArr, logObj }  
+    let returnObj = { resArr, logObj }
+
     return returnObj;
 }
 

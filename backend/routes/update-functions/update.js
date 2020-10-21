@@ -12,7 +12,6 @@ async function pastContent (token, csv, selectValue) {
     }
 
     for (let i = 0; i < csv.length; i++) {
-        let streamId = csv[i].stream_id;
         let temp = csv[i];
         let props = Object.keys(temp);
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
@@ -22,7 +21,7 @@ async function pastContent (token, csv, selectValue) {
             let itemId = temp[itemName];
 
             try {
-                const result = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}`,
                     method: 'patch',
                     headers: {
@@ -40,7 +39,7 @@ async function pastContent (token, csv, selectValue) {
                 console.log(resultString);
 
                 try {
-                    const publishResult = await axios({
+                    await axios({
                         url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
                         method: 'post',
                         headers: {
@@ -90,7 +89,7 @@ async function author (token, csv) {
             let lastName = name[1];
 
             try {
-                const result = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}`,
                     method: 'patch',
                     headers: {
@@ -111,7 +110,7 @@ async function author (token, csv) {
                 logObj.push(resultString);
 
                 try {
-                    const publishResult = await axios({
+                    await axios({
                         url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
                         method: 'post',
                         headers: {
@@ -155,7 +154,7 @@ async function seo (token, csv) {
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         try {
-            const result = await axios({
+            await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -175,7 +174,7 @@ async function seo (token, csv) {
             console.log(resultString);
 
             try {
-                const publishResult = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
                     method: 'post',
                     headers: {
@@ -233,7 +232,7 @@ async function metadata (token, csv) {
         let lastName = name[1];
 
         try {
-            const result = await axios({
+            await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -258,7 +257,7 @@ async function metadata (token, csv) {
             console.log(resultString);
 
             try {
-                const publishResult = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
                     method: 'post',
                     headers: {
@@ -314,7 +313,7 @@ async function tagItems (token, newTags, tagIds) {
                 if (tag === tagName) {
 
                     try {                        
-                        const result = await axios({
+                        await axios({
                             url: `https://v2.api.uberflip.com/items/${itemId}/tags/${tagId}`,
                             method: 'put',
                             headers: {
@@ -348,7 +347,7 @@ async function groups (token, data) {
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         try {                    
-            const result = await axios({
+            await axios({
                 url: `https://v2.api.uberflip.com/users/${userId}/user-groups/${groupId}`,
                 method: 'put',
                 headers: {
@@ -386,7 +385,7 @@ async function streams (token, data) {
             let itemId = obj[item];
 
             try {                        
-                const result = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/streams/${streamId}/items/${itemId}`,
                     method: 'patch',
                     headers: {
@@ -420,7 +419,7 @@ async function allEmbedContent (token, data, search, replace) {
         let updatedContent = content.replace(search, replace);
 
         try {
-            const itemResult = await axios({
+            await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -440,7 +439,7 @@ async function allEmbedContent (token, data, search, replace) {
             console.log(resultString);
 
             try {
-                const publishResult = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
                     method: 'post',
                     headers: {
@@ -482,7 +481,7 @@ async function streamEmbedContent (token, data, search, replace) {
         let updatedContent = content.replace(search, replace);
 
         try {
-            const itemResult = await axios({
+            await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -502,7 +501,7 @@ async function streamEmbedContent (token, data, search, replace) {
             console.log(resultString);
 
             try {
-                const publishResult = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
                     method: 'post',
                     headers: {
@@ -564,7 +563,7 @@ async function items (token, csv) {
         let lastName = name[1];
 
         try {
-            const result = await axios({
+            await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -595,7 +594,7 @@ async function items (token, csv) {
             console.log(resultString);
 
             try {
-                const publishResult = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
                     method: 'post',
                     headers: {
@@ -629,65 +628,77 @@ async function items (token, csv) {
 async function appendCanonical (token, data, appendValue) {
     let logObj = [];
 
-    for (let i = 0; i < data.length; i++) {
+    for (let itemId of data) {
         let time = new Date();
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
-        let prop = data[i];
-        let itemId = prop.id;
-        let canonicalURL = prop.canonical_url;
 
-        console.log(canonicalURL);
-        console.log(appendValue);
+        try {
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/items/${itemId}`,
+                method: 'get',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                params: {
+                    limit: 100,
+                },
+            });
 
-        //let newCanonical = canonicalURL.concat(appendValue);
+            let canonicalURL = result.data.canonical_url;
+            let newCanonical = canonicalURL.concat(appendValue);
 
-        // try {
-        //     const itemResult = await axios({
-        //         url: `https://v2.api.uberflip.com/items/${itemId}`,
-        //         method: 'patch',
-        //         headers: {
-        //             'Authorization': `Bearer ${token}`,
-        //         },
-        //         params: {
-        //             limit: 100,
-        //         },
-        //         data: {
-        //             canonical: newCanonical
-        //         }
-        //     });
+            try {
+                await axios({
+                    url: `https://v2.api.uberflip.com/items/${itemId}`,
+                    method: 'patch',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                    params: {
+                        limit: 100,
+                    },
+                    data: {
+                        canonical_url: newCanonical
+                    }
+                });
 
-        //     let resultString = `${dateTime}  -  TAG SEARCH ITEMS  -  Item '${itemId}' canonical updated\n`;
-        //     logObj.push(resultString);
-        //     console.log(resultString);
+                let resultString = `${dateTime}  -  TAG SEARCH ITEMS  -  Item '${itemId}' canonical updated\n`;
+                logObj.push(resultString);
+                console.log(resultString);
 
-        //     try {
-        //         const publishResult = await axios({
-        //             url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
-        //             method: 'post',
-        //             headers: {
-        //                 'Authorization': `Bearer ${token}`,
-        //             },
-        //             data: {
-        //                 published_at: time
-        //             }
-        //         });
-        //         let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
-        //         logObj.push(resultString);
-        //         console.log(resultString);
-                
-        //     } catch (err) {
-        //         let thrownError = err.response.data.errors[0].message;
-        //         let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
-        //         console.log(errorMessage);
-        //         logObj.push(errorMessage);
-        //     }
-
-        // } catch (err) {
-        //     let thrownError = err.response.data.errors[0].message;
-        //     let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating items canonical URL '${data[i]}'\n`;
-        //     console.log(errorMessage);
-        //     logObj.push(errorMessage);
-        // }
+                try {
+                    await axios({
+                        url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                        method: 'post',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        },
+                        data: {
+                            published_at: time
+                        }
+                    });
+                    let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                    logObj.push(resultString);
+                    console.log(resultString);
+                    
+                } catch (err) {
+                    let thrownError = err.response.data.errors[0].message;
+                    let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                    console.log(errorMessage);
+                    logObj.push(errorMessage);
+                }
+            } catch (err) {
+                let thrownError = err.response.data.errors[0].message;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating items canonical URL '${itemId}'\n`;
+                console.log(errorMessage);
+                logObj.push(errorMessage);
+            }
+        } catch (err) {
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Fetching canonical URL '${itemId}'\n`;
+            console.log(errorMessage);
+            logObj.push(errorMessage);
+        }
     }
     return logObj;
 }

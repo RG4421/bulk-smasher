@@ -272,6 +272,8 @@ function Update(props) {
                 setShowTagSearch(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/hidePastContent', data)
                 .then((res) => {
@@ -305,6 +307,8 @@ function Update(props) {
                 setShowTagSearch(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/showPastContent', data)
                 .then((res) => {
@@ -338,6 +342,8 @@ function Update(props) {
                 setShowTagSearch(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/author', data)
                 .then((res) => {
@@ -371,6 +377,8 @@ function Update(props) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/seo', data)
                 .then((res) => {
@@ -404,6 +412,8 @@ function Update(props) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/metadata', data)
                 .then((res) => {
@@ -437,6 +447,8 @@ function Update(props) {
                 setShowTagSearch(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/populateStreams', data)
                 .then((res) => {
@@ -477,6 +489,8 @@ function Update(props) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/itemContent', data)
                 .then((res) => {
@@ -511,6 +525,8 @@ function Update(props) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/streamItemContent', data)
                 .then((res) => {
@@ -545,6 +561,8 @@ function Update(props) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/items', data)
                 .then((res) => {
@@ -579,6 +597,8 @@ function Update(props) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowLoader(true);
+                setShowServerSuccess(false);
+                setShowServerError(false);
 
                 Axios.post('https://localhost:8080/update/tagSearch', data)
                 .then((res) => {
