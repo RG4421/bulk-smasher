@@ -24,6 +24,6 @@ Deploys express server at [http://localhost:8080](http://localhost:8080) to hand
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `LOG EXAMPLE`
+### `log example`
 
 <img src="https://github.com/uberflip/bulk-smasher/blob/master/logExample.png">
