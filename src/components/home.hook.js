@@ -7,7 +7,7 @@ function home (props) {
         <div className="newContainer">
             <p>This tool performs bulk tasks using the Uberflip API.</p>
 
-            <p>Navigate to the various tabs in the nav bar to perform bulk actions.</p>
+            <p>Navigate to the various tabs in the navigation bar to perform bulk actions.</p>
 
             <h5 style={{marginTop: 40}}>CSV Templates</h5>
             <div>

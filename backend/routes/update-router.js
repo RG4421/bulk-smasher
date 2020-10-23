@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const timer = require('execution-time')();
-const dateFormat = require('dateFormat');
+const dateFormat = require('dateformat');
 
 // Utility functions
 const auth  = require('./utility-functions/auth');
