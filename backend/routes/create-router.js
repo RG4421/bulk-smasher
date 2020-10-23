@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const timer = require('execution-time')();
-const dateFormat = require('dateFormat');
-const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
 // Utility functions
 const auth = require('./utility-functions/auth');
@@ -154,30 +152,6 @@ router.route('/items').post(async (req, res) => {
         //await fileHandler.createLog(errorMessage.toString());
         return res.status(400).json({
             message: errorMessage
-        });
-    }
-});
-
-// ----------------------------
-//           TESTING
-// ----------------------------
-
-router.route('/test').post(async (req, res, next) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-
-    try {
-        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
-        await fileHandler.createLog(authToken);
-        return res.status(200).json('Authentication Successful!');
-
-    } catch (e) {
-        const errorMessage = `Server Error - ${dateTime} \n${e.message}\n`;
-
-        console.log(e);
-        await fileHandler.createLog(errorMessage.toString());
-        return res.status(400).json({
-            message: e.message
         });
     }
 });

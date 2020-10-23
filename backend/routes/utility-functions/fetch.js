@@ -1,5 +1,5 @@
 const axios = require("axios");
-const dateFormat = require('dateFormat');
+const dateFormat = require('dateformat');
 
 // Fetches tag group id
 async function tagGroup (token) {

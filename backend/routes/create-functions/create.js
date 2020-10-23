@@ -1,5 +1,5 @@
 const axios = require('axios');
-const dateFormat = require('dateFormat');
+const dateFormat = require('dateformat');
 
 async function tags (token, data) {
     let logObj = [];

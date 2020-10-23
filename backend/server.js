@@ -3,7 +3,7 @@ const app        = express();
 const https      = require('https');
 const cors       = require('cors');
 const fs         = require('fs');
-const dateFormat = require('dateFormat');
+const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
 
 // Certs

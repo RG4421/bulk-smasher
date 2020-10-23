@@ -1,5 +1,5 @@
 const axios = require('axios');
-const dateFormat = require('dateFormat');
+const dateFormat = require('dateformat');
 
 // Delete all tags in instance
 async function deleteAll (token, tagIds) {

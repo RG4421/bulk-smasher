@@ -1,5 +1,5 @@
 const axios = require('axios');
-const dateFormat = require('dateFormat');
+const dateFormat = require('dateformat');
 
 async function pastContent (token, csv, selectValue) {
     let logObj = [];

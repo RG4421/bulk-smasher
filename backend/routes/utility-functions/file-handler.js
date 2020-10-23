@@ -1,5 +1,5 @@
 const fs = require('fs');
-const dateFormat = require('dateFormat');
+const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 

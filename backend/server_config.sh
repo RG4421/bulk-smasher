@@ -29,11 +29,11 @@ echo "
   NPM PACKAGES
 ----------------------
 "
-npm install -g axios
-npm install -g react-csv-to-table
-npm install -g react-loader-spinner --save
-npm install -g dateformat
-npm install -g nodemailer
-npm install -g nodemon
-npm install -g dotenv
-npm install -g file-system --save
+npm install axios
+npm install react-csv-to-table
+npm install react-loader-spinner --save
+npm install dateformat
+npm install nodemailer
+npm install nodemon
+npm install dotenv
+npm install file-system --save
