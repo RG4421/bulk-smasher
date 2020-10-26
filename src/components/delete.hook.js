@@ -7,8 +7,9 @@ import Axios from 'axios';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 
-import check from '../check.png'
-import cross from '../cross.png'
+import URL from '../config.js'
+import check from '../images/check.png'
+import cross from '../images/cross.png'
 import Loader from 'react-loader-spinner'
 import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -216,9 +217,11 @@ function Delete (props)
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowDeleteAll(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/delete/allTags', data)
+                Axios.post(URL + '/delete/allTags', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -248,9 +251,11 @@ function Delete (props)
             if (ans === "DELETE TAG LIST") {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/delete/tagList', data)
+                Axios.post(URL + '/delete/tagList', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -280,9 +285,11 @@ function Delete (props)
             if (ans === "DELETE STREAM ITEMS") {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/delete/streamItems', data)
+                Axios.post(URL + '/delete/streamItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -312,9 +319,11 @@ function Delete (props)
             if (ans === "DELETE HIDDEN ITEMS") {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/delete/hiddenItems', data)
+                Axios.post(URL + '/delete/hiddenItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -345,9 +354,11 @@ function Delete (props)
                 setShowUpload(false);
                 setShowCSVPreview(false);
                 setShowDatePicker(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/delete/pastItems', data)
+                Axios.post(URL + '/delete/pastItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -376,9 +387,11 @@ function Delete (props)
             if (ans === "DELETE STREAMS") {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/delete/streams', data)
+                Axios.post(URL + '/delete/streams', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);

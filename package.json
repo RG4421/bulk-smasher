@@ -24,7 +24,8 @@
     "react-loader-spinner": "^3.1.14",
     "react-native-fs": "^2.16.6",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "uniqid": "^5.2.0"
   },
   "scripts": {
     "start": "HTTPS=true react-scripts start",

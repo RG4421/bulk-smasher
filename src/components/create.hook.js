@@ -5,9 +5,11 @@ import React, {
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
-import check from '../check.png'
-import cross from '../cross.png'
+import URL from '../config';
+import check from '../images/check.png'
+import cross from '../images/cross.png'
 import Loader from 'react-loader-spinner'
+
 import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
@@ -123,9 +125,11 @@ function Create (props) {
             if (window.confirm("Are you sure you want to CREATE and TAG these items?")) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/create/tags', data)
+                Axios.post(URL + '/create/tags/', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -154,9 +158,11 @@ function Create (props) {
             if (window.confirm("Are you sure you want to CREATE these STREAMS?")) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/create/streams', data)
+                Axios.post(URL + 'create/streams', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -185,9 +191,11 @@ function Create (props) {
             if (window.confirm("Are you sure you want to CREATE these ITEMS?")) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/create/items', data)
+                Axios.post(URL + 'create/items', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -215,9 +223,11 @@ function Create (props) {
             if (window.confirm("Are you sure you want to CREATE these USERS?")) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/create/users', data)
+                Axios.post(URL + 'create/users', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -248,9 +258,11 @@ function Create (props) {
             if (window.confirm("Are you sure you want to this TEST call?")) {
                 setShowUpload(false);
                 setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post('https://localhost:8080/create/test', data)
+                Axios.post(URL + 'create/test', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -318,7 +330,7 @@ function Create (props) {
                         <option value="Tags">Tags</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        {/* <option value="Test">***Test***</option> */}
+                        <option value="Test">***Test***</option>
                     </select>
                 </div>
 

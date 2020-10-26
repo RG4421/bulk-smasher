@@ -14,7 +14,7 @@ import deleteHook from "./components/delete.hook";
 // Styling
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/navbar.css";
-import logo from "./logo.png";
+import logo from "./images/logo.png";
 
 function App() {
   return (

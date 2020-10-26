@@ -1,6 +1,8 @@
 const fs = require('fs');
 const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
+const uniqid = require('uniqid');
+
 require('dotenv').config();
 
 async function createLog (data) {
@@ -8,8 +10,9 @@ async function createLog (data) {
     let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
     const username = process.env.USERNAME;
     const password = process.env.PASSWORD;
+    const id = uniqid();
 
-    fs.writeFile(`./BulkSmasherLog-${dateTime}.txt`, data, function (err) {
+    fs.writeFile(`./server-logs/BulkSmasherLog-${id}.txt`, data, function (err) {
         
         if (err) {
 
@@ -29,7 +32,7 @@ async function createLog (data) {
                     from: "larsenfriis1@gmail.com",
                     to: "larsen.friis@uberflip.com",
                     subject: `Bulk Smasher - Create Log function failed on ` + dateTime,
-                    text: `Error generating log for Bulk Smasher\nError: ${err}`
+                    text: `Error generating log for Bulk Smasher.\n\n${err}`
                 };
     
             } catch (err) {
@@ -45,9 +48,10 @@ async function createLog (data) {
             });
         }
         else {
-            console.log(`${dateTime} - LOG FILE 'BulkSmasherLog-${dateTime}.txt' CREATED\n`);
+            console.log(`${dateTime} - LOG FILE BulkSmasherLog-${id}.txt CREATED\n`);
         }
     });
+    return id;
 }
 
 module.exports = {

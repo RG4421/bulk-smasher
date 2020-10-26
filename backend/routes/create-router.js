@@ -36,9 +36,9 @@ router.route('/tags').post(async (req, res) => {
         let log = createdTags.concat(updatedTags);
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-        return res.status(201).json(`Tags successfully created and applied - Runtime: ${time.words}`);
+        return res.status(201).json(`Tags successfully created and applied - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
         
     } catch (e) {
         console.log(e);
@@ -70,9 +70,9 @@ router.route('/streams').post(async (req, res) => {
         let log = createdStreams;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-        return res.status(201).json(`Streams successfully created and populated - Runtime: ${time.words}`);
+        return res.status(201).json(`Streams successfully created and populated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
     } catch (e) {
         console.log(e);
@@ -108,9 +108,9 @@ router.route('/users').post(async (req, res) => {
         let log = newUsers.logObj.concat(updatedUsers);
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - USERS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - USERS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-        return res.status(201).json(`User profiles created and groups assigned - Runtime: ${time.words}`);
+        return res.status(201).json(`User profiles created and groups assigned - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
         
     } catch (e) {
         console.log(e);
@@ -142,14 +142,36 @@ router.route('/items').post(async (req, res) => {
         let log = createdItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-        return res.status(201).json(`User profiles created and groups assigned - Runtime: ${time.words}`);
+        return res.status(201).json(`User profiles created and groups assigned - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
     } catch (e) {
         console.log(e);
         const errorMessage = `SERVER ERROR - ${e.message}\n`;
         //await fileHandler.createLog(errorMessage.toString());
+        return res.status(400).json({
+            message: errorMessage
+        });
+    }
+});
+
+router.route('/test').post(async (req, res) => {
+    var APIKey = req.body.APIKey;
+    var APISecret = req.body.APISecret;
+
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+
+        console.log("TEST TEST TEST");
+        const time = timer.stop();
+
+        return res.status(201).json(`TEST CALL RAN - Runtime: ${time.words}`);
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `SERVER ERROR - ${e.message}\n`;
         return res.status(400).json({
             message: errorMessage
         });

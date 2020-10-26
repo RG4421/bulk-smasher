@@ -37,3 +37,4 @@ npm install nodemailer
 npm install nodemon
 npm install dotenv
 npm install file-system --save
+npm install uniqid
