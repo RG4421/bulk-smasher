@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const timer = require('execution-time')();
+const path = require('path');
 
 // Utility functions
 const auth = require('./utility-functions/auth');
@@ -166,8 +167,10 @@ router.route('/test').post(async (req, res) => {
 
         console.log("TEST TEST TEST");
         const time = timer.stop();
+        const logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n`);
 
-        return res.status(201).json(`TEST CALL RAN - Runtime: ${time.words}`);
+        res.sendFile(path.join(__dirname, `../server-logs/`, `BulkSmasherLog-${logId}.txt`));
+        return res.status(201).json(`TEST CALL RAN - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
     } catch (e) {
         console.log(e);

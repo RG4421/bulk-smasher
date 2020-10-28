@@ -17,6 +17,8 @@
     "dotenv": "^8.2.0",
     "execution-time": "^1.4.1",
     "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-zip": "^5.0.2",
     "nodemailer": "^6.4.13",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
@@ -30,7 +32,7 @@
   },
   "scripts": {
     "start": "PORT=3006 HTTPS=true react-scripts start",
-    "build": "react-scripts build aws s3 cp --recursive ./build s3://uberflip.bulksmasher.com",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
