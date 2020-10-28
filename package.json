@@ -2,6 +2,7 @@
   "name": "bulk-buster",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://localhost:8080",
   "dependencies": {
     "@hapi/boom": "^9.1.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -28,7 +29,7 @@
     "uniqid": "^5.2.0"
   },
   "scripts": {
-    "start": "HTTPS=true react-scripts start",
+    "start": "PORT=3006 HTTPS=true react-scripts start",
     "build": "react-scripts build aws s3 cp --recursive ./build s3://uberflip.bulksmasher.com",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

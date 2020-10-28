@@ -6,7 +6,6 @@ import Axios from 'axios';
 import { CsvToHtmlTable }from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 
-import URL from '../config';
 import check from '../images/check.png'
 import cross from '../images/cross.png'
 import Loader from 'react-loader-spinner'
@@ -276,7 +275,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/hidePastContent', data)
+                Axios.post('/update/hidePastContent', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -311,7 +310,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/showPastContent', data)
+                Axios.post('/update/showPastContent', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -346,7 +345,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/author', data)
+                Axios.post('/update/author', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -381,7 +380,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/seo', data)
+                Axios.post('/update/seo', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -416,7 +415,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/metadata', data)
+                Axios.post('/update/metadata', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -451,7 +450,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/populateStreams', data)
+                Axios.post('/update/populateStreams', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -493,7 +492,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/itemContent', data)
+                Axios.post('/update/itemContent', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -529,7 +528,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/streamItemContent', data)
+                Axios.post('/update/streamItemContent', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -565,7 +564,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/items', data)
+                Axios.post('/update/items', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -601,7 +600,7 @@ function Update(props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
 
-                Axios.post(URL + '/update/tagSearch', data)
+                Axios.post('/update/tagSearch', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);

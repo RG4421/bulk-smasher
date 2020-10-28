@@ -10,7 +10,7 @@ const nodemailer = require('nodemailer');
 const key     = fs.readFileSync('./key.pem');
 const cert    = fs.readFileSync('./cert.pem');
 const server  = https.createServer({key: key, cert: cert }, app);
-const port    = process.env.port || 8080;
+const port    = process.env.HTTP_PORT || 8080;
 
 require('dotenv').config();
 const username = process.env.USERNAME;
@@ -60,6 +60,6 @@ server.listen(port, function(err)
             console.log(dateTime + err);
         }
     } else {
-        console.log('Secure server deployed...\nListening at localhost:' + port + '\n');
+        console.log('Secure server deployed...\nListening at port:' + port + '\n');
     }
 });

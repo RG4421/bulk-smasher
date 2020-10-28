@@ -7,7 +7,6 @@ import Axios from 'axios';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 
-import URL from '../config.js'
 import check from '../images/check.png'
 import cross from '../images/cross.png'
 import Loader from 'react-loader-spinner'
@@ -221,7 +220,7 @@ function Delete (props)
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + '/delete/allTags', data)
+                Axios.post('/delete/allTags', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -255,7 +254,7 @@ function Delete (props)
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + '/delete/tagList', data)
+                Axios.post('/delete/tagList', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -289,7 +288,7 @@ function Delete (props)
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + '/delete/streamItems', data)
+                Axios.post('/delete/streamItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -323,7 +322,7 @@ function Delete (props)
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + '/delete/hiddenItems', data)
+                Axios.post('/delete/hiddenItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -358,7 +357,7 @@ function Delete (props)
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + '/delete/pastItems', data)
+                Axios.post('/delete/pastItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -391,7 +390,7 @@ function Delete (props)
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + '/delete/streams', data)
+                Axios.post('/delete/streams', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);

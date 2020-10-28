@@ -5,7 +5,6 @@ import React, {
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
-import URL from '../config';
 import check from '../images/check.png'
 import cross from '../images/cross.png'
 import Loader from 'react-loader-spinner'
@@ -129,7 +128,7 @@ function Create (props) {
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + '/create/tags/', data)
+                Axios.post('/create/tags/', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -162,7 +161,7 @@ function Create (props) {
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + 'create/streams', data)
+                Axios.post('create/streams', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -195,7 +194,7 @@ function Create (props) {
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + 'create/items', data)
+                Axios.post('create/items', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -227,7 +226,7 @@ function Create (props) {
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + 'create/users', data)
+                Axios.post('create/users', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -262,7 +261,7 @@ function Create (props) {
                 setShowServerError(false);
                 setShowLoader(true);
 
-                Axios.post(URL + 'create/test', data)
+                Axios.post('create/test', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
