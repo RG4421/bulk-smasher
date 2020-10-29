@@ -9,7 +9,7 @@ async function deleteAll (token, tagIds) {
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         try {
-            const result = await axios({
+            await axios({
                 url: `https://v2.api.uberflip.com/tags/${tag.id}`,
                 method: 'delete',
                 headers: {
@@ -47,7 +47,7 @@ async function deleteList (token, csv, tagIds) {
             
             if (tags === tagName) {
                 try {
-                    const result = await axios({
+                    await axios({
                         url: `https://v2.api.uberflip.com/tags/${tagId}`,
                         method: 'delete',
                         headers: {
@@ -74,7 +74,6 @@ async function deleteItems (token, data) {
     let logObj = [];
 
     for (let i = 0; i < data.length; i++) {
-        let streamId = data[i].stream_id;
         let temp = data[i];
         let props = Object.keys(temp);
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
@@ -84,7 +83,7 @@ async function deleteItems (token, data) {
             let itemId = temp[itemName];
 
             try {
-                const result = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}`,
                     method: 'delete',
                     headers: {
@@ -113,7 +112,7 @@ async function streams (token, data) {
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         try {
-            const result = await axios({
+            await axios({
                 url: `https://v2.api.uberflip.com/streams/${stream.stream_id}`,
                 method: 'delete',
                 headers: {

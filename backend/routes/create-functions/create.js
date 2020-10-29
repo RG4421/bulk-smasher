@@ -11,7 +11,7 @@ async function tags (token, data) {
         try {
             const tagGroupId = async => tags.fetchTagGroup(token);
             
-            const result = await axios({
+            await axios({
                 url: 'https://v2.api.uberflip.com/tags',
                 method: 'post',
                 headers: {
@@ -156,7 +156,7 @@ async function streams (token, data) {
                 let itemId = prop[item];
 
                 try {                        
-                    const result = await axios({
+                    await axios({
                         url: `https://v2.api.uberflip.com/streams/${streamId}/items/${itemId}`,
                         method: 'patch',
                         headers: {
@@ -236,7 +236,7 @@ async function items (token, data) {
             console.log(resultString);
 
             try {
-                const publishResult = await axios({
+                await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
                     method: 'post',
                     headers: {

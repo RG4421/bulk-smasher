@@ -1,17 +1,15 @@
 const express    = require('express');
 const app        = express();
-const https      = require('https');
 const cors       = require('cors');
-const fs         = require('fs');
 const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
 const path       = require('path');
 
 // Certs
-const key     = fs.readFileSync('./key.pem');
-const cert    = fs.readFileSync('./cert.pem');
-const server  = https.createServer({key: key, cert: cert }, app);
-const port    = process.env.HTTP_PORT || 8080;
+// const key     = fs.readFileSync('./key.pem');
+// const cert    = fs.readFileSync('./cert.pem');
+// const server  = https.createServer({key: key, cert: cert }, app);
+const port = process.env.HTTP_PORT || 4001;
 
 require('dotenv').config();
 const username = process.env.USERNAME;
@@ -23,14 +21,13 @@ const deleteRouter = require('./routes/delete-router');
 // Middleware
 app.use(cors());
 app.use(express.json({limit: '50mb'}));
-// app.use(express.bodyParser({limit: '50mb'}));
 app.use(express.static(path.join(__dirname, '../build')));
 app.use('/create', createRouter);
 app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);
 
 // Server deployment
-server.listen(port, function(err) 
+app.listen(port, function(err) 
 {
     if (err) {
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
@@ -63,6 +60,6 @@ server.listen(port, function(err)
             console.log(dateTime + err);
         }
     } else {
-        console.log('Secure server deployed...\nListening at port:' + port + '\n');
+        console.log('Server deployed...listening at port:' + port + '\n');
     }
 });

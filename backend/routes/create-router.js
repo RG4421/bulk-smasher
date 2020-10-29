@@ -13,6 +13,10 @@ const fileHandler = require('./utility-functions/file-handler');
 const create = require('./create-functions/create');
 const update = require('./update-functions/update');
 
+router.route('/').get(async (req, res) => {
+    res.status(200).json('Index API call successful!');
+});
+
 /*
 -----------
    TAGS
@@ -163,7 +167,7 @@ router.route('/test').post(async (req, res) => {
 
     try {
         timer.start();
-        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        //let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
 
         console.log("TEST TEST TEST");
         const time = timer.stop();

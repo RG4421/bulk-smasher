@@ -24,4 +24,4 @@ cert.pem*
 key.pem*
 .env*
 BulkSmasher.pem*
-gulpfile.js*
+prod-build-v1*
