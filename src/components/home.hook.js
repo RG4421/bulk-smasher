@@ -11,6 +11,7 @@ function home (props) {
 
             <h5 style={{marginTop: 40}}>CSV Templates</h5>
             <div>
+                <p>To run a bulk create, please navigate to the following templates and tab</p>
                 <label><a href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CREATE</a></label>
             </div>
             <div>

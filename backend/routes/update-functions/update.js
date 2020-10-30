@@ -291,6 +291,8 @@ async function metadata (token, csv) {
 async function tagItems (token, newTags, tagIds) {
     let logObj = [];
 
+    console.log(tagIds.length);
+
     // Looping through CSV data
     for (let i = 0; i < newTags.length; i++) {
         const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
@@ -301,8 +303,8 @@ async function tagItems (token, newTags, tagIds) {
         // Looping through props of CSV data
         // Skipping itemId
         for (let j = 1; j < props.length; j++) {
-            const tagName = props[j];
-            const tag = obj[tagName];
+            const tagHeader = props[j];
+            const tag = obj[tagHeader];
 
             // Comparing CSV props to existing tags to be added
             for (let k = 0; k < tagIds.length; k++) {
@@ -320,13 +322,13 @@ async function tagItems (token, newTags, tagIds) {
                                 'Authorization': `Bearer ${token}`,
                             },
                         });
-                        let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' tagged with '${tagName}'\n`;
+                        let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' tagged with '${tag}'\n`;
                         logObj.push(resultString);
                         console.log(resultString);
             
                     } catch (err) {
                         let thrownError = err.response.data.errors[0].message;
-                        let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}' with tag '${tagName}'\n`;
+                        let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}' with tag '${tag}'\n`;
                         console.log(errorMessage);
                         logObj.push(errorMessage);
                     }

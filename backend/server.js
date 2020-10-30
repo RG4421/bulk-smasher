@@ -1,5 +1,7 @@
 const express    = require('express');
 const app        = express();
+const fs         = require('fs');
+const https      = require('https');
 const cors       = require('cors');
 const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
@@ -21,7 +23,7 @@ const deleteRouter = require('./routes/delete-router');
 // Middleware
 app.use(cors());
 app.use(express.json({limit: '50mb'}));
-app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, './build')));
 app.use('/create', createRouter);
 app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);

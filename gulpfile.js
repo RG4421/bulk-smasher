@@ -41,7 +41,7 @@ function copyReactCodeTask() {
 
 function copyNodeJSCodeTask() {
   log('building and copying server code into the directory')
-  return src(['package.json', './backend/**'])
+  return src(['package.json', './backend/**', './backend/.env'])
         .pipe(dest(`${paths.prod_build}`))
 }
 

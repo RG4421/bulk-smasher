@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require('axios');
 const dateFormat = require('dateformat');
 
 // Fetches tag group id
@@ -24,23 +24,50 @@ async function tagGroup (token) {
 
 // Fetches all tag ids
 async function tagId (token) {
-    try {
-        const result = await axios({
-            url: "https://v2.api.uberflip.com/tags",
-            method: "get",
-            params: {
-                limit: 100,
-            },
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        const tagMetadata = result.data.data;
-        return tagMetadata;
+    let runCount = 1;
+    let resArr = [];
 
-    } catch (err) {
-        console.log(err.response.data.errors);
+    async function allTagIds () {
+        try {
+            const result = await axios({
+                url: "https://v2.api.uberflip.com/tags",
+                method: "get",
+                params: {
+                    limit: 100,
+                    page: runCount
+                },
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const tagMetadata = result.data.data.length;
+
+            for (let i = 0; i < tagMetadata; i++) {
+                let id = result.data.data[i].id;
+                let name = result.data.data[i].name;
+                let obj = {};
+                
+                obj['id'] = id;
+                obj['name'] = name;
+                resArr.push(obj);
+            }
+            runCount++;
+
+            return {
+                totalPages: result.data.meta.total_pages,
+            }
+
+        } catch (err) {
+            console.log(err.response.data.errors);
+        }
     }
+    
+    let { totalPages } = await allTagIds();
+
+    for (let i = 0; i < totalPages; i++) {
+        await allTagIds();
+    }
+    return resArr;
 }
 
 // Fetches all items

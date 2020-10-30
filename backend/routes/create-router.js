@@ -43,7 +43,7 @@ router.route('/tags').post(async (req, res) => {
         console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n` + log.join(""));
 
-        return res.status(201).json(`Tags successfully created and applied - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(201).json(`Tags successfully created and applied - Runtime: ${time.words} - Log BulkSmasherLog.txt`);
         
     } catch (e) {
         console.log(e);
