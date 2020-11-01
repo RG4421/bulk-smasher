@@ -329,7 +329,7 @@ function Create (props) {
                         <option value="Tags">Tags</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        {/* <option value="Test">***Test***</option> */}
+                        <option value="Test">***Test***</option>
                     </select>
                 </div>
 
@@ -337,11 +337,11 @@ function Create (props) {
                 { showServerSuccess ? <ServerSuccess/> : null }
                 { showServerError   ? <ServerError/> : null } 
                 { showUpload        ? <CSVUpload/> : null }
-                { showCSVPreview    ? <CSVPreview/> : null } 
+                { showCSVPreview    ? <CSVPreview/> : null }
 
                 <div className="form-group" style={{marginTop: 30}}>
                     <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
-                </div>
+                </div> 
             </form>
         </div>
     </>

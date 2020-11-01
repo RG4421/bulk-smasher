@@ -30,6 +30,7 @@ router.route('/hidePastContent').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const pastContent = await fetch.pastContentItems(authToken, selectDate);
         const updatedContent = await update.pastContent(authToken, pastContent, selectValue);
@@ -37,7 +38,7 @@ router.route('/hidePastContent').post(async (req, res) => {
         let log = updatedContent;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - HIDE PAST CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - HIDE PAST CONTENT (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Content before ${newDate} set to hidden - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -66,6 +67,7 @@ router.route('/showPastContent').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const pastContent = await fetch.pastContentItems(authToken, selectDate);
         const updatedContent = await update.pastContent(authToken, pastContent, selectValue);
@@ -73,7 +75,7 @@ router.route('/showPastContent').post(async (req, res) => {
         let log = updatedContent;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - SHOW PAST CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - SHOW PAST CONTENT (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Content before ${newDate} set to show - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -100,6 +102,7 @@ router.route('/items').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const csvData = await parse.CSV(fileContents);
         const updatedItems = await update.items(authToken, csvData);
@@ -107,7 +110,7 @@ router.route('/items').post(async (req, res) => {
         let log = updatedItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - UPDATE ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - UPDATE ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -134,6 +137,7 @@ router.route('/author').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const csvData = await parse.CSV(fileContents);
         const updatedAuthors = await update.author(authToken, csvData);
@@ -141,7 +145,7 @@ router.route('/author').post(async (req, res) => {
         let log = updatedAuthors;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM AUTHOR (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM AUTHOR (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Author of items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -168,6 +172,7 @@ router.route('/seo').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const csvData = await parse.CSV(fileContents);
         const updatedSEO = await update.seo(authToken, csvData);
@@ -175,7 +180,7 @@ router.route('/seo').post(async (req, res) => {
         let log = updatedSEO;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`SEO metadata of items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -202,6 +207,7 @@ router.route('/metadata').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const csvData = await parse.CSV(fileContents);
         const updatedMetadata = await update.metadata(authToken, csvData);
@@ -209,7 +215,7 @@ router.route('/metadata').post(async (req, res) => {
         let log = updatedMetadata;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM METADATA (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM METADATA (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`SEO metadata of items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -236,6 +242,7 @@ router.route('/populateStreams').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const csvData = await parse.CSV(fileContents);
         const updatedStreams = await update.streams(authToken, csvData);
@@ -243,7 +250,7 @@ router.route('/populateStreams').post(async (req, res) => {
         let log = updatedStreams;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - POPULATE STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - POPULATE STREAMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Streams populated with new items - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -279,6 +286,7 @@ router.route('/itemContent').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const blogItems = await fetch.allBlogItems(authToken, uniqueSearch);
         const updateItems = await update.allEmbedContent(authToken, blogItems, itemSearch, itemReplace);
@@ -286,7 +294,7 @@ router.route('/itemContent').post(async (req, res) => {
         let log = updateItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ALL ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ALL ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Blog items updated with new embed content - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -316,6 +324,7 @@ router.route('/streamItemContent').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const streamItems = await fetch.streamsBlogItems(authToken, streamId, uniqueSearch);
         const updateItems = await update.streamEmbedContent(authToken, streamItems, itemSearch, itemReplace);
@@ -323,7 +332,7 @@ router.route('/streamItemContent').post(async (req, res) => {
         let log = updateItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - STREAM ${streamId} ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - STREAM ${streamId} ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Stream ${streamId} blog items updated with new content - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 
@@ -346,6 +355,7 @@ router.route('/tagSearch').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const searchItems = await fetch.getTaggedItems(authToken, tagSearch);
         const updatedItems = await update.appendCanonical(authToken, searchItems.resArr, canonicalAppend);
@@ -353,7 +363,7 @@ router.route('/tagSearch').post(async (req, res) => {
         let log = searchItems.logObj.concat(updatedItems);
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - TAG SEARCH ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - TAG SEARCH ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Tagged items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
 

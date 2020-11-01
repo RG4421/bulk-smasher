@@ -26,6 +26,7 @@ router.route('/allTags').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const tagIds = await fetch.tagId(authToken);
         const deletedTags = await deleteFunc.deleteAll(authToken, tagIds);
@@ -33,7 +34,7 @@ router.route('/allTags').post(async (req, res) => {
         let log = deletedTags;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ALL TAGS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ALL TAGS (Runtime ${time.words}) ---\n\n  - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`All tags deleted - Runtime: ${time.words}`);
         
@@ -60,6 +61,7 @@ router.route('/tagList').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const tagIds = await fetch.tagId(authToken);
         const deletedTags = await deleteFunc.deleteList(authToken, fileContents, tagIds);
@@ -67,7 +69,7 @@ router.route('/tagList').post(async (req, res) => {
         let log = deletedTags;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - TAG LIST (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - TAG LIST (Runtime ${time.words}) ---\n\n  - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Tag list deleted - Runtime: ${time.words}`);
         
@@ -94,6 +96,7 @@ router.route('/streamItems').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
         
         const csvData = await parse.CSV(fileContents);
         const deletedStreamsItems = await deleteFunc.deleteStreamItems(authToken, csvData);
@@ -101,7 +104,7 @@ router.route('/streamItems').post(async (req, res) => {
         let log = deletedStreamsItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAM ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAM ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Stream items deleted - Runtime: ${time.words}`);
 
@@ -128,6 +131,7 @@ router.route('/hiddenItems').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
         
         const csvData = await parse.CSV(fileContents);
         const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
@@ -136,7 +140,7 @@ router.route('/hiddenItems').post(async (req, res) => {
         let log = deletedItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - HIDDEN ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - HIDDEN ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Hidden stream items deleted - Runtime: ${time.words}`);
 
@@ -163,6 +167,7 @@ router.route('/pastItems').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
         
         const pastContent = await fetch.pastContentItems(authToken, selectDate);
         const deletedPast = await deleteFunc.deleteItems(authToken, pastContent);
@@ -170,7 +175,7 @@ router.route('/pastItems').post(async (req, res) => {
         let log = deletedPast;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - PAST ITEMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - PAST ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Past stream items deleted - Runtime: ${time.words}`);
 
@@ -197,6 +202,7 @@ router.route('/streams').post(async (req, res) => {
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
 
         const csvData = await parse.CSV(fileContents);
         const deletedStreams = await deleteFunc.streams(authToken, csvData);
@@ -204,7 +210,7 @@ router.route('/streams').post(async (req, res) => {
         let log = deletedStreams;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAMS (Runtime ${time.words}) ---\n\n` + log.join(""));
+        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
 
         return res.status(200).json(`Stream list deleted - Runtime: ${time.words}`);
 

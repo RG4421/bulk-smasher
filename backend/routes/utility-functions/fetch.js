@@ -405,6 +405,31 @@ async function getTaggedItems (token, searchKey) {
     return returnObj;
 }
 
+async function getHub (token) {
+    let logObj = [];
+
+    const result = await axios({
+        url: `https://v2.api.uberflip.com/hubs`,
+        method: "get",
+        params: {
+            limit: 100
+        },
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    const res = result.data.data;
+
+    for (let i = 0; i < res.length; i++) {
+        let name = res[i].name;
+        let id = res[i].id; 
+
+        let resultString = `Hub Name: ${name}\nId: ${id}\n`;
+        logObj.push(resultString);
+    }
+    return logObj;
+}
+
 module.exports = {
     tagGroup,
     tagId,
@@ -416,5 +441,6 @@ module.exports = {
     streams,
     allBlogItems,
     streamsBlogItems,
-    getTaggedItems
+    getTaggedItems,
+    getHub
 };
