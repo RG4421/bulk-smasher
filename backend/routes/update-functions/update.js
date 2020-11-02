@@ -165,9 +165,7 @@ async function seo (token, csv) {
                 },
                 data: {                    
                     canonical_url: canonURL,
-                    seo_title: seoTitle,
-                    seo_description: seoDesc
-                },
+                    },
             });
             let resultString = `${dateTime}  -  UPDATED SEO -  Item '${itemId}' SEO metadata updated\n`;
             logObj.push(resultString);
@@ -290,9 +288,7 @@ async function metadata (token, csv) {
 
 async function tagItems (token, newTags, tagIds) {
     let logObj = [];
-
-    console.log(tagIds.length);
-
+    
     // Looping through CSV data
     for (let i = 0; i < newTags.length; i++) {
         const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");

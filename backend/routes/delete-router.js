@@ -10,10 +10,6 @@ const fileHandler = require('./utility-functions/file-handler');
 // Functions
 const deleteFunc = require('./delete-functions/delete');
 
-router.route('/').get(async (req, res) => {
-    res.status(200).json('Index API call successful!');
-});
-
 /*
 ------------
   ALL TAGS

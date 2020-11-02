@@ -145,7 +145,7 @@ function Update(props) {
 
     const LogDownload = () => (
         <div className="form-group">
-            <a href={'http://localhost:3000/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
+            <a href={'http://bulksmasher-env-1.eba-mj2ywdju.us-east-2.elasticbeanstalk.com/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
             <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>        
         </div>
     )
@@ -303,6 +303,7 @@ function Update(props) {
                         setShowLoader(false);
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
+                        setShowLogDownload(true);
                         setShowServerSuccess(true);
                         console.log(res.data);    
                     }
@@ -342,6 +343,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     }
                 }).catch((e) => {
@@ -380,6 +382,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     }
                 }).catch((e) => {
@@ -418,6 +421,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     }
                 }).catch((e) => {
@@ -456,6 +460,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     }
                 }).catch((e) => {
@@ -494,6 +499,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     } else if (res.status <= 300){
                         throw new Error('API ERROR');
@@ -539,6 +545,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     }
                 }).catch((e) => {
@@ -578,6 +585,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     }
                 }).catch((e) => {
@@ -617,6 +625,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     }
                 }).catch((e) => {
@@ -655,6 +664,7 @@ function Update(props) {
                         setServerSuccess(res.data.message);
                         setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
+                        setShowLogDownload(true);
                         console.log(res.data);    
                     }
                 }).catch((e) => {

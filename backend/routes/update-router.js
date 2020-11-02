@@ -11,10 +11,6 @@ const fileHandler = require('./utility-functions/file-handler');
 // Functions
 const update = require('./update-functions/update');
 
-router.route('/').get(async (req, res) => {
-    res.status(200).json('Index API call successful!');
-});
-
 /*
 -------------------
  HIDE PAST CONTENT

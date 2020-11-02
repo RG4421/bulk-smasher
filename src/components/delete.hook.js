@@ -150,7 +150,7 @@ function Delete (props)
 
     const LogDownload = () => (
         <div className="form-group">
-            <a href={'http://localhost:3000/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
+            <a href={'http://bulksmasher-env-1.eba-mj2ywdju.us-east-2.elasticbeanstalk.com/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
             <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>        
         </div>
     )
