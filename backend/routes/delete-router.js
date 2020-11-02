@@ -34,9 +34,12 @@ router.route('/allTags').post(async (req, res) => {
         let log = deletedTags;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ALL TAGS (Runtime ${time.words}) ---\n\n  - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ALL TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`All tags deleted - Runtime: ${time.words}`);
+        return res.status(200).json({
+            message: `All tags deleted - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
         
     } catch (e) {
         console.log(e);
@@ -69,9 +72,12 @@ router.route('/tagList').post(async (req, res) => {
         let log = deletedTags;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - TAG LIST (Runtime ${time.words}) ---\n\n  - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - TAG LIST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Tag list deleted - Runtime: ${time.words}`);
+        return res.status(200).json({
+            message: `Tag list deleted - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
         
     } catch (e) {
         console.log(e);
@@ -104,9 +110,12 @@ router.route('/streamItems').post(async (req, res) => {
         let log = deletedStreamsItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAM ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAM ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Stream items deleted - Runtime: ${time.words}`);
+        return res.status(200).json({
+            message: `Stream items deleted - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -140,9 +149,12 @@ router.route('/hiddenItems').post(async (req, res) => {
         let log = deletedItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - HIDDEN ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - HIDDEN ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Hidden stream items deleted - Runtime: ${time.words}`);
+        return res.status(200).json({
+            message: `Hidden stream items deleted  - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -175,9 +187,12 @@ router.route('/pastItems').post(async (req, res) => {
         let log = deletedPast;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - PAST ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - PAST ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Past stream items deleted - Runtime: ${time.words}`);
+        return res.status(200).json({
+            message: `Past stream items deleted  - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -210,9 +225,12 @@ router.route('/streams').post(async (req, res) => {
         let log = deletedStreams;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Stream list deleted - Runtime: ${time.words}`);
+        return res.status(200).json({
+            message: `Stream list deleted  - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);

@@ -12,7 +12,7 @@ async function createLog (data) {
     const password = process.env.PASSWORD;
     const id = uniqid();
 
-    fs.writeFile(`./server-logs/BulkSmasherLog-${id}.txt`, data, function (err) {
+    fs.writeFile(`../public/server-logs/BulkSmasherLog-${id}.txt`, data, function (err) {
         
         if (err) {
 

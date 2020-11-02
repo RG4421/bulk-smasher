@@ -1,0 +1,44 @@
+--- BULK BUSTER LOG - CREATE - TAGS (Runtime 6.47 s) ---
+
+- HUBS - 
+Hub Name: Death Star
+Id: 117867
+Hub Name: Death Star 2
+Id: 117990
+
+- ACTIVITY -
+2020-11-01 8:37:27  -  ERROR: The name field is required.  -  Creating tag ''
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'pct:One Pager'
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'pse:Acute Care'
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'ppe:CMIO'
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'ppc:Decision Maker'
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'pbs:Solution Exploration'
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'pso:Solutions For CMO and CMIO'
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'ppr:Integrated Care Coordination'
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'pp:Harmony'
+2020-11-01 8:37:29  -  ERROR: Resource not found  -  Updating item '626588984' with tag 'pt:Transitions of Care'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '624773411' with tag 'pct:Video – Animated Explainer'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '624773411' with tag 'pse:Acute Care'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '624773411' with tag 'ppe:IT'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '624773411' with tag 'ppc:Influencer'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '624773411' with tag 'pbs:Solution Exploration'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '624773411' with tag 'pso:Solutions for CIO and IT Directors'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '624773411' with tag 'ppr:Integrated Care Coordination'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '624773411' with tag 'pt:Transitions of Care'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '623119727' with tag 'pct:Video – Animated Explainer'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '623119727' with tag 'pse:Acute Care'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '623119727' with tag 'ppe:CMIO'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '623119727' with tag 'ppc:Decision Maker'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '623119727' with tag 'pbs:Solution Exploration'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '623119727' with tag 'pso:Solutions For CMO and CMIO'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '623119727' with tag 'ppr:Integrated Care Coordination'
+2020-11-01 8:37:30  -  ERROR: Resource not found  -  Updating item '623119727' with tag 'pp:Harmony'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'pct:Customer Success Story'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'pse:Acute Care'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'ppe:CMIO'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'ppc:Decision Maker'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'pbs:Supplier Selection'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'pso:Solutions For CMO and CMIO'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'ppr:Integrated Care Coordination'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'pp:Harmony'
+2020-11-01 8:37:31  -  ERROR: Resource not found  -  Updating item '623119730' with tag 'pt:Transitions of Care'

@@ -38,9 +38,12 @@ router.route('/hidePastContent').post(async (req, res) => {
         let log = updatedContent;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - HIDE PAST CONTENT (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - HIDE PAST CONTENT (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Content before ${newDate} set to hidden - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `Content before ${newDate} set to hidden - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -75,9 +78,12 @@ router.route('/showPastContent').post(async (req, res) => {
         let log = updatedContent;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - SHOW PAST CONTENT (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - SHOW PAST CONTENT (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Content before ${newDate} set to show - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `Content before ${newDate} set to show - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -110,9 +116,12 @@ router.route('/items').post(async (req, res) => {
         let log = updatedItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - UPDATE ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - UPDATE ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `Items updated - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -145,9 +154,12 @@ router.route('/author').post(async (req, res) => {
         let log = updatedAuthors;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM AUTHOR (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM AUTHOR (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Author of items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `Author of items updated - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -180,9 +192,12 @@ router.route('/seo').post(async (req, res) => {
         let log = updatedSEO;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`SEO metadata of items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `SEO metadata of items updated - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -215,9 +230,12 @@ router.route('/metadata').post(async (req, res) => {
         let log = updatedMetadata;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM METADATA (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM METADATA (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`SEO metadata of items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `SEO metadata of items updated - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -250,9 +268,12 @@ router.route('/populateStreams').post(async (req, res) => {
         let log = updatedStreams;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - POPULATE STREAMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - POPULATE STREAMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Streams populated with new items - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `Streams populated with new items - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -294,9 +315,12 @@ router.route('/itemContent').post(async (req, res) => {
         let log = updateItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ALL ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ALL ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Blog items updated with new embed content - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `Blog items updated with new embed content - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -332,9 +356,12 @@ router.route('/streamItemContent').post(async (req, res) => {
         let log = updateItems;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - STREAM ${streamId} ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - STREAM ${streamId} ITEMS EMBEDDED CONTENT (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Stream ${streamId} blog items updated with new content - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `Stream ${streamId} blog items updated with new content - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);
@@ -363,9 +390,12 @@ router.route('/tagSearch').post(async (req, res) => {
         let log = searchItems.logObj.concat(updatedItems);
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - TAG SEARCH ITEMS (Runtime ${time.words}) ---\n\n - HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - TAG SEARCH ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        return res.status(200).json(`Tagged items updated - Runtime: ${time.words} - Log BulkSmasherLog-${logId}.txt`);
+        return res.status(200).json({
+            message: `Tagged items updated - Runtime: ${time.words}`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
 
     } catch (e) {
         console.log(e);

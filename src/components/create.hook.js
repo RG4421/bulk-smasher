@@ -5,10 +5,11 @@ import React, {
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
+import create from '../images/create.png'
 import check from '../images/check.png'
 import cross from '../images/cross.png'
+import newWindow from '../images/newWindow.png'
 import Loader from 'react-loader-spinner'
-
 import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
@@ -20,12 +21,15 @@ function Create (props) {
     const [fileContents, setFileContents] = useState('');
     const [serverSuccess, setServerSuccess] = useState('');
     const [serverError, setServerError] = useState('');
+    const [logURL, setLogURL] = useState('');
+    const [fileName, setFileName] = useState('');
 
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
     const [showServerSuccess, setShowServerSuccess] = useState(false);
     const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
+    const [showLogDownload, setShowLogDownload] = useState(false);
 
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
@@ -35,12 +39,14 @@ function Create (props) {
             setShowServerSuccess(false);
             setShowServerError(false);
             setShowLoader(false);
+            setShowLogDownload(false);
         } else {
             setShowUpload(false);
             setShowCSVPreview(false);
             setShowServerSuccess(false);
             setShowServerError(false);
             setShowLoader(false);
+            setShowLogDownload(false);
         }
     }, [selectValue]);
 
@@ -55,13 +61,14 @@ function Create (props) {
         fileData.onloadend = handleFile;
         fileData.readAsText(file);
         setShowCSVPreview(true);
+        setFileName(file.name);
         console.log(file.name);
     }
 
     const ServerSuccess = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
-            <label> {serverSuccess.data}</label>
+            <label> {serverSuccess}</label>
         </div>
     )
 
@@ -69,6 +76,13 @@ function Create (props) {
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
             <label> {serverError.status} {serverError.data.message}</label>
+        </div>
+    )
+
+    const LogDownload = () => (
+        <div className="form-group">
+            <a href={'http://localhost:3000/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
+            <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>
         </div>
     )
 
@@ -85,7 +99,7 @@ function Create (props) {
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}>Data Preview:</h5>
+           <h5 style={{marginTop: 30}}><b>{fileName}</b></h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -126,21 +140,25 @@ function Create (props) {
                 setShowCSVPreview(false);
                 setShowServerSuccess(false);
                 setShowServerError(false);
+                setShowLogDownload(false);
                 setShowLoader(true);
 
                 Axios.post('/create/tags/', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
+                        setShowLogDownload(false);
                         setServerError(e.response)
                         setShowServerError(true);
                     } else if (e.request) {
@@ -159,22 +177,26 @@ function Create (props) {
                 setShowCSVPreview(false);
                 setShowServerSuccess(false);
                 setShowServerError(false);
+                setShowLogDownload(false);
                 setShowLoader(true);
 
                 Axios.post('create/streams', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -192,22 +214,26 @@ function Create (props) {
                 setShowCSVPreview(false);
                 setShowServerSuccess(false);
                 setShowServerError(false);
+                setShowLogDownload(false);
                 setShowLoader(true);
 
                 Axios.post('create/items', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -224,15 +250,18 @@ function Create (props) {
                 setShowCSVPreview(false);
                 setShowServerSuccess(false);
                 setShowServerError(false);
+                setShowLogDownload(false);
                 setShowLoader(true);
 
                 Axios.post('create/users', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     console.log(e);
@@ -242,7 +271,8 @@ function Create (props) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -259,15 +289,18 @@ function Create (props) {
                 setShowCSVPreview(false);
                 setShowServerSuccess(false);
                 setShowServerError(false);
+                setShowLogDownload(false);
                 setShowLoader(true);
 
                 Axios.post('create/test', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     } else if (res.status <= 300){
                         throw new Error('API ERROR');
                     }
@@ -279,7 +312,8 @@ function Create (props) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -298,8 +332,9 @@ function Create (props) {
     <>
         <div className="container">
             <form>
-            <h3>Bulk Create</h3>
-                <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
+            <img style={{marginRight: 5, marginTop: -10}} src={create} width="20" height="20" alt="create"/>
+            <h3 style={{display: 'inline'}}>Bulk Create</h3>
+                <h5 style={{marginTop: 30}}><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <input 
                         placeholder="API Key"
@@ -329,13 +364,14 @@ function Create (props) {
                         <option value="Tags">Tags</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        <option value="Test">***Test***</option>
+                        {/* <option value="Test">***Test***</option> */}
                     </select>
                 </div>
 
                 { showLoader        ? <APILoader/> : null } 
                 { showServerSuccess ? <ServerSuccess/> : null }
                 { showServerError   ? <ServerError/> : null } 
+                { showLogDownload   ? <LogDownload/> : null }
                 { showUpload        ? <CSVUpload/> : null }
                 { showCSVPreview    ? <CSVPreview/> : null }
 

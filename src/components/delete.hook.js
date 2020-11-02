@@ -7,8 +7,10 @@ import Axios from 'axios';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 
+import deleteImg from '../images/delete.png';
 import check from '../images/check.png'
 import cross from '../images/cross.png'
+import newWindow from '../images/newWindow.png'
 import Loader from 'react-loader-spinner'
 import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -23,6 +25,8 @@ function Delete (props)
     const [serverSuccess, setServerSuccess] = useState('');
     const [serverError, setServerError] = useState('');
     const [selectDate, setSelectDate] = useState(new Date());
+    const [logURL, setLogURL] = useState('');
+    const [fileName, setFileName] = useState('');
 
     const [checked, setChecked] = useState(false);
     const [showDeleteAll, setShowDeleteAll] = useState(false);
@@ -33,6 +37,7 @@ function Delete (props)
     const [showServerSuccess, setShowServerSuccess] = useState(false);
     const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
+    const [showLogDownload, setShowLogDownload] = useState(false);
 
     const clientIdRef = useRef();
     const clientSecretRef = useRef();
@@ -50,6 +55,7 @@ function Delete (props)
             setShowServerError(false);
             setShowLegacyFields(false);
             setShowLoader(false);
+            setShowLogDownload(false);
         } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items" || selectValue === "Streams") {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "API Secret";
@@ -61,6 +67,7 @@ function Delete (props)
             setShowServerError(false);            
             setShowLegacyFields(false);
             setShowLoader(false);
+            setShowLogDownload(false);
         } else if (selectValue === "Past Content") {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "API Secret";
@@ -72,6 +79,7 @@ function Delete (props)
             setShowServerError(false);            
             setShowLegacyFields(false);
             setShowLoader(false);
+            setShowLogDownload(false);
         } else if (selectValue === "Flipbook Folders") {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "Signature";
@@ -83,6 +91,7 @@ function Delete (props)
             setShowServerError(false);            
             setShowLegacyFields(true);
             setShowLoader(false);
+            setShowLogDownload(false);
         } else {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "API Secret";
@@ -94,6 +103,7 @@ function Delete (props)
             setShowServerError(false);
             setShowLegacyFields(false);
             setShowLoader(false);
+            setShowLogDownload(false);
         }
     }, [selectValue]);
 
@@ -108,12 +118,15 @@ function Delete (props)
         fileData.onloadend = HandleFile;
         fileData.readAsText(file);
         setShowCSVPreview(true);
+        setFileName(file.name);
+        console.log(file.name);
     }
 
     const DeleteAll = () => (
         <div className="form-group">
             <label>Delete All</label>
             <input 
+                style={{marginRight: 5}}
                 type="checkbox"
                 checked={checked}
                 onChange={e => setChecked(!checked)}
@@ -124,7 +137,7 @@ function Delete (props)
     const ServerSuccess = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
-            <label> {serverSuccess.data}</label>
+            <label> {serverSuccess}</label>
         </div>
     )
 
@@ -132,6 +145,13 @@ function Delete (props)
         <div className="form-group" style={{marginTop: 30}}>
             <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
             <label> {serverError.status} {serverError.data.message}</label>
+        </div>
+    )
+
+    const LogDownload = () => (
+        <div className="form-group">
+            <a href={'http://localhost:3000/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
+            <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>        
         </div>
     )
 
@@ -148,7 +168,7 @@ function Delete (props)
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}>Data Preview:</h5>
+           <h5 style={{marginTop: 30}}><b>{fileName}</b></h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -219,21 +239,25 @@ function Delete (props)
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLoader(true);
+                setShowLogDownload(false);
 
                 Axios.post('/delete/allTags', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -253,21 +277,25 @@ function Delete (props)
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLoader(true);
+                setShowLogDownload(false);
 
                 Axios.post('/delete/tagList', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setServerError(e.response);
+                        setShowLogDownload(false);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -287,21 +315,25 @@ function Delete (props)
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLoader(true);
+                setShowLogDownload(false);
 
                 Axios.post('/delete/streamItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -321,21 +353,25 @@ function Delete (props)
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLoader(true);
+                setShowLogDownload(false);
 
                 Axios.post('/delete/hiddenItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
+                        setShowLogDownload(true);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -356,21 +392,25 @@ function Delete (props)
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLoader(true);
+                setShowLogDownload(false);
 
                 Axios.post('/delete/pastItems', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -389,21 +429,25 @@ function Delete (props)
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLoader(true);
+                setShowLogDownload(false);
 
                 Axios.post('/delete/streams', data)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
-                        setServerSuccess(res);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
                         setShowServerSuccess(true);
-                        console.log(res);    
+                        setShowLogDownload(true);
+                        console.log(res.data);    
                     }
                 }).catch((e) => {
                     if (e.response) {
                         setShowLoader(false);
                         setShowUpload(false);
                         setShowCSVPreview(false);
-                        setServerError(e.response)
+                        setShowLogDownload(false);
+                        setServerError(e.response);
                         setShowServerError(true);
                     } else if (e.request) {
                         console.log('Client never recieved request: ' + e.request);
@@ -421,8 +465,9 @@ function Delete (props)
     return (
         <div className="container">
             <form>
-            <h3>Bulk Delete</h3>
-                <h5 style={{marginTop: 30}}>Enter API Credentials</h5>
+            <img style={{marginRight: 5, marginTop: -10}} src={deleteImg} width="20" height="20" alt="delete"/>
+            <h3 style={{display: 'inline'}}>Bulk Delete</h3>
+                <h5 style={{marginTop: 30}}><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <input
                         ref={clientIdRef}
@@ -465,6 +510,7 @@ function Delete (props)
                 { showLoader ? <APILoader/> : null } 
                 { showServerSuccess ? <ServerSuccess/> : null }
                 { showServerError   ? <ServerError/> : null } 
+                { showLogDownload   ? <LogDownload/> : null }
                 { showDeleteAll  ? <DeleteAll /> : null }
                 { showDatePicker ? <DateSelector/> : null } 
                 { showUpload ? <CSVUpload/> : null }
