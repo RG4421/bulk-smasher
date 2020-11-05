@@ -1,19 +1,12 @@
 const express    = require('express');
 const app        = express();
-const fs         = require('fs');
-const https      = require('https');
 const cors       = require('cors');
 const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
 const path       = require('path');
 
-// Certs
-// const key     = fs.readFileSync('./key.pem');
-// const cert    = fs.readFileSync('./cert.pem');
-// const server  = https.createServer({key: key, cert: cert }, app);
-const port = process.env.HTTP_PORT || 4001;
-
 require('dotenv').config();
+const port = process.env.HTTP_PORT || 4001;
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
 const createRouter = require('./routes/create-router');

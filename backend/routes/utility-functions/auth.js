@@ -80,5 +80,5 @@ async function authenticateCredsV2(key, secret) {
 
 module.exports = { 
     authenticateCredsV1,
-    authenticateCredsV2 
+    authenticateCredsV2
 };

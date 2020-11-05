@@ -2,6 +2,7 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion'
 import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
+
 import newWindow from '../images/newWindow.png'
 import logo from '../images/uf.png'
 
@@ -371,7 +372,7 @@ function home (props) {
             <Accordion.Collapse eventKey="19">
             <Card.Body>
                 
-            This operator will delete <b>all tags</b>.
+            This operator will delete <b>all tags</b> inside the account.
 
             </Card.Body>
             </Accordion.Collapse>
@@ -381,6 +382,7 @@ function home (props) {
 
     // Build of webpage
     return (
+
         <div className="newContainer">
             <p>This tool performs bulk tasks by leveraging the Uberflip API.</p>
 
@@ -403,9 +405,8 @@ function home (props) {
 
             <br />
             <br />
-      
             
-            <img style={{position: "absolute", right: "0px"}} src={logo} width="40" height="40" alt="logo"/>
+            <img style={{position: "absolute", right: "0px", paddingRight: "10px", paddingBottom: "10px"}} src={logo} width="40" height="40" alt="logo"/>
 
         </div>
     )
