@@ -130,14 +130,14 @@ function Update(props) {
     }
 
     const ServerSuccess = () => (
-        <div className="form-group" style={{marginTop: 30}}>
+        <div className="form-group componentElements">
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
             <label> {serverSuccess}</label>
         </div>
     )
 
     const ServerError = () => (
-        <div className="form-group" style={{marginTop: 30}}>
+        <div className="form-group componentElements">
             <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
             <label> {serverError.status} {serverError.data.message}</label>
         </div>
@@ -152,7 +152,7 @@ function Update(props) {
 
     const CSVUpload = () => (
         <div className="form-group">
-            <div style={{marginTop: 30}}>
+            <div className="componentElements">
                 <input type="file"
                     accept=".csv"
                     onChange={e => ReadFile(e.target.files[0])}
@@ -163,7 +163,7 @@ function Update(props) {
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}><b>{fileName}</b></h5>
+           <h5 className="componentElements"><b>{fileName}</b></h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -216,7 +216,7 @@ function Update(props) {
         <div>
             <div className="form-group">
                 <input
-                    placeholder="Tag Search"
+                    placeholder="Tag Search Key"
                     type="text"
                     value={tagSearch}
                     onChange={e => setTagSearch(e.target.value)}
@@ -240,7 +240,7 @@ function Update(props) {
         <div className="form-group">
             <div className="form-group">
                 <input 
-                    placeholder="Unique Item Search"
+                    placeholder="Unique Search Key"
                     type="text"
                     value={uniqueSearch}
                     onChange={e => setUniqueSearch(e.target.value)}
@@ -249,7 +249,7 @@ function Update(props) {
             </div>
             <div className="form-group">
                 <input 
-                    placeholder="Search Value"
+                    placeholder="Search Token"
                     type="text"
                     value={itemSearch}
                     onChange={e => setItemSearch(e.target.value)}
@@ -258,7 +258,7 @@ function Update(props) {
             </div>
             <div className="form-group">
                 <input 
-                    placeholder="Replace Value"
+                    placeholder="Replace Token"
                     type="text"
                     value={itemReplace}
                     onChange={e => setItemReplace(e.target.value)}
@@ -690,11 +690,11 @@ function Update(props) {
     // Build of webpage
     return (
     <>
-        <div className="container">
+        <div className="newContainer">
             <form>
             <img style={{marginRight: 5, marginTop: -10}} src={update} width="20" height="20" alt="update"/>
             <h3 style={{display: 'inline'}}>Bulk Update</h3>
-                <h5 style={{marginTop: 30}}><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <input
                         placeholder="API Key"
@@ -713,7 +713,7 @@ function Update(props) {
                         required
                     ></input>
                 </div>
-                <h5 style={{marginTop: 30}}>Select Operator</h5>
+                <h5 className="operatorSelect">Select Operator</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
@@ -727,8 +727,8 @@ function Update(props) {
                         <option value="Author">Item Author</option>
                         <option value="SEO">Item SEO</option>
                         <option value="Metadata">Item Metadata</option>
-                        <option value="Item Embedded Content">All Item's Embedded Content</option>
-                        <option value="Stream Embedded Content">Stream Item's Embedded Content</option>
+                        <option value="Item Embedded Content">All Item's Source Content</option>
+                        <option value="Stream Embedded Content">Stream Item's Source Content</option>
                         <option value="Tag Search">Tag Search</option>
                     </select>
                 </div>

@@ -124,13 +124,13 @@ function Delete (props)
 
     const DeleteAll = () => (
         <div className="form-group">
-            <label>Delete All</label>
             <input 
-                style={{marginRight: 5}}
+                style={{marginRight: 5, width: '10px'}}
                 type="checkbox"
                 checked={checked}
                 onChange={e => setChecked(!checked)}
             />
+            <label>Delete All</label>
         </div>
     )
 
@@ -463,11 +463,11 @@ function Delete (props)
 
     // Build of webpage
     return (
-        <div className="container">
+        <div className="newContainer">
             <form>
             <img style={{marginRight: 5, marginTop: -10}} src={deleteImg} width="20" height="20" alt="delete"/>
             <h3 style={{display: 'inline'}}>Bulk Delete</h3>
-                <h5 style={{marginTop: 30}}><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <input
                         ref={clientIdRef}
@@ -491,7 +491,7 @@ function Delete (props)
 
                 { showLegacyFields ? <LegacyFields /> : null }
 
-                <h5 style={{marginTop: 30}}>Select Operator</h5>
+                <h5 className="operatorSelect">Select Operator</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}

@@ -66,14 +66,14 @@ function Create (props) {
     }
 
     const ServerSuccess = () => (
-        <div className="form-group" style={{marginTop: 30}}>
+        <div className="form-group componentElements">
             <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
             <label> {serverSuccess}</label>
         </div>
     )
 
     const ServerError = () => (
-        <div className="form-group" style={{marginTop: 30}}>
+        <div className="form-group componentElements">
             <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
             <label> {serverError.status} {serverError.data.message}</label>
         </div>
@@ -88,7 +88,7 @@ function Create (props) {
 
     const CSVUpload = () => (
         <div className="form-group">
-            <div style={{marginTop: 30}}>
+            <div className="componentElements">
                 <input type="file"
                     accept=".csv"
                     onChange={e => readFile(e.target.files[0])}
@@ -99,7 +99,7 @@ function Create (props) {
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}><b>{fileName}</b></h5>
+           <h5 className="componentElements"><b>{fileName}</b></h5>
             <div>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -330,11 +330,11 @@ function Create (props) {
     // Build of webpage
     return (
     <>
-        <div className="container">
+        <div className="newContainer">
             <form>
             <img style={{marginRight: 5, marginTop: -10}} src={create} width="20" height="20" alt="create"/>
             <h3 style={{display: 'inline'}}>Bulk Create</h3>
-                <h5 style={{marginTop: 30}}><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <input 
                         placeholder="API Key"
@@ -353,7 +353,7 @@ function Create (props) {
                         required
                     ></input>
                 </div>
-                <h5 style={{marginTop: 30}}>Select Operator</h5>
+                <h5 className="operatorSelect">Select Operator</h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
