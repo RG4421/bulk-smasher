@@ -42,7 +42,7 @@ router.route('/hidePastContent').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'HIDE PAST CONTENT', updatedContent.runCount, time.words);
 
         return res.status(200).json({
-            message: `Content before ${newDate} set to hidden - Runtime: ${time.words}`,
+            message: `Content before ${newDate} set to hidden - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -85,7 +85,7 @@ router.route('/showPastContent').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'SHOW PAST CONTENT', updatedContent.runCount, time.words);
 
         return res.status(200).json({
-            message: `Content before ${newDate} set to show - Runtime: ${time.words}`,
+            message: `Content before ${newDate} set to show - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -126,7 +126,7 @@ router.route('/items').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEMS', updatedItems.runCount, time.words);
 
         return res.status(200).json({
-            message: `Items updated - Runtime: ${time.words}`,
+            message: `Items updated - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -167,7 +167,7 @@ router.route('/author').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM AUTHOR', updatedAuthors.runCount, time.words);
 
         return res.status(200).json({
-            message: `Author of items updated - Runtime: ${time.words}`,
+            message: `Author of items updated - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -208,7 +208,7 @@ router.route('/seo').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM SEO', updatedSEO.runCount, time.words);
 
         return res.status(200).json({
-            message: `SEO metadata of items updated - Runtime: ${time.words}`,
+            message: `SEO metadata of items updated - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -249,7 +249,7 @@ router.route('/metadata').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM METADATA', updatedMetadata.runCount, time.words);
 
         return res.status(200).json({
-            message: `SEO metadata of items updated - Runtime: ${time.words}`,
+            message: `SEO metadata of items updated - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -290,7 +290,7 @@ router.route('/populateStreams').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'POPULATE STREAMS', updatedStreams.runCount, time.words);
 
         return res.status(200).json({
-            message: `Streams populated with new items - Runtime: ${time.words}`,
+            message: `Streams populated with new items - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -340,7 +340,7 @@ router.route('/itemContent').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ALL ITEMS SOURCE CONTENT', updateItems.runCount, time.words);
 
         return res.status(200).json({
-            message: `Blog items updated with new embed content - Runtime: ${time.words}`,
+            message: `Blog items updated with new embed content - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -384,7 +384,7 @@ router.route('/streamItemContent').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'STREAM ITEMS SOURCE CONTENT', updateItems.runCount, time.words);
 
         return res.status(200).json({
-            message: `Stream ${streamId} blog items updated with new content - Runtime: ${time.words}`,
+            message: `Stream ${streamId} blog items updated with new content - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -422,7 +422,7 @@ router.route('/tagSearch').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'TAG SEARCH ITEMS', executions, time.words);
 
         return res.status(200).json({
-            message: `Tagged items updated - Runtime: ${time.words}`,
+            message: `Tagged items updated - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 

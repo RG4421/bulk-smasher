@@ -38,15 +38,17 @@ router.route('/tags').post(async (req, res) => {
         const updatedTags = await update.tagItems(authToken, newTags, allTags);
 
         let log = createdTags.concat(updatedTags.logObj);
+        const execution = createdTags.runCount + updatedTags.runCount;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
-        
+
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'TAGS', updatedTags.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'TAGS', execution, time.words);
+
+        console.log(time);
 
         return res.status(201).json({
-            message: `Tags successfully created and applied - Runtime: ${time.words}`,
+            message: `Tags successfully created and applied - ((Runtime: ${time.words}))`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
         
@@ -80,14 +82,13 @@ router.route('/streams').post(async (req, res) => {
 
         let log = createdStreams.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - STREAMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'STREAMS', createdStreams.runCount, time.words);
 
         return res.status(201).json({
-            message: `Streams successfully created and populated - Runtime: ${time.words}`,
+            message: `Streams successfully created and populated - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -126,14 +127,13 @@ router.route('/users').post(async (req, res) => {
         let log = newUsers.logObj.concat(updatedUsers.logObj);
         let executions = newUsers.runCount + updatedUsers.runCount;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - USERS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
         
         // Appending data to Google Drive
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'USERS', executions, time.words);
 
         return res.status(201).json({
-            message: `User profiles created and groups assigned - Runtime: ${time.words}`,
+            message: `User profiles created and groups assigned - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -167,14 +167,13 @@ router.route('/items').post(async (req, res) => {
 
         let log = createdItems.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'ITEMS', createdItems.runCount, time.words);
 
         return res.status(201).json({
-            message: `User profiles created and groups assigned - Runtime: ${time.words}`,
+            message: `User profiles created and groups assigned - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -205,7 +204,7 @@ router.route('/test').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time.words);
 
         return res.status(201).json({
-                message: `TEST CALL RAN - Runtime: ${time.words}`,
+                message: `TEST CALL RAN - (Runtime: ${time.words})`,
                 log_name: `BulkSmasherLog.txt`
             });
 

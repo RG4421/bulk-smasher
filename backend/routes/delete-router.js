@@ -39,7 +39,7 @@ router.route('/allTags').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'ALL TAGS', deletedTags.runCount, time.words);
 
         return res.status(200).json({
-            message: `All tags deleted - Runtime: ${time.words}`,
+            message: `All tags deleted - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
         
@@ -80,7 +80,7 @@ router.route('/tagList').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'TAG LIST', deletedTags.runCount, time.words);
 
         return res.status(200).json({
-            message: `Tag list deleted - Runtime: ${time.words}`,
+            message: `Tag list deleted - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
         
@@ -121,7 +121,7 @@ router.route('/streamItems').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'STREAM ITEMS', deletedStreamsItems.runCount, time.words);
 
         return res.status(200).json({
-            message: `Stream items deleted - Runtime: ${time.words}`,
+            message: `Stream items deleted - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -163,7 +163,7 @@ router.route('/hiddenItems').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'HIDDEN ITEMS', deletedItems.runCount, time.words);
 
         return res.status(200).json({
-            message: `Hidden stream items deleted  - Runtime: ${time.words}`,
+            message: `Hidden stream items deleted  - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -204,7 +204,7 @@ router.route('/pastItems').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'PAST ITEMS', deletedPast.runCount, time.words);
 
         return res.status(200).json({
-            message: `Past stream items deleted  - Runtime: ${time.words}`,
+            message: `Past stream items deleted  - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -245,7 +245,7 @@ router.route('/streams').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'STREAMS', deletedStreams.runCount, time.words);
 
         return res.status(200).json({
-            message: `Stream list deleted  - Runtime: ${time.words}`,
+            message: `Stream list deleted  - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 

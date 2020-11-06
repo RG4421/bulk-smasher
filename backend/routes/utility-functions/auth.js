@@ -93,7 +93,7 @@ async function googleAuth (creds, date, logId, type, operator, executions, runti
 
     const row = {
         Date: date,
-        Log_Id: logId,
+        Log: `http://bulksmasher-env-1.eba-mj2ywdju.us-east-2.elasticbeanstalk.com/server-logs/BulkSmasherLog-${logId}.txt`,
         Type: type,
         Operator: operator,
         Executions: executions,
