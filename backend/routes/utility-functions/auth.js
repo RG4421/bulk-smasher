@@ -79,7 +79,7 @@ async function authenticateCredsV2(key, secret) {
     return fetchToken();
 }
 
-async function googleAuth (creds, date, logId, operator, executions, runtime) {
+async function googleAuth (creds, date, logId, type, operator, executions, runtime) {
 
     const sheetId = '1z2dwUjJKsmpm_mg66d0iTEICs_CES_4UD5_nmH9Sf-E';
     const doc = new GoogleSpreadsheet(sheetId);
@@ -94,16 +94,12 @@ async function googleAuth (creds, date, logId, operator, executions, runtime) {
     const row = {
         Date: date,
         Log_Id: logId,
+        Type: type,
         Operator: operator,
         Executions: executions,
         Runtime: runtime
     }
-
     await sheet.addRow(row);
-
-    // const test = await sheet.getRows();
-
-    // console.log(test[0]);
 }
 
 module.exports = { 

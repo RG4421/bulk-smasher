@@ -4,6 +4,7 @@ const dateFormat = require('dateformat');
 async function pastContent (token, csv, selectValue) {
     let logObj = [];
     let BOOL = 0;
+    let runCount = 0;
 
     if (selectValue === 'Hide Past Content') {
         BOOL = true;
@@ -35,6 +36,7 @@ async function pastContent (token, csv, selectValue) {
                     },
                 });
                 let resultString = `${dateTime}  -  UPDATED PAST CONTENT  -  Item '${itemId}' updated\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
 
@@ -50,12 +52,14 @@ async function pastContent (token, csv, selectValue) {
                         }
                     });
                     let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                    runCount++;
                     logObj.push(resultString);
                     console.log(resultString);
                     
                 } catch (err) {
                     let thrownError = err.response.data.errors[0].message;
                     let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                    runCount++;
                     console.log(errorMessage);
                     logObj.push(errorMessage);
                 }
@@ -63,15 +67,20 @@ async function pastContent (token, csv, selectValue) {
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
+                runCount++;
                 logObj.push(errorMessage);
             }
         }
     }
-    return logObj;
+
+    let returnObj = { logObj, runCount };
+
+    return returnObj;
 }
 
 async function author (token, csv) {
     let logObj = [];
+    let runCount = 0;
 
     for (let i = 0; i < csv.length; i++) {
         let temp = csv[i];
@@ -79,7 +88,6 @@ async function author (token, csv) {
         let authorId = temp.author_id;
         let props = Object.keys(temp);
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
-
 
         for (let j = 2; j < props.length; j++) {
             let authorName = props[j];
@@ -107,6 +115,7 @@ async function author (token, csv) {
                     },
                 });
                 let resultString = `${dateTime}  -  UPDATED AUTHOR  -  Item '${itemId}' updated to '${fullName}'\n`;
+                runCount++;
                 logObj.push(resultString);
 
                 try {
@@ -121,12 +130,14 @@ async function author (token, csv) {
                         }
                     });
                     let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                    runCount++;
                     logObj.push(resultString);
                     console.log(resultString);
                     
                 } catch (err) {
                     let thrownError = err.response.data.errors[0].message;
                     let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                    runCount++;
                     console.log(errorMessage);
                     logObj.push(errorMessage);
                 }
@@ -134,16 +145,19 @@ async function author (token, csv) {
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}' to author '${fullName}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount };
+    return returnObj;
 }
 
 async function seo (token, csv) {
     let logObj = [];
+    let runCount = 0;
 
     for (let i = 0; i < csv.length; i++) {
         let temp = csv[i];
@@ -165,9 +179,12 @@ async function seo (token, csv) {
                 },
                 data: {                    
                     canonical_url: canonURL,
+                    seo_title: seoTitle, 
+                    seo_description: seoDesc
                     },
             });
             let resultString = `${dateTime}  -  UPDATED SEO -  Item '${itemId}' SEO metadata updated\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
@@ -183,12 +200,14 @@ async function seo (token, csv) {
                     }
                 });
                 let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
                 
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
@@ -196,15 +215,18 @@ async function seo (token, csv) {
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount };
+    return returnObj;
 }
 
 async function metadata (token, csv) {
     let logObj = [];
+    let runCount = 0;
 
     for (let i = 0; i < csv.length; i++) {
         let temp = csv[i];
@@ -251,6 +273,7 @@ async function metadata (token, csv) {
                 },
             });
             let resultString = `${dateTime}  -  UPDATED METADATA  -  Item '${itemId}' metadata updated\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
@@ -266,12 +289,14 @@ async function metadata (token, csv) {
                     }
                 });
                 let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
                 
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
@@ -279,15 +304,18 @@ async function metadata (token, csv) {
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount };
+    return returnObj;
 }
 
 async function tagItems (token, newTags, tagIds) {
     let logObj = [];
+    let runCount = 0;
     
     // Looping through CSV data
     for (let i = 0; i < newTags.length; i++) {
@@ -319,12 +347,14 @@ async function tagItems (token, newTags, tagIds) {
                             },
                         });
                         let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' tagged with '${tag}'\n`;
+                        runCount++;
                         logObj.push(resultString);
                         console.log(resultString);
             
                     } catch (err) {
                         let thrownError = err.response.data.errors[0].message;
                         let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}' with tag '${tag}'\n`;
+                        runCount++;
                         console.log(errorMessage);
                         logObj.push(errorMessage);
                     }
@@ -332,11 +362,15 @@ async function tagItems (token, newTags, tagIds) {
             }
         }
     }
-    return logObj;
+
+    let returnObj = { logObj, runCount }
+
+    return returnObj;
 }
 
 async function groups (token, data) {
     let logObj = [];
+    let runCount = 0;
 
     // Looping through CSV data
     for (let i = 0; i < data.length; i++) {
@@ -353,21 +387,25 @@ async function groups (token, data) {
                 },
             });
             let resultString = `${dateTime}  -  UPDATED GROUP  -  User '${userId}' added to group '${groupId}'\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating user '${userId}' to group '${groupId}'\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount };
+    return returnObj;
 }
 
 async function streams (token, data) {
     let logObj = [];
+    let runCount = 0;
 
     // Looping through CSV data
     for (let i = 0; i < data.length; i++) {
@@ -391,22 +429,26 @@ async function streams (token, data) {
                     },
                 });
                 let resultString = `${dateTime}  -  UPDATED STREAM  -  Stream '${streamId}' added item '${itemId}'\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
     
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Adding item '${itemId}' to Stream '${streamId}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount }
+    return returnObj;
 }
 
 async function allEmbedContent (token, data, search, replace) {
     let logObj = [];
+    let runCount = 0;
 
     for (let i = 0; i < data.length; i++) {
         let itemId = data[i].id;
@@ -433,6 +475,7 @@ async function allEmbedContent (token, data, search, replace) {
                 }
             });
             let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' embedded content updated\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
@@ -448,27 +491,32 @@ async function allEmbedContent (token, data, search, replace) {
                     }
                 });
                 let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' published\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
 
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating '${itemId}' embedded content\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount }
+    return returnObj;
 }
 
 async function streamEmbedContent (token, data, search, replace) {
     let logObj = [];
+    let runCount = 0;
 
     for (let i = 0; i < data.length; i++) {
         let itemId = data[i].id;
@@ -495,6 +543,7 @@ async function streamEmbedContent (token, data, search, replace) {
                 }
             });
             let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' embedded content updated\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
@@ -510,12 +559,14 @@ async function streamEmbedContent (token, data, search, replace) {
                     }
                 });
                 let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' published\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
 
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
@@ -523,15 +574,18 @@ async function streamEmbedContent (token, data, search, replace) {
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating '${itemId}' embedded content\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount }
+    return returnObj;
 }
 
 async function items (token, csv) {
     let logObj = [];
+    let runCount = 0;
 
     for (let i = 0; i < csv.length; i++) {
         let prop = csv[i];
@@ -588,6 +642,7 @@ async function items (token, csv) {
                 },
             });
             let resultString = `${dateTime}  -  UPDATED ITEMS  -  Item '${itemId}' metadata updated\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
@@ -603,12 +658,14 @@ async function items (token, csv) {
                     }
                 });
                 let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
                 
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
@@ -616,15 +673,18 @@ async function items (token, csv) {
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount }
+    return returnObj;
 }
 
 async function appendCanonical (token, data, appendValue) {
     let logObj = [];
+    let runCount = 0;
 
     for (let itemId of data) {
         let time = new Date();
@@ -661,6 +721,7 @@ async function appendCanonical (token, data, appendValue) {
                 });
 
                 let resultString = `${dateTime}  -  TAG SEARCH ITEMS  -  Item '${itemId}' canonical updated\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
 
@@ -676,29 +737,34 @@ async function appendCanonical (token, data, appendValue) {
                         }
                     });
                     let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
+                    runCount++;
                     logObj.push(resultString);
                     console.log(resultString);
                     
                 } catch (err) {
                     let thrownError = err.response.data.errors[0].message;
                     let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                    runCount++;
                     console.log(errorMessage);
                     logObj.push(errorMessage);
                 }
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating items canonical URL '${itemId}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Fetching canonical URL '${itemId}'\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount };
+    return returnObj;
 }
 
 module.exports = { 

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const timer = require('execution-time')();
+const dateFormat = require('dateformat');
+const creds = require('../client_secret.json');
 
 // Utility functions
 const auth = require('./utility-functions/auth');
@@ -18,6 +20,7 @@ const deleteFunc = require('./delete-functions/delete');
 router.route('/allTags').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
@@ -27,10 +30,13 @@ router.route('/allTags').post(async (req, res) => {
         const tagIds = await fetch.tagId(authToken);
         const deletedTags = await deleteFunc.deleteAll(authToken, tagIds);
 
-        let log = deletedTags;
+        let log = deletedTags.logObj;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ALL TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
+
+        // Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'ALL TAGS', deletedTags.runCount, time.words);
 
         return res.status(200).json({
             message: `All tags deleted - Runtime: ${time.words}`,
@@ -39,8 +45,7 @@ router.route('/allTags').post(async (req, res) => {
         
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
-        //await fileHandler.createLog(errorMessage.toString());
+        const errorMessage = `${e.message}\n`;
         return res.status(400).json({
             message: errorMessage
         });
@@ -56,6 +61,7 @@ router.route('/tagList').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
@@ -65,10 +71,13 @@ router.route('/tagList').post(async (req, res) => {
         const tagIds = await fetch.tagId(authToken);
         const deletedTags = await deleteFunc.deleteList(authToken, fileContents, tagIds);
 
-        let log = deletedTags;
+        let log = deletedTags.logObj;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - TAG LIST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
+
+        // Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'TAG LIST', deletedTags.runCount, time.words);
 
         return res.status(200).json({
             message: `Tag list deleted - Runtime: ${time.words}`,
@@ -77,8 +86,7 @@ router.route('/tagList').post(async (req, res) => {
         
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
-        //await fileHandler.createLog(errorMessage.toString());
+        const errorMessage = `${e.message}\n`;
         return res.status(400).json({
             message: errorMessage
         });
@@ -94,6 +102,7 @@ router.route('/streamItems').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
@@ -103,10 +112,13 @@ router.route('/streamItems').post(async (req, res) => {
         const csvData = await parse.CSV(fileContents);
         const deletedStreamsItems = await deleteFunc.deleteStreamItems(authToken, csvData);
 
-        let log = deletedStreamsItems;
+        let log = deletedStreamsItems.logObj;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAM ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
+
+        // Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'STREAM ITEMS', deletedStreamsItems.runCount, time.words);
 
         return res.status(200).json({
             message: `Stream items deleted - Runtime: ${time.words}`,
@@ -115,8 +127,7 @@ router.route('/streamItems').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
-        //await fileHandler.createLog(errorMessage.toString());
+        const errorMessage = `${e.message}\n`;
         return res.status(400).json({
             message: errorMessage
         });
@@ -132,6 +143,7 @@ router.route('/hiddenItems').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
@@ -142,10 +154,13 @@ router.route('/hiddenItems').post(async (req, res) => {
         const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
         const deletedItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
 
-        let log = deletedItems;
+        let log = deletedItems.logObj;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - HIDDEN ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
+
+        // Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'HIDDEN ITEMS', deletedItems.runCount, time.words);
 
         return res.status(200).json({
             message: `Hidden stream items deleted  - Runtime: ${time.words}`,
@@ -154,8 +169,7 @@ router.route('/hiddenItems').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
-        //await fileHandler.createLog(errorMessage.toString());
+        const errorMessage = `${e.message}\n`;
         return res.status(400).json({
             message: errorMessage
         });
@@ -171,6 +185,7 @@ router.route('/pastItems').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const selectDate = req.body.selectDate;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
@@ -180,10 +195,13 @@ router.route('/pastItems').post(async (req, res) => {
         const pastContent = await fetch.pastContentItems(authToken, selectDate);
         const deletedPast = await deleteFunc.deleteItems(authToken, pastContent);
 
-        let log = deletedPast;
+        let log = deletedPast.logObj;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - PAST ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
+
+        // Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'PAST ITEMS', deletedPast.runCount, time.words);
 
         return res.status(200).json({
             message: `Past stream items deleted  - Runtime: ${time.words}`,
@@ -192,8 +210,7 @@ router.route('/pastItems').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
-        //await fileHandler.createLog(errorMessage.toString());
+        const errorMessage = `${e.message}\n`;
         return res.status(400).json({
             message: errorMessage
         });
@@ -209,6 +226,7 @@ router.route('/streams').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
@@ -218,10 +236,13 @@ router.route('/streams').post(async (req, res) => {
         const csvData = await parse.CSV(fileContents);
         const deletedStreams = await deleteFunc.streams(authToken, csvData);
 
-        let log = deletedStreams;
+        let log = deletedStreams.logObj;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
+
+        // Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'STREAMS', deletedStreams.runCount, time.words);
 
         return res.status(200).json({
             message: `Stream list deleted  - Runtime: ${time.words}`,
@@ -230,8 +251,7 @@ router.route('/streams').post(async (req, res) => {
 
     } catch (e) {
         console.log(e);
-        const errorMessage = `SERVER ERROR  -  ${e.message}\n`;
-        //await fileHandler.createLog(errorMessage.toString());
+        const errorMessage = `${e.message}\n`;
         return res.status(400).json({
             message: errorMessage
         });

@@ -327,7 +327,8 @@ async function streamsBlogItems (token, streamId, searchKey) {
 }
 
 async function getTaggedItems (token, searchKey) {
-    let runCount = 1;
+    let rowCount = 1;
+    let runCount = 0;
     let logObj = [];
     let resArr = new Set();
 
@@ -340,7 +341,7 @@ async function getTaggedItems (token, searchKey) {
                 method: "get",
                 params: {
                     limit: 100,
-                    page: runCount
+                    page: rowCount
                 },
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -369,7 +370,7 @@ async function getTaggedItems (token, searchKey) {
 
                         if (tags[j].name !== searchKey) {
                             let resultString = `${dateTime}  -  FETCHED ITEMS '${itemId}' -  '${tagName}' not a match\n`;
-
+                            runCount++;
                             resArr.add(itemId);
                             logObj.push(resultString);
                         }
@@ -377,11 +378,12 @@ async function getTaggedItems (token, searchKey) {
                 } catch (err) {
                     let thrownError = err.response.data.errors[0].message;
                     let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Listing tags for '${itemId}'\n`;
+                    runCount++;
                     console.log(errorMessage);
                     logObj.push(errorMessage);
                 }
             }
-            runCount++;
+            rowCount++;
 
             return {
                 totalPages: itemsResult.data.meta.total_pages,
@@ -389,6 +391,7 @@ async function getTaggedItems (token, searchKey) {
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Listing all items\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
@@ -400,8 +403,7 @@ async function getTaggedItems (token, searchKey) {
         await allItems();
     }
 
-    let returnObj = { resArr, logObj }
-
+    let returnObj = { resArr, logObj, runCount }
     return returnObj;
 }
 

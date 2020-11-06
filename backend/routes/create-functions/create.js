@@ -38,6 +38,7 @@ async function tags (token, data) {
 async function users (token, data) {
     let logObj = [];
     let user = [];
+    let runCount = 0;
 
     // Looping through CSV data
     for (let i = 0; i < data.length; i++) {
@@ -78,22 +79,25 @@ async function users (token, data) {
             let userId = result.data.id;
 
             let resultString = `${dateTime}  -  CREATED USER  -  '${resultFName} ${resultLName}' with ID '${userId}'\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating user '${firstName} ${lastName}'\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }       
     }
-    let returnObj = {user, logObj}
+    let returnObj = { user, logObj, runCount }
     return returnObj;
 }
 
 async function streams (token, data) {
     let logObj = [];
+    let runCount = 0;
 
     // Looping through CSV data
     for (let i = 0; i < data.length; i++) {
@@ -146,6 +150,7 @@ async function streams (token, data) {
             let streamId = result.data.id;
 
             let resultString = `${dateTime}  -  CREATED STREAM  -  '${streamTitle}' stream created with ID '${streamId}'\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
@@ -164,12 +169,14 @@ async function streams (token, data) {
                         },
                     });
                     let resultString = `${dateTime}  -  UPDATED STREAM  -  Item '${itemId}' added to '${streamId}'\n`;
+                    runCount++;
                     logObj.push(resultString);
                     console.log(resultString);
         
                 } catch (err) {
                     let thrownError = err.response.data.errors[0].message;
                     let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Adding item '${itemId}' to stream '${streamTitle}'\n`;
+                    runCount++;
                     console.log(errorMessage);
                     logObj.push(errorMessage);
                 }
@@ -178,15 +185,20 @@ async function streams (token, data) {
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating stream '${title}'\n`;
+            runCount++;
             console.log(errorMessage);
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+
+    let returnObj = { logObj, runCount }
+
+    return returnObj;
 }
 
 async function items (token, data) {
     let logObj = [];
+    let runCount = 0;
 
     for (let i = 0; i < data.length; i++) {
         let prop = data[i];
@@ -232,6 +244,7 @@ async function items (token, data) {
             });
             let itemId = result.data.id;           
             let resultString = `${dateTime}  -  CREATED ITEM  -  Item '${itemId}' created in stream '${streamId}'\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
@@ -247,22 +260,26 @@ async function items (token, data) {
                     }
                 });
                 let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' published\n`;
+                runCount++;
                 logObj.push(resultString);
                 console.log(resultString);
 
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
+                runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating item '${title}'\n`;
+            runCount++;
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount };
+    return returnObj;
 }
 
 module.exports = { 
