@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 async function authenticateCredsV1(key, signature, hubId) {
     const URL = 'https://api.uberflip.com/';
@@ -78,7 +79,35 @@ async function authenticateCredsV2(key, secret) {
     return fetchToken();
 }
 
+async function googleAuth (creds, date, logId, operator, executions, runtime) {
+
+    const sheetId = '1z2dwUjJKsmpm_mg66d0iTEICs_CES_4UD5_nmH9Sf-E';
+    const doc = new GoogleSpreadsheet(sheetId);
+
+    await doc.useServiceAccountAuth({
+        client_email: creds.client_email,
+        private_key: creds.private_key
+    });
+    await doc.getInfo();
+    const sheet = doc.sheetsByIndex[0];
+
+    const row = {
+        Date: date,
+        Log_Id: logId,
+        Operator: operator,
+        Executions: executions,
+        Runtime: runtime
+    }
+
+    await sheet.addRow(row);
+
+    // const test = await sheet.getRows();
+
+    // console.log(test[0]);
+}
+
 module.exports = { 
     authenticateCredsV1,
-    authenticateCredsV2
+    authenticateCredsV2,
+    googleAuth
 };

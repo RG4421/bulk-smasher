@@ -1,6 +1,6 @@
 import React, { 
     useState, 
-    useEffect 
+    useEffect
 } from 'react';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
@@ -353,7 +353,7 @@ function Create (props) {
                         required
                     ></input>
                 </div>
-                <h5 className="operatorSelect">Select Operator</h5>
+                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#create"}>Select Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <select
                         value={selectValue}
@@ -364,7 +364,7 @@ function Create (props) {
                         <option value="Tags">Tags</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        {/* <option value="Test">***Test***</option> */}
+                        <option value="Test">***Test***</option>
                     </select>
                 </div>
 

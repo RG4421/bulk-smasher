@@ -713,7 +713,7 @@ function Update(props) {
                         required
                     ></input>
                 </div>
-                <h5 className="operatorSelect">Select Operator</h5>
+                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#update"}>Select Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <select
                         value={selectValue}

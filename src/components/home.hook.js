@@ -10,7 +10,7 @@ function home (props) {
 
     const Create = () => (
         <Accordion>
-            <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" rel="noopener noreferrer" target="_blank">Create Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+            <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} name="create" href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" rel="noopener noreferrer" target="_blank">Create Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
         <Card>
             <Accordion.Toggle as={Card.Header} eventKey="0">
             Items
@@ -79,7 +79,7 @@ function home (props) {
 
     const Update = () => (
         <Accordion>
-            <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} href="https://docs.google.com/spreadsheets/d/1IoKWwlaJFmgkLYsGBh-2frUKVbSwNupsMdWeZOUH9qI/edit?usp=sharing" rel="noopener noreferrer" target="_blank">Update Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+            <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} name="update" href="https://docs.google.com/spreadsheets/d/1IoKWwlaJFmgkLYsGBh-2frUKVbSwNupsMdWeZOUH9qI/edit?usp=sharing" rel="noopener noreferrer" target="_blank">Update Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
             <Card>
                 <Accordion.Toggle as={Card.Header} eventKey="4">
                 Populate Stream
@@ -304,7 +304,7 @@ function home (props) {
 
     const Delete = () => (
         <Accordion>
-            <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit" rel="noopener noreferrer" target="_blank">Delete Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+            <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} name="delete" href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit" rel="noopener noreferrer" target="_blank">Delete Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
         <Card>
             <Accordion.Toggle as={Card.Header} eventKey="14">
             Tag List

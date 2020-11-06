@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const timer = require('execution-time')();
+const dateFormat = require('dateformat');
+const creds = require('../client_secret.json');
 
 // Utility functions
 const auth = require('./utility-functions/auth');
@@ -174,18 +176,23 @@ router.route('/items').post(async (req, res) => {
 router.route('/test').post(async (req, res) => {
     var APIKey = req.body.APIKey;
     var APISecret = req.body.APISecret;
+    let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const time = timer.stop();
+        let executions = '12345';
+        
+        let time = timer.stop();
         let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
+
+        await auth.googleAuth(creds, dateTime, logId, 'Test', executions, time.words);
 
         return res.status(201).json({
                 message: `TEST CALL RAN - Runtime: ${time.words}`,
-                log_name: `BulkSmasherLog-${logId}.txt`
+                log_name: `BulkSmasherLog.txt`
             });
 
     } catch (e) {

@@ -20,8 +20,7 @@ yarn-debug.log*
 yarn-error.log*
 
 /backend/server-logs
-cert.pem*
-key.pem*
+client_secret.json*
 .env*
 BulkSmasher.pem*
 prod-build-v1*
