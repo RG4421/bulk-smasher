@@ -3,6 +3,7 @@ const dateFormat = require('dateformat');
 
 async function tags (token, data) {
     let logObj = [];
+    let runCount = 0;
 
     // Pulling in unique tags to be created
     for (let tagName of data) {
@@ -23,16 +24,19 @@ async function tags (token, data) {
                 },
             });
             let resultString = `${dateTime}  -  CREATED TAG  -  '${tagName}'\n`;
+            runCount++;
             logObj.push(resultString);
             console.log(resultString);
 
         } catch (err) {
             let thrownError = err.response.data.errors[0].message;
             const errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating tag '${tagName}'\n`;
+            runCount++;
             logObj.push(errorMessage);
         }
     }
-    return logObj;
+    let returnObj = { logObj, runCount }
+    return returnObj;
 }
 
 async function users (token, data) {

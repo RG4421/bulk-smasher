@@ -37,7 +37,7 @@ router.route('/tags').post(async (req, res) => {
         const allTags = await fetch.tagId(authToken);
         const updatedTags = await update.tagItems(authToken, newTags, allTags);
 
-        let log = createdTags.concat(updatedTags.logObj);
+        let log = createdTags.logObj.concat(updatedTags.logObj);
         const execution = createdTags.runCount + updatedTags.runCount;
         const time = timer.stop();
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
@@ -48,7 +48,7 @@ router.route('/tags').post(async (req, res) => {
         console.log(time);
 
         return res.status(201).json({
-            message: `Tags successfully created and applied - ((Runtime: ${time.words}))`,
+            message: `Tags successfully created and applied - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
         
