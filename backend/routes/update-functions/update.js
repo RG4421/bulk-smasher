@@ -160,12 +160,20 @@ async function seo (token, csv) {
     let runCount = 0;
 
     for (let i = 0; i < csv.length; i++) {
+        let BOOL;
         let temp = csv[i];
         let itemId = temp.item_id;
         let canonURL = temp.canonical_url;
         let seoTitle = temp.seo_title;
         let seoDesc = temp.seo_description;
+        let canonRedirect = temp.canonical_redirect;
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+
+        if (canonRedirect === "TRUE") {
+            BOOL = true;
+        } else if (canonRedirect === "FALSE") {
+            BOOL = false;
+        }
 
         try {
             await axios({
@@ -180,7 +188,8 @@ async function seo (token, csv) {
                 data: {                    
                     canonical_url: canonURL,
                     seo_title: seoTitle, 
-                    seo_description: seoDesc
+                    seo_description: seoDesc,
+                    canonical_redirect: BOOL
                     },
             });
             let resultString = `${dateTime}  -  UPDATED SEO -  Item '${itemId}' SEO metadata updated\n`;
