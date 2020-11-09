@@ -691,9 +691,10 @@ async function items (token, csv) {
     return returnObj;
 }
 
-async function appendCanonical (token, data, appendValue) {
+async function canonical (token, data, canonical, selection) {
     let logObj = [];
     let runCount = 0;
+    let newCanonical;
 
     for (let itemId of data) {
         let time = new Date();
@@ -712,7 +713,17 @@ async function appendCanonical (token, data, appendValue) {
             });
 
             let canonicalURL = result.data.canonical_url;
-            let newCanonical = canonicalURL.concat(appendValue);
+
+            if (selection === "Prepend") {
+
+                let http = 'http://';
+                let temp = canonicalURL.split(http);
+
+                newCanonical = http + canonical + '-' + temp[1];
+
+            } else if (selection === "Append") {
+                newCanonical = canonicalURL.concat(canonical);
+            }
 
             try {
                 await axios({
@@ -787,5 +798,5 @@ module.exports = {
     allEmbedContent,
     streamEmbedContent,
     items,
-    appendCanonical
+    canonical
 };

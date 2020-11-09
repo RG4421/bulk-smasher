@@ -401,7 +401,9 @@ router.route('/tagSearch').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const tagSearch = req.body.tagSearch;
-    const canonicalAppend = req.body.canonAppend;
+    const canonical = req.body.canonAppend;
+    const selectValue = req.body.pendValue;
+    const checked = req.body.checked;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -409,17 +411,17 @@ router.route('/tagSearch').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const searchItems = await fetch.getTaggedItems(authToken, tagSearch);
-        const updatedItems = await update.appendCanonical(authToken, searchItems.resArr, canonicalAppend);
+        const searchItems = await fetch.getTaggedItems(authToken, tagSearch, checked);
+        const updatedItems = await update.canonical(authToken, searchItems.resArr, canonical, selectValue);
 
         let log = searchItems.logObj.concat(updatedItems.logObj);
         let executions = searchItems.runCount + updatedItems.runCount;
         const time = timer.stop();
         console.log('--- Execution Time --- : ', time.words);
-        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - TAG SEARCH ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - TAG SEARCH (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- SEARCH CONFIG -\nTag Search - ${tagSearch}\nItem Contains Search Key ${checked}\n${selectValue} value '${canonical}'\n\n- ACTIVITY LOG -\n` + log.join(""));
 
-        // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'TAG SEARCH ITEMS', executions, time.words);
+        //Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'TAG SEARCH', executions, time.words);
 
         return res.status(200).json({
             message: `Tagged items updated - (Runtime: ${time.words})`,

@@ -9,7 +9,7 @@ import logo from '../images/uf.png'
 function home (props) {
 
     const Create = () => (
-        <Accordion>
+        <Accordion style={{cursor: 'pointer'}}>
             <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} name="create" href="https://docs.google.com/spreadsheets/d/1iuoyIPQHMsxZiSOefFQCCPsMSY8eqKUXAPSeg9lWGts/edit?usp=sharing" rel="noopener noreferrer" target="_blank">Create Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
         <Card>
             <Accordion.Toggle as={Card.Header} eventKey="0">
@@ -78,7 +78,7 @@ function home (props) {
     )
 
     const Update = () => (
-        <Accordion>
+        <Accordion style={{cursor: 'pointer'}}>
             <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} name="update" href="https://docs.google.com/spreadsheets/d/1IoKWwlaJFmgkLYsGBh-2frUKVbSwNupsMdWeZOUH9qI/edit?usp=sharing" rel="noopener noreferrer" target="_blank">Update Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
             <Card>
                 <Accordion.Toggle as={Card.Header} eventKey="4">
@@ -272,13 +272,14 @@ function home (props) {
                 <Accordion.Collapse eventKey="13">
                 <Card.Body>
 
-                This operator fetches items that are tagged/not tagged with the <b>Tag Search Key</b>.
+                This operator fetches items that are/are not tagged with the <b>Tag Search Key</b> and updates the canonical URL.
 
+                <br />
                 <br />
 
                 The user can decide whether to prepend/append to the existing canonical URL.
 
-                 <hr />
+                <hr />
 
                 Example:
 
@@ -289,12 +290,20 @@ function home (props) {
 
                 <br />
 
-                <b>Append</b> = 'testPrepend'
+                <input type="checkbox" style={{width: '15px'}} checked></input> <b>Item is tagged with Tag Search Key</b>
+
+                <br />
+
+                <b>Prepend or Append...</b> = 'Append'
+
+                <br />
+
+                <b>Prepend/append value to Canonical</b> = 'testPrepend'
 
                 <br />
                 <br />
 
-                This is result in the canonical URL's of the found items to www.testurl.com/<b>testAppend</b>
+                This is result in the canonical URL's of the found items to www.testurl.com/<b>testPrepend</b>
 
                 </Card.Body>
                 </Accordion.Collapse>
@@ -303,7 +312,7 @@ function home (props) {
     )
 
     const Delete = () => (
-        <Accordion>
+        <Accordion style={{cursor: 'pointer'}}>
             <h5 style={{marginTop: 30}}><a style={{color: '#0e8643'}} name="delete" href="https://docs.google.com/spreadsheets/d/1VeXSwQ9Cq4uXct4fegW2er3vqa9RU4Yzc-oAFeFprL4/edit" rel="noopener noreferrer" target="_blank">Delete Operators<img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
         <Card>
             <Accordion.Toggle as={Card.Header} eventKey="14">

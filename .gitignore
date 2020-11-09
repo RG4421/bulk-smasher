@@ -23,4 +23,4 @@ yarn-error.log*
 client_secret.json*
 .env*
 BulkSmasher.pem*
-prod-build-v1*
+prod-build-v*

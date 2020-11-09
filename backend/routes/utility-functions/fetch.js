@@ -326,7 +326,7 @@ async function streamsBlogItems (token, streamId, searchKey) {
     return resArr;
 }
 
-async function getTaggedItems (token, searchKey) {
+async function getTaggedItems (token, searchKey, toggle) {
     let rowCount = 1;
     let runCount = 0;
     let logObj = [];
@@ -368,11 +368,22 @@ async function getTaggedItems (token, searchKey) {
                     for (let j = 0; j < tags.length; j++) {
                         let tagName = tags[j].name;
 
-                        if (tags[j].name !== searchKey) {
-                            let resultString = `${dateTime}  -  FETCHED ITEMS '${itemId}' -  '${tagName}' not a match\n`;
-                            runCount++;
-                            resArr.add(itemId);
-                            logObj.push(resultString);
+                        if (toggle === true) {
+                            if (tags[j].name === searchKey) {
+                                let resultString = `${dateTime}  -  FETCHED ITEMS '${itemId}'  -  '${tagName}' is a match\n`;
+                                console.log(resultString);
+                                runCount++;
+                                resArr.add(itemId);
+                                logObj.push(resultString);
+                            }
+                        } else if (toggle === false) {
+                            if (tags[j].name !== searchKey) {
+                                let resultString = `${dateTime}  -  FETCHED ITEMS '${itemId}'  -  '${tagName}' not a match\n`;
+                                console.log(resultString);
+                                runCount++;
+                                resArr.add(itemId);
+                                logObj.push(resultString);
+                            }
                         }
                     }
                 } catch (err) {

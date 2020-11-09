@@ -30,8 +30,10 @@ function Update(props) {
     const [serverError, setServerError] = useState('');
     const [logURL, setLogURL] = useState('');
     const [fileName, setFileName] = useState('');
+    const [pendValue, setPendValue] = useState('');
 
     const [selectDate, setSelectDate] = useState(new Date());
+    const [checked, setChecked] = useState(false);
     const [showStreamId, setShowStreamId] = useState(false);
     const [showTagSearch, setShowTagSearch] = useState(false);
     const [showFindReplaceContent, setShowFindReplaceContent] = useState(false);
@@ -224,8 +226,28 @@ function Update(props) {
                 ></input>
             </div>
             <div className="form-group">
+                <input 
+                    style={{marginRight: 5, width: '10px'}}
+                    type="checkbox"
+                    checked={checked}
+                    onChange={e => setChecked(!checked)}
+                />
+                <label>Item is tagged with 'Tag Search Key'</label>
+            </div>
+            <div className="form-group">
+                <select
+                    style= {{cursor: 'pointer'}}
+                    value={pendValue}
+                    onChange={e => setPendValue(e.target.value)}
+                >
+                    <option default>Prepend or Append...</option>
+                    <option value="Prepend">Prepend</option>
+                    <option value="Append">Append</option>
+                </select>
+            </div>
+            <div className="form-group">
                 <input
-                    placeholder="Append Canonical"
+                    placeholder="Prepend/Append value to Canonical"
                     type="text"
                     value={canonAppend}
                     onChange={e => setCanonAppend(e.target.value)}
@@ -282,7 +304,9 @@ function Update(props) {
             itemSearch,
             itemReplace,
             tagSearch,
-            canonAppend
+            canonAppend,
+            pendValue,
+            checked
         }
 
         // Updating past content to hidden
@@ -716,6 +740,7 @@ function Update(props) {
                 <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#update"}>Select Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <select
+                        style= {{cursor: 'pointer'}}
                         value={selectValue}
                         onChange={e => setSelectValue(e.target.value)}
                     >
