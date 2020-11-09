@@ -94,6 +94,47 @@ router.route('/tagList').post(async (req, res) => {
 });
 
 /*
+-----------
+   ITEMS
+-----------
+*/
+router.route('/items').post(async (req, res) => {
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
+
+    try {
+        timer.start();
+        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        let fetchHub = await fetch.getHub(authToken);
+        
+        const csvData = await parse.CSV(fileContents);
+        const deletedItems = await deleteFunc.items(authToken, csvData);
+
+        let log = deletedItems.logObj;
+        const time = timer.stop();
+        console.log('--- Execution Time --- : ', time.words);
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
+
+        // Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'ITEMS', deletedItems.runCount, time.words);
+
+        return res.status(200).json({
+            message: `Items deleted  - (Runtime: ${time.words})`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `${e.message}\n`;
+        return res.status(400).json({
+            message: errorMessage
+        });
+    }
+});
+
+/*
 ----------------
   STREAM ITEMS
 ----------------

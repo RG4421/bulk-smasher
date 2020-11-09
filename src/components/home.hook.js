@@ -318,6 +318,18 @@ function home (props) {
             </Accordion.Collapse>
         </Card>
         <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="20">
+            Items
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="20">
+            <Card.Body>
+                
+            This operator will delete a list of items that are provided in CSV file.
+
+            </Card.Body>
+            </Accordion.Collapse>
+        </Card>
+        <Card>
             <Accordion.Toggle as={Card.Header} eventKey="15">
             Marketing Stream Items
             </Accordion.Toggle>

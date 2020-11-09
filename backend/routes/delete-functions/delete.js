@@ -77,6 +77,40 @@ async function deleteList (token, csv, tagIds) {
     return returnObj;
 }
 
+// Delete items from Hub
+async function items (token, data) {
+    let logObj = [];
+    let runCount = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        let temp = data[i];
+        let itemId = temp.item_id;
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+
+        try {
+            await axios({
+                url: `https://v2.api.uberflip.com/items/${itemId}`,
+                method: 'delete',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            let resultString = `${dateTime}  -  DELETED ITEMS  -  Deleted item '${itemId}\n`;
+            runCount++;
+            logObj.push(resultString);
+            console.log(resultString);
+        } catch (err) {
+            let thrownError = err.response.data.errors[0].message;
+            const errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Deleting '${itemId}'\n`;
+            runCount++;
+            logObj.push(errorMessage);
+            console.log(errorMessage);
+        }
+    }
+    let returnObj = { logObj, runCount };
+    return returnObj;
+}
+
 // Delete items in stream
 async function deleteItems (token, data) {
     let logObj = [];
@@ -194,5 +228,6 @@ module.exports = {
     deleteList, 
     deleteItems,
     deleteStreamItems,
-    streams
+    streams,
+    items
 }

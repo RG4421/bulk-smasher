@@ -56,7 +56,7 @@ function Delete (props)
             setShowLegacyFields(false);
             setShowLoader(false);
             setShowLogDownload(false);
-        } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items" || selectValue === "Streams") {
+        } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items" || selectValue === "Streams" || selectValue === "Items") {
             clientIdRef.current.placeholder = "API Key";
             clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(false);
@@ -458,6 +458,43 @@ function Delete (props)
             } else {
                 alert("Delete operation cancelled.");
             }
+        } else if (selectValue === "Items") {
+            let ans = window.prompt("Type 'DELETE ITEMS' to delete these items.");
+            if (ans === "DELETE ITEMS") {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
+                setShowLoader(true);
+                setShowLogDownload(false);
+
+                Axios.post('/delete/items', data)
+                .then((res) => {
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
+                        setShowServerSuccess(true);
+                        setShowLogDownload(true);
+                        console.log(res.data);    
+                    }
+                }).catch((e) => {
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setShowLogDownload(false);
+                        setServerError(e.response);
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
+                });
+            } else {
+                alert("Delete operation cancelled.");
+            }
         }
     }
 
@@ -499,6 +536,7 @@ function Delete (props)
                     >
                         <option default>Please Select...</option>
                         <option value="Tag List">Tag List</option>
+                        <option value="Items">Items</option>
                         <option value="Stream Items">Marketing Stream Items</option>
                         <option value="Hidden Items">Hidden Marketing Stream Items</option>
                         <option value="Past Content">Past Items</option>
