@@ -16,13 +16,14 @@ async function pastContent (token, csv, selectValue) {
         let temp = csv[i];
         let props = Object.keys(temp);
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let pubDate;
 
         for (let j = 1; j < props.length; j++) {
             let itemName = props[j];
             let itemId = temp[itemName];
 
             try {
-                await axios({
+                const result = await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}`,
                     method: 'patch',
                     headers: {
@@ -40,6 +41,12 @@ async function pastContent (token, csv, selectValue) {
                 logObj.push(resultString);
                 console.log(resultString);
 
+                if (result.data.published_at != null) {
+                    pubDate = result.data.published_at
+                } else {
+                    pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+                }
+
                 try {
                     await axios({
                         url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -48,7 +55,7 @@ async function pastContent (token, csv, selectValue) {
                             'Authorization': `Bearer ${token}`,
                         },
                         data: {
-                            published_at: dateTime
+                            published_at: pubDate
                         }
                     });
                     let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
@@ -88,6 +95,7 @@ async function author (token, csv) {
         let authorId = temp.author_id;
         let props = Object.keys(temp);
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let pubDate;
 
         for (let j = 2; j < props.length; j++) {
             let authorName = props[j];
@@ -97,7 +105,7 @@ async function author (token, csv) {
             let lastName = name[1];
 
             try {
-                await axios({
+                const result = await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}`,
                     method: 'patch',
                     headers: {
@@ -118,6 +126,12 @@ async function author (token, csv) {
                 runCount++;
                 logObj.push(resultString);
 
+                if (result.data.published_at != null) {
+                    pubDate = result.data.published_at
+                } else {
+                    pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+                }
+
                 try {
                     await axios({
                         url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -126,7 +140,7 @@ async function author (token, csv) {
                             'Authorization': `Bearer ${token}`,
                         },
                         data: {
-                            published_at: dateTime
+                            published_at: pubDate
                         }
                     });
                     let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
@@ -168,6 +182,7 @@ async function seo (token, csv) {
         let seoDesc = temp.seo_description;
         let canonRedirect = temp.canonical_redirect;
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let pubDate;
 
         if (canonRedirect === "TRUE") {
             BOOL = true;
@@ -176,7 +191,7 @@ async function seo (token, csv) {
         }
 
         try {
-            await axios({
+            const result = await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -197,6 +212,12 @@ async function seo (token, csv) {
             logObj.push(resultString);
             console.log(resultString);
 
+            if (result.data.published_at != null) {
+                pubDate = result.data.published_at
+            } else {
+                pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+            }
+
             try {
                 await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -205,7 +226,7 @@ async function seo (token, csv) {
                         'Authorization': `Bearer ${token}`,
                     },
                     data: {
-                        published_at: dateTime
+                        published_at: pubDate
                     }
                 });
                 let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
@@ -246,8 +267,8 @@ async function metadata (token, csv) {
         let authorId = temp.author_id;
         let status = temp.status;
         let bool = 0;
-        let time = new Date();
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let pubDate;
 
 
         if (status === 'Show') {
@@ -261,7 +282,7 @@ async function metadata (token, csv) {
         let lastName = name[1];
 
         try {
-            await axios({
+            const result = await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -286,6 +307,12 @@ async function metadata (token, csv) {
             logObj.push(resultString);
             console.log(resultString);
 
+            if (result.data.published_at != null) {
+                pubDate = result.data.published_at
+            } else {
+                pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+            }
+
             try {
                 await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -294,7 +321,7 @@ async function metadata (token, csv) {
                         'Authorization': `Bearer ${token}`,
                     },
                     data: {
-                        published_at: time
+                        published_at: pubDate
                     }
                 });
                 let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
@@ -462,13 +489,13 @@ async function allEmbedContent (token, data, search, replace) {
     for (let i = 0; i < data.length; i++) {
         let itemId = data[i].id;
         let content = data[i].content;
-        let time = new Date();
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let pubDate;
 
         let updatedContent = content.replace(search, replace);
 
         try {
-            await axios({
+            const result = await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -488,6 +515,12 @@ async function allEmbedContent (token, data, search, replace) {
             logObj.push(resultString);
             console.log(resultString);
 
+            if (result.data.published_at != null) {
+                pubDate = result.data.published_at
+            } else {
+                pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+            }
+
             try {
                 await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -496,7 +529,7 @@ async function allEmbedContent (token, data, search, replace) {
                         'Authorization': `Bearer ${token}`,
                     },
                     data: {
-                        published_at: time
+                        published_at: pubDate
                     }
                 });
                 let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' published\n`;
@@ -530,13 +563,13 @@ async function streamEmbedContent (token, data, search, replace) {
     for (let i = 0; i < data.length; i++) {
         let itemId = data[i].id;
         let content = data[i].content;
-        let time = new Date();
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let pubDate;
 
         let updatedContent = content.replace(search, replace);
 
         try {
-            await axios({
+            const result = await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -556,6 +589,12 @@ async function streamEmbedContent (token, data, search, replace) {
             logObj.push(resultString);
             console.log(resultString);
 
+            if (result.data.published_at != null) {
+                pubDate = result.data.published_at
+            } else {
+                pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+            }
+
             try {
                 await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -564,7 +603,7 @@ async function streamEmbedContent (token, data, search, replace) {
                         'Authorization': `Bearer ${token}`,
                     },
                     data: {
-                        published_at: time
+                        published_at: pubDate
                     }
                 });
                 let resultString = `${dateTime}  -  UPDATED EMBEDDED CONTENT  -  Item '${itemId}' published\n`;
@@ -609,9 +648,8 @@ async function items (token, csv) {
         let canonicalURL = prop.canonical_url;
         let status = prop.status;
         let bool = 0;
-
-        let time = new Date();
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let pubDate;
 
         if (status === 'Show') {
             bool = false;
@@ -624,7 +662,7 @@ async function items (token, csv) {
         let lastName = name[1];
 
         try {
-            await axios({
+            const result = await axios({
                 url: `https://v2.api.uberflip.com/items/${itemId}`,
                 method: 'patch',
                 headers: {
@@ -655,6 +693,12 @@ async function items (token, csv) {
             logObj.push(resultString);
             console.log(resultString);
 
+            if (result.data.published_at != null) {
+                pubDate = result.data.published_at
+            } else {
+                pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+            }
+
             try {
                 await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -663,7 +707,7 @@ async function items (token, csv) {
                         'Authorization': `Bearer ${token}`,
                     },
                     data: {
-                        published_at: time
+                        published_at: pubDate
                     }
                 });
                 let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
@@ -697,8 +741,8 @@ async function canonical (token, data, canonical, selection) {
     let newCanonical;
 
     for (let itemId of data) {
-        let time = new Date();
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let pubDate;
 
         try {
             const result = await axios({
@@ -726,7 +770,7 @@ async function canonical (token, data, canonical, selection) {
             }
 
             try {
-                await axios({
+                const result = await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}`,
                     method: 'patch',
                     headers: {
@@ -745,6 +789,12 @@ async function canonical (token, data, canonical, selection) {
                 logObj.push(resultString);
                 console.log(resultString);
 
+                if (result.data.published_at != null) {
+                    pubDate = result.data.published_at
+                } else {
+                    pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+                }
+
                 try {
                     await axios({
                         url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -753,7 +803,7 @@ async function canonical (token, data, canonical, selection) {
                             'Authorization': `Bearer ${token}`,
                         },
                         data: {
-                            published_at: time
+                            published_at: pubDate
                         }
                     });
                     let resultString = `${dateTime}  -  Published item '${itemId}'\n`;

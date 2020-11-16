@@ -217,7 +217,7 @@ async function items (token, data) {
         let seoDescription = prop.seo_description;
         let canonicalURL = prop.canonical_url;
         let date = new Date();
-        const dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         try {
             const result = await axios({
@@ -252,6 +252,12 @@ async function items (token, data) {
             logObj.push(resultString);
             console.log(resultString);
 
+            if (result.data.published_at != null) {
+                dateTime = result.data.published_at
+            } else {
+                dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+            }
+
             try {
                 await axios({
                     url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
@@ -263,6 +269,10 @@ async function items (token, data) {
                         published_at: dateTime
                     }
                 });
+
+                //ADD IN LOGIC FOR CHECKING IF IT ALREAD Y HAS  APUBLISHED DAHTE
+
+
                 let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' published\n`;
                 runCount++;
                 logObj.push(resultString);
