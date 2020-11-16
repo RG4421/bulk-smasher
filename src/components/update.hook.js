@@ -3,6 +3,7 @@ import React, {
     useEffect
 } from 'react';
 import Axios from 'axios';
+import { useHistory } from "react-router-dom";
 import { CsvToHtmlTable }from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 
@@ -44,6 +45,35 @@ function Update(props) {
     const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
     const [showLogDownload, setShowLogDownload] = useState(false);
+
+    // AUTHENTICATION
+    const history = useHistory();
+
+    const checkSessionStatus = () => {
+        const token = JSON.parse(localStorage.getItem('bulksmasher-user'));        
+        
+        if (token) {
+            Axios.get('auth/checkCreds', { headers: {Authorization: `Bearer ${token.accessToken}`}})
+            .then((res) => {
+                if (res.data.authSuccessful === true) {
+                    history.push('/update');
+                }
+            }).catch((e) => {
+                console.log(e);
+                localStorage.removeItem('bulksmasher-user');
+                history.push("/auth");
+                console.log(e.response);
+            });
+        } else {
+            localStorage.removeItem('bulksmasher-user');
+            history.push("/auth");
+        }
+    }
+
+    useEffect(() => {
+        checkSessionStatus();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
@@ -147,7 +177,7 @@ function Update(props) {
 
     const LogDownload = () => (
         <div className="form-group">
-            <a href={'http://bulksmasher-env-1.eba-mj2ywdju.us-east-2.elasticbeanstalk.com/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
+            <a href={process.env.PUBLIC_URL + '/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
             <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>        
         </div>
     )

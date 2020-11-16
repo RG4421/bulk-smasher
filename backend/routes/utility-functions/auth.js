@@ -1,4 +1,5 @@
 const axios = require('axios');
+const jwt = require('jsonwebtoken');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 async function authenticateCredsV1(key, signature, hubId) {
@@ -93,7 +94,7 @@ async function googleAuth (creds, date, logId, type, operator, executions, runti
 
     const row = {
         Date: date,
-        Log: `http://bulksmasher-env-1.eba-mj2ywdju.us-east-2.elasticbeanstalk.com/server-logs/BulkSmasherLog-${logId}.txt`,
+        Log: `https://bulksmasher.uberflip.com/server-logs/BulkSmasherLog-${logId}.txt`,
         Type: type,
         Operator: operator,
         Executions: executions,
@@ -102,8 +103,30 @@ async function googleAuth (creds, date, logId, type, operator, executions, runti
     await sheet.addRow(row);
 }
 
+async function authenticateJWT (req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (token === null) {
+        return res.status(401).json({
+            message: `Authentication Unsuccessful - Check your passphrase`,
+        });
+    } 
+
+    jwt.verify(token, process.env.BULKSMASHER_TOKEN, (err, password) => {
+        if (err) {
+            return res.status(403).json({
+                message: `Token is no longer valid`,
+            });
+        }
+        req.password = password;
+        next();
+    });
+}
+
 module.exports = { 
     authenticateCredsV1,
     authenticateCredsV2,
-    googleAuth
+    googleAuth,
+    authenticateJWT
 };

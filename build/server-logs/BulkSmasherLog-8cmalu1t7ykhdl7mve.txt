@@ -1,0 +1,627 @@
+--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime 1.95 min) ---
+
+- HUBS - 
+Hub Name: 3Play Media
+Id: 113580
+
+- ACTIVITY LOG -
+2020-11-11 10:55:52  -  UPDATED SEO -  Item '615060876' SEO metadata updated
+2020-11-11 10:55:52  -  Published item '615060876'
+2020-11-11 10:55:52  -  UPDATED SEO -  Item '615060897' SEO metadata updated
+2020-11-11 10:55:52  -  Published item '615060897'
+2020-11-11 10:55:53  -  UPDATED SEO -  Item '615060888' SEO metadata updated
+2020-11-11 10:55:53  -  Published item '615060888'
+2020-11-11 10:55:53  -  UPDATED SEO -  Item '615060879' SEO metadata updated
+2020-11-11 10:55:53  -  Published item '615060879'
+2020-11-11 10:55:53  -  UPDATED SEO -  Item '615060864' SEO metadata updated
+2020-11-11 10:55:53  -  Published item '615060864'
+2020-11-11 10:55:54  -  UPDATED SEO -  Item '615060849' SEO metadata updated
+2020-11-11 10:55:54  -  Published item '615060849'
+2020-11-11 10:55:54  -  UPDATED SEO -  Item '615060843' SEO metadata updated
+2020-11-11 10:55:54  -  Published item '615060843'
+2020-11-11 10:55:54  -  UPDATED SEO -  Item '615060831' SEO metadata updated
+2020-11-11 10:55:54  -  Published item '615060831'
+2020-11-11 10:55:55  -  UPDATED SEO -  Item '615060822' SEO metadata updated
+2020-11-11 10:55:55  -  Published item '615060822'
+2020-11-11 10:55:55  -  UPDATED SEO -  Item '615060708' SEO metadata updated
+2020-11-11 10:55:55  -  Published item '615060708'
+2020-11-11 10:55:55  -  UPDATED SEO -  Item '615060669' SEO metadata updated
+2020-11-11 10:55:55  -  Published item '615060669'
+2020-11-11 10:55:56  -  UPDATED SEO -  Item '615060585' SEO metadata updated
+2020-11-11 10:55:56  -  Published item '615060585'
+2020-11-11 10:55:56  -  UPDATED SEO -  Item '615060519' SEO metadata updated
+2020-11-11 10:55:56  -  Published item '615060519'
+2020-11-11 10:55:56  -  UPDATED SEO -  Item '615060105' SEO metadata updated
+2020-11-11 10:55:56  -  Published item '615060105'
+2020-11-11 10:55:56  -  UPDATED SEO -  Item '615060090' SEO metadata updated
+2020-11-11 10:55:56  -  Published item '615060090'
+2020-11-11 10:55:57  -  UPDATED SEO -  Item '615060234' SEO metadata updated
+2020-11-11 10:55:57  -  Published item '615060234'
+2020-11-11 10:55:57  -  UPDATED SEO -  Item '615060231' SEO metadata updated
+2020-11-11 10:55:57  -  Published item '615060231'
+2020-11-11 10:55:57  -  UPDATED SEO -  Item '615060342' SEO metadata updated
+2020-11-11 10:55:57  -  Published item '615060342'
+2020-11-11 10:55:58  -  UPDATED SEO -  Item '615060336' SEO metadata updated
+2020-11-11 10:55:58  -  Published item '615060336'
+2020-11-11 10:55:58  -  UPDATED SEO -  Item '615060540' SEO metadata updated
+2020-11-11 10:55:58  -  Published item '615060540'
+2020-11-11 10:55:58  -  UPDATED SEO -  Item '615059511' SEO metadata updated
+2020-11-11 10:55:58  -  Published item '615059511'
+2020-11-11 10:55:59  -  UPDATED SEO -  Item '615060543' SEO metadata updated
+2020-11-11 10:55:59  -  Published item '615060543'
+2020-11-11 10:55:59  -  UPDATED SEO -  Item '615060132' SEO metadata updated
+2020-11-11 10:55:59  -  Published item '615060132'
+2020-11-11 10:55:59  -  UPDATED SEO -  Item '615060438' SEO metadata updated
+2020-11-11 10:55:59  -  Published item '615060438'
+2020-11-11 10:55:59  -  UPDATED SEO -  Item '615060447' SEO metadata updated
+2020-11-11 10:55:59  -  Published item '615060447'
+2020-11-11 10:56:00  -  UPDATED SEO -  Item '615060504' SEO metadata updated
+2020-11-11 10:56:00  -  Published item '615060504'
+2020-11-11 10:56:00  -  UPDATED SEO -  Item '615060435' SEO metadata updated
+2020-11-11 10:56:00  -  Published item '615060435'
+2020-11-11 10:56:00  -  UPDATED SEO -  Item '615060861' SEO metadata updated
+2020-11-11 10:56:00  -  Published item '615060861'
+2020-11-11 10:56:01  -  UPDATED SEO -  Item '615060120' SEO metadata updated
+2020-11-11 10:56:01  -  Published item '615060120'
+2020-11-11 10:56:01  -  UPDATED SEO -  Item '615060204' SEO metadata updated
+2020-11-11 10:56:01  -  Published item '615060204'
+2020-11-11 10:56:02  -  UPDATED SEO -  Item '615059775' SEO metadata updated
+2020-11-11 10:56:02  -  Published item '615059775'
+2020-11-11 10:56:02  -  UPDATED SEO -  Item '615060573' SEO metadata updated
+2020-11-11 10:56:02  -  Published item '615060573'
+2020-11-11 10:56:02  -  UPDATED SEO -  Item '615060591' SEO metadata updated
+2020-11-11 10:56:02  -  Published item '615060591'
+2020-11-11 10:56:02  -  UPDATED SEO -  Item '615060375' SEO metadata updated
+2020-11-11 10:56:02  -  Published item '615060375'
+2020-11-11 10:56:03  -  UPDATED SEO -  Item '615060582' SEO metadata updated
+2020-11-11 10:56:03  -  Published item '615060582'
+2020-11-11 10:56:03  -  UPDATED SEO -  Item '615060468' SEO metadata updated
+2020-11-11 10:56:03  -  Published item '615060468'
+2020-11-11 10:56:03  -  UPDATED SEO -  Item '615060840' SEO metadata updated
+2020-11-11 10:56:03  -  Published item '615060840'
+2020-11-11 10:56:04  -  UPDATED SEO -  Item '615060531' SEO metadata updated
+2020-11-11 10:56:04  -  Published item '615060531'
+2020-11-11 10:56:04  -  UPDATED SEO -  Item '615060495' SEO metadata updated
+2020-11-11 10:56:04  -  Published item '615060495'
+2020-11-11 10:56:04  -  UPDATED SEO -  Item '615059439' SEO metadata updated
+2020-11-11 10:56:04  -  Published item '615059439'
+2020-11-11 10:56:04  -  UPDATED SEO -  Item '615060237' SEO metadata updated
+2020-11-11 10:56:04  -  Published item '615060237'
+2020-11-11 10:56:05  -  UPDATED SEO -  Item '615060372' SEO metadata updated
+2020-11-11 10:56:05  -  Published item '615060372'
+2020-11-11 10:56:05  -  UPDATED SEO -  Item '615059994' SEO metadata updated
+2020-11-11 10:56:05  -  Published item '615059994'
+2020-11-11 10:56:05  -  UPDATED SEO -  Item '615059019' SEO metadata updated
+2020-11-11 10:56:05  -  Published item '615059019'
+2020-11-11 10:56:06  -  UPDATED SEO -  Item '615058974' SEO metadata updated
+2020-11-11 10:56:06  -  Published item '615058974'
+2020-11-11 10:56:07  -  UPDATED SEO -  Item '615058782' SEO metadata updated
+2020-11-11 10:56:07  -  Published item '615058782'
+2020-11-11 10:56:08  -  UPDATED SEO -  Item '615059973' SEO metadata updated
+2020-11-11 10:56:08  -  Published item '615059973'
+2020-11-11 10:56:10  -  UPDATED SEO -  Item '615060147' SEO metadata updated
+2020-11-11 10:56:10  -  Published item '615060147'
+2020-11-11 10:56:10  -  UPDATED SEO -  Item '615059613' SEO metadata updated
+2020-11-11 10:56:10  -  Published item '615059613'
+2020-11-11 10:56:10  -  UPDATED SEO -  Item '615059361' SEO metadata updated
+2020-11-11 10:56:10  -  Published item '615059361'
+2020-11-11 10:56:11  -  UPDATED SEO -  Item '615059007' SEO metadata updated
+2020-11-11 10:56:11  -  Published item '615059007'
+2020-11-11 10:56:11  -  UPDATED SEO -  Item '615058659' SEO metadata updated
+2020-11-11 10:56:11  -  Published item '615058659'
+2020-11-11 10:56:11  -  UPDATED SEO -  Item '615060516' SEO metadata updated
+2020-11-11 10:56:11  -  Published item '615060516'
+2020-11-11 10:56:11  -  UPDATED SEO -  Item '615060285' SEO metadata updated
+2020-11-11 10:56:11  -  Published item '615060285'
+2020-11-11 10:56:12  -  ERROR: The canonical url format is invalid.  -  Updating item '621150974'
+2020-11-11 10:56:12  -  UPDATED SEO -  Item '615060555' SEO metadata updated
+2020-11-11 10:56:12  -  Published item '615060555'
+2020-11-11 10:56:12  -  UPDATED SEO -  Item '615060525' SEO metadata updated
+2020-11-11 10:56:12  -  Published item '615060525'
+2020-11-11 10:56:12  -  UPDATED SEO -  Item '615060858' SEO metadata updated
+2020-11-11 10:56:12  -  Published item '615060858'
+2020-11-11 10:56:13  -  UPDATED SEO -  Item '615060873' SEO metadata updated
+2020-11-11 10:56:13  -  Published item '615060873'
+2020-11-11 10:56:13  -  UPDATED SEO -  Item '615059304' SEO metadata updated
+2020-11-11 10:56:13  -  Published item '615059304'
+2020-11-11 10:56:13  -  UPDATED SEO -  Item '615060405' SEO metadata updated
+2020-11-11 10:56:13  -  Published item '615060405'
+2020-11-11 10:56:14  -  UPDATED SEO -  Item '615060819' SEO metadata updated
+2020-11-11 10:56:14  -  Published item '615060819'
+2020-11-11 10:56:14  -  UPDATED SEO -  Item '615060198' SEO metadata updated
+2020-11-11 10:56:14  -  Published item '615060198'
+2020-11-11 10:56:14  -  UPDATED SEO -  Item '615060612' SEO metadata updated
+2020-11-11 10:56:14  -  Published item '615060612'
+2020-11-11 10:56:14  -  UPDATED SEO -  Item '615060564' SEO metadata updated
+2020-11-11 10:56:14  -  Published item '615060564'
+2020-11-11 10:56:15  -  UPDATED SEO -  Item '615060576' SEO metadata updated
+2020-11-11 10:56:15  -  Published item '615060576'
+2020-11-11 10:56:15  -  UPDATED SEO -  Item '615060588' SEO metadata updated
+2020-11-11 10:56:15  -  Published item '615060588'
+2020-11-11 10:56:16  -  UPDATED SEO -  Item '615059997' SEO metadata updated
+2020-11-11 10:56:16  -  Published item '615059997'
+2020-11-11 10:56:16  -  UPDATED SEO -  Item '615060717' SEO metadata updated
+2020-11-11 10:56:16  -  Published item '615060717'
+2020-11-11 10:56:16  -  UPDATED SEO -  Item '615060885' SEO metadata updated
+2020-11-11 10:56:16  -  Published item '615060885'
+2020-11-11 10:56:16  -  UPDATED SEO -  Item '615060867' SEO metadata updated
+2020-11-11 10:56:16  -  Published item '615060867'
+2020-11-11 10:56:17  -  UPDATED SEO -  Item '615060741' SEO metadata updated
+2020-11-11 10:56:17  -  Published item '615060741'
+2020-11-11 10:56:17  -  UPDATED SEO -  Item '615060024' SEO metadata updated
+2020-11-11 10:56:17  -  Published item '615060024'
+2020-11-11 10:56:17  -  UPDATED SEO -  Item '615060882' SEO metadata updated
+2020-11-11 10:56:17  -  Published item '615060882'
+2020-11-11 10:56:18  -  UPDATED SEO -  Item '615060279' SEO metadata updated
+2020-11-11 10:56:18  -  Published item '615060279'
+2020-11-11 10:56:18  -  UPDATED SEO -  Item '615059235' SEO metadata updated
+2020-11-11 10:56:18  -  Published item '615059235'
+2020-11-11 10:56:18  -  UPDATED SEO -  Item '615059907' SEO metadata updated
+2020-11-11 10:56:18  -  Published item '615059907'
+2020-11-11 10:56:19  -  UPDATED SEO -  Item '615060489' SEO metadata updated
+2020-11-11 10:56:19  -  Published item '615060489'
+2020-11-11 10:56:19  -  UPDATED SEO -  Item '615059565' SEO metadata updated
+2020-11-11 10:56:19  -  Published item '615059565'
+2020-11-11 10:56:19  -  UPDATED SEO -  Item '615059553' SEO metadata updated
+2020-11-11 10:56:19  -  Published item '615059553'
+2020-11-11 10:56:20  -  UPDATED SEO -  Item '615059448' SEO metadata updated
+2020-11-11 10:56:20  -  Published item '615059448'
+2020-11-11 10:56:20  -  UPDATED SEO -  Item '615060213' SEO metadata updated
+2020-11-11 10:56:20  -  Published item '615060213'
+2020-11-11 10:56:20  -  UPDATED SEO -  Item '615058587' SEO metadata updated
+2020-11-11 10:56:20  -  Published item '615058587'
+2020-11-11 10:56:20  -  UPDATED SEO -  Item '615059319' SEO metadata updated
+2020-11-11 10:56:20  -  Published item '615059319'
+2020-11-11 10:56:21  -  UPDATED SEO -  Item '615060870' SEO metadata updated
+2020-11-11 10:56:21  -  Published item '615060870'
+2020-11-11 10:56:21  -  UPDATED SEO -  Item '615059457' SEO metadata updated
+2020-11-11 10:56:21  -  Published item '615059457'
+2020-11-11 10:56:22  -  UPDATED SEO -  Item '615058725' SEO metadata updated
+2020-11-11 10:56:22  -  Published item '615058725'
+2020-11-11 10:56:22  -  UPDATED SEO -  Item '615059814' SEO metadata updated
+2020-11-11 10:56:22  -  Published item '615059814'
+2020-11-11 10:56:22  -  UPDATED SEO -  Item '615058491' SEO metadata updated
+2020-11-11 10:56:22  -  Published item '615058491'
+2020-11-11 10:56:23  -  UPDATED SEO -  Item '615059475' SEO metadata updated
+2020-11-11 10:56:23  -  Published item '615059475'
+2020-11-11 10:56:23  -  UPDATED SEO -  Item '615059442' SEO metadata updated
+2020-11-11 10:56:23  -  Published item '615059442'
+2020-11-11 10:56:23  -  UPDATED SEO -  Item '615060096' SEO metadata updated
+2020-11-11 10:56:23  -  Published item '615060096'
+2020-11-11 10:56:23  -  UPDATED SEO -  Item '615059400' SEO metadata updated
+2020-11-11 10:56:23  -  Published item '615059400'
+2020-11-11 10:56:24  -  UPDATED SEO -  Item '615060189' SEO metadata updated
+2020-11-11 10:56:24  -  Published item '615060189'
+2020-11-11 10:56:24  -  UPDATED SEO -  Item '615059811' SEO metadata updated
+2020-11-11 10:56:24  -  Published item '615059811'
+2020-11-11 10:56:24  -  UPDATED SEO -  Item '615060360' SEO metadata updated
+2020-11-11 10:56:24  -  Published item '615060360'
+2020-11-11 10:56:25  -  UPDATED SEO -  Item '615059406' SEO metadata updated
+2020-11-11 10:56:25  -  Published item '615059406'
+2020-11-11 10:56:25  -  UPDATED SEO -  Item '615059913' SEO metadata updated
+2020-11-11 10:56:25  -  Published item '615059913'
+2020-11-11 10:56:26  -  UPDATED SEO -  Item '615059697' SEO metadata updated
+2020-11-11 10:56:26  -  Published item '615059697'
+2020-11-11 10:56:26  -  UPDATED SEO -  Item '615059583' SEO metadata updated
+2020-11-11 10:56:26  -  Published item '615059583'
+2020-11-11 10:56:27  -  UPDATED SEO -  Item '615058143' SEO metadata updated
+2020-11-11 10:56:27  -  Published item '615058143'
+2020-11-11 10:56:27  -  UPDATED SEO -  Item '615059601' SEO metadata updated
+2020-11-11 10:56:27  -  Published item '615059601'
+2020-11-11 10:56:28  -  UPDATED SEO -  Item '615059922' SEO metadata updated
+2020-11-11 10:56:28  -  Published item '615059922'
+2020-11-11 10:56:28  -  UPDATED SEO -  Item '615060225' SEO metadata updated
+2020-11-11 10:56:28  -  Published item '615060225'
+2020-11-11 10:56:28  -  UPDATED SEO -  Item '615059949' SEO metadata updated
+2020-11-11 10:56:28  -  Published item '615059949'
+2020-11-11 10:56:29  -  UPDATED SEO -  Item '615060456' SEO metadata updated
+2020-11-11 10:56:29  -  Published item '615060456'
+2020-11-11 10:56:29  -  UPDATED SEO -  Item '615060810' SEO metadata updated
+2020-11-11 10:56:29  -  Published item '615060810'
+2020-11-11 10:56:29  -  UPDATED SEO -  Item '615060753' SEO metadata updated
+2020-11-11 10:56:29  -  Published item '615060753'
+2020-11-11 10:56:29  -  UPDATED SEO -  Item '615059016' SEO metadata updated
+2020-11-11 10:56:29  -  Published item '615059016'
+2020-11-11 10:56:30  -  UPDATED SEO -  Item '615060813' SEO metadata updated
+2020-11-11 10:56:30  -  Published item '615060813'
+2020-11-11 10:56:30  -  UPDATED SEO -  Item '615059427' SEO metadata updated
+2020-11-11 10:56:30  -  Published item '615059427'
+2020-11-11 10:56:30  -  UPDATED SEO -  Item '615059358' SEO metadata updated
+2020-11-11 10:56:30  -  Published item '615059358'
+2020-11-11 10:56:31  -  UPDATED SEO -  Item '615058647' SEO metadata updated
+2020-11-11 10:56:31  -  Published item '615058647'
+2020-11-11 10:56:31  -  UPDATED SEO -  Item '615060441' SEO metadata updated
+2020-11-11 10:56:31  -  Published item '615060441'
+2020-11-11 10:56:31  -  UPDATED SEO -  Item '615058899' SEO metadata updated
+2020-11-11 10:56:31  -  Published item '615058899'
+2020-11-11 10:56:31  -  UPDATED SEO -  Item '615059634' SEO metadata updated
+2020-11-11 10:56:31  -  Published item '615059634'
+2020-11-11 10:56:32  -  UPDATED SEO -  Item '615060654' SEO metadata updated
+2020-11-11 10:56:32  -  Published item '615060654'
+2020-11-11 10:56:32  -  UPDATED SEO -  Item '615059487' SEO metadata updated
+2020-11-11 10:56:32  -  Published item '615059487'
+2020-11-11 10:56:32  -  UPDATED SEO -  Item '615060894' SEO metadata updated
+2020-11-11 10:56:32  -  Published item '615060894'
+2020-11-11 10:56:32  -  UPDATED SEO -  Item '615060762' SEO metadata updated
+2020-11-11 10:56:32  -  Published item '615060762'
+2020-11-11 10:56:33  -  UPDATED SEO -  Item '615060855' SEO metadata updated
+2020-11-11 10:56:33  -  Published item '615060855'
+2020-11-11 10:56:33  -  UPDATED SEO -  Item '615060414' SEO metadata updated
+2020-11-11 10:56:33  -  Published item '615060414'
+2020-11-11 10:56:33  -  UPDATED SEO -  Item '615060399' SEO metadata updated
+2020-11-11 10:56:33  -  Published item '615060399'
+2020-11-11 10:56:34  -  UPDATED SEO -  Item '615060507' SEO metadata updated
+2020-11-11 10:56:34  -  Published item '615060507'
+2020-11-11 10:56:34  -  UPDATED SEO -  Item '615060354' SEO metadata updated
+2020-11-11 10:56:34  -  Published item '615060354'
+2020-11-11 10:56:34  -  UPDATED SEO -  Item '615060510' SEO metadata updated
+2020-11-11 10:56:34  -  Published item '615060510'
+2020-11-11 10:56:34  -  UPDATED SEO -  Item '615060480' SEO metadata updated
+2020-11-11 10:56:34  -  Published item '615060480'
+2020-11-11 10:56:35  -  UPDATED SEO -  Item '615060252' SEO metadata updated
+2020-11-11 10:56:35  -  Published item '615060252'
+2020-11-11 10:56:35  -  UPDATED SEO -  Item '615060258' SEO metadata updated
+2020-11-11 10:56:35  -  Published item '615060258'
+2020-11-11 10:56:35  -  UPDATED SEO -  Item '615060681' SEO metadata updated
+2020-11-11 10:56:35  -  Published item '615060681'
+2020-11-11 10:56:36  -  UPDATED SEO -  Item '615060777' SEO metadata updated
+2020-11-11 10:56:36  -  Published item '615060777'
+2020-11-11 10:56:36  -  UPDATED SEO -  Item '615060249' SEO metadata updated
+2020-11-11 10:56:36  -  Published item '615060249'
+2020-11-11 10:56:37  -  UPDATED SEO -  Item '615060381' SEO metadata updated
+2020-11-11 10:56:37  -  Published item '615060381'
+2020-11-11 10:56:38  -  UPDATED SEO -  Item '615060522' SEO metadata updated
+2020-11-11 10:56:38  -  Published item '615060522'
+2020-11-11 10:56:38  -  UPDATED SEO -  Item '615060432' SEO metadata updated
+2020-11-11 10:56:38  -  Published item '615060432'
+2020-11-11 10:56:38  -  UPDATED SEO -  Item '615060351' SEO metadata updated
+2020-11-11 10:56:38  -  Published item '615060351'
+2020-11-11 10:56:39  -  UPDATED SEO -  Item '615060294' SEO metadata updated
+2020-11-11 10:56:39  -  Published item '615060294'
+2020-11-11 10:56:39  -  UPDATED SEO -  Item '615058641' SEO metadata updated
+2020-11-11 10:56:39  -  Published item '615058641'
+2020-11-11 10:56:39  -  UPDATED SEO -  Item '615060126' SEO metadata updated
+2020-11-11 10:56:39  -  Published item '615060126'
+2020-11-11 10:56:39  -  UPDATED SEO -  Item '615058650' SEO metadata updated
+2020-11-11 10:56:39  -  Published item '615058650'
+2020-11-11 10:56:40  -  UPDATED SEO -  Item '615059796' SEO metadata updated
+2020-11-11 10:56:40  -  Published item '615059796'
+2020-11-11 10:56:40  -  UPDATED SEO -  Item '615058701' SEO metadata updated
+2020-11-11 10:56:40  -  Published item '615058701'
+2020-11-11 10:56:40  -  UPDATED SEO -  Item '615059445' SEO metadata updated
+2020-11-11 10:56:40  -  Published item '615059445'
+2020-11-11 10:56:41  -  UPDATED SEO -  Item '615058812' SEO metadata updated
+2020-11-11 10:56:41  -  Published item '615058812'
+2020-11-11 10:56:41  -  UPDATED SEO -  Item '615058809' SEO metadata updated
+2020-11-11 10:56:41  -  Published item '615058809'
+2020-11-11 10:56:41  -  UPDATED SEO -  Item '615059337' SEO metadata updated
+2020-11-11 10:56:41  -  Published item '615059337'
+2020-11-11 10:56:42  -  UPDATED SEO -  Item '615059298' SEO metadata updated
+2020-11-11 10:56:42  -  Published item '615059298'
+2020-11-11 10:56:42  -  UPDATED SEO -  Item '615059340' SEO metadata updated
+2020-11-11 10:56:42  -  Published item '615059340'
+2020-11-11 10:56:42  -  UPDATED SEO -  Item '615059343' SEO metadata updated
+2020-11-11 10:56:42  -  Published item '615059343'
+2020-11-11 10:56:42  -  UPDATED SEO -  Item '615059346' SEO metadata updated
+2020-11-11 10:56:42  -  Published item '615059346'
+2020-11-11 10:56:43  -  UPDATED SEO -  Item '615059151' SEO metadata updated
+2020-11-11 10:56:43  -  Published item '615059151'
+2020-11-11 10:56:43  -  UPDATED SEO -  Item '615059379' SEO metadata updated
+2020-11-11 10:56:43  -  Published item '615059379'
+2020-11-11 10:56:43  -  UPDATED SEO -  Item '615059376' SEO metadata updated
+2020-11-11 10:56:43  -  Published item '615059376'
+2020-11-11 10:56:44  -  UPDATED SEO -  Item '615059436' SEO metadata updated
+2020-11-11 10:56:44  -  Published item '615059436'
+2020-11-11 10:56:44  -  UPDATED SEO -  Item '615059385' SEO metadata updated
+2020-11-11 10:56:44  -  Published item '615059385'
+2020-11-11 10:56:44  -  UPDATED SEO -  Item '615059247' SEO metadata updated
+2020-11-11 10:56:44  -  Published item '615059247'
+2020-11-11 10:56:45  -  UPDATED SEO -  Item '615058638' SEO metadata updated
+2020-11-11 10:56:45  -  Published item '615058638'
+2020-11-11 10:56:45  -  UPDATED SEO -  Item '615059307' SEO metadata updated
+2020-11-11 10:56:45  -  Published item '615059307'
+2020-11-11 10:56:45  -  UPDATED SEO -  Item '615059808' SEO metadata updated
+2020-11-11 10:56:45  -  Published item '615059808'
+2020-11-11 10:56:46  -  UPDATED SEO -  Item '615059265' SEO metadata updated
+2020-11-11 10:56:46  -  Published item '615059265'
+2020-11-11 10:56:46  -  UPDATED SEO -  Item '615059559' SEO metadata updated
+2020-11-11 10:56:46  -  Published item '615059559'
+2020-11-11 10:56:46  -  UPDATED SEO -  Item '615058428' SEO metadata updated
+2020-11-11 10:56:46  -  Published item '615058428'
+2020-11-11 10:56:47  -  UPDATED SEO -  Item '615059838' SEO metadata updated
+2020-11-11 10:56:47  -  Published item '615059838'
+2020-11-11 10:56:47  -  UPDATED SEO -  Item '615059163' SEO metadata updated
+2020-11-11 10:56:47  -  Published item '615059163'
+2020-11-11 10:56:47  -  UPDATED SEO -  Item '615058857' SEO metadata updated
+2020-11-11 10:56:47  -  Published item '615058857'
+2020-11-11 10:56:48  -  UPDATED SEO -  Item '615059616' SEO metadata updated
+2020-11-11 10:56:48  -  Published item '615059616'
+2020-11-11 10:56:48  -  UPDATED SEO -  Item '615058551' SEO metadata updated
+2020-11-11 10:56:48  -  Published item '615058551'
+2020-11-11 10:56:48  -  UPDATED SEO -  Item '615058575' SEO metadata updated
+2020-11-11 10:56:48  -  Published item '615058575'
+2020-11-11 10:56:49  -  UPDATED SEO -  Item '615059937' SEO metadata updated
+2020-11-11 10:56:49  -  Published item '615059937'
+2020-11-11 10:56:49  -  UPDATED SEO -  Item '615059196' SEO metadata updated
+2020-11-11 10:56:49  -  Published item '615059196'
+2020-11-11 10:56:49  -  UPDATED SEO -  Item '615059205' SEO metadata updated
+2020-11-11 10:56:49  -  Published item '615059205'
+2020-11-11 10:56:50  -  UPDATED SEO -  Item '615059466' SEO metadata updated
+2020-11-11 10:56:50  -  Published item '615059466'
+2020-11-11 10:56:50  -  UPDATED SEO -  Item '615059478' SEO metadata updated
+2020-11-11 10:56:50  -  Published item '615059478'
+2020-11-11 10:56:50  -  UPDATED SEO -  Item '615059520' SEO metadata updated
+2020-11-11 10:56:50  -  Published item '615059520'
+2020-11-11 10:56:51  -  UPDATED SEO -  Item '615059547' SEO metadata updated
+2020-11-11 10:56:51  -  Published item '615059547'
+2020-11-11 10:56:51  -  UPDATED SEO -  Item '615058827' SEO metadata updated
+2020-11-11 10:56:51  -  Published item '615058827'
+2020-11-11 10:56:52  -  UPDATED SEO -  Item '615060492' SEO metadata updated
+2020-11-11 10:56:52  -  Published item '615060492'
+2020-11-11 10:56:52  -  UPDATED SEO -  Item '615060690' SEO metadata updated
+2020-11-11 10:56:52  -  Published item '615060690'
+2020-11-11 10:56:52  -  UPDATED SEO -  Item '615060687' SEO metadata updated
+2020-11-11 10:56:52  -  Published item '615060687'
+2020-11-11 10:56:52  -  UPDATED SEO -  Item '615060666' SEO metadata updated
+2020-11-11 10:56:52  -  Published item '615060666'
+2020-11-11 10:56:53  -  UPDATED SEO -  Item '615059424' SEO metadata updated
+2020-11-11 10:56:53  -  Published item '615059424'
+2020-11-11 10:56:53  -  UPDATED SEO -  Item '615059607' SEO metadata updated
+2020-11-11 10:56:53  -  Published item '615059607'
+2020-11-11 10:56:53  -  UPDATED SEO -  Item '615059637' SEO metadata updated
+2020-11-11 10:56:53  -  Published item '615059637'
+2020-11-11 10:56:54  -  UPDATED SEO -  Item '615059370' SEO metadata updated
+2020-11-11 10:56:54  -  Published item '615059370'
+2020-11-11 10:56:54  -  UPDATED SEO -  Item '615059274' SEO metadata updated
+2020-11-11 10:56:54  -  Published item '615059274'
+2020-11-11 10:56:54  -  UPDATED SEO -  Item '615060567' SEO metadata updated
+2020-11-11 10:56:54  -  Published item '615060567'
+2020-11-11 10:56:55  -  UPDATED SEO -  Item '615060816' SEO metadata updated
+2020-11-11 10:56:55  -  Published item '615060816'
+2020-11-11 10:56:56  -  UPDATED SEO -  Item '615059250' SEO metadata updated
+2020-11-11 10:56:56  -  Published item '615059250'
+2020-11-11 10:56:56  -  UPDATED SEO -  Item '615060390' SEO metadata updated
+2020-11-11 10:56:56  -  Published item '615060390'
+2020-11-11 10:56:57  -  UPDATED SEO -  Item '615060402' SEO metadata updated
+2020-11-11 10:56:57  -  Published item '615060402'
+2020-11-11 10:56:58  -  UPDATED SEO -  Item '615059025' SEO metadata updated
+2020-11-11 10:56:58  -  Published item '615059025'
+2020-11-11 10:56:58  -  UPDATED SEO -  Item '615058545' SEO metadata updated
+2020-11-11 10:56:58  -  Published item '615058545'
+2020-11-11 10:56:59  -  UPDATED SEO -  Item '615060057' SEO metadata updated
+2020-11-11 10:56:59  -  Published item '615060057'
+2020-11-11 10:56:59  -  UPDATED SEO -  Item '615060045' SEO metadata updated
+2020-11-11 10:56:59  -  Published item '615060045'
+2020-11-11 10:57:00  -  UPDATED SEO -  Item '615060192' SEO metadata updated
+2020-11-11 10:57:00  -  Published item '615060192'
+2020-11-11 10:57:00  -  UPDATED SEO -  Item '615058755' SEO metadata updated
+2020-11-11 10:57:00  -  Published item '615058755'
+2020-11-11 10:57:00  -  UPDATED SEO -  Item '615058569' SEO metadata updated
+2020-11-11 10:57:00  -  Published item '615058569'
+2020-11-11 10:57:01  -  UPDATED SEO -  Item '615059190' SEO metadata updated
+2020-11-11 10:57:01  -  Published item '615059190'
+2020-11-11 10:57:01  -  UPDATED SEO -  Item '615059586' SEO metadata updated
+2020-11-11 10:57:01  -  Published item '615059586'
+2020-11-11 10:57:02  -  UPDATED SEO -  Item '615059604' SEO metadata updated
+2020-11-11 10:57:02  -  Published item '615059604'
+2020-11-11 10:57:02  -  UPDATED SEO -  Item '615059955' SEO metadata updated
+2020-11-11 10:57:02  -  Published item '615059955'
+2020-11-11 10:57:02  -  UPDATED SEO -  Item '615060171' SEO metadata updated
+2020-11-11 10:57:02  -  Published item '615060171'
+2020-11-11 10:57:03  -  UPDATED SEO -  Item '615060744' SEO metadata updated
+2020-11-11 10:57:03  -  Published item '615060744'
+2020-11-11 10:57:04  -  UPDATED SEO -  Item '615060483' SEO metadata updated
+2020-11-11 10:57:04  -  Published item '615060483'
+2020-11-11 10:57:04  -  UPDATED SEO -  Item '615059454' SEO metadata updated
+2020-11-11 10:57:04  -  Published item '615059454'
+2020-11-11 10:57:05  -  UPDATED SEO -  Item '615059517' SEO metadata updated
+2020-11-11 10:57:05  -  Published item '615059517'
+2020-11-11 10:57:06  -  UPDATED SEO -  Item '615060384' SEO metadata updated
+2020-11-11 10:57:06  -  Published item '615060384'
+2020-11-11 10:57:07  -  UPDATED SEO -  Item '615060150' SEO metadata updated
+2020-11-11 10:57:07  -  Published item '615060150'
+2020-11-11 10:57:08  -  UPDATED SEO -  Item '615060168' SEO metadata updated
+2020-11-11 10:57:08  -  Published item '615060168'
+2020-11-11 10:57:10  -  UPDATED SEO -  Item '615058968' SEO metadata updated
+2020-11-11 10:57:10  -  Published item '615058968'
+2020-11-11 10:57:10  -  UPDATED SEO -  Item '615060657' SEO metadata updated
+2020-11-11 10:57:10  -  Published item '615060657'
+2020-11-11 10:57:11  -  UPDATED SEO -  Item '615060537' SEO metadata updated
+2020-11-11 10:57:11  -  Published item '615060537'
+2020-11-11 10:57:11  -  UPDATED SEO -  Item '615060093' SEO metadata updated
+2020-11-11 10:57:11  -  Published item '615060093'
+2020-11-11 10:57:12  -  UPDATED SEO -  Item '615059571' SEO metadata updated
+2020-11-11 10:57:12  -  Published item '615059571'
+2020-11-11 10:57:13  -  UPDATED SEO -  Item '615060114' SEO metadata updated
+2020-11-11 10:57:13  -  Published item '615060114'
+2020-11-11 10:57:13  -  UPDATED SEO -  Item '615059757' SEO metadata updated
+2020-11-11 10:57:13  -  Published item '615059757'
+2020-11-11 10:57:14  -  UPDATED SEO -  Item '615058527' SEO metadata updated
+2020-11-11 10:57:14  -  Published item '615058527'
+2020-11-11 10:57:14  -  UPDATED SEO -  Item '615058800' SEO metadata updated
+2020-11-11 10:57:14  -  Published item '615058800'
+2020-11-11 10:57:14  -  UPDATED SEO -  Item '615059331' SEO metadata updated
+2020-11-11 10:57:14  -  Published item '615059331'
+2020-11-11 10:57:15  -  UPDATED SEO -  Item '615058830' SEO metadata updated
+2020-11-11 10:57:15  -  Published item '615058830'
+2020-11-11 10:57:15  -  UPDATED SEO -  Item '615059037' SEO metadata updated
+2020-11-11 10:57:15  -  Published item '615059037'
+2020-11-11 10:57:16  -  UPDATED SEO -  Item '615059217' SEO metadata updated
+2020-11-11 10:57:16  -  Published item '615059217'
+2020-11-11 10:57:16  -  UPDATED SEO -  Item '615059835' SEO metadata updated
+2020-11-11 10:57:16  -  Published item '615059835'
+2020-11-11 10:57:16  -  UPDATED SEO -  Item '615059724' SEO metadata updated
+2020-11-11 10:57:16  -  Published item '615059724'
+2020-11-11 10:57:17  -  UPDATED SEO -  Item '615059622' SEO metadata updated
+2020-11-11 10:57:17  -  Published item '615059622'
+2020-11-11 10:57:17  -  UPDATED SEO -  Item '615060210' SEO metadata updated
+2020-11-11 10:57:17  -  Published item '615060210'
+2020-11-11 10:57:18  -  UPDATED SEO -  Item '615060201' SEO metadata updated
+2020-11-11 10:57:18  -  Published item '615060201'
+2020-11-11 10:57:18  -  UPDATED SEO -  Item '615059052' SEO metadata updated
+2020-11-11 10:57:18  -  Published item '615059052'
+2020-11-11 10:57:18  -  UPDATED SEO -  Item '615060153' SEO metadata updated
+2020-11-11 10:57:18  -  Published item '615060153'
+2020-11-11 10:57:18  -  UPDATED SEO -  Item '615060846' SEO metadata updated
+2020-11-11 10:57:18  -  Published item '615060846'
+2020-11-11 10:57:18  -  UPDATED SEO -  Item '615060291' SEO metadata updated
+2020-11-11 10:57:18  -  Published item '615060291'
+2020-11-11 10:57:19  -  UPDATED SEO -  Item '615060177' SEO metadata updated
+2020-11-11 10:57:19  -  Published item '615060177'
+2020-11-11 10:57:19  -  UPDATED SEO -  Item '615060036' SEO metadata updated
+2020-11-11 10:57:19  -  Published item '615060036'
+2020-11-11 10:57:20  -  UPDATED SEO -  Item '615060051' SEO metadata updated
+2020-11-11 10:57:20  -  Published item '615060051'
+2020-11-11 10:57:20  -  UPDATED SEO -  Item '615058860' SEO metadata updated
+2020-11-11 10:57:20  -  Published item '615058860'
+2020-11-11 10:57:20  -  UPDATED SEO -  Item '615060081' SEO metadata updated
+2020-11-11 10:57:20  -  Published item '615060081'
+2020-11-11 10:57:21  -  UPDATED SEO -  Item '615060363' SEO metadata updated
+2020-11-11 10:57:21  -  Published item '615060363'
+2020-11-11 10:57:21  -  UPDATED SEO -  Item '615060768' SEO metadata updated
+2020-11-11 10:57:21  -  Published item '615060768'
+2020-11-11 10:57:22  -  UPDATED SEO -  Item '615060699' SEO metadata updated
+2020-11-11 10:57:22  -  Published item '615060699'
+2020-11-11 10:57:22  -  UPDATED SEO -  Item '615060048' SEO metadata updated
+2020-11-11 10:57:22  -  Published item '615060048'
+2020-11-11 10:57:22  -  ERROR: The canonical url format is invalid.  -  Updating item '621151061'
+2020-11-11 10:57:23  -  UPDATED SEO -  Item '615059418' SEO metadata updated
+2020-11-11 10:57:23  -  Published item '615059418'
+2020-11-11 10:57:23  -  UPDATED SEO -  Item '615059451' SEO metadata updated
+2020-11-11 10:57:23  -  Published item '615059451'
+2020-11-11 10:57:23  -  UPDATED SEO -  Item '615060714' SEO metadata updated
+2020-11-11 10:57:23  -  Published item '615060714'
+2020-11-11 10:57:23  -  UPDATED SEO -  Item '615059322' SEO metadata updated
+2020-11-11 10:57:23  -  Published item '615059322'
+2020-11-11 10:57:24  -  UPDATED SEO -  Item '615059055' SEO metadata updated
+2020-11-11 10:57:24  -  Published item '615059055'
+2020-11-11 10:57:24  -  UPDATED SEO -  Item '615060015' SEO metadata updated
+2020-11-11 10:57:24  -  Published item '615060015'
+2020-11-11 10:57:24  -  UPDATED SEO -  Item '615060039' SEO metadata updated
+2020-11-11 10:57:24  -  Published item '615060039'
+2020-11-11 10:57:25  -  UPDATED SEO -  Item '615058797' SEO metadata updated
+2020-11-11 10:57:25  -  Published item '615058797'
+2020-11-11 10:57:25  -  UPDATED SEO -  Item '615058539' SEO metadata updated
+2020-11-11 10:57:25  -  Published item '615058539'
+2020-11-11 10:57:25  -  UPDATED SEO -  Item '615060852' SEO metadata updated
+2020-11-11 10:57:25  -  Published item '615060852'
+2020-11-11 10:57:26  -  UPDATED SEO -  Item '615060696' SEO metadata updated
+2020-11-11 10:57:26  -  Published item '615060696'
+2020-11-11 10:57:26  -  UPDATED SEO -  Item '615060513' SEO metadata updated
+2020-11-11 10:57:26  -  Published item '615060513'
+2020-11-11 10:57:26  -  UPDATED SEO -  Item '615060501' SEO metadata updated
+2020-11-11 10:57:26  -  Published item '615060501'
+2020-11-11 10:57:26  -  UPDATED SEO -  Item '615060084' SEO metadata updated
+2020-11-11 10:57:26  -  Published item '615060084'
+2020-11-11 10:57:27  -  UPDATED SEO -  Item '615059484' SEO metadata updated
+2020-11-11 10:57:27  -  Published item '615059484'
+2020-11-11 10:57:27  -  UPDATED SEO -  Item '615060306' SEO metadata updated
+2020-11-11 10:57:27  -  Published item '615060306'
+2020-11-11 10:57:27  -  UPDATED SEO -  Item '615060771' SEO metadata updated
+2020-11-11 10:57:27  -  Published item '615060771'
+2020-11-11 10:57:28  -  UPDATED SEO -  Item '615060774' SEO metadata updated
+2020-11-11 10:57:28  -  Published item '615060774'
+2020-11-11 10:57:28  -  UPDATED SEO -  Item '615060546' SEO metadata updated
+2020-11-11 10:57:28  -  Published item '615060546'
+2020-11-11 10:57:28  -  UPDATED SEO -  Item '615060462' SEO metadata updated
+2020-11-11 10:57:28  -  Published item '615060462'
+2020-11-11 10:57:29  -  UPDATED SEO -  Item '615060060' SEO metadata updated
+2020-11-11 10:57:29  -  Published item '615060060'
+2020-11-11 10:57:29  -  UPDATED SEO -  Item '615060750' SEO metadata updated
+2020-11-11 10:57:29  -  Published item '615060750'
+2020-11-11 10:57:30  -  UPDATED SEO -  Item '615059469' SEO metadata updated
+2020-11-11 10:57:30  -  Published item '615059469'
+2020-11-11 10:57:30  -  UPDATED SEO -  Item '615060246' SEO metadata updated
+2020-11-11 10:57:30  -  Published item '615060246'
+2020-11-11 10:57:31  -  UPDATED SEO -  Item '615060705' SEO metadata updated
+2020-11-11 10:57:31  -  Published item '615060705'
+2020-11-11 10:57:31  -  UPDATED SEO -  Item '615059610' SEO metadata updated
+2020-11-11 10:57:31  -  Published item '615059610'
+2020-11-11 10:57:32  -  UPDATED SEO -  Item '615059619' SEO metadata updated
+2020-11-11 10:57:32  -  Published item '615059619'
+2020-11-11 10:57:32  -  UPDATED SEO -  Item '615060423' SEO metadata updated
+2020-11-11 10:57:32  -  Published item '615060423'
+2020-11-11 10:57:32  -  UPDATED SEO -  Item '615059409' SEO metadata updated
+2020-11-11 10:57:32  -  Published item '615059409'
+2020-11-11 10:57:33  -  UPDATED SEO -  Item '615059109' SEO metadata updated
+2020-11-11 10:57:33  -  Published item '615059109'
+2020-11-11 10:57:33  -  UPDATED SEO -  Item '615060747' SEO metadata updated
+2020-11-11 10:57:33  -  Published item '615060747'
+2020-11-11 10:57:33  -  UPDATED SEO -  Item '615060477' SEO metadata updated
+2020-11-11 10:57:33  -  Published item '615060477'
+2020-11-11 10:57:34  -  UPDATED SEO -  Item '615060450' SEO metadata updated
+2020-11-11 10:57:34  -  Published item '615060450'
+2020-11-11 10:57:34  -  UPDATED SEO -  Item '615060561' SEO metadata updated
+2020-11-11 10:57:34  -  Published item '615060561'
+2020-11-11 10:57:35  -  UPDATED SEO -  Item '615059193' SEO metadata updated
+2020-11-11 10:57:35  -  Published item '615059193'
+2020-11-11 10:57:35  -  UPDATED SEO -  Item '615060474' SEO metadata updated
+2020-11-11 10:57:35  -  Published item '615060474'
+2020-11-11 10:57:35  -  UPDATED SEO -  Item '615060660' SEO metadata updated
+2020-11-11 10:57:35  -  Published item '615060660'
+2020-11-11 10:57:36  -  UPDATED SEO -  Item '615058965' SEO metadata updated
+2020-11-11 10:57:36  -  Published item '615058965'
+2020-11-11 10:57:36  -  UPDATED SEO -  Item '615060429' SEO metadata updated
+2020-11-11 10:57:36  -  Published item '615060429'
+2020-11-11 10:57:37  -  UPDATED SEO -  Item '615060108' SEO metadata updated
+2020-11-11 10:57:37  -  Published item '615060108'
+2020-11-11 10:57:37  -  UPDATED SEO -  Item '615060333' SEO metadata updated
+2020-11-11 10:57:37  -  Published item '615060333'
+2020-11-11 10:57:38  -  UPDATED SEO -  Item '615060006' SEO metadata updated
+2020-11-11 10:57:38  -  Published item '615060006'
+2020-11-11 10:57:38  -  UPDATED SEO -  Item '615060735' SEO metadata updated
+2020-11-11 10:57:38  -  Published item '615060735'
+2020-11-11 10:57:38  -  UPDATED SEO -  Item '615060729' SEO metadata updated
+2020-11-11 10:57:38  -  Published item '615060729'
+2020-11-11 10:57:39  -  UPDATED SEO -  Item '615060357' SEO metadata updated
+2020-11-11 10:57:39  -  Published item '615060357'
+2020-11-11 10:57:39  -  UPDATED SEO -  Item '615060720' SEO metadata updated
+2020-11-11 10:57:39  -  Published item '615060720'
+2020-11-11 10:57:39  -  UPDATED SEO -  Item '615060726' SEO metadata updated
+2020-11-11 10:57:39  -  Published item '615060726'
+2020-11-11 10:57:40  -  UPDATED SEO -  Item '615060732' SEO metadata updated
+2020-11-11 10:57:40  -  Published item '615060732'
+2020-11-11 10:57:41  -  UPDATED SEO -  Item '615060738' SEO metadata updated
+2020-11-11 10:57:41  -  Published item '615060738'
+2020-11-11 10:57:41  -  UPDATED SEO -  Item '615060486' SEO metadata updated
+2020-11-11 10:57:41  -  Published item '615060486'
+2020-11-11 10:57:41  -  UPDATED SEO -  Item '615060327' SEO metadata updated
+2020-11-11 10:57:41  -  Published item '615060327'
+2020-11-11 10:57:42  -  UPDATED SEO -  Item '615060261' SEO metadata updated
+2020-11-11 10:57:42  -  Published item '615060261'
+2020-11-11 10:57:43  -  UPDATED SEO -  Item '615060243' SEO metadata updated
+2020-11-11 10:57:43  -  Published item '615060243'
+2020-11-11 10:57:43  -  UPDATED SEO -  Item '615060267' SEO metadata updated
+2020-11-11 10:57:43  -  Published item '615060267'
+2020-11-11 10:57:44  -  UPDATED SEO -  Item '615060315' SEO metadata updated
+2020-11-11 10:57:44  -  Published item '615060315'
+2020-11-11 10:57:44  -  UPDATED SEO -  Item '615060276' SEO metadata updated
+2020-11-11 10:57:44  -  Published item '615060276'
+2020-11-11 10:57:44  -  UPDATED SEO -  Item '615060321' SEO metadata updated
+2020-11-11 10:57:44  -  Published item '615060321'
+2020-11-11 10:57:45  -  UPDATED SEO -  Item '615060426' SEO metadata updated
+2020-11-11 10:57:45  -  Published item '615060426'
+2020-11-11 10:57:45  -  UPDATED SEO -  Item '615059919' SEO metadata updated
+2020-11-11 10:57:45  -  Published item '615059919'
+2020-11-11 10:57:46  -  UPDATED SEO -  Item '615060756' SEO metadata updated
+2020-11-11 10:57:46  -  Published item '615060756'
+2020-11-11 10:57:46  -  UPDATED SEO -  Item '615058416' SEO metadata updated
+2020-11-11 10:57:46  -  Published item '615058416'
+2020-11-11 10:57:47  -  UPDATED SEO -  Item '615060711' SEO metadata updated
+2020-11-11 10:57:47  -  Published item '615060711'
+2020-11-11 10:57:47  -  UPDATED SEO -  Item '615060759' SEO metadata updated
+2020-11-11 10:57:47  -  Published item '615060759'
+2020-11-11 10:57:47  -  UPDATED SEO -  Item '615060471' SEO metadata updated
+2020-11-11 10:57:47  -  Published item '615060471'
+2020-11-11 10:57:48  -  UPDATED SEO -  Item '615060345' SEO metadata updated
+2020-11-11 10:57:48  -  Published item '615060345'
+2020-11-11 10:57:48  -  UPDATED SEO -  Item '615060891' SEO metadata updated
+2020-11-11 10:57:48  -  Published item '615060891'
+2020-11-11 10:57:48  -  UPDATED SEO -  Item '615060054' SEO metadata updated
+2020-11-11 10:57:48  -  Published item '615060054'
+2020-11-11 10:57:49  -  UPDATED SEO -  Item '615059199' SEO metadata updated
+2020-11-11 10:57:49  -  Published item '615059199'
+2020-11-11 10:57:49  -  UPDATED SEO -  Item '615058758' SEO metadata updated
+2020-11-11 10:57:49  -  Published item '615058758'
+2020-11-11 10:57:49  -  UPDATED SEO -  Item '615060633' SEO metadata updated
+2020-11-11 10:57:49  -  Published item '615060633'

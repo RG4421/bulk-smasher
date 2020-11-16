@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 // App Components
+import authHook   from "./components/auth.hook";
 import homeHook   from "./components/home.hook";
 import createHook from "./components/create.hook";
 import updateHook from "./components/update.hook";
@@ -28,28 +29,29 @@ function App() {
             activeClassName="navbar__link--active"
             className="navbar__link navbar-brand"
             to="/"
-        > Bulk Smasher </NavLink>
+        > BULK SMASHER </NavLink>
         <NavLink
             activeClassName="navbar__link--active"
             className="navbar__link"
             to="/create"
-        > Create </NavLink>
+        > CREATE </NavLink>
         <NavLink
             activeClassName="navbar__link--active"
             className="navbar__link"
             to="/update"
-        > Update </NavLink>
+        > UPDATE </NavLink>
         <NavLink
             activeClassName="navbar__link--active"
             className="navbar__link"
             to="/delete"
-        > Delete </NavLink>
+        > DELETE </NavLink>
       </nav>
 
-        <Route path="/" exact component={homeHook} />
-        <Route path="/create" component={createHook} />
-        <Route path="/update" component={updateHook} />
-        <Route path="/delete" component={deleteHook} />
+        <Route exact path="/"       component={homeHook} />
+        <Route exact path="/create" component={createHook} />
+        <Route exact path="/update" component={updateHook} />
+        <Route exact path="/delete" component={deleteHook} />
+        <Route exact path="/auth"   component={authHook} />
     </Router>
   );
 }

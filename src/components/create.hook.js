@@ -2,6 +2,7 @@ import React, {
     useState, 
     useEffect
 } from 'react';
+import { useHistory } from "react-router-dom";
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
 
@@ -30,6 +31,35 @@ function Create (props) {
     const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
     const [showLogDownload, setShowLogDownload] = useState(false);
+
+    // AUTHENTICATION
+    const history = useHistory();
+
+    const checkSessionStatus = () => {
+        const token = JSON.parse(localStorage.getItem('bulksmasher-user'));        
+        
+        if (token) {
+            Axios.get('auth/checkCreds', { headers: {Authorization: `Bearer ${token.accessToken}`}})
+            .then((res) => {
+                if (res.data.authSuccessful === true) {
+                    history.push('/create');
+                }
+            }).catch((e) => {
+                console.log(e);
+                localStorage.removeItem('bulksmasher-user');
+                history.push("/auth");
+                console.log(e.response);
+            });
+        } else {
+            localStorage.removeItem('bulksmasher-user');
+            history.push("/auth");
+        }
+    }
+
+    useEffect(() => {
+        checkSessionStatus();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
@@ -365,7 +395,7 @@ function Create (props) {
                         <option value="Tags">Tags</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        {/* <option value="Test">***Test***</option> */}
+                        <option value="Test">***Test***</option>
                     </select>
                 </div>
 

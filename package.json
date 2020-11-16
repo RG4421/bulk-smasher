@@ -19,6 +19,7 @@
     "google-spreadsheet": "^3.0.13",
     "gulp": "^4.0.2",
     "gulp-zip": "^5.0.2",
+    "jsonwebtoken": "^8.5.1",
     "nodemailer": "^6.4.15",
     "nodemon": "^2.0.6",
     "react": "^16.14.0",

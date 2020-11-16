@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from "react-router-dom";
+import Axios from 'axios';
 import Accordion from 'react-bootstrap/Accordion'
 import Alert from 'react-bootstrap/Alert'
 import Card from 'react-bootstrap/Card'
@@ -6,7 +8,36 @@ import Card from 'react-bootstrap/Card'
 import newWindow from '../images/newWindow.png'
 import logo from '../images/uf.png'
 
-function home (props) {
+function Home (props) {
+
+    // AUTHENTICATION
+    const history = useHistory();
+
+    const checkSessionStatus = () => {
+        const token = JSON.parse(localStorage.getItem('bulksmasher-user'));        
+        
+        if (token) {
+            Axios.get('auth/checkCreds', { headers: {Authorization: `Bearer ${token.accessToken}`}})
+            .then((res) => {
+                if (res.data.authSuccessful === true) {
+                    history.push('/');
+                }
+            }).catch((e) => {
+                console.log(e);
+                localStorage.removeItem('bulksmasher-user');
+                history.push("/auth");
+                console.log(e.response);
+            });
+        } else {
+            localStorage.removeItem('bulksmasher-user');
+            history.push("/auth");
+        }
+    }
+
+    useEffect(() => {
+        checkSessionStatus();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const Create = () => (
         <Accordion style={{cursor: 'pointer'}}>
@@ -290,7 +321,7 @@ function home (props) {
 
                 <br />
 
-                <input type="checkbox" style={{width: '15px'}} checked></input> <b>Item is tagged with Tag Search Key</b>
+                <input type="checkbox" style={{width: '15px'}} checked readOnly></input> <b>Item is tagged with Tag Search Key</b>
 
                 <br />
 
@@ -403,34 +434,34 @@ function home (props) {
 
     // Build of webpage
     return (
+        <div className="form-group">
+            <div className="newContainer">
+                <p>This tool performs bulk tasks by leveraging the Uberflip API.</p>
 
-        <div className="newContainer">
-            <p>This tool performs bulk tasks by leveraging the Uberflip API.</p>
+                <p>Upon each successful run of the tool, a <b>log file</b> will be generated with detailed information on the API calls that were made, and their result.</p>
 
-            <p>Upon each successful run of the tool, a <b>log file</b> will be generated with detailed information on the API calls that were made, and their result.</p>
+                <Alert variant="warning">
+                <Alert.Heading>CSV Template Requirements</Alert.Heading>
+                    <p>
+                        Each .csv file that is uploaded in the bulk tool requires the file header to mirror the template header.
 
-            <Alert variant="warning">
-            <Alert.Heading>CSV Template Requirements</Alert.Heading>
-                <p>
-                    Each .csv file that is uploaded in the bulk tool requires the file header to mirror the template header.
+                        If there are any differences, it could result in a <b>failed execution</b> of the operator.
+                    </p>
+                </Alert>
 
-                    If there are any differences, it could result in a <b>failed execution</b> of the operator.
-                </p>
-            </Alert>
+                <p>Detailed <b>documentation</b> of each operator can be found below:</p>
 
-            <p>Detailed <b>documentation</b> of each operator can be found below:</p>
+                <Create/>
+                <Update/>
+                <Delete/>    
 
-            <Create/>
-            <Update/>
-            <Delete/>    
-
-            <br />
-            <br />
-            
-            <img style={{position: "absolute", right: "0px", paddingRight: "10px", paddingBottom: "10px"}} src={logo} width="40" height="40" alt="logo"/>
-
+                <br />
+                <br />
+                
+                <img style={{position: "absolute", right: "0px", paddingRight: "10px", paddingBottom: "10px"}} src={logo} width="40" height="40" alt="logo"/>
+            </div>
         </div>
     )
 }
 
-export default home;
+export default Home;

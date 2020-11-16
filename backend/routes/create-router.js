@@ -45,8 +45,6 @@ router.route('/tags').post(async (req, res) => {
         // Appending data to Google Drive
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'TAGS', execution, time.words);
 
-        console.log(time);
-
         return res.status(201).json({
             message: `Tags successfully created and applied - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
