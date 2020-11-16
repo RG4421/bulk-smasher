@@ -79,7 +79,7 @@ function Auth (props) {
                 <input
                     style={{paddingTop: 4}}
                     placeholder="Passphrase"
-                    type="text"
+                    type="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     required

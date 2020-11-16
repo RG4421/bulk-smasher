@@ -270,9 +270,6 @@ async function items (token, data) {
                     }
                 });
 
-                //ADD IN LOGIC FOR CHECKING IF IT ALREAD Y HAS  APUBLISHED DAHTE
-
-
                 let resultString = `${dateTime}  -  UPDATED ITEM  -  Item '${itemId}' published\n`;
                 runCount++;
                 logObj.push(resultString);
