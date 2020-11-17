@@ -93,17 +93,69 @@ async function itemTags (token) {
 
 // Fetching stream item's hidden items
 async function hiddenStreamItems (token, data) {
-    const resultArr = [];
+    const resArr = [];
+    let runCount = 1;
 
-    for (let i = 0; i < data.length; i++) {
-        const streamId = data[i].stream_id;
+    async function allHiddeneContent () {
 
+        for (let i = 0; i < data.length; i++) {
+            const streamId = data[i].stream_id;
+
+            try {
+                const result = await axios({
+                    url: `https://v2.api.uberflip.com/streams/${streamId}/items`,
+                    method: "get",
+                    params: {
+                        limit: 100,
+                        page: runCount
+                    },
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                const streamItemData = result.data.data;
+                const streamIds = {};
+                streamIds["stream_id"] = streamId;
+
+                for (let j = 0; j < streamItemData.length; j++) {
+                    if (streamItemData[j].hidden === true) {
+                    streamIds[`item_id${j}`] = streamItemData[j].id;
+                    }
+                }
+                resArr.push(streamIds);
+                runCount++;
+
+                return {
+                    totalPages: result.data.meta.total_pages,
+                }
+
+            } catch (err) {
+                console.log(err.response.data.errors);
+            }
+        }
+    }
+    let { totalPages } = await allHiddeneContent();
+
+    for (let i = 0; i < totalPages; i++) {
+        await allHiddeneContent();
+    }
+
+    return resArr;
+}
+
+// Fetching stream item's prior to selected date
+async function pastContentItems (token, date) {
+    const resArr = [];
+    let runCount = 1;
+
+    async function allPastContent () {
         try {
             const result = await axios({
-                url: `https://v2.api.uberflip.com/streams/${streamId}/items`,
+                url: `https://v2.api.uberflip.com/items`,
                 method: "get",
                 params: {
                     limit: 100,
+                    page: runCount
                 },
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -111,136 +163,163 @@ async function hiddenStreamItems (token, data) {
             });
             const streamItemData = result.data.data;
             const streamIds = {};
-            streamIds["stream_id"] = streamId;
 
             for (let j = 0; j < streamItemData.length; j++) {
-                if (streamItemData[j].hidden === true) {
-                  streamIds[`item_id${j}`] = streamItemData[j].id;
+                const createdDate = streamItemData[j].created_at;
+
+                if (createdDate < date) {
+                    streamIds[`item_id${j}`] = streamItemData[j].id;
                 }
+            }            
+            resArr.push(streamIds);
+            runCount++;
+
+            return {
+                totalPages: result.data.meta.total_pages,
             }
-        resultArr.push(streamIds);
+
         } catch (err) {
             console.log(err.response.data.errors);
         }
     }
-    return resultArr;
-}
+    let { totalPages } = await allPastContent();
 
-// Fetching stream item's prior to selected date
-async function pastContentItems (token, date) {
-    const resultArr = [];
-
-    try {
-        const result = await axios({
-            url: `https://v2.api.uberflip.com/items`,
-            method: "get",
-            params: {
-                limit: 100,
-            },
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        const streamItemData = result.data.data;
-        const streamIds = {};
-
-        for (let j = 0; j < streamItemData.length; j++) {
-            const createdDate = streamItemData[j].created_at;
-
-            if (createdDate < date) {
-                streamIds[`item_id${j}`] = streamItemData[j].id;
-            }
-        }
-        resultArr.push(streamIds);
-
-    } catch (err) {
-        console.log(err.response.data.errors);
+    for (let i = 0; i < totalPages; i++) {
+        await allPastContent();
     }
-    return resultArr;
+    
+    return resArr;
 }
 
 async function users (token) {
+    let runCount = 1;
     const resArr = [];
 
-    try {
-        const result = await axios({
-            url: `https://v2.api.uberflip.com/users`,
-            method: "get",
-            params: {
-                limit: 100,
-            },
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        const data = result.data.data;
-
-        for (let i = 0; i < data.length; i++) {
-            const obj = {};
-            obj['id'] = data[i].id;
-            obj['email'] = data[i].email;
-            resArr.push(obj);
-        }
-        return resArr;
-
-    } catch (err) {
-        console.log(err.response.data.errors);
-    }
-}
-
-async function groups (token) {
-    const resArr = [];
-
-    try {
-        const result = await axios({
-            url: `https://v2.api.uberflip.com/user-groups`,
-            method: "get",
-            params: {
-                limit: 100,
-            },
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        const data = result.data.data;
-        
-        for (let i = 0; i < data.length; i++) {
-            const obj = {};
-            obj['id'] = data[i].id;
-            obj['name'] = data[i].name;
-            resArr.push(obj);
-        }
-        return resArr;
-
-    } catch (err) {
-        console.log(err.response.data.errors);
-    }
-}
-
-async function streams (token, data) {
-
-    for (let i = 0; i < data.length; i++) {
-        const streamId = data[i].stream_id;
-
-        console.log(streamId);
-
+    async function allUsers () {
         try {
             const result = await axios({
-                url: `https://v2.api.uberflip.com/items/${streamId}`,
+                url: `https://v2.api.uberflip.com/users`,
                 method: "get",
                 params: {
                     limit: 100,
+                    page: runCount
                 },
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
-        return result.data.content.published;
+            const data = result.data.data;
+
+            for (let i = 0; i < data.length; i++) {
+                const obj = {};
+                obj['id'] = data[i].id;
+                obj['email'] = data[i].email;
+                resArr.push(obj);
+            }
+            runCount++;
+
+            return {
+                totalPages: result.data.meta.total_pages,
+            }
+
+        } catch (err) {
+            console.log(err.response.data.errors);
+        }
+    } 
+    let { totalPages } = await allUsers();
+
+    for (let i = 0; i < totalPages; i++) {
+        await allUsers();
+    }
+    
+    return resArr;
+}
+
+async function groups (token) {
+    let runCount = 1;
+    const resArr = [];
+
+    async function allGroups () {
+
+        try {
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/user-groups`,
+                method: "get",
+                params: {
+                    limit: 100,
+                    page: runCount
+                },
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const data = result.data.data;
+            
+            for (let i = 0; i < data.length; i++) {
+                const obj = {};
+                obj['id'] = data[i].id;
+                obj['name'] = data[i].name;
+                resArr.push(obj);
+            }
+            runCount++;
+
+            return {
+                totalPages: result.data.meta.total_pages,
+            }
 
         } catch (err) {
             console.log(err.response.data.errors);
         }
     }
+    let { totalPages } = await allGroups();
+
+    for (let i = 0; i < totalPages; i++) {
+        await allGroups();
+    }
+    
+    return resArr;
+}
+
+async function streams (token, data) {
+    let runCount = 1;
+    let resArr = [];
+
+    async function allStreams () {
+
+        for (let i = 0; i < data.length; i++) {
+            const streamId = data[i].stream_id;
+
+            console.log(streamId);
+
+            try {
+                const result = await axios({
+                    url: `https://v2.api.uberflip.com/items/${streamId}`,
+                    method: "get",
+                    params: {
+                        limit: 100,
+                        page: runCount
+                    },
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                runCount++;
+
+                return {
+                    published: result.data.content.published,
+                    totalPages: result.data.meta.total_pages,
+                }
+            } catch (err) {
+                console.log(err.response.data.errors);
+            }
+        }
+    }
+    let { totalPages } = await allStreams();
+
+    for (let i = 0; i < totalPages; i++) {
+        await allStreams();
+    }
+    return resArr;
 }
 
 async function allBlogItems (token, searchKey) {
@@ -283,7 +362,6 @@ async function allBlogItems (token, searchKey) {
             console.log(err);
         }
     }
-
     let { totalPages } = await allItems();
 
     for (let i = 0; i < totalPages; i++) {
@@ -293,36 +371,51 @@ async function allBlogItems (token, searchKey) {
 }
 
 async function streamsBlogItems (token, streamId, searchKey) {
+    let runCount = 1;
     let resArr = [];
 
-    try {
-        const result = await axios({
-            url: `https://v2.api.uberflip.com/streams/${streamId}/items`,
-            method: "get",
-            params: {
-                limit: 100,
-                type: 'blogs',
-            },
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        const resLength = result.data.data.length;
+    async function allBlogItems () {
+        try {
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/streams/${streamId}/items`,
+                method: "get",
+                params: {
+                    limit: 100,
+                    type: 'blogs',
+                    page: runCount
+                },
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const resLength = result.data.data.length;
 
-        for (let i = 0; i < resLength; i++) {
-            let content = result.data.data[i].content.published;
-            let id = result.data.data[i].id;
-            let obj = {};
-            
-            if (content.includes(searchKey)) {
-                obj['id'] = id;
-                obj['content'] = content;
-                resArr.push(obj);
+            for (let i = 0; i < resLength; i++) {
+                let content = result.data.data[i].content.published;
+                let id = result.data.data[i].id;
+                let obj = {};
+                
+                if (content.includes(searchKey)) {
+                    obj['id'] = id;
+                    obj['content'] = content;
+                    resArr.push(obj);
+                }
             }
+            runCount++;
+
+            return {
+                totalPages: result.data.meta.total_pages,
+            }
+        } catch (err) {
+            console.log(err);
         }
-    } catch (err) {
-        console.log(err);
     }
+    let { totalPages } = await allBlogItems();
+
+    for (let i = 0; i < totalPages; i++) {
+        await allBlogItems();
+    }
+
     return resArr;
 }
 
@@ -407,7 +500,6 @@ async function getTaggedItems (token, searchKey, toggle) {
             logObj.push(errorMessage);
         }
     }
-
     let { totalPages } = await allItems();
 
     for (let i = 0; i < totalPages; i++) {
