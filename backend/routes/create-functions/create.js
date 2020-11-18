@@ -293,9 +293,54 @@ async function items (token, data) {
     return returnObj;
 }
 
+async function pdfs (apiKey, apiSignature, hubId, data) {
+    let logObj = [];
+    let runCount = 0;
+
+    console.log(data);
+
+    for (let i = 0; i < data.length; i++) {
+        let prop = data[i];
+        let fileURL = prop.file_url;
+        let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+        
+        try {
+            const result = await axios({
+                url: `https://api.uberflip.com/`,
+                method: 'get',
+                params: {
+                    Version: '0.1',
+                    Method: 'AuthenticateHubUser',
+                    APIKey: apiKey,
+                    Signature: apiSignature,
+                    HubId: hubId,
+                    ResponseType: 'JSON',
+                    FileURL: fileURL
+                },
+            });
+
+            console.log(result);
+
+            let resultString = `${dateTime}  -  CREATED PDF  -  PDF created in Hub '${hubId}'\n`;
+            runCount++;
+            logObj.push(resultString);
+            console.log(resultString);
+
+        } catch (err) {
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating PDF '${fileURL}'\n`;
+            runCount++;
+            logObj.push(errorMessage);
+        }
+    }
+    let returnObj = { logObj, runCount };
+    return returnObj;
+}
+
 module.exports = { 
     tags,
     users,
     streams,
-    items
+    items,
+    pdfs
 };
