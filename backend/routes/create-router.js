@@ -194,7 +194,7 @@ router.route('/pdfs').post(async (req, res) => {
     try {
         timer.start();
         const csvData = await parse.CSV(fileContents);
-        const createdPDFs = await create.items(APIKey, APISignature, hubId, csvData);
+        const createdPDFs = await create.pdfs(APIKey, APISignature, hubId, csvData);
 
         let log = createdPDFs.logObj;
         const time = timer.stop();

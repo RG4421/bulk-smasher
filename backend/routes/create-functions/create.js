@@ -297,10 +297,10 @@ async function pdfs (apiKey, apiSignature, hubId, data) {
     let logObj = [];
     let runCount = 0;
 
-    console.log(data);
-
     for (let i = 0; i < data.length; i++) {
         let prop = data[i];
+        let folderId = prop.folder_id;
+        let fileName = prop.file_name;
         let fileURL = prop.file_url;
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
         
@@ -310,18 +310,21 @@ async function pdfs (apiKey, apiSignature, hubId, data) {
                 method: 'get',
                 params: {
                     Version: '0.1',
-                    Method: 'AuthenticateHubUser',
+                    Method: 'UploadFileByUrl',
                     APIKey: apiKey,
                     Signature: apiSignature,
                     HubId: hubId,
                     ResponseType: 'JSON',
-                    FileURL: fileURL
+                    TitleId: folderId,
+                    IssueName: fileName,
+                    FileUrl: fileURL
                 },
             });
+            let pdfID = result.data.Success.ID;
 
             console.log(result);
 
-            let resultString = `${dateTime}  -  CREATED PDF  -  PDF created in Hub '${hubId}'\n`;
+            let resultString = `${dateTime}  -  CREATED PDF  -  PDF '${pdfID}' created in Hub '${hubId}'\n`;
             runCount++;
             logObj.push(resultString);
             console.log(resultString);

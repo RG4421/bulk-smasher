@@ -6,6 +6,7 @@ import React, {
 import { useHistory } from "react-router-dom";
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
+import Alert from 'react-bootstrap/Alert'
 
 import create from '../images/create.png'
 import check from '../images/check.png'
@@ -118,24 +119,30 @@ function Create (props) {
     }
 
     const ServerSuccess = () => (
-        <div className="form-group componentElements">
-            <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
-            <label> {serverSuccess}</label>
-        </div>
+        <Alert variant="success">
+            <div className="form-group componentElements">
+                <img style={{marginRight: 5, marginBottom: 3}} src={check} width="20" height="20" alt="Check"/>
+                <label> {serverSuccess}</label>
+            </div>
+        </Alert>
     )
 
     const ServerError = () => (
-        <div className="form-group componentElements">
-            <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
-            <label> {serverError.status} {serverError.data.message}</label>
-        </div>
+        <Alert variant="danger">
+            <div className="form-group componentElements">
+                <img style={{marginRight: 5, marginBottom: 3}} src={cross} width="20" height="20" alt="Check"/>
+                <label> {serverError.status} {serverError.data.message}</label>
+            </div>
+        </Alert>
     )
 
     const LogDownload = () => (
-        <div className="form-group">
-            <a href={process.env.PUBLIC_URL + '/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
-            <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>
-        </div>
+        <Alert variant="info">
+            <div className="form-group" style={{marginTop: 15}}>
+                <a href={process.env.PUBLIC_URL + '/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
+                <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>
+            </div>
+        </Alert>
     )
 
     const CSVUpload = () => (

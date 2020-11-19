@@ -16,6 +16,11 @@
     margin-top: 30px;
 }
 
+.componentElements {
+    padding-bottom: 0px;
+    margin-top: 20px;
+}
+
 .secure {
     font-family: 'Roboto', sans-serif;
     letter-spacing: .1em;
