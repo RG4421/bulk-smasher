@@ -80,7 +80,23 @@ async function authenticateCredsV2(key, secret) {
     return fetchToken();
 }
 
-async function googleAuth (creds, date, logId, type, operator, executions, runtime) {
+async function googleAuth (creds, date, logId, type, operator, executions, time) {
+
+    let convertedRuntime;
+    let emet = parseFloat((executions * 0.5) / 60).toFixed(2);
+    let value = time.time;
+    let unit = time.words.split(' ')[1];
+
+    // convert runtime into minutes for reporting
+    if (unit === 's') {
+        convertedRuntime = parseFloat(value / 1000 / 60).toFixed(2);
+    } else if (unit === 'min') {
+        convertedRuntime = parseFloat(value).toFixed(2);
+    } else if (unit === 'h') {
+        convertedRuntime = parseFloat(value / 1000 / 60 / 60).toFixed(2);
+    }
+
+    let delta = emet - convertedRuntime;
 
     const sheetId = '1z2dwUjJKsmpm_mg66d0iTEICs_CES_4UD5_nmH9Sf-E';
     const doc = new GoogleSpreadsheet(sheetId);
@@ -98,7 +114,9 @@ async function googleAuth (creds, date, logId, type, operator, executions, runti
         Type: type,
         Operator: operator,
         Executions: executions,
-        Runtime: runtime
+        EMET: emet,
+        Runtime: convertedRuntime,
+        Delta: delta
     }
     await sheet.addRow(row);
 }

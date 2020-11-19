@@ -43,7 +43,7 @@ router.route('/tags').post(async (req, res) => {
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'TAGS', execution, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'TAGS', execution, time);
 
         return res.status(201).json({
             message: `Tags successfully created and applied - (Runtime: ${time.words})`,
@@ -83,7 +83,7 @@ router.route('/streams').post(async (req, res) => {
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - STREAMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'STREAMS', createdStreams.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'STREAMS', createdStreams.runCount, time);
 
         return res.status(201).json({
             message: `Streams successfully created and populated - (Runtime: ${time.words})`,
@@ -128,7 +128,7 @@ router.route('/users').post(async (req, res) => {
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - USERS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
         
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'USERS', executions, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'USERS', executions, time);
 
         return res.status(201).json({
             message: `User profiles created and groups assigned - (Runtime: ${time.words})`,
@@ -168,10 +168,43 @@ router.route('/items').post(async (req, res) => {
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'ITEMS', createdItems.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'ITEMS', createdItems.runCount, time);
 
         return res.status(201).json({
             message: `User profiles created and groups assigned - (Runtime: ${time.words})`,
+            log_name: `BulkSmasherLog-${logId}.txt`
+        });
+
+    } catch (e) {
+        console.log(e);
+        const errorMessage = `${e.message}\n`;
+        return res.status(400).json({
+            message: errorMessage
+        });
+    }
+});
+
+router.route('/pdfs').post(async (req, res) => {
+    var APIKey = req.body.APIKey;
+    var APISignature = req.body.APISecret;
+    var hubId = req.body.hubId;
+    var fileContents = req.body.fileContents;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
+
+    try {
+        timer.start();
+        const csvData = await parse.CSV(fileContents);
+        const createdPDFs = await create.pdfs(APIKey, APISignature, hubId, csvData);
+
+        let log = createdPDFs.logObj;
+        const time = timer.stop();
+        const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - PDFS (Runtime ${time.words}) ---\n\n- HUBS - \nID ${hubId}\n\n- ACTIVITY LOG -\n` + log.join(""));
+
+        // Appending data to Google Drive
+        await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'PDFS', createdPDFs.runCount, time);
+
+        return res.status(201).json({
+            message: `PDFs uploaded - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -199,7 +232,7 @@ router.route('/test').post(async (req, res) => {
         let time = timer.stop();
         let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
 
-        await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
 
         return res.status(201).json({
                 message: `TEST CALL RAN - (Runtime: ${time.words})`,

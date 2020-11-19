@@ -78,6 +78,32 @@ function Home (props) {
         </Card>
         <Card>
             <Accordion.Toggle as={Card.Header} eventKey="2">
+            PDFs
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="2">
+            <Card.Body>
+                
+            This operator can create PDFs within an Uberflip Hub.
+
+            <br />
+            <br />
+
+            Within the template, you can include Folder ID's and Title to upload to your PDFs.
+
+            <br />
+            <br />
+
+            <Alert variant="warning">
+                <p>
+                    The PDF must be hosted on an external source at a reachable URL in order to successfully run this operator.
+                </p>
+            </Alert>
+            
+            </Card.Body>
+            </Accordion.Collapse>
+        </Card>
+        <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="2">
             Streams
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="2">

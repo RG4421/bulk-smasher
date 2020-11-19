@@ -32,11 +32,10 @@ router.route('/allTags').post(async (req, res) => {
 
         let log = deletedTags.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ALL TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'ALL TAGS', deletedTags.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'ALL TAGS', deletedTags.runCount, time);
 
         return res.status(200).json({
             message: `All tags deleted - (Runtime: ${time.words})`,
@@ -73,11 +72,10 @@ router.route('/tagList').post(async (req, res) => {
 
         let log = deletedTags.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - TAG LIST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'TAG LIST', deletedTags.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'TAG LIST', deletedTags.runCount, time);
 
         return res.status(200).json({
             message: `Tag list deleted - (Runtime: ${time.words})`,
@@ -114,11 +112,10 @@ router.route('/items').post(async (req, res) => {
 
         let log = deletedItems.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'ITEMS', deletedItems.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'ITEMS', deletedItems.runCount, time);
 
         return res.status(200).json({
             message: `Items deleted  - (Runtime: ${time.words})`,
@@ -155,11 +152,10 @@ router.route('/streamItems').post(async (req, res) => {
 
         let log = deletedStreamsItems.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAM ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'STREAM ITEMS', deletedStreamsItems.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'STREAM ITEMS', deletedStreamsItems.runCount, time);
 
         return res.status(200).json({
             message: `Stream items deleted - (Runtime: ${time.words})`,
@@ -197,11 +193,10 @@ router.route('/hiddenItems').post(async (req, res) => {
 
         let log = deletedItems.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - HIDDEN ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'HIDDEN ITEMS', deletedItems.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'HIDDEN ITEMS', deletedItems.runCount, time);
 
         return res.status(200).json({
             message: `Hidden stream items deleted  - (Runtime: ${time.words})`,
@@ -238,11 +233,10 @@ router.route('/pastItems').post(async (req, res) => {
 
         let log = deletedPast.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - PAST ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'PAST ITEMS', deletedPast.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'PAST ITEMS', deletedPast.runCount, time);
 
         return res.status(200).json({
             message: `Past stream items deleted  - (Runtime: ${time.words})`,
@@ -279,11 +273,10 @@ router.route('/streams').post(async (req, res) => {
 
         let log = deletedStreams.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - DELETE - STREAMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'STREAMS', deletedStreams.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'DELETE', 'STREAMS', deletedStreams.runCount, time);
 
         return res.status(200).json({
             message: `Stream list deleted  - (Runtime: ${time.words})`,

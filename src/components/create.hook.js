@@ -1,10 +1,12 @@
 import React, { 
     useState, 
-    useEffect
+    useEffect,
+    useRef
 } from 'react';
 import { useHistory } from "react-router-dom";
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import Axios from 'axios';
+import Alert from 'react-bootstrap/Alert'
 
 import create from '../images/create.png'
 import check from '../images/check.png'
@@ -24,6 +26,7 @@ function Create (props) {
     const [serverError, setServerError] = useState('');
     const [logURL, setLogURL] = useState('');
     const [fileName, setFileName] = useState('');
+    const [hubId, setHubId] = useState('');
 
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
@@ -31,6 +34,10 @@ function Create (props) {
     const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
     const [showLogDownload, setShowLogDownload] = useState(false);
+    const [showLegacyFields, setShowLegacyFields] = useState(false);
+
+    const clientIdRef = useRef();
+    const clientSecretRef = useRef();
 
     // AUTHENTICATION
     const history = useHistory();
@@ -64,19 +71,35 @@ function Create (props) {
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "Items" || selectValue === "User Profiles" || selectValue === "Test") {
+            clientIdRef.current.placeholder = "API Key";
+            clientSecretRef.current.placeholder = "API Secret";
             setShowUpload(true);
             setShowCSVPreview(false);
             setShowServerSuccess(false);
             setShowServerError(false);
             setShowLoader(false);
             setShowLogDownload(false);
+            setShowLegacyFields(false);
+        } else if (selectValue === "PDF") {
+            clientIdRef.current.placeholder = "API Key";
+            clientSecretRef.current.placeholder = "Signature";
+            setShowUpload(true);
+            setShowCSVPreview(false);
+            setShowServerSuccess(false);
+            setShowServerError(false);
+            setShowLoader(false);
+            setShowLogDownload(false);
+            setShowLegacyFields(true);
         } else {
+            clientIdRef.current.placeholder = "API Key";
+            clientSecretRef.current.placeholder = "API Secret";
             setShowUpload(false);
             setShowCSVPreview(false);
             setShowServerSuccess(false);
             setShowServerError(false);
             setShowLoader(false);
             setShowLogDownload(false);
+            setShowLegacyFields(false);
         }
     }, [selectValue]);
 
@@ -96,24 +119,30 @@ function Create (props) {
     }
 
     const ServerSuccess = () => (
-        <div className="form-group componentElements">
-            <img style={{marginRight: 5}} src={check} width="20" height="20" alt="Check"/>
-            <label> {serverSuccess}</label>
-        </div>
+        <Alert variant="success">
+            <div className="form-group componentElements">
+                <img style={{marginRight: 5, marginBottom: 3}} src={check} width="20" height="20" alt="Check"/>
+                <label> {serverSuccess}</label>
+            </div>
+        </Alert>
     )
 
     const ServerError = () => (
-        <div className="form-group componentElements">
-            <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
-            <label> {serverError.status} {serverError.data.message}</label>
-        </div>
+        <Alert variant="danger">
+            <div className="form-group componentElements">
+                <img style={{marginRight: 5, marginBottom: 3}} src={cross} width="20" height="20" alt="Check"/>
+                <label> {serverError.status} {serverError.data.message}</label>
+            </div>
+        </Alert>
     )
 
     const LogDownload = () => (
-        <div className="form-group">
-            <a href={process.env.PUBLIC_URL + '/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
-            <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>
-        </div>
+        <Alert variant="info">
+            <div className="form-group" style={{marginTop: 15}}>
+                <a href={process.env.PUBLIC_URL + '/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
+                <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>
+            </div>
+        </Alert>
     )
 
     const CSVUpload = () => (
@@ -154,13 +183,28 @@ function Create (props) {
         </div>
     )
 
+    const LegacyFields = () => (
+        <div className="form-group">
+            <div className="form-group">
+                <input
+                    placeholder="Hub ID"
+                    type="text"
+                    value={hubId}
+                    onChange={e => setHubId(e.target.value)}
+                    required
+                ></input>
+            </div>
+        </div>
+    )
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const data = {
             APIKey, 
             APISecret,
-            fileContents
+            fileContents,
+            hubId
         };
 
         // Create tags
@@ -171,6 +215,7 @@ function Create (props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLogDownload(false);
+                setShowLegacyFields(false);
                 setShowLoader(true);
 
                 Axios.post('/create/tags/', data)
@@ -208,6 +253,7 @@ function Create (props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLogDownload(false);
+                setShowLegacyFields(false);
                 setShowLoader(true);
 
                 Axios.post('create/streams', data)
@@ -245,6 +291,7 @@ function Create (props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLogDownload(false);
+                setShowLegacyFields(false);
                 setShowLoader(true);
 
                 Axios.post('create/items', data)
@@ -281,6 +328,7 @@ function Create (props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLogDownload(false);
+                setShowLegacyFields(false);
                 setShowLoader(true);
 
                 Axios.post('create/users', data)
@@ -313,6 +361,48 @@ function Create (props) {
             } else {
                 console.log("Create operation cancelled.");
             }
+        } else if (selectValue === "PDF") {
+            if (window.confirm("Are you sure you want to CREATE these PDFs?")) {
+                setShowUpload(false);
+                setShowCSVPreview(false);
+                setShowServerSuccess(false);
+                setShowServerError(false);
+                setShowLogDownload(false);
+                setShowLegacyFields(true);
+                setShowLoader(true);
+
+                Axios.post('create/pdfs', data)
+                .then((res) => {
+                    if (res.status >= 200 && res.status < 300) {
+                        setShowLoader(false);
+                        setServerSuccess(res.data.message);
+                        setLogURL(res.data.log_name);
+                        setShowServerSuccess(true);
+                        setShowLogDownload(true);
+                        console.log(res.data);    
+                    } else if (res.status <= 300){
+                        throw new Error('API ERROR');
+                    }
+                }).catch((e) => {
+                    console.log(e);
+                    console.debug(e);
+
+                    if (e.response) {
+                        setShowLoader(false);
+                        setShowUpload(false);
+                        setShowCSVPreview(false);
+                        setShowLogDownload(false);
+                        setServerError(e.response);
+                        setShowServerError(true);
+                    } else if (e.request) {
+                        console.log('Client never recieved request: ' + e.request);
+                    } else {
+                        console.log('Error:' + e.message);
+                    }
+                });
+            } else {
+                console.log("Create operation cancelled.");
+            }
         } else if (selectValue === "Test") {
             if (window.confirm("Are you sure you want to this TEST call?")) {
                 setShowUpload(false);
@@ -320,6 +410,7 @@ function Create (props) {
                 setShowServerSuccess(false);
                 setShowServerError(false);
                 setShowLogDownload(false);
+                setShowLegacyFields(false);
                 setShowLoader(true);
 
                 Axios.post('create/test', data)
@@ -367,6 +458,7 @@ function Create (props) {
                 <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <input 
+                        ref={clientIdRef}
                         placeholder="API Key"
                         type="text"
                         value={APIKey}
@@ -376,6 +468,7 @@ function Create (props) {
                 </div>
                 <div className="form-group">
                     <input
+                        ref={clientSecretRef}
                         placeholder="API Secret"
                         type="text"
                         value={APISecret}
@@ -383,6 +476,9 @@ function Create (props) {
                         required
                     ></input>
                 </div>
+
+                { showLegacyFields ? <LegacyFields /> : null }
+
                 <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#create"}>Select Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <select
@@ -392,7 +488,8 @@ function Create (props) {
                     >
                         <option default value="null">Please Select...</option>
                         <option value="Items">Items</option>
-                        <option value="Tags">Tags</option>
+                        <option value="Tags">Tags</option>                        
+                        <option value="PDF">PDFs</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
                         {/* <option value="Test">***Test***</option> */}

@@ -35,11 +35,10 @@ router.route('/hidePastContent').post(async (req, res) => {
 
         let log = updatedContent.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - HIDE PAST CONTENT (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'HIDE PAST CONTENT', updatedContent.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'HIDE PAST CONTENT', updatedContent.runCount, time);
 
         return res.status(200).json({
             message: `Content before ${newDate} set to hidden - (Runtime: ${time.words})`,
@@ -78,11 +77,10 @@ router.route('/showPastContent').post(async (req, res) => {
 
         let log = updatedContent;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - SHOW PAST CONTENT (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'SHOW PAST CONTENT', updatedContent.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'SHOW PAST CONTENT', updatedContent.runCount, time);
 
         return res.status(200).json({
             message: `Content before ${newDate} set to show - (Runtime: ${time.words})`,
@@ -119,11 +117,10 @@ router.route('/items').post(async (req, res) => {
 
         let log = updatedItems.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - UPDATE ITEMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEMS', updatedItems.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEMS', updatedItems.runCount, time);
 
         return res.status(200).json({
             message: `Items updated - (Runtime: ${time.words})`,
@@ -160,11 +157,10 @@ router.route('/author').post(async (req, res) => {
 
         let log = updatedAuthors.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM AUTHOR (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM AUTHOR', updatedAuthors.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM AUTHOR', updatedAuthors.runCount, time);
 
         return res.status(200).json({
             message: `Author of items updated - (Runtime: ${time.words})`,
@@ -201,11 +197,10 @@ router.route('/seo').post(async (req, res) => {
 
         let log = updatedSEO.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM SEO', updatedSEO.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM SEO', updatedSEO.runCount, time);
 
         return res.status(200).json({
             message: `SEO metadata of items updated - (Runtime: ${time.words})`,
@@ -242,11 +237,10 @@ router.route('/metadata').post(async (req, res) => {
 
         let log = updatedMetadata.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ITEM METADATA (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM METADATA', updatedMetadata.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ITEM METADATA', updatedMetadata.runCount, time);
 
         return res.status(200).json({
             message: `SEO metadata of items updated - (Runtime: ${time.words})`,
@@ -283,11 +277,10 @@ router.route('/populateStreams').post(async (req, res) => {
 
         let log = updatedStreams.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - POPULATE STREAMS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'POPULATE STREAMS', updatedStreams.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'POPULATE STREAMS', updatedStreams.runCount, time);
 
         return res.status(200).json({
             message: `Streams populated with new items - (Runtime: ${time.words})`,
@@ -333,11 +326,10 @@ router.route('/itemContent').post(async (req, res) => {
 
         let log = updateItems.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - ALL ITEMS SOURCE CONTENT (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ALL ITEMS SOURCE CONTENT', updateItems.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'ALL ITEMS SOURCE CONTENT', updateItems.runCount, time);
 
         return res.status(200).json({
             message: `Blog items updated with new embed content - (Runtime: ${time.words})`,
@@ -377,11 +369,10 @@ router.route('/streamItemContent').post(async (req, res) => {
 
         let log = updateItems.logObj;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - STREAM ${streamId} ITEMS SOURCE CONTENT (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
         // Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'STREAM ITEMS SOURCE CONTENT', updateItems.runCount, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'STREAM ITEMS SOURCE CONTENT', updateItems.runCount, time);
 
         return res.status(200).json({
             message: `Stream ${streamId} blog items updated with new content - (Runtime: ${time.words})`,
@@ -417,11 +408,10 @@ router.route('/tagSearch').post(async (req, res) => {
         let log = searchItems.logObj.concat(updatedItems.logObj);
         let executions = searchItems.runCount + updatedItems.runCount;
         const time = timer.stop();
-        console.log('--- Execution Time --- : ', time.words);
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - UPDATE - TAG SEARCH (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- SEARCH CONFIG -\nTag Search - ${tagSearch}\nItem Contains Search Key ${checked}\n${selectValue} value '${canonical}'\n\n- ACTIVITY LOG -\n` + log.join(""));
 
         //Appending data to Google Drive
-        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'TAG SEARCH', executions, time.words);
+        await auth.googleAuth(creds, dateTime, logId, 'UPDATE', 'TAG SEARCH', executions, time);
 
         return res.status(200).json({
             message: `Tagged items updated - (Runtime: ${time.words})`,
