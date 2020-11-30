@@ -171,7 +171,7 @@ router.route('/items').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'ITEMS', createdItems.runCount, time);
 
         return res.status(201).json({
-            message: `User profiles created and groups assigned - (Runtime: ${time.words})`,
+            message: `Items created and published - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -204,7 +204,7 @@ router.route('/pdfs').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'PDFS', createdPDFs.runCount, time);
 
         return res.status(201).json({
-            message: `PDFs uploaded - (Runtime: ${time.words})`,
+            message: `PDFs uploaded to Hub ${hubId} - (Runtime: ${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
