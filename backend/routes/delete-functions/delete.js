@@ -36,12 +36,13 @@ async function deleteAll (token, tagIds) {
 
 // Delete list of tags
 async function deleteList (token, csv, tagIds) {
+
     let logObj = [];
     let runCount = 0;
     let rows = csv.split("\n");
 
     // Ignoring header
-    for (var i = 1; i < rows.length; i++) {
+    for (let i = 1; i < rows.length; i++) {
         let newRow = rows[i].split("\r");
         let tags = newRow[0];
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
@@ -51,6 +52,7 @@ async function deleteList (token, csv, tagIds) {
             let tagId = tagIds[j].id;
             
             if (tags === tagName) {
+
                 try {
                     await axios({
                         url: `https://v2.api.uberflip.com/tags/${tagId}`,

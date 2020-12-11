@@ -42,6 +42,8 @@ router.route('/tags').post(async (req, res) => {
         const time = timer.stop();
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
+        console.log(time);
+
         // Appending data to Google Drive
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'TAGS', execution, time);
 
@@ -227,10 +229,17 @@ router.route('/test').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        let executions = '12345';
-        
         let time = timer.stop();
         let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
+
+        let executions = 790;
+        time = {
+            name: 'default',
+            time: 145439.30117,
+            words: '2.42 min',
+            preciseWords: '2.4166666666666665 min',
+            verboseWords: '2 minutes 25 seconds 439 milliseconds 301 microseconds 170 nanoseconds'
+        }
 
         await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
 

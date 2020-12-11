@@ -322,8 +322,6 @@ async function pdfs (apiKey, apiSignature, hubId, data) {
             });
             let pdfID = result.data.Success.ID;
 
-            console.log(result);
-
             let resultString = `${dateTime}  -  CREATED PDF  -  PDF '${pdfID}' created in Hub '${hubId}'\n`;
             runCount++;
             logObj.push(resultString);

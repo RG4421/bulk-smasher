@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const uuid = require('uuid');
+const uuid = require('uuid').v4;
 const auth = require('./utility-functions/auth');
 require('dotenv').config();
-
 
 router.route('/checkCreds').get(auth.authenticateJWT, (req, res) => {
     if (req.password === process.env.BULKSMASHER_PASSWORD) {

@@ -1,6 +1,6 @@
 {
   "name": "bulk-buster",
-  "version": "0.1.0",
+  "version": "1.0.3",
   "private": true,
   "dependencies": {
     "@hapi/boom": "^9.1.0",
@@ -23,13 +23,16 @@
     "nodemailer": "^6.4.15",
     "nodemon": "^2.0.6",
     "react": "^16.14.0",
+    "react-bootstrap-alert": "^1.0.7",
+    "react-csv-to-table": "^0.0.4",
     "react-datepicker": "^3.3.0",
     "react-dom": "^16.14.0",
     "react-loader-spinner": "^3.1.14",
     "react-native-fs": "^2.16.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "uniqid": "^5.2.0"
+    "uniqid": "^5.2.0",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start node",
