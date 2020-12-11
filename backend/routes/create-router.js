@@ -229,11 +229,10 @@ router.route('/test').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        let executions = '12345';
-        
         let time = timer.stop();
         let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
 
+        let executions = 790;
         time = {
             name: 'default',
             time: 145439.30117,
@@ -242,7 +241,7 @@ router.route('/test').post(async (req, res) => {
             verboseWords: '2 minutes 25 seconds 439 milliseconds 301 microseconds 170 nanoseconds'
         }
 
-        await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', 790, time);
+        await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
 
         return res.status(201).json({
                 message: `TEST CALL RAN - (Runtime: ${time.words})`,

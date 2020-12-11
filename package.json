@@ -31,7 +31,8 @@
     "react-native-fs": "^2.16.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "uniqid": "^5.2.0"
+    "uniqid": "^5.2.0",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start node",
