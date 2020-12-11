@@ -89,14 +89,20 @@ async function googleAuth (creds, date, logId, type, operator, executions, time)
 
     // convert runtime into minutes for reporting
     if (unit === 's') {
-        convertedRuntime = parseFloat(value / 1000 / 60).toFixed(2);
+        convertedRuntime = parseFloat(value / 1000).toFixed(2);
     } else if (unit === 'min') {
-        convertedRuntime = parseFloat(value).toFixed(2);
+        convertedRuntime = parseFloat(value / 1000 / 60).toFixed(2);
     } else if (unit === 'h') {
         convertedRuntime = parseFloat(value / 1000 / 60 / 60).toFixed(2);
     }
 
     let delta = emet - convertedRuntime;
+
+    console.log("EMET - " + emet)
+    console.log("Value - " + value)
+    console.log("Unit - " + unit)
+    console.log('ConvertedRuntime - ' + convertedRuntime)
+    console.log("Delta - " + delta)
 
     const sheetId = '1z2dwUjJKsmpm_mg66d0iTEICs_CES_4UD5_nmH9Sf-E';
     const doc = new GoogleSpreadsheet(sheetId);

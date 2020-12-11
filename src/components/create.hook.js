@@ -492,7 +492,7 @@ function Create (props) {
                         <option value="PDF">PDFs</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        {/* <option value="Test">***Test***</option> */}
+                        <option value="Test">***Test***</option>
                     </select>
                 </div>
 
