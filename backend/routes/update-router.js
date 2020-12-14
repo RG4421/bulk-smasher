@@ -105,6 +105,7 @@ router.route('/items').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -112,7 +113,7 @@ router.route('/items').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const updatedItems = await update.items(authToken, csvData);
 
         let log = updatedItems.logObj;
@@ -145,6 +146,7 @@ router.route('/author').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
     
     try {
@@ -152,7 +154,7 @@ router.route('/author').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const updatedAuthors = await update.author(authToken, csvData);
 
         let log = updatedAuthors.logObj;
@@ -185,6 +187,7 @@ router.route('/seo').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -192,7 +195,8 @@ router.route('/seo').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
+
         const updatedSEO = await update.seo(authToken, csvData);
 
         let log = updatedSEO.logObj;
@@ -225,6 +229,7 @@ router.route('/metadata').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -232,7 +237,7 @@ router.route('/metadata').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const updatedMetadata = await update.metadata(authToken, csvData);
 
         let log = updatedMetadata.logObj;
@@ -265,6 +270,7 @@ router.route('/populateStreams').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -272,7 +278,7 @@ router.route('/populateStreams').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const updatedStreams = await update.streams(authToken, csvData);
 
         let log = updatedStreams.logObj;

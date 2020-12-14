@@ -13,8 +13,8 @@ async function createLog (data) {
     const id = uniqid();
 
     // Local testing:
-    //fs.writeFile(`../public/server-logs/BulkSmasherLog-${id}.txt`, data, function (err) {
-    fs.writeFile(`./build/server-logs/BulkSmasherLog-${id}.txt`, data, function (err) {
+    fs.writeFile(`../public/server-logs/BulkSmasherLog-${id}.txt`, data, function (err) {
+    //fs.writeFile(`./build/server-logs/BulkSmasherLog-${id}.txt`, data, function (err) {
         if (err) {
             let transporter;
             let mailOptions;

@@ -23,6 +23,7 @@ router.route('/tags').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -30,7 +31,7 @@ router.route('/tags').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
         
-        const newTags = await parse.CSV(fileContents);
+        const newTags = await parse.CSV(fileContents, searchKey);
         const existingTags = await fetch.tagId(authToken);
         const compareTags = await compare.tags(existingTags, newTags);
         const createdTags = await create.tags(authToken, compareTags);
@@ -70,6 +71,7 @@ router.route('/streams').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -77,7 +79,7 @@ router.route('/streams').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const createdStreams = await create.streams(authToken, csvData);
 
         let log = createdStreams.logObj;
@@ -110,6 +112,7 @@ router.route('/users').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -117,7 +120,7 @@ router.route('/users').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const newUsers = await create.users(authToken, csvData);
         const existingUsers = await fetch.users(authToken);
         const userGroups = await fetch.groups(authToken);
@@ -155,6 +158,7 @@ router.route('/items').post(async (req, res) => {
     var APIKey = req.body.APIKey;
     var APISecret = req.body.APISecret;
     var fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
@@ -162,7 +166,7 @@ router.route('/items').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const createdItems = await create.items(authToken, csvData);
 
         let log = createdItems.logObj;
@@ -187,15 +191,16 @@ router.route('/items').post(async (req, res) => {
 });
 
 router.route('/pdfs').post(async (req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISignature = req.body.APISecret;
-    var hubId = req.body.hubId;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISignature = req.body.APISecret;
+    const hubId = req.body.hubId;
+    const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
-        const csvData = await parse.CSV(fileContents);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const createdPDFs = await create.pdfs(APIKey, APISignature, hubId, csvData);
 
         let log = createdPDFs.logObj;
@@ -220,28 +225,33 @@ router.route('/pdfs').post(async (req, res) => {
 });
 
 router.route('/test').post(async (req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    let dateTime = dateFormat(new Date(), "yyyy-mm-dd");
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
+    const searchKey = req.body.searchKey;
+    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
-        let fetchHub = await fetch.getHub(authToken);
+        //let fetchHub = await fetch.getHub(authToken);
+
+        const csvData = await parse.CSV(fileContents, searchKey);
+        console.log(csvData);
 
         let time = timer.stop();
-        let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
+        // let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
 
-        let executions = 790;
-        time = {
-            name: 'default',
-            time: 145439.30117,
-            words: '2.42 min',
-            preciseWords: '2.4166666666666665 min',
-            verboseWords: '2 minutes 25 seconds 439 milliseconds 301 microseconds 170 nanoseconds'
-        }
+        // let executions = 790;
+        // time = {
+        //     name: 'default',
+        //     time: 145439.30117,
+        //     words: '2.42 min',
+        //     preciseWords: '2.4166666666666665 min',
+        //     verboseWords: '2 minutes 25 seconds 439 milliseconds 301 microseconds 170 nanoseconds'
+        // }
 
-        await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
+        //await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
 
         return res.status(201).json({
                 message: `TEST CALL RAN - (Runtime: ${time.words})`,

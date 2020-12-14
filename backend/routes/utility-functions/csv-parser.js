@@ -1,7 +1,9 @@
-async function CSV(csv) {
+async function CSV(csv, keySearch) {
+    const comma = ",";
     let tempObj = {};
     let tempResult = [];
     let result = [];
+    let replaceObj;
     let rows = csv.split("\n");
 
     // Removing carriage returns from CSV
@@ -22,6 +24,13 @@ async function CSV(csv) {
         let obj = {};
         for (let k = 0; k < headers.length; k++) {
             obj[headers[k]] = currentRow[k];
+
+            if (keySearch !== "" && obj.seo_description) {
+                replaceObj = obj.seo_description.replaceAll(keySearch, comma);
+                obj['seo_description'] = replaceObj; 
+            } else {
+                obj['seo_description'] = replaceObj;
+            }
         }
         result.push(obj);
     }

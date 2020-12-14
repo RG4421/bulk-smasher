@@ -98,12 +98,6 @@ async function googleAuth (creds, date, logId, type, operator, executions, time)
 
     let delta = emet - convertedRuntime;
 
-    console.log("EMET - " + emet)
-    console.log("Value - " + value)
-    console.log("Unit - " + unit)
-    console.log('ConvertedRuntime - ' + convertedRuntime)
-    console.log("Delta - " + delta)
-
     const sheetId = '1z2dwUjJKsmpm_mg66d0iTEICs_CES_4UD5_nmH9Sf-E';
     const doc = new GoogleSpreadsheet(sheetId);
 
