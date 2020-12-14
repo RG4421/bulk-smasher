@@ -229,11 +229,11 @@ router.route('/test').post(async (req, res) => {
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
     const searchKey = req.body.searchKey;
-    const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
+    dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
-        let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
+        await auth.authenticateCredsV2(APIKey, APISecret);
         //let fetchHub = await fetch.getHub(authToken);
 
         const csvData = await parse.CSV(fileContents, searchKey);
