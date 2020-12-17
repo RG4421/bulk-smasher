@@ -6334,7 +6334,7 @@
     "relateurl" "^0.2.7"
     "terser" "^4.6.3"
 
-"html-webpack-plugin@4.0.0-beta.11":
+"html-webpack-plugin@^4.0.0-beta.11", "html-webpack-plugin@4.0.0-beta.11":
   "integrity" "sha512-4Xzepf0qWxf8CGg7/WQM5qBB2Lc/NFI7MhU59eUDTkuQp3skZczH4UA1d6oQyDEIoMDgERVhRyTdtUPZ5s5HBg=="
   "resolved" "https://registry.npmjs.org/html-webpack-plugin/-/html-webpack-plugin-4.0.0-beta.11.tgz"
   "version" "4.0.0-beta.11"

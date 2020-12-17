@@ -33,6 +33,7 @@ function Update(props) {
     const [logURL, setLogURL] = useState('');
     const [fileName, setFileName] = useState('');
     const [pendValue, setPendValue] = useState('');
+    const [searchKey, setSearchKey] = useState('');
 
     const [selectDate, setSelectDate] = useState(new Date());
     const [checked, setChecked] = useState(false);
@@ -191,6 +192,12 @@ function Update(props) {
 
     const CSVUpload = () => (
         <div className="form-group">
+            <input
+                placeholder="Unique Search and Replace Key"
+                type="text"
+                value={searchKey}
+                onChange={e => setSearchKey(e.target.value)}
+            ></input>
             <div className="componentElements">
                 <input type="file"
                     accept=".csv"
@@ -343,7 +350,8 @@ function Update(props) {
             tagSearch,
             canonAppend,
             pendValue,
-            checked
+            checked,
+            searchKey
         }
 
         // Updating past content to hidden

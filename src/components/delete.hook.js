@@ -29,6 +29,7 @@ function Delete (props)
     const [selectDate, setSelectDate] = useState(new Date());
     const [logURL, setLogURL] = useState('');
     const [fileName, setFileName] = useState('');
+    const [searchKey, setSearchKey] = useState('');
 
     const [checked, setChecked] = useState(false);
     const [showDeleteAll, setShowDeleteAll] = useState(false);
@@ -194,6 +195,12 @@ function Delete (props)
 
     const CSVUpload = () => (
         <div className="form-group">
+            <input
+                placeholder="Unique Search and Replace Key"
+                type="text"
+                value={searchKey}
+                onChange={e => setSearchKey(e.target.value)}
+            ></input>
             <div style={{marginTop: 30}}>
                 <input type="file"
                     accept=".csv"
@@ -263,7 +270,8 @@ function Delete (props)
             APIKey,
             APISecret,
             selectDate,
-            fileContents
+            fileContents,
+            searchKey
         };
 
         // Run delete all tags function

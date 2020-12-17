@@ -1,0 +1,259 @@
+--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime 2.9 min) ---
+
+- HUBS - 
+Hub Name: Risk
+Id: 118481
+Hub Name: N&I
+Id: 119417
+
+- ACTIVITY LOG -
+2020-12-14 5:33:17  -  UPDATED SEO -  Item '640187764' SEO metadata updated
+2020-12-14 5:33:17  -  Published item '640187764'
+2020-12-14 5:33:18  -  UPDATED SEO -  Item '637142593' SEO metadata updated
+2020-12-14 5:33:18  -  Published item '637142593'
+2020-12-14 5:33:19  -  UPDATED SEO -  Item '637142239' SEO metadata updated
+2020-12-14 5:33:19  -  Published item '637142239'
+2020-12-14 5:33:20  -  UPDATED SEO -  Item '637141990' SEO metadata updated
+2020-12-14 5:33:20  -  Published item '637141990'
+2020-12-14 5:33:21  -  UPDATED SEO -  Item '637139350' SEO metadata updated
+2020-12-14 5:33:21  -  Published item '637139350'
+2020-12-14 5:33:22  -  UPDATED SEO -  Item '637142110' SEO metadata updated
+2020-12-14 5:33:22  -  Published item '637142110'
+2020-12-14 5:33:23  -  UPDATED SEO -  Item '637142653' SEO metadata updated
+2020-12-14 5:33:23  -  Published item '637142653'
+2020-12-14 5:33:24  -  UPDATED SEO -  Item '640187956' SEO metadata updated
+2020-12-14 5:33:24  -  Published item '640187956'
+2020-12-14 5:33:25  -  UPDATED SEO -  Item '637140769' SEO metadata updated
+2020-12-14 5:33:25  -  Published item '637140769'
+2020-12-14 5:33:26  -  UPDATED SEO -  Item '640187935' SEO metadata updated
+2020-12-14 5:33:26  -  Published item '640187935'
+2020-12-14 5:33:28  -  UPDATED SEO -  Item '637140406' SEO metadata updated
+2020-12-14 5:33:28  -  Published item '637140406'
+2020-12-14 5:33:29  -  UPDATED SEO -  Item '640187818' SEO metadata updated
+2020-12-14 5:33:29  -  Published item '640187818'
+2020-12-14 5:33:30  -  UPDATED SEO -  Item '637139860' SEO metadata updated
+2020-12-14 5:33:30  -  Published item '637139860'
+2020-12-14 5:33:31  -  UPDATED SEO -  Item '638837245' SEO metadata updated
+2020-12-14 5:33:31  -  ERROR: Cannot publish item with empty content  -  Publishing item '638837245'
+2020-12-14 5:33:32  -  UPDATED SEO -  Item '637157257' SEO metadata updated
+2020-12-14 5:33:32  -  Published item '637157257'
+2020-12-14 5:33:33  -  UPDATED SEO -  Item '637139674' SEO metadata updated
+2020-12-14 5:33:33  -  Published item '637139674'
+2020-12-14 5:33:34  -  UPDATED SEO -  Item '640187881' SEO metadata updated
+2020-12-14 5:33:34  -  Published item '640187881'
+2020-12-14 5:33:35  -  UPDATED SEO -  Item '640188016' SEO metadata updated
+2020-12-14 5:33:35  -  Published item '640188016'
+2020-12-14 5:33:36  -  UPDATED SEO -  Item '638837272' SEO metadata updated
+2020-12-14 5:33:36  -  ERROR: Cannot publish item with empty content  -  Publishing item '638837272'
+2020-12-14 5:33:37  -  UPDATED SEO -  Item '637140760' SEO metadata updated
+2020-12-14 5:33:37  -  Published item '637140760'
+2020-12-14 5:33:38  -  UPDATED SEO -  Item '638837263' SEO metadata updated
+2020-12-14 5:33:38  -  ERROR: Cannot publish item with empty content  -  Publishing item '638837263'
+2020-12-14 5:33:39  -  UPDATED SEO -  Item '638837266' SEO metadata updated
+2020-12-14 5:33:39  -  ERROR: Cannot publish item with empty content  -  Publishing item '638837266'
+2020-12-14 5:33:40  -  UPDATED SEO -  Item '638837269' SEO metadata updated
+2020-12-14 5:33:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '638837269'
+2020-12-14 5:33:41  -  UPDATED SEO -  Item '640187866' SEO metadata updated
+2020-12-14 5:33:41  -  Published item '640187866'
+2020-12-14 5:33:42  -  UPDATED SEO -  Item '637141153' SEO metadata updated
+2020-12-14 5:33:42  -  Published item '637141153'
+2020-12-14 5:33:43  -  UPDATED SEO -  Item '640187779' SEO metadata updated
+2020-12-14 5:33:43  -  Published item '640187779'
+2020-12-14 5:33:44  -  UPDATED SEO -  Item '640187980' SEO metadata updated
+2020-12-14 5:33:44  -  Published item '640187980'
+2020-12-14 5:33:45  -  UPDATED SEO -  Item '637141165' SEO metadata updated
+2020-12-14 5:33:45  -  Published item '637141165'
+2020-12-14 5:33:46  -  UPDATED SEO -  Item '640187845' SEO metadata updated
+2020-12-14 5:33:46  -  Published item '640187845'
+2020-12-14 5:33:47  -  UPDATED SEO -  Item '640187971' SEO metadata updated
+2020-12-14 5:33:47  -  Published item '640187971'
+2020-12-14 5:33:49  -  UPDATED SEO -  Item '637140610' SEO metadata updated
+2020-12-14 5:33:49  -  Published item '637140610'
+2020-12-14 5:33:50  -  UPDATED SEO -  Item '640187920' SEO metadata updated
+2020-12-14 5:33:50  -  Published item '640187920'
+2020-12-14 5:33:51  -  UPDATED SEO -  Item '637157803' SEO metadata updated
+2020-12-14 5:33:51  -  Published item '637157803'
+2020-12-14 5:33:53  -  UPDATED SEO -  Item '637157740' SEO metadata updated
+2020-12-14 5:33:53  -  Published item '637157740'
+2020-12-14 5:33:54  -  UPDATED SEO -  Item '637138624' SEO metadata updated
+2020-12-14 5:33:54  -  Published item '637138624'
+2020-12-14 5:33:55  -  UPDATED SEO -  Item '640187773' SEO metadata updated
+2020-12-14 5:33:55  -  Published item '640187773'
+2020-12-14 5:33:56  -  UPDATED SEO -  Item '640187989' SEO metadata updated
+2020-12-14 5:33:56  -  Published item '640187989'
+2020-12-14 5:33:57  -  UPDATED SEO -  Item '640187983' SEO metadata updated
+2020-12-14 5:33:57  -  Published item '640187983'
+2020-12-14 5:33:58  -  UPDATED SEO -  Item '640187767' SEO metadata updated
+2020-12-14 5:33:58  -  Published item '640187767'
+2020-12-14 5:33:59  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '637140373'
+2020-12-14 5:34:01  -  UPDATED SEO -  Item '637141183' SEO metadata updated
+2020-12-14 5:34:01  -  Published item '637141183'
+2020-12-14 5:34:02  -  UPDATED SEO -  Item '640187794' SEO metadata updated
+2020-12-14 5:34:02  -  Published item '640187794'
+2020-12-14 5:34:03  -  UPDATED SEO -  Item '637139872' SEO metadata updated
+2020-12-14 5:34:03  -  Published item '637139872'
+2020-12-14 5:34:04  -  UPDATED SEO -  Item '640187851' SEO metadata updated
+2020-12-14 5:34:04  -  Published item '640187851'
+2020-12-14 5:34:06  -  UPDATED SEO -  Item '640187806' SEO metadata updated
+2020-12-14 5:34:06  -  Published item '640187806'
+2020-12-14 5:34:07  -  UPDATED SEO -  Item '637141267' SEO metadata updated
+2020-12-14 5:34:07  -  Published item '637141267'
+2020-12-14 5:34:08  -  UPDATED SEO -  Item '640187917' SEO metadata updated
+2020-12-14 5:34:08  -  Published item '640187917'
+2020-12-14 5:34:10  -  UPDATED SEO -  Item '640187905' SEO metadata updated
+2020-12-14 5:34:10  -  Published item '640187905'
+2020-12-14 5:34:12  -  UPDATED SEO -  Item '640187908' SEO metadata updated
+2020-12-14 5:34:12  -  Published item '640187908'
+2020-12-14 5:34:13  -  UPDATED SEO -  Item '640187911' SEO metadata updated
+2020-12-14 5:34:13  -  Published item '640187911'
+2020-12-14 5:34:16  -  UPDATED SEO -  Item '640187914' SEO metadata updated
+2020-12-14 5:34:16  -  Published item '640187914'
+2020-12-14 5:34:18  -  UPDATED SEO -  Item '640187902' SEO metadata updated
+2020-12-14 5:34:18  -  Published item '640187902'
+2020-12-14 5:34:19  -  UPDATED SEO -  Item '640188022' SEO metadata updated
+2020-12-14 5:34:19  -  Published item '640188022'
+2020-12-14 5:34:21  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '640187746'
+2020-12-14 5:34:22  -  UPDATED SEO -  Item '640187890' SEO metadata updated
+2020-12-14 5:34:22  -  Published item '640187890'
+2020-12-14 5:34:23  -  UPDATED SEO -  Item '637140019' SEO metadata updated
+2020-12-14 5:34:23  -  Published item '637140019'
+2020-12-14 5:34:24  -  UPDATED SEO -  Item '640187974' SEO metadata updated
+2020-12-14 5:34:24  -  Published item '640187974'
+2020-12-14 5:34:25  -  UPDATED SEO -  Item '637140634' SEO metadata updated
+2020-12-14 5:34:25  -  Published item '637140634'
+2020-12-14 5:34:27  -  UPDATED SEO -  Item '637157779' SEO metadata updated
+2020-12-14 5:34:27  -  Published item '637157779'
+2020-12-14 5:34:28  -  UPDATED SEO -  Item '640187743' SEO metadata updated
+2020-12-14 5:34:28  -  Published item '640187743'
+2020-12-14 5:34:29  -  UPDATED SEO -  Item '637139830' SEO metadata updated
+2020-12-14 5:34:29  -  Published item '637139830'
+2020-12-14 5:34:30  -  UPDATED SEO -  Item '637141738' SEO metadata updated
+2020-12-14 5:34:30  -  Published item '637141738'
+2020-12-14 5:34:31  -  UPDATED SEO -  Item '637141423' SEO metadata updated
+2020-12-14 5:34:31  -  Published item '637141423'
+2020-12-14 5:34:32  -  UPDATED SEO -  Item '637139800' SEO metadata updated
+2020-12-14 5:34:32  -  Published item '637139800'
+2020-12-14 5:34:33  -  UPDATED SEO -  Item '637141894' SEO metadata updated
+2020-12-14 5:34:33  -  Published item '637141894'
+2020-12-14 5:34:34  -  UPDATED SEO -  Item '640187926' SEO metadata updated
+2020-12-14 5:34:34  -  Published item '640187926'
+2020-12-14 5:34:36  -  UPDATED SEO -  Item '640187734' SEO metadata updated
+2020-12-14 5:34:36  -  Published item '640187734'
+2020-12-14 5:34:38  -  UPDATED SEO -  Item '637142032' SEO metadata updated
+2020-12-14 5:34:38  -  Published item '637142032'
+2020-12-14 5:34:39  -  UPDATED SEO -  Item '640187782' SEO metadata updated
+2020-12-14 5:34:39  -  Published item '640187782'
+2020-12-14 5:34:41  -  UPDATED SEO -  Item '' SEO metadata updated
+2020-12-14 5:34:41  -  ERROR: The specified endpoint does not exist  -  Publishing item ''
+2020-12-14 5:34:45  -  UPDATED SEO -  Item '' SEO metadata updated
+2020-12-14 5:34:45  -  ERROR: The specified endpoint does not exist  -  Publishing item ''
+2020-12-14 5:34:48  -  UPDATED SEO -  Item '' SEO metadata updated
+2020-12-14 5:34:48  -  ERROR: The specified endpoint does not exist  -  Publishing item ''
+2020-12-14 5:34:52  -  UPDATED SEO -  Item '' SEO metadata updated
+2020-12-14 5:34:52  -  ERROR: The specified endpoint does not exist  -  Publishing item ''
+2020-12-14 5:34:55  -  UPDATED SEO -  Item '' SEO metadata updated
+2020-12-14 5:34:55  -  ERROR: The specified endpoint does not exist  -  Publishing item ''
+2020-12-14 5:34:59  -  UPDATED SEO -  Item '' SEO metadata updated
+2020-12-14 5:34:59  -  ERROR: The specified endpoint does not exist  -  Publishing item ''
+2020-12-14 5:35:04  -  UPDATED SEO -  Item '637157773' SEO metadata updated
+2020-12-14 5:35:04  -  Published item '637157773'
+2020-12-14 5:35:05  -  UPDATED SEO -  Item '640187740' SEO metadata updated
+2020-12-14 5:35:05  -  Published item '640187740'
+2020-12-14 5:35:07  -  UPDATED SEO -  Item '640187968' SEO metadata updated
+2020-12-14 5:35:07  -  Published item '640187968'
+2020-12-14 5:35:08  -  UPDATED SEO -  Item '640188019' SEO metadata updated
+2020-12-14 5:35:08  -  Published item '640188019'
+2020-12-14 5:35:09  -  UPDATED SEO -  Item '640187965' SEO metadata updated
+2020-12-14 5:35:09  -  Published item '640187965'
+2020-12-14 5:35:10  -  UPDATED SEO -  Item '637165501' SEO metadata updated
+2020-12-14 5:35:10  -  Published item '637165501'
+2020-12-14 5:35:11  -  UPDATED SEO -  Item '637158295' SEO metadata updated
+2020-12-14 5:35:11  -  Published item '637158295'
+2020-12-14 5:35:12  -  UPDATED SEO -  Item '640187884' SEO metadata updated
+2020-12-14 5:35:12  -  Published item '640187884'
+2020-12-14 5:35:14  -  UPDATED SEO -  Item '637158433' SEO metadata updated
+2020-12-14 5:35:14  -  Published item '637158433'
+2020-12-14 5:35:14  -  UPDATED SEO -  Item '637165339' SEO metadata updated
+2020-12-14 5:35:14  -  Published item '637165339'
+2020-12-14 5:35:15  -  UPDATED SEO -  Item '640187848' SEO metadata updated
+2020-12-14 5:35:15  -  Published item '640187848'
+2020-12-14 5:35:17  -  UPDATED SEO -  Item '640187923' SEO metadata updated
+2020-12-14 5:35:17  -  Published item '640187923'
+2020-12-14 5:35:18  -  UPDATED SEO -  Item '640188001' SEO metadata updated
+2020-12-14 5:35:18  -  Published item '640188001'
+2020-12-14 5:35:19  -  UPDATED SEO -  Item '640187737' SEO metadata updated
+2020-12-14 5:35:19  -  Published item '640187737'
+2020-12-14 5:35:21  -  UPDATED SEO -  Item '640187986' SEO metadata updated
+2020-12-14 5:35:21  -  Published item '640187986'
+2020-12-14 5:35:23  -  UPDATED SEO -  Item '637165123' SEO metadata updated
+2020-12-14 5:35:23  -  Published item '637165123'
+2020-12-14 5:35:24  -  UPDATED SEO -  Item '640187854' SEO metadata updated
+2020-12-14 5:35:24  -  Published item '640187854'
+2020-12-14 5:35:25  -  UPDATED SEO -  Item '637165642' SEO metadata updated
+2020-12-14 5:35:25  -  Published item '637165642'
+2020-12-14 5:35:26  -  UPDATED SEO -  Item '640187839' SEO metadata updated
+2020-12-14 5:35:26  -  Published item '640187839'
+2020-12-14 5:35:28  -  UPDATED SEO -  Item '640187872' SEO metadata updated
+2020-12-14 5:35:28  -  Published item '640187872'
+2020-12-14 5:35:29  -  UPDATED SEO -  Item '640187899' SEO metadata updated
+2020-12-14 5:35:29  -  Published item '640187899'
+2020-12-14 5:35:30  -  UPDATED SEO -  Item '640187893' SEO metadata updated
+2020-12-14 5:35:30  -  Published item '640187893'
+2020-12-14 5:35:31  -  UPDATED SEO -  Item '640187770' SEO metadata updated
+2020-12-14 5:35:31  -  Published item '640187770'
+2020-12-14 5:35:32  -  UPDATED SEO -  Item '640187860' SEO metadata updated
+2020-12-14 5:35:32  -  Published item '640187860'
+2020-12-14 5:35:33  -  UPDATED SEO -  Item '640187950' SEO metadata updated
+2020-12-14 5:35:33  -  Published item '640187950'
+2020-12-14 5:35:34  -  UPDATED SEO -  Item '640187896' SEO metadata updated
+2020-12-14 5:35:34  -  Published item '640187896'
+2020-12-14 5:35:35  -  UPDATED SEO -  Item '640187887' SEO metadata updated
+2020-12-14 5:35:35  -  Published item '640187887'
+2020-12-14 5:35:37  -  UPDATED SEO -  Item '640187938' SEO metadata updated
+2020-12-14 5:35:37  -  Published item '640187938'
+2020-12-14 5:35:38  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '640187857'
+2020-12-14 5:35:38  -  UPDATED SEO -  Item '640187830' SEO metadata updated
+2020-12-14 5:35:38  -  Published item '640187830'
+2020-12-14 5:35:39  -  UPDATED SEO -  Item '640187833' SEO metadata updated
+2020-12-14 5:35:39  -  Published item '640187833'
+2020-12-14 5:35:40  -  UPDATED SEO -  Item '640187959' SEO metadata updated
+2020-12-14 5:35:40  -  Published item '640187959'
+2020-12-14 5:35:42  -  UPDATED SEO -  Item '640187875' SEO metadata updated
+2020-12-14 5:35:42  -  Published item '640187875'
+2020-12-14 5:35:43  -  UPDATED SEO -  Item '640187941' SEO metadata updated
+2020-12-14 5:35:43  -  Published item '640187941'
+2020-12-14 5:35:44  -  UPDATED SEO -  Item '640187944' SEO metadata updated
+2020-12-14 5:35:44  -  Published item '640187944'
+2020-12-14 5:35:45  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '640187929'
+2020-12-14 5:35:46  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '640187836'
+2020-12-14 5:35:46  -  UPDATED SEO -  Item '640187815' SEO metadata updated
+2020-12-14 5:35:46  -  Published item '640187815'
+2020-12-14 5:35:48  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '640187863'
+2020-12-14 5:35:48  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '640187932'
+2020-12-14 5:35:49  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '640187869'
+2020-12-14 5:35:50  -  UPDATED SEO -  Item '640187998' SEO metadata updated
+2020-12-14 5:35:50  -  Published item '640187998'
+2020-12-14 5:35:51  -  UPDATED SEO -  Item '637158490' SEO metadata updated
+2020-12-14 5:35:51  -  Published item '637158490'
+2020-12-14 5:35:52  -  UPDATED SEO -  Item '640187749' SEO metadata updated
+2020-12-14 5:35:52  -  Published item '640187749'
+2020-12-14 5:35:53  -  UPDATED SEO -  Item '637165240' SEO metadata updated
+2020-12-14 5:35:53  -  Published item '637165240'
+2020-12-14 5:35:55  -  UPDATED SEO -  Item '640187962' SEO metadata updated
+2020-12-14 5:35:55  -  Published item '640187962'
+2020-12-14 5:35:57  -  UPDATED SEO -  Item '640187953' SEO metadata updated
+2020-12-14 5:35:57  -  Published item '640187953'
+2020-12-14 5:35:58  -  UPDATED SEO -  Item '640187788' SEO metadata updated
+2020-12-14 5:35:58  -  Published item '640187788'
+2020-12-14 5:35:59  -  UPDATED SEO -  Item '640188007' SEO metadata updated
+2020-12-14 5:35:59  -  Published item '640188007'
+2020-12-14 5:36:00  -  UPDATED SEO -  Item '640187842' SEO metadata updated
+2020-12-14 5:36:00  -  Published item '640187842'
+2020-12-14 5:36:01  -  UPDATED SEO -  Item '640187878' SEO metadata updated
+2020-12-14 5:36:01  -  Published item '640187878'
+2020-12-14 5:36:02  -  UPDATED SEO -  Item '' SEO metadata updated
+2020-12-14 5:36:02  -  ERROR: The specified endpoint does not exist  -  Publishing item ''
+2020-12-14 5:36:08  -  UPDATED SEO -  Item '637138354' SEO metadata updated
+2020-12-14 5:36:08  -  Published item '637138354'
+2020-12-14 5:36:09  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '636850603'
+2020-12-14 5:36:10  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '637131700'

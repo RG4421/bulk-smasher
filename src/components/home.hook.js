@@ -211,6 +211,8 @@ function Home (props) {
 
                 This operator can update item's SEO metadata.
 
+                <b>NOTE</b> The seo title may not be greater than 100 characters.
+
                 </Card.Body>
                 </Accordion.Collapse>
             </Card>

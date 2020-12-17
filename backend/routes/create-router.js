@@ -43,8 +43,6 @@ router.route('/tags').post(async (req, res) => {
         const time = timer.stop();
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        console.log(time);
-
         // Appending data to Google Drive
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'TAGS', execution, time);
 

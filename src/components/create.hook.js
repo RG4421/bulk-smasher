@@ -27,6 +27,7 @@ function Create (props) {
     const [logURL, setLogURL] = useState('');
     const [fileName, setFileName] = useState('');
     const [hubId, setHubId] = useState('');
+    const [searchKey, setSearchKey] = useState('');
 
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
@@ -147,6 +148,12 @@ function Create (props) {
 
     const CSVUpload = () => (
         <div className="form-group">
+            <input
+                placeholder="Unique Search and Replace Key"
+                type="text"
+                value={searchKey}
+                onChange={e => setSearchKey(e.target.value)}
+            ></input>
             <div className="componentElements">
                 <input type="file"
                     accept=".csv"
@@ -204,7 +211,8 @@ function Create (props) {
             APIKey, 
             APISecret,
             fileContents,
-            hubId
+            hubId,
+            searchKey
         };
 
         // Create tags

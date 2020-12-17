@@ -1,0 +1,665 @@
+--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime 7.68 min) ---
+
+- HUBS - 
+Hub Name: vAuto
+Id: 119297
+
+- ACTIVITY LOG -
+2020-12-14 6:09:07  -  UPDATED SEO -  Item '635575801' SEO metadata updated
+2020-12-14 6:09:07  -  Published item '635575801'
+2020-12-14 6:09:09  -  UPDATED SEO -  Item '634516606' SEO metadata updated
+2020-12-14 6:09:09  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516606'
+2020-12-14 6:09:10  -  UPDATED SEO -  Item '633133144' SEO metadata updated
+2020-12-14 6:09:10  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133144'
+2020-12-14 6:09:11  -  UPDATED SEO -  Item '635575219' SEO metadata updated
+2020-12-14 6:09:11  -  Published item '635575219'
+2020-12-14 6:09:12  -  UPDATED SEO -  Item '635509948' SEO metadata updated
+2020-12-14 6:09:12  -  Published item '635509948'
+2020-12-14 6:09:13  -  UPDATED SEO -  Item '634516453' SEO metadata updated
+2020-12-14 6:09:13  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516453'
+2020-12-14 6:09:15  -  UPDATED SEO -  Item '634516450' SEO metadata updated
+2020-12-14 6:09:15  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516450'
+2020-12-14 6:09:16  -  UPDATED SEO -  Item '634516456' SEO metadata updated
+2020-12-14 6:09:16  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516456'
+2020-12-14 6:09:17  -  UPDATED SEO -  Item '634516447' SEO metadata updated
+2020-12-14 6:09:17  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516447'
+2020-12-14 6:09:19  -  UPDATED SEO -  Item '634516165' SEO metadata updated
+2020-12-14 6:09:19  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516165'
+2020-12-14 6:09:20  -  UPDATED SEO -  Item '634516675' SEO metadata updated
+2020-12-14 6:09:20  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516675'
+2020-12-14 6:09:21  -  UPDATED SEO -  Item '634516159' SEO metadata updated
+2020-12-14 6:09:21  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516159'
+2020-12-14 6:09:22  -  UPDATED SEO -  Item '633956023' SEO metadata updated
+2020-12-14 6:09:22  -  Published item '633956023'
+2020-12-14 6:09:24  -  UPDATED SEO -  Item '633956092' SEO metadata updated
+2020-12-14 6:09:24  -  Published item '633956092'
+2020-12-14 6:09:25  -  UPDATED SEO -  Item '633956101' SEO metadata updated
+2020-12-14 6:09:25  -  Published item '633956101'
+2020-12-14 6:09:27  -  UPDATED SEO -  Item '633956122' SEO metadata updated
+2020-12-14 6:09:27  -  Published item '633956122'
+2020-12-14 6:09:28  -  UPDATED SEO -  Item '633956020' SEO metadata updated
+2020-12-14 6:09:28  -  Published item '633956020'
+2020-12-14 6:09:29  -  UPDATED SEO -  Item '633956113' SEO metadata updated
+2020-12-14 6:09:29  -  Published item '633956113'
+2020-12-14 6:09:30  -  UPDATED SEO -  Item '633956110' SEO metadata updated
+2020-12-14 6:09:30  -  Published item '633956110'
+2020-12-14 6:09:32  -  UPDATED SEO -  Item '633956119' SEO metadata updated
+2020-12-14 6:09:32  -  Published item '633956119'
+2020-12-14 6:09:33  -  UPDATED SEO -  Item '633956047' SEO metadata updated
+2020-12-14 6:09:33  -  Published item '633956047'
+2020-12-14 6:09:34  -  UPDATED SEO -  Item '633956185' SEO metadata updated
+2020-12-14 6:09:34  -  Published item '633956185'
+2020-12-14 6:09:35  -  UPDATED SEO -  Item '633956161' SEO metadata updated
+2020-12-14 6:09:35  -  Published item '633956161'
+2020-12-14 6:09:36  -  UPDATED SEO -  Item '633956167' SEO metadata updated
+2020-12-14 6:09:36  -  Published item '633956167'
+2020-12-14 6:09:37  -  UPDATED SEO -  Item '633956116' SEO metadata updated
+2020-12-14 6:09:37  -  Published item '633956116'
+2020-12-14 6:09:39  -  UPDATED SEO -  Item '633956191' SEO metadata updated
+2020-12-14 6:09:39  -  Published item '633956191'
+2020-12-14 6:09:40  -  UPDATED SEO -  Item '633956197' SEO metadata updated
+2020-12-14 6:09:40  -  Published item '633956197'
+2020-12-14 6:09:41  -  UPDATED SEO -  Item '633956194' SEO metadata updated
+2020-12-14 6:09:41  -  Published item '633956194'
+2020-12-14 6:09:42  -  UPDATED SEO -  Item '633956146' SEO metadata updated
+2020-12-14 6:09:42  -  Published item '633956146'
+2020-12-14 6:09:43  -  UPDATED SEO -  Item '633956086' SEO metadata updated
+2020-12-14 6:09:43  -  Published item '633956086'
+2020-12-14 6:09:44  -  UPDATED SEO -  Item '633956128' SEO metadata updated
+2020-12-14 6:09:44  -  Published item '633956128'
+2020-12-14 6:09:45  -  UPDATED SEO -  Item '633956050' SEO metadata updated
+2020-12-14 6:09:45  -  Published item '633956050'
+2020-12-14 6:09:46  -  UPDATED SEO -  Item '633956188' SEO metadata updated
+2020-12-14 6:09:46  -  Published item '633956188'
+2020-12-14 6:09:48  -  UPDATED SEO -  Item '633956125' SEO metadata updated
+2020-12-14 6:09:48  -  Published item '633956125'
+2020-12-14 6:09:49  -  UPDATED SEO -  Item '633956182' SEO metadata updated
+2020-12-14 6:09:49  -  Published item '633956182'
+2020-12-14 6:09:50  -  UPDATED SEO -  Item '640120864' SEO metadata updated
+2020-12-14 6:09:50  -  Published item '640120864'
+2020-12-14 6:09:51  -  UPDATED SEO -  Item '633956029' SEO metadata updated
+2020-12-14 6:09:51  -  Published item '633956029'
+2020-12-14 6:09:52  -  UPDATED SEO -  Item '633956080' SEO metadata updated
+2020-12-14 6:09:52  -  Published item '633956080'
+2020-12-14 6:09:53  -  UPDATED SEO -  Item '640118959' SEO metadata updated
+2020-12-14 6:09:53  -  Published item '640118959'
+2020-12-14 6:09:54  -  UPDATED SEO -  Item '633956104' SEO metadata updated
+2020-12-14 6:09:54  -  Published item '633956104'
+2020-12-14 6:09:56  -  UPDATED SEO -  Item '633956134' SEO metadata updated
+2020-12-14 6:09:56  -  Published item '633956134'
+2020-12-14 6:09:57  -  UPDATED SEO -  Item '635509153' SEO metadata updated
+2020-12-14 6:09:57  -  Published item '635509153'
+2020-12-14 6:09:59  -  UPDATED SEO -  Item '640121986' SEO metadata updated
+2020-12-14 6:09:59  -  Published item '640121986'
+2020-12-14 6:10:00  -  UPDATED SEO -  Item '635509534' SEO metadata updated
+2020-12-14 6:10:00  -  Published item '635509534'
+2020-12-14 6:10:02  -  UPDATED SEO -  Item '640121821' SEO metadata updated
+2020-12-14 6:10:02  -  Published item '640121821'
+2020-12-14 6:10:04  -  UPDATED SEO -  Item '633956131' SEO metadata updated
+2020-12-14 6:10:04  -  Published item '633956131'
+2020-12-14 6:10:07  -  UPDATED SEO -  Item '633956014' SEO metadata updated
+2020-12-14 6:10:07  -  Published item '633956014'
+2020-12-14 6:10:08  -  UPDATED SEO -  Item '635509621' SEO metadata updated
+2020-12-14 6:10:08  -  Published item '635509621'
+2020-12-14 6:10:10  -  UPDATED SEO -  Item '635581060' SEO metadata updated
+2020-12-14 6:10:10  -  Published item '635581060'
+2020-12-14 6:10:11  -  UPDATED SEO -  Item '633132691' SEO metadata updated
+2020-12-14 6:10:11  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132691'
+2020-12-14 6:10:13  -  UPDATED SEO -  Item '634516672' SEO metadata updated
+2020-12-14 6:10:13  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516672'
+2020-12-14 6:10:14  -  UPDATED SEO -  Item '635575807' SEO metadata updated
+2020-12-14 6:10:14  -  Published item '635575807'
+2020-12-14 6:10:16  -  UPDATED SEO -  Item '633133219' SEO metadata updated
+2020-12-14 6:10:16  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133219'
+2020-12-14 6:10:17  -  UPDATED SEO -  Item '635574184' SEO metadata updated
+2020-12-14 6:10:17  -  Published item '635574184'
+2020-12-14 6:10:18  -  UPDATED SEO -  Item '634516435' SEO metadata updated
+2020-12-14 6:10:18  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516435'
+2020-12-14 6:10:20  -  UPDATED SEO -  Item '634516570' SEO metadata updated
+2020-12-14 6:10:20  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516570'
+2020-12-14 6:10:21  -  UPDATED SEO -  Item '634516564' SEO metadata updated
+2020-12-14 6:10:21  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516564'
+2020-12-14 6:10:22  -  UPDATED SEO -  Item '634516567' SEO metadata updated
+2020-12-14 6:10:22  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516567'
+2020-12-14 6:10:24  -  UPDATED SEO -  Item '634516573' SEO metadata updated
+2020-12-14 6:10:24  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516573'
+2020-12-14 6:10:25  -  UPDATED SEO -  Item '634516639' SEO metadata updated
+2020-12-14 6:10:25  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516639'
+2020-12-14 6:10:26  -  UPDATED SEO -  Item '634516585' SEO metadata updated
+2020-12-14 6:10:26  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516585'
+2020-12-14 6:10:27  -  UPDATED SEO -  Item '634516576' SEO metadata updated
+2020-12-14 6:10:27  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516576'
+2020-12-14 6:10:28  -  UPDATED SEO -  Item '634516588' SEO metadata updated
+2020-12-14 6:10:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516588'
+2020-12-14 6:10:29  -  UPDATED SEO -  Item '634516579' SEO metadata updated
+2020-12-14 6:10:29  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516579'
+2020-12-14 6:10:30  -  UPDATED SEO -  Item '634516444' SEO metadata updated
+2020-12-14 6:10:30  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516444'
+2020-12-14 6:10:32  -  UPDATED SEO -  Item '634516591' SEO metadata updated
+2020-12-14 6:10:32  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516591'
+2020-12-14 6:10:33  -  UPDATED SEO -  Item '634516597' SEO metadata updated
+2020-12-14 6:10:33  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516597'
+2020-12-14 6:10:34  -  UPDATED SEO -  Item '634516600' SEO metadata updated
+2020-12-14 6:10:34  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516600'
+2020-12-14 6:10:35  -  UPDATED SEO -  Item '634516594' SEO metadata updated
+2020-12-14 6:10:35  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516594'
+2020-12-14 6:10:36  -  UPDATED SEO -  Item '634516438' SEO metadata updated
+2020-12-14 6:10:36  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516438'
+2020-12-14 6:10:37  -  UPDATED SEO -  Item '634516642' SEO metadata updated
+2020-12-14 6:10:37  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516642'
+2020-12-14 6:10:39  -  UPDATED SEO -  Item '634516645' SEO metadata updated
+2020-12-14 6:10:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516645'
+2020-12-14 6:10:39  -  UPDATED SEO -  Item '634516441' SEO metadata updated
+2020-12-14 6:10:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516441'
+2020-12-14 6:10:42  -  UPDATED SEO -  Item '634516648' SEO metadata updated
+2020-12-14 6:10:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516648'
+2020-12-14 6:10:43  -  UPDATED SEO -  Item '633132880' SEO metadata updated
+2020-12-14 6:10:43  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132880'
+2020-12-14 6:10:44  -  UPDATED SEO -  Item '639764845' SEO metadata updated
+2020-12-14 6:10:44  -  ERROR: Cannot publish item with empty content  -  Publishing item '639764845'
+2020-12-14 6:10:45  -  UPDATED SEO -  Item '633132592' SEO metadata updated
+2020-12-14 6:10:45  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132592'
+2020-12-14 6:10:47  -  UPDATED SEO -  Item '633133168' SEO metadata updated
+2020-12-14 6:10:47  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133168'
+2020-12-14 6:10:48  -  UPDATED SEO -  Item '633132718' SEO metadata updated
+2020-12-14 6:10:48  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132718'
+2020-12-14 6:10:49  -  UPDATED SEO -  Item '633132652' SEO metadata updated
+2020-12-14 6:10:49  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132652'
+2020-12-14 6:10:50  -  UPDATED SEO -  Item '633132655' SEO metadata updated
+2020-12-14 6:10:50  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132655'
+2020-12-14 6:10:51  -  UPDATED SEO -  Item '633132670' SEO metadata updated
+2020-12-14 6:10:51  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132670'
+2020-12-14 6:10:52  -  UPDATED SEO -  Item '633132589' SEO metadata updated
+2020-12-14 6:10:52  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132589'
+2020-12-14 6:10:54  -  UPDATED SEO -  Item '633132658' SEO metadata updated
+2020-12-14 6:10:54  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132658'
+2020-12-14 6:10:55  -  UPDATED SEO -  Item '633133114' SEO metadata updated
+2020-12-14 6:10:55  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133114'
+2020-12-14 6:10:56  -  UPDATED SEO -  Item '633132901' SEO metadata updated
+2020-12-14 6:10:56  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132901'
+2020-12-14 6:10:58  -  UPDATED SEO -  Item '633132586' SEO metadata updated
+2020-12-14 6:10:58  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132586'
+2020-12-14 6:11:00  -  UPDATED SEO -  Item '633132616' SEO metadata updated
+2020-12-14 6:11:00  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132616'
+2020-12-14 6:11:01  -  UPDATED SEO -  Item '633133240' SEO metadata updated
+2020-12-14 6:11:01  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133240'
+2020-12-14 6:11:03  -  UPDATED SEO -  Item '633956143' SEO metadata updated
+2020-12-14 6:11:03  -  Published item '633956143'
+2020-12-14 6:11:04  -  UPDATED SEO -  Item '635581840' SEO metadata updated
+2020-12-14 6:11:04  -  Published item '635581840'
+2020-12-14 6:11:06  -  UPDATED SEO -  Item '633132550' SEO metadata updated
+2020-12-14 6:11:06  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132550'
+2020-12-14 6:11:08  -  UPDATED SEO -  Item '633132541' SEO metadata updated
+2020-12-14 6:11:08  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132541'
+2020-12-14 6:11:09  -  UPDATED SEO -  Item '633132868' SEO metadata updated
+2020-12-14 6:11:09  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132868'
+2020-12-14 6:11:11  -  UPDATED SEO -  Item '633132883' SEO metadata updated
+2020-12-14 6:11:11  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132883'
+2020-12-14 6:11:13  -  UPDATED SEO -  Item '633132871' SEO metadata updated
+2020-12-14 6:11:13  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132871'
+2020-12-14 6:11:14  -  UPDATED SEO -  Item '633132634' SEO metadata updated
+2020-12-14 6:11:14  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132634'
+2020-12-14 6:11:16  -  UPDATED SEO -  Item '633132769' SEO metadata updated
+2020-12-14 6:11:16  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132769'
+2020-12-14 6:11:17  -  UPDATED SEO -  Item '635701951' SEO metadata updated
+2020-12-14 6:11:17  -  Published item '635701951'
+2020-12-14 6:11:18  -  UPDATED SEO -  Item '640119448' SEO metadata updated
+2020-12-14 6:11:18  -  Published item '640119448'
+2020-12-14 6:11:19  -  UPDATED SEO -  Item '640121242' SEO metadata updated
+2020-12-14 6:11:19  -  Published item '640121242'
+2020-12-14 6:11:21  -  UPDATED SEO -  Item '635843743' SEO metadata updated
+2020-12-14 6:11:21  -  Published item '635843743'
+2020-12-14 6:11:22  -  UPDATED SEO -  Item '636003799' SEO metadata updated
+2020-12-14 6:11:22  -  ERROR: Cannot publish item with empty content  -  Publishing item '636003799'
+2020-12-14 6:11:24  -  UPDATED SEO -  Item '635702821' SEO metadata updated
+2020-12-14 6:11:24  -  Published item '635702821'
+2020-12-14 6:11:25  -  UPDATED SEO -  Item '639960826' SEO metadata updated
+2020-12-14 6:11:25  -  Published item '639960826'
+2020-12-14 6:11:26  -  UPDATED SEO -  Item '640121698' SEO metadata updated
+2020-12-14 6:11:26  -  Published item '640121698'
+2020-12-14 6:11:28  -  UPDATED SEO -  Item '635703964' SEO metadata updated
+2020-12-14 6:11:28  -  Published item '635703964'
+2020-12-14 6:11:29  -  UPDATED SEO -  Item '639986104' SEO metadata updated
+2020-12-14 6:11:29  -  Published item '639986104'
+2020-12-14 6:11:30  -  UPDATED SEO -  Item '640120153' SEO metadata updated
+2020-12-14 6:11:30  -  Published item '640120153'
+2020-12-14 6:11:31  -  UPDATED SEO -  Item '633956032' SEO metadata updated
+2020-12-14 6:11:31  -  Published item '633956032'
+2020-12-14 6:11:33  -  UPDATED SEO -  Item '633133207' SEO metadata updated
+2020-12-14 6:11:33  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133207'
+2020-12-14 6:11:34  -  UPDATED SEO -  Item '640122499' SEO metadata updated
+2020-12-14 6:11:34  -  Published item '640122499'
+2020-12-14 6:11:34  -  UPDATED SEO -  Item '633133279' SEO metadata updated
+2020-12-14 6:11:34  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133279'
+2020-12-14 6:11:36  -  UPDATED SEO -  Item '640122100' SEO metadata updated
+2020-12-14 6:11:36  -  Published item '640122100'
+2020-12-14 6:11:37  -  UPDATED SEO -  Item '635575765' SEO metadata updated
+2020-12-14 6:11:37  -  Published item '635575765'
+2020-12-14 6:11:38  -  UPDATED SEO -  Item '633132970' SEO metadata updated
+2020-12-14 6:11:38  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132970'
+2020-12-14 6:11:39  -  UPDATED SEO -  Item '634516558' SEO metadata updated
+2020-12-14 6:11:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516558'
+2020-12-14 6:11:40  -  UPDATED SEO -  Item '634516429' SEO metadata updated
+2020-12-14 6:11:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516429'
+2020-12-14 6:11:42  -  UPDATED SEO -  Item '634516432' SEO metadata updated
+2020-12-14 6:11:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516432'
+2020-12-14 6:11:43  -  UPDATED SEO -  Item '634516630' SEO metadata updated
+2020-12-14 6:11:43  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516630'
+2020-12-14 6:11:45  -  UPDATED SEO -  Item '634516423' SEO metadata updated
+2020-12-14 6:11:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516423'
+2020-12-14 6:11:47  -  UPDATED SEO -  Item '634524418' SEO metadata updated
+2020-12-14 6:11:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '634524418'
+2020-12-14 6:11:50  -  UPDATED SEO -  Item '634516621' SEO metadata updated
+2020-12-14 6:11:50  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516621'
+2020-12-14 6:11:52  -  UPDATED SEO -  Item '634516624' SEO metadata updated
+2020-12-14 6:11:52  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516624'
+2020-12-14 6:11:53  -  UPDATED SEO -  Item '634516552' SEO metadata updated
+2020-12-14 6:11:53  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516552'
+2020-12-14 6:11:54  -  UPDATED SEO -  Item '634516555' SEO metadata updated
+2020-12-14 6:11:54  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516555'
+2020-12-14 6:11:55  -  UPDATED SEO -  Item '634516549' SEO metadata updated
+2020-12-14 6:11:55  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516549'
+2020-12-14 6:11:57  -  UPDATED SEO -  Item '634516627' SEO metadata updated
+2020-12-14 6:11:57  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516627'
+2020-12-14 6:11:58  -  UPDATED SEO -  Item '634516426' SEO metadata updated
+2020-12-14 6:11:58  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516426'
+2020-12-14 6:12:00  -  UPDATED SEO -  Item '634516618' SEO metadata updated
+2020-12-14 6:12:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516618'
+2020-12-14 6:12:00  -  UPDATED SEO -  Item '634516636' SEO metadata updated
+2020-12-14 6:12:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516636'
+2020-12-14 6:12:02  -  UPDATED SEO -  Item '634516633' SEO metadata updated
+2020-12-14 6:12:02  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516633'
+2020-12-14 6:12:03  -  UPDATED SEO -  Item '634516561' SEO metadata updated
+2020-12-14 6:12:03  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516561'
+2020-12-14 6:12:04  -  UPDATED SEO -  Item '640195960' SEO metadata updated
+2020-12-14 6:12:04  -  Published item '640195960'
+2020-12-14 6:12:05  -  UPDATED SEO -  Item '635574154' SEO metadata updated
+2020-12-14 6:12:05  -  Published item '635574154'
+2020-12-14 6:12:06  -  UPDATED SEO -  Item '633133027' SEO metadata updated
+2020-12-14 6:12:06  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133027'
+2020-12-14 6:12:07  -  UPDATED SEO -  Item '635838880' SEO metadata updated
+2020-12-14 6:12:07  -  Published item '635838880'
+2020-12-14 6:12:09  -  UPDATED SEO -  Item '633956053' SEO metadata updated
+2020-12-14 6:12:09  -  Published item '633956053'
+2020-12-14 6:12:10  -  ERROR: Resource not found  -  Updating item '639461896'
+2020-12-14 6:12:11  -  UPDATED SEO -  Item '640121488' SEO metadata updated
+2020-12-14 6:12:11  -  Published item '640121488'
+2020-12-14 6:12:12  -  UPDATED SEO -  Item '635575939' SEO metadata updated
+2020-12-14 6:12:12  -  Published item '635575939'
+2020-12-14 6:12:14  -  UPDATED SEO -  Item '634516462' SEO metadata updated
+2020-12-14 6:12:14  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516462'
+2020-12-14 6:12:14  -  UPDATED SEO -  Item '634516654' SEO metadata updated
+2020-12-14 6:12:14  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516654'
+2020-12-14 6:12:16  -  UPDATED SEO -  Item '634516459' SEO metadata updated
+2020-12-14 6:12:16  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516459'
+2020-12-14 6:12:17  -  UPDATED SEO -  Item '634516651' SEO metadata updated
+2020-12-14 6:12:17  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516651'
+2020-12-14 6:12:19  -  UPDATED SEO -  Item '635508274' SEO metadata updated
+2020-12-14 6:12:19  -  Published item '635508274'
+2020-12-14 6:12:20  -  UPDATED SEO -  Item '635508592' SEO metadata updated
+2020-12-14 6:12:20  -  Published item '635508592'
+2020-12-14 6:12:21  -  UPDATED SEO -  Item '635844526' SEO metadata updated
+2020-12-14 6:12:21  -  Published item '635844526'
+2020-12-14 6:12:22  -  UPDATED SEO -  Item '633132784' SEO metadata updated
+2020-12-14 6:12:22  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132784'
+2020-12-14 6:12:24  -  UPDATED SEO -  Item '633132556' SEO metadata updated
+2020-12-14 6:12:24  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132556'
+2020-12-14 6:12:27  -  UPDATED SEO -  Item '633132553' SEO metadata updated
+2020-12-14 6:12:27  -  Published item '633132553'
+2020-12-14 6:12:28  -  UPDATED SEO -  Item '633132547' SEO metadata updated
+2020-12-14 6:12:28  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132547'
+2020-12-14 6:12:29  -  UPDATED SEO -  Item '633132796' SEO metadata updated
+2020-12-14 6:12:29  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132796'
+2020-12-14 6:12:30  -  UPDATED SEO -  Item '633132787' SEO metadata updated
+2020-12-14 6:12:30  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132787'
+2020-12-14 6:12:31  -  UPDATED SEO -  Item '633132790' SEO metadata updated
+2020-12-14 6:12:31  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132790'
+2020-12-14 6:12:33  -  UPDATED SEO -  Item '633132781' SEO metadata updated
+2020-12-14 6:12:33  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132781'
+2020-12-14 6:12:34  -  UPDATED SEO -  Item '633133210' SEO metadata updated
+2020-12-14 6:12:34  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133210'
+2020-12-14 6:12:35  -  UPDATED SEO -  Item '633133165' SEO metadata updated
+2020-12-14 6:12:35  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133165'
+2020-12-14 6:12:36  -  UPDATED SEO -  Item '633133189' SEO metadata updated
+2020-12-14 6:12:36  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133189'
+2020-12-14 6:12:37  -  UPDATED SEO -  Item '634516609' SEO metadata updated
+2020-12-14 6:12:37  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516609'
+2020-12-14 6:12:39  -  UPDATED SEO -  Item '633133024' SEO metadata updated
+2020-12-14 6:12:39  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133024'
+2020-12-14 6:12:40  -  UPDATED SEO -  Item '633133015' SEO metadata updated
+2020-12-14 6:12:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133015'
+2020-12-14 6:12:43  -  UPDATED SEO -  Item '635575045' SEO metadata updated
+2020-12-14 6:12:43  -  Published item '635575045'
+2020-12-14 6:12:44  -  UPDATED SEO -  Item '635701303' SEO metadata updated
+2020-12-14 6:12:44  -  Published item '635701303'
+2020-12-14 6:12:46  -  UPDATED SEO -  Item '633132997' SEO metadata updated
+2020-12-14 6:12:46  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132997'
+2020-12-14 6:12:48  -  UPDATED SEO -  Item '633132676' SEO metadata updated
+2020-12-14 6:12:48  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132676'
+2020-12-14 6:12:49  -  ERROR: Resource not found  -  Updating item '633132580'
+2020-12-14 6:12:50  -  UPDATED SEO -  Item '636019060' SEO metadata updated
+2020-12-14 6:12:50  -  ERROR: Cannot publish item with empty content  -  Publishing item '636019060'
+2020-12-14 6:12:51  -  UPDATED SEO -  Item '634516156' SEO metadata updated
+2020-12-14 6:12:51  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516156'
+2020-12-14 6:12:52  -  UPDATED SEO -  Item '635574868' SEO metadata updated
+2020-12-14 6:12:52  -  Published item '635574868'
+2020-12-14 6:12:53  -  UPDATED SEO -  Item '633133234' SEO metadata updated
+2020-12-14 6:12:53  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133234'
+2020-12-14 6:12:54  -  UPDATED SEO -  Item '633132994' SEO metadata updated
+2020-12-14 6:12:54  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132994'
+2020-12-14 6:12:55  -  UPDATED SEO -  Item '633132544' SEO metadata updated
+2020-12-14 6:12:55  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132544'
+2020-12-14 6:12:56  -  UPDATED SEO -  Item '633132673' SEO metadata updated
+2020-12-14 6:12:56  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132673'
+2020-12-14 6:12:57  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '639471337'
+2020-12-14 6:12:57  -  UPDATED SEO -  Item '633956179' SEO metadata updated
+2020-12-14 6:12:57  -  Published item '633956179'
+2020-12-14 6:12:58  -  UPDATED SEO -  Item '633956173' SEO metadata updated
+2020-12-14 6:12:58  -  Published item '633956173'
+2020-12-14 6:13:00  -  UPDATED SEO -  Item '633956170' SEO metadata updated
+2020-12-14 6:13:00  -  Published item '633956170'
+2020-12-14 6:13:01  -  UPDATED SEO -  Item '633956176' SEO metadata updated
+2020-12-14 6:13:01  -  Published item '633956176'
+2020-12-14 6:13:02  -  UPDATED SEO -  Item '633956149' SEO metadata updated
+2020-12-14 6:13:02  -  Published item '633956149'
+2020-12-14 6:13:03  -  UPDATED SEO -  Item '633132622' SEO metadata updated
+2020-12-14 6:13:03  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132622'
+2020-12-14 6:13:05  -  UPDATED SEO -  Item '635575918' SEO metadata updated
+2020-12-14 6:13:05  -  Published item '635575918'
+2020-12-14 6:13:07  -  UPDATED SEO -  Item '633132760' SEO metadata updated
+2020-12-14 6:13:07  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132760'
+2020-12-14 6:13:08  -  UPDATED SEO -  Item '633132988' SEO metadata updated
+2020-12-14 6:13:08  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132988'
+2020-12-14 6:13:10  -  UPDATED SEO -  Item '639958165' SEO metadata updated
+2020-12-14 6:13:10  -  Published item '639958165'
+2020-12-14 6:13:11  -  UPDATED SEO -  Item '633855805' SEO metadata updated
+2020-12-14 6:13:11  -  ERROR: Cannot publish item with empty content  -  Publishing item '633855805'
+2020-12-14 6:13:12  -  UPDATED SEO -  Item '633132976' SEO metadata updated
+2020-12-14 6:13:12  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132976'
+2020-12-14 6:13:13  -  UPDATED SEO -  Item '633132991' SEO metadata updated
+2020-12-14 6:13:13  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132991'
+2020-12-14 6:13:15  -  UPDATED SEO -  Item '640179331' SEO metadata updated
+2020-12-14 6:13:15  -  Published item '640179331'
+2020-12-14 6:13:17  -  UPDATED SEO -  Item '633956155' SEO metadata updated
+2020-12-14 6:13:17  -  Published item '633956155'
+2020-12-14 6:13:18  -  UPDATED SEO -  Item '633956065' SEO metadata updated
+2020-12-14 6:13:18  -  Published item '633956065'
+2020-12-14 6:13:19  -  UPDATED SEO -  Item '633956200' SEO metadata updated
+2020-12-14 6:13:19  -  Published item '633956200'
+2020-12-14 6:13:21  -  UPDATED SEO -  Item '633956035' SEO metadata updated
+2020-12-14 6:13:21  -  Published item '633956035'
+2020-12-14 6:13:22  -  UPDATED SEO -  Item '633956059' SEO metadata updated
+2020-12-14 6:13:22  -  Published item '633956059'
+2020-12-14 6:13:23  -  UPDATED SEO -  Item '633956071' SEO metadata updated
+2020-12-14 6:13:23  -  Published item '633956071'
+2020-12-14 6:13:24  -  UPDATED SEO -  Item '633132874' SEO metadata updated
+2020-12-14 6:13:24  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132874'
+2020-12-14 6:13:26  -  UPDATED SEO -  Item '633132817' SEO metadata updated
+2020-12-14 6:13:26  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132817'
+2020-12-14 6:13:27  -  UPDATED SEO -  Item '635703613' SEO metadata updated
+2020-12-14 6:13:27  -  Published item '635703613'
+2020-12-14 6:13:29  -  UPDATED SEO -  Item '633132961' SEO metadata updated
+2020-12-14 6:13:29  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132961'
+2020-12-14 6:13:30  -  UPDATED SEO -  Item '633132577' SEO metadata updated
+2020-12-14 6:13:30  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132577'
+2020-12-14 6:13:31  -  UPDATED SEO -  Item '633133156' SEO metadata updated
+2020-12-14 6:13:31  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133156'
+2020-12-14 6:13:32  -  UPDATED SEO -  Item '633133126' SEO metadata updated
+2020-12-14 6:13:32  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133126'
+2020-12-14 6:13:33  -  UPDATED SEO -  Item '633133072' SEO metadata updated
+2020-12-14 6:13:33  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133072'
+2020-12-14 6:13:35  -  UPDATED SEO -  Item '633132913' SEO metadata updated
+2020-12-14 6:13:35  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132913'
+2020-12-14 6:13:36  -  UPDATED SEO -  Item '633132886' SEO metadata updated
+2020-12-14 6:13:36  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132886'
+2020-12-14 6:13:37  -  UPDATED SEO -  Item '633133060' SEO metadata updated
+2020-12-14 6:13:37  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133060'
+2020-12-14 6:13:38  -  UPDATED SEO -  Item '633133102' SEO metadata updated
+2020-12-14 6:13:38  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133102'
+2020-12-14 6:13:39  -  UPDATED SEO -  Item '633133123' SEO metadata updated
+2020-12-14 6:13:39  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133123'
+2020-12-14 6:13:40  -  UPDATED SEO -  Item '633133117' SEO metadata updated
+2020-12-14 6:13:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133117'
+2020-12-14 6:13:41  -  ERROR: Resource not found  -  Updating item '633133120'
+2020-12-14 6:13:42  -  UPDATED SEO -  Item '633133297' SEO metadata updated
+2020-12-14 6:13:42  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133297'
+2020-12-14 6:13:43  -  UPDATED SEO -  Item '633133237' SEO metadata updated
+2020-12-14 6:13:43  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133237'
+2020-12-14 6:13:45  -  UPDATED SEO -  Item '633133213' SEO metadata updated
+2020-12-14 6:13:45  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133213'
+2020-12-14 6:13:46  -  UPDATED SEO -  Item '633133177' SEO metadata updated
+2020-12-14 6:13:46  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133177'
+2020-12-14 6:13:47  -  UPDATED SEO -  Item '633133135' SEO metadata updated
+2020-12-14 6:13:47  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133135'
+2020-12-14 6:13:48  -  UPDATED SEO -  Item '633133129' SEO metadata updated
+2020-12-14 6:13:48  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133129'
+2020-12-14 6:13:49  -  UPDATED SEO -  Item '633133069' SEO metadata updated
+2020-12-14 6:13:49  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133069'
+2020-12-14 6:13:51  -  UPDATED SEO -  Item '633133009' SEO metadata updated
+2020-12-14 6:13:51  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133009'
+2020-12-14 6:13:52  -  UPDATED SEO -  Item '633132967' SEO metadata updated
+2020-12-14 6:13:52  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132967'
+2020-12-14 6:13:53  -  UPDATED SEO -  Item '633132931' SEO metadata updated
+2020-12-14 6:13:53  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132931'
+2020-12-14 6:13:55  -  UPDATED SEO -  Item '633132898' SEO metadata updated
+2020-12-14 6:13:55  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132898'
+2020-12-14 6:13:56  -  UPDATED SEO -  Item '633132814' SEO metadata updated
+2020-12-14 6:13:56  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132814'
+2020-12-14 6:13:57  -  UPDATED SEO -  Item '633132748' SEO metadata updated
+2020-12-14 6:13:57  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132748'
+2020-12-14 6:13:58  -  UPDATED SEO -  Item '633132661' SEO metadata updated
+2020-12-14 6:13:58  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132661'
+2020-12-14 6:14:01  -  UPDATED SEO -  Item '633132631' SEO metadata updated
+2020-12-14 6:14:01  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132631'
+2020-12-14 6:14:02  -  UPDATED SEO -  Item '633132559' SEO metadata updated
+2020-12-14 6:14:02  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132559'
+2020-12-14 6:14:05  -  UPDATED SEO -  Item '639632575' SEO metadata updated
+2020-12-14 6:14:05  -  ERROR: Cannot publish item with empty content  -  Publishing item '639632575'
+2020-12-14 6:14:06  -  UPDATED SEO -  Item '633133096' SEO metadata updated
+2020-12-14 6:14:06  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133096'
+2020-12-14 6:14:08  -  UPDATED SEO -  Item '633133294' SEO metadata updated
+2020-12-14 6:14:08  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133294'
+2020-12-14 6:14:09  -  UPDATED SEO -  Item '640119946' SEO metadata updated
+2020-12-14 6:14:09  -  Published item '640119946'
+2020-12-14 6:14:11  -  UPDATED SEO -  Item '635581426' SEO metadata updated
+2020-12-14 6:14:11  -  Published item '635581426'
+2020-12-14 6:14:14  -  UPDATED SEO -  Item '633956026' SEO metadata updated
+2020-12-14 6:14:14  -  Published item '633956026'
+2020-12-14 6:14:15  -  UPDATED SEO -  Item '635581882' SEO metadata updated
+2020-12-14 6:14:15  -  Published item '635581882'
+2020-12-14 6:14:16  -  UPDATED SEO -  Item '633132763' SEO metadata updated
+2020-12-14 6:14:16  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132763'
+2020-12-14 6:14:17  -  UPDATED SEO -  Item '633133249' SEO metadata updated
+2020-12-14 6:14:17  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133249'
+2020-12-14 6:14:18  -  UPDATED SEO -  Item '633132985' SEO metadata updated
+2020-12-14 6:14:18  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132985'
+2020-12-14 6:14:20  -  UPDATED SEO -  Item '635703520' SEO metadata updated
+2020-12-14 6:14:20  -  Published item '635703520'
+2020-12-14 6:14:21  -  UPDATED SEO -  Item '633132982' SEO metadata updated
+2020-12-14 6:14:21  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132982'
+2020-12-14 6:14:22  -  UPDATED SEO -  Item '633132574' SEO metadata updated
+2020-12-14 6:14:22  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132574'
+2020-12-14 6:14:24  -  UPDATED SEO -  Item '635702161' SEO metadata updated
+2020-12-14 6:14:24  -  Published item '635702161'
+2020-12-14 6:14:25  -  UPDATED SEO -  Item '633133099' SEO metadata updated
+2020-12-14 6:14:25  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133099'
+2020-12-14 6:14:27  -  UPDATED SEO -  Item '633133108' SEO metadata updated
+2020-12-14 6:14:27  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133108'
+2020-12-14 6:14:30  -  UPDATED SEO -  Item '634516582' SEO metadata updated
+2020-12-14 6:14:30  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516582'
+2020-12-14 6:14:31  -  UPDATED SEO -  Item '633133204' SEO metadata updated
+2020-12-14 6:14:31  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133204'
+2020-12-14 6:14:32  -  UPDATED SEO -  Item '633132637' SEO metadata updated
+2020-12-14 6:14:32  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132637'
+2020-12-14 6:14:33  -  UPDATED SEO -  Item '637730761' SEO metadata updated
+2020-12-14 6:14:33  -  ERROR: Cannot publish item with empty content  -  Publishing item '637730761'
+2020-12-14 6:14:34  -  UPDATED SEO -  Item '633132733' SEO metadata updated
+2020-12-14 6:14:34  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132733'
+2020-12-14 6:14:35  -  UPDATED SEO -  Item '633132571' SEO metadata updated
+2020-12-14 6:14:35  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132571'
+2020-12-14 6:14:36  -  UPDATED SEO -  Item '633132640' SEO metadata updated
+2020-12-14 6:14:36  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132640'
+2020-12-14 6:14:37  -  UPDATED SEO -  Item '633132916' SEO metadata updated
+2020-12-14 6:14:37  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132916'
+2020-12-14 6:14:40  -  UPDATED SEO -  Item '633132949' SEO metadata updated
+2020-12-14 6:14:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132949'
+2020-12-14 6:14:41  -  UPDATED SEO -  Item '633132601' SEO metadata updated
+2020-12-14 6:14:41  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132601'
+2020-12-14 6:14:43  -  UPDATED SEO -  Item '633133111' SEO metadata updated
+2020-12-14 6:14:43  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133111'
+2020-12-14 6:14:44  -  ERROR: Resource not found  -  Updating item '633133222'
+2020-12-14 6:14:45  -  UPDATED SEO -  Item '633133138' SEO metadata updated
+2020-12-14 6:14:45  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133138'
+2020-12-14 6:14:47  -  UPDATED SEO -  Item '634671574' SEO metadata updated
+2020-12-14 6:14:47  -  Published item '634671574'
+2020-12-14 6:14:49  -  UPDATED SEO -  Item '633956044' SEO metadata updated
+2020-12-14 6:14:49  -  Published item '633956044'
+2020-12-14 6:14:51  -  UPDATED SEO -  Item '633956164' SEO metadata updated
+2020-12-14 6:14:51  -  Published item '633956164'
+2020-12-14 6:14:52  -  UPDATED SEO -  Item '633133282' SEO metadata updated
+2020-12-14 6:14:52  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133282'
+2020-12-14 6:14:53  -  ERROR: Resource not found  -  Updating item '633132706'
+2020-12-14 6:14:54  -  UPDATED SEO -  Item '633132685' SEO metadata updated
+2020-12-14 6:14:54  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132685'
+2020-12-14 6:14:56  -  UPDATED SEO -  Item '633132922' SEO metadata updated
+2020-12-14 6:14:56  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132922'
+2020-12-14 6:14:57  -  UPDATED SEO -  Item '633132727' SEO metadata updated
+2020-12-14 6:14:57  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132727'
+2020-12-14 6:14:58  -  UPDATED SEO -  Item '633132679' SEO metadata updated
+2020-12-14 6:14:58  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132679'
+2020-12-14 6:15:00  -  UPDATED SEO -  Item '633132688' SEO metadata updated
+2020-12-14 6:15:00  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132688'
+2020-12-14 6:15:01  -  UPDATED SEO -  Item '633133201' SEO metadata updated
+2020-12-14 6:15:01  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133201'
+2020-12-14 6:15:02  -  UPDATED SEO -  Item '633133291' SEO metadata updated
+2020-12-14 6:15:02  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133291'
+2020-12-14 6:15:04  -  UPDATED SEO -  Item '633132715' SEO metadata updated
+2020-12-14 6:15:04  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132715'
+2020-12-14 6:15:05  -  UPDATED SEO -  Item '633132766' SEO metadata updated
+2020-12-14 6:15:05  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132766'
+2020-12-14 6:15:05  -  UPDATED SEO -  Item '633133288' SEO metadata updated
+2020-12-14 6:15:05  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133288'
+2020-12-14 6:15:06  -  UPDATED SEO -  Item '633132751' SEO metadata updated
+2020-12-14 6:15:06  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132751'
+2020-12-14 6:15:07  -  UPDATED SEO -  Item '633132709' SEO metadata updated
+2020-12-14 6:15:07  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132709'
+2020-12-14 6:15:08  -  UPDATED SEO -  Item '633133051' SEO metadata updated
+2020-12-14 6:15:08  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133051'
+2020-12-14 6:15:10  -  UPDATED SEO -  Item '633132646' SEO metadata updated
+2020-12-14 6:15:10  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132646'
+2020-12-14 6:15:12  -  UPDATED SEO -  Item '633132826' SEO metadata updated
+2020-12-14 6:15:12  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132826'
+2020-12-14 6:15:13  -  UPDATED SEO -  Item '633132643' SEO metadata updated
+2020-12-14 6:15:13  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132643'
+2020-12-14 6:15:14  -  UPDATED SEO -  Item '633132745' SEO metadata updated
+2020-12-14 6:15:14  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132745'
+2020-12-14 6:15:15  -  UPDATED SEO -  Item '633132649' SEO metadata updated
+2020-12-14 6:15:15  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132649'
+2020-12-14 6:15:17  -  UPDATED SEO -  Item '633132736' SEO metadata updated
+2020-12-14 6:15:17  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132736'
+2020-12-14 6:15:18  -  UPDATED SEO -  Item '633133276' SEO metadata updated
+2020-12-14 6:15:18  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133276'
+2020-12-14 6:15:19  -  UPDATED SEO -  Item '633132610' SEO metadata updated
+2020-12-14 6:15:19  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132610'
+2020-12-14 6:15:21  -  UPDATED SEO -  Item '633133183' SEO metadata updated
+2020-12-14 6:15:21  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133183'
+2020-12-14 6:15:22  -  UPDATED SEO -  Item '633132721' SEO metadata updated
+2020-12-14 6:15:22  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132721'
+2020-12-14 6:15:24  -  UPDATED SEO -  Item '633133285' SEO metadata updated
+2020-12-14 6:15:24  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133285'
+2020-12-14 6:15:25  -  UPDATED SEO -  Item '633133042' SEO metadata updated
+2020-12-14 6:15:25  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133042'
+2020-12-14 6:15:27  -  UPDATED SEO -  Item '633133039' SEO metadata updated
+2020-12-14 6:15:27  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133039'
+2020-12-14 6:15:29  -  UPDATED SEO -  Item '633133000' SEO metadata updated
+2020-12-14 6:15:29  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133000'
+2020-12-14 6:15:31  -  UPDATED SEO -  Item '633132772' SEO metadata updated
+2020-12-14 6:15:31  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132772'
+2020-12-14 6:15:33  -  UPDATED SEO -  Item '633133045' SEO metadata updated
+2020-12-14 6:15:33  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133045'
+2020-12-14 6:15:34  -  UPDATED SEO -  Item '633132778' SEO metadata updated
+2020-12-14 6:15:34  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132778'
+2020-12-14 6:15:36  -  UPDATED SEO -  Item '637562869' SEO metadata updated
+2020-12-14 6:15:36  -  Published item '637562869'
+2020-12-14 6:15:38  -  UPDATED SEO -  Item '635582044' SEO metadata updated
+2020-12-14 6:15:38  -  Published item '635582044'
+2020-12-14 6:15:40  -  UPDATED SEO -  Item '639114025' SEO metadata updated
+2020-12-14 6:15:40  -  Published item '639114025'
+2020-12-14 6:15:41  -  UPDATED SEO -  Item '633132904' SEO metadata updated
+2020-12-14 6:15:41  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132904'
+2020-12-14 6:15:42  -  UPDATED SEO -  Item '633132889' SEO metadata updated
+2020-12-14 6:15:42  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132889'
+2020-12-14 6:15:44  -  UPDATED SEO -  Item '633133048' SEO metadata updated
+2020-12-14 6:15:44  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133048'
+2020-12-14 6:15:46  -  UPDATED SEO -  Item '635509348' SEO metadata updated
+2020-12-14 6:15:46  -  Published item '635509348'
+2020-12-14 6:15:49  -  UPDATED SEO -  Item '633132619' SEO metadata updated
+2020-12-14 6:15:49  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132619'
+2020-12-14 6:15:50  -  UPDATED SEO -  Item '635507632' SEO metadata updated
+2020-12-14 6:15:50  -  Published item '635507632'
+2020-12-14 6:15:51  -  UPDATED SEO -  Item '634516162' SEO metadata updated
+2020-12-14 6:15:51  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516162'
+2020-12-14 6:15:52  -  UPDATED SEO -  Item '635847763' SEO metadata updated
+2020-12-14 6:15:52  -  Published item '635847763'
+2020-12-14 6:15:53  -  UPDATED SEO -  Item '633132820' SEO metadata updated
+2020-12-14 6:15:53  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132820'
+2020-12-14 6:15:55  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '633132775'
+2020-12-14 6:15:56  -  UPDATED SEO -  Item '633133228' SEO metadata updated
+2020-12-14 6:15:56  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133228'
+2020-12-14 6:15:57  -  UPDATED SEO -  Item '633132964' SEO metadata updated
+2020-12-14 6:15:57  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132964'
+2020-12-14 6:15:59  -  UPDATED SEO -  Item '633133003' SEO metadata updated
+2020-12-14 6:15:59  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133003'
+2020-12-14 6:16:00  -  ERROR: Resource not found  -  Updating item '633133030'
+2020-12-14 6:16:01  -  UPDATED SEO -  Item '633133006' SEO metadata updated
+2020-12-14 6:16:01  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133006'
+2020-12-14 6:16:03  -  UPDATED SEO -  Item '633132973' SEO metadata updated
+2020-12-14 6:16:03  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132973'
+2020-12-14 6:16:04  -  UPDATED SEO -  Item '633132862' SEO metadata updated
+2020-12-14 6:16:04  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132862'
+2020-12-14 6:16:07  -  UPDATED SEO -  Item '633132724' SEO metadata updated
+2020-12-14 6:16:07  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132724'
+2020-12-14 6:16:08  -  UPDATED SEO -  Item '633133261' SEO metadata updated
+2020-12-14 6:16:08  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133261'
+2020-12-14 6:16:11  -  ERROR: Resource not found  -  Updating item '633132955'
+2020-12-14 6:16:12  -  UPDATED SEO -  Item '633133054' SEO metadata updated
+2020-12-14 6:16:12  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133054'
+2020-12-14 6:16:13  -  UPDATED SEO -  Item '633133267' SEO metadata updated
+2020-12-14 6:16:13  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133267'
+2020-12-14 6:16:15  -  UPDATED SEO -  Item '633133270' SEO metadata updated
+2020-12-14 6:16:15  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133270'
+2020-12-14 6:16:17  -  UPDATED SEO -  Item '633133264' SEO metadata updated
+2020-12-14 6:16:17  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133264'
+2020-12-14 6:16:18  -  UPDATED SEO -  Item '636695356' SEO metadata updated
+2020-12-14 6:16:18  -  ERROR: Cannot publish item with empty content  -  Publishing item '636695356'
+2020-12-14 6:16:19  -  ERROR: Resource not found  -  Updating item '633133273'
+2020-12-14 6:16:20  -  UPDATED SEO -  Item '633133258' SEO metadata updated
+2020-12-14 6:16:20  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133258'
+2020-12-14 6:16:22  -  UPDATED SEO -  Item '633132568' SEO metadata updated
+2020-12-14 6:16:22  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132568'
+2020-12-14 6:16:26  -  UPDATED SEO -  Item '633132823' SEO metadata updated
+2020-12-14 6:16:26  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132823'
+2020-12-14 6:16:28  -  UPDATED SEO -  Item '633133255' SEO metadata updated
+2020-12-14 6:16:28  -  ERROR: Cannot publish item with empty content  -  Publishing item '633133255'
+2020-12-14 6:16:29  -  UPDATED SEO -  Item '633132613' SEO metadata updated
+2020-12-14 6:16:29  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132613'
+2020-12-14 6:16:31  -  UPDATED SEO -  Item '633132919' SEO metadata updated
+2020-12-14 6:16:31  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132919'
+2020-12-14 6:16:32  -  UPDATED SEO -  Item '633132664' SEO metadata updated
+2020-12-14 6:16:32  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132664'
+2020-12-14 6:16:34  -  UPDATED SEO -  Item '638716270' SEO metadata updated
+2020-12-14 6:16:34  -  Published item '638716270'
+2020-12-14 6:16:36  -  UPDATED SEO -  Item '633956152' SEO metadata updated
+2020-12-14 6:16:36  -  Published item '633956152'
+2020-12-14 6:16:38  -  UPDATED SEO -  Item '635504236' SEO metadata updated
+2020-12-14 6:16:38  -  Published item '635504236'
+2020-12-14 6:16:40  -  UPDATED SEO -  Item '633132682' SEO metadata updated
+2020-12-14 6:16:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '633132682'
+2020-12-14 6:16:41  -  UPDATED SEO -  Item '635702479' SEO metadata updated
+2020-12-14 6:16:41  -  Published item '635702479'
+2020-12-14 6:16:43  -  UPDATED SEO -  Item '633956017' SEO metadata updated
+2020-12-14 6:16:43  -  Published item '633956017'
+2020-12-14 6:16:45  -  UPDATED SEO -  Item '639988732' SEO metadata updated
+2020-12-14 6:16:45  -  Published item '639988732'
+2020-12-14 6:16:46  -  UPDATED SEO -  Item '634516603' SEO metadata updated
+2020-12-14 6:16:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '634516603'
