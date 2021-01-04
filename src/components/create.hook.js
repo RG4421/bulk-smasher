@@ -1,20 +1,23 @@
+// REACT
 import React, { 
     useState, 
     useEffect,
     useRef
 } from 'react'
 import { useHistory } from "react-router-dom"
-import { CsvToHtmlTable } from 'react-csv-to-table'
 import Axios from 'axios'
-import Alert from 'react-bootstrap/Alert'
 
+// SUB-COMPONENTS
 import Progress from "./sub-components/serverProgress"
 import Success from "./sub-components/serverSuccess"
 import Error from "./sub-components/serverError"
+import DataDownload from "./sub-components/logDownload"
+import DataPreview from "./sub-components/csvPreview"
 
-import create from '../images/create.png'
+// CSS
 import newWindow from '../images/newWindow.png'
 import Loader from 'react-loader-spinner'
+import create from '../images/create.png'
 import '../styles/container.css'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
@@ -131,18 +134,13 @@ function Create (props) {
     )
 
     const LogDownload = () => (
-        <Alert variant="info">
-            <div className="form-group" style={{marginTop: 15}}>
-                <a href={process.env.PUBLIC_URL + '/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
-                <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>
-            </div>
-        </Alert>
+        <DataDownload logURL={logURL}/>
     )
 
     const CSVUpload = () => (
         <div className="form-group">
             <div className="custom-file">
-                <input 
+                <input
                     type="file" 
                     className="custom-file-input" 
                     id="customFile"
@@ -151,20 +149,11 @@ function Create (props) {
                 />
                 <label className="custom-file-label">{fileName}</label>
             </div>
-        </div>   
+        </div>
     )
 
     const CSVPreview = () => (
-        <div className="form-group">
-           <h5 className="componentElements"><b>{fileName}</b></h5>
-            <div>
-                <CsvToHtmlTable
-                    data={fileContents}
-                    csvDelimiter=","
-                    tableClassName="table table-striped table-hover"
-                />
-            </div>
-        </div>
+        <DataPreview fileName={fileName} fileContents={fileContents}/>
     )
 
     const APILoader = () => (
