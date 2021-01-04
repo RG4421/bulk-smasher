@@ -252,7 +252,7 @@ router.route('/test').post(async (req, res) => {
         //await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
 
         return res.status(201).json({
-                message: `TEST CALL RAN - (Runtime: ${time.words})`,
+                message: `TEST CALL RAN (${time.words})`,
                 log_name: `BulkSmasherLog.txt`
             });
 

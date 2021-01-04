@@ -103,10 +103,10 @@ function Home (props) {
             </Accordion.Collapse>
         </Card>
         <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="2">
+            <Accordion.Toggle as={Card.Header} eventKey="20">
             Streams
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey="2">
+            <Accordion.Collapse eventKey="20">
             <Card.Body>
                 
             This operator can create streams within an Uberflip Hub.

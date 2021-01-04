@@ -196,7 +196,7 @@ function Delete (props)
     const CSVUpload = () => (
         <div className="form-group">
             <input
-                placeholder="Unique Search and Replace Key"
+                placeholder="Unique Search Symbol"
                 type="text"
                 value={searchKey}
                 onChange={e => setSearchKey(e.target.value)}

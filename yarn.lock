@@ -3699,6 +3699,21 @@
     "readable-stream" "^2.2.2"
     "typedarray" "^0.0.6"
 
+"concurrently@^5.3.0":
+  "integrity" "sha512-8MhqOB6PWlBfA2vJ8a0bSFKATOdWlHiQlk11IfmQBPaHVP8oP2gsh2MObE6UR3hqDHqvaIvLTyceNW6obVuFHQ=="
+  "resolved" "https://registry.npmjs.org/concurrently/-/concurrently-5.3.0.tgz"
+  "version" "5.3.0"
+  dependencies:
+    "chalk" "^2.4.2"
+    "date-fns" "^2.0.1"
+    "lodash" "^4.17.15"
+    "read-pkg" "^4.0.1"
+    "rxjs" "^6.5.2"
+    "spawn-command" "^0.0.2-1"
+    "supports-color" "^6.1.0"
+    "tree-kill" "^1.2.2"
+    "yargs" "^13.3.0"
+
 "configstore@^5.0.1":
   "integrity" "sha512-aMKprgk5YhBNyH25hj8wGt2+D52Sw1DRRIzqBwLp2Ya9mFmY8KPvvtvmna8SxVR9JMZ4kzMD68N22vlaRpkeFA=="
   "resolved" "https://registry.npmjs.org/configstore/-/configstore-5.0.1.tgz"
@@ -3720,6 +3735,16 @@
   "integrity" "sha512-e54B99q/OUoH64zYYRf3HBP5z24G38h5D3qXu23JGRoigpX5Ss4r9ZnDk3g0Z8uQC2x2lPaJ+UlWBc1ZWBWdLg=="
   "resolved" "https://registry.npmjs.org/connect-history-api-fallback/-/connect-history-api-fallback-1.6.0.tgz"
   "version" "1.6.0"
+
+"connect-timeout@^1.9.0":
+  "integrity" "sha1-vCcyaxIhA3FL6/oNlYurM/ZSLjo="
+  "resolved" "https://registry.npmjs.org/connect-timeout/-/connect-timeout-1.9.0.tgz"
+  "version" "1.9.0"
+  dependencies:
+    "http-errors" "~1.6.1"
+    "ms" "2.0.0"
+    "on-finished" "~2.3.0"
+    "on-headers" "~1.0.1"
 
 "console-browserify@^1.1.0":
   "integrity" "sha512-ZMkYO/LkF17QvCPqM0gxw8yUzigAOZOSWSHg91FH6orS7vcEj5dVZTidN2fQ14yBSdg97RqhSNwLUXInd52OTA=="
@@ -6368,6 +6393,16 @@
   "resolved" "https://registry.npmjs.org/http-deceiver/-/http-deceiver-1.2.7.tgz"
   "version" "1.2.7"
 
+"http-errors@~1.6.1":
+  "integrity" "sha1-i1VoC7S+KDoLW/TqLjhYC+HZMg0="
+  "resolved" "https://registry.npmjs.org/http-errors/-/http-errors-1.6.3.tgz"
+  "version" "1.6.3"
+  dependencies:
+    "depd" "~1.1.2"
+    "inherits" "2.0.3"
+    "setprototypeof" "1.1.0"
+    "statuses" ">= 1.4.0 < 2"
+
 "http-errors@~1.6.2":
   "integrity" "sha1-i1VoC7S+KDoLW/TqLjhYC+HZMg0="
   "resolved" "https://registry.npmjs.org/http-errors/-/http-errors-1.6.3.tgz"
@@ -8931,7 +8966,7 @@
   dependencies:
     "ee-first" "1.1.1"
 
-"on-headers@~1.0.2":
+"on-headers@~1.0.1", "on-headers@~1.0.2":
   "integrity" "sha512-pZAE+FJLoyITytdqK0U5s+FIpjN0JP3OzFi/u8Rx+EV5/W+JTWGXG8xFzevE7AjBfDqHv/8vL8qQsIhHnqRkrA=="
   "resolved" "https://registry.npmjs.org/on-headers/-/on-headers-1.0.2.tgz"
   "version" "1.0.2"
@@ -10753,6 +10788,15 @@
     "normalize-package-data" "^2.3.2"
     "path-type" "^3.0.0"
 
+"read-pkg@^4.0.1":
+  "integrity" "sha1-ljYlN48+HE1IyFhytabsfV0JMjc="
+  "resolved" "https://registry.npmjs.org/read-pkg/-/read-pkg-4.0.1.tgz"
+  "version" "4.0.1"
+  dependencies:
+    "normalize-package-data" "^2.3.2"
+    "parse-json" "^4.0.0"
+    "pify" "^3.0.0"
+
 "readable-stream@^2.0.0":
   "integrity" "sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw=="
   "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
@@ -11346,7 +11390,7 @@
   dependencies:
     "aproba" "^1.1.1"
 
-"rxjs@^6.5.3", "rxjs@^6.6.0":
+"rxjs@^6.5.2", "rxjs@^6.5.3", "rxjs@^6.6.0":
   "integrity" "sha512-BHdBMVoWC2sL26w//BCu3YzKT4s2jip/WhwsGEDmeKYBhKDZeYezVUnHatYB7L85v5xs0BAQmg6BEYJEKxBabg=="
   "resolved" "https://registry.npmjs.org/rxjs/-/rxjs-6.6.2.tgz"
   "version" "6.6.2"
@@ -11815,6 +11859,11 @@
   "integrity" "sha512-dSO0DDYUahUt/0/pD/Is3VIm5TGJjludZ0HVymmhYF6eNA53PVLhnUk0znSYbH8IYBuJdCE+1luR22jNLMaQdw=="
   "resolved" "https://registry.npmjs.org/sparkles/-/sparkles-1.0.1.tgz"
   "version" "1.0.1"
+
+"spawn-command@^0.0.2-1":
+  "integrity" "sha1-YvXpRmmBwbeW3Fkpk34RycaSG9A="
+  "resolved" "https://registry.npmjs.org/spawn-command/-/spawn-command-0.0.2-1.tgz"
+  "version" "0.0.2-1"
 
 "spdx-correct@^3.0.0":
   "integrity" "sha512-cOYcUWwhCuHCXi49RhFRCyJEK3iPj1Ziz9DpViV3tbZOwXD49QzIN3MpOLJNxh2qwq2lJJZaKMVw9qNi4jTC0w=="
@@ -12526,6 +12575,11 @@
   "integrity" "sha1-MumeQ9EyHkncLhlPp130/oSouRg="
   "resolved" "https://registry.npmjs.org/transmitter/-/transmitter-3.0.1.tgz"
   "version" "3.0.1"
+
+"tree-kill@^1.2.2":
+  "integrity" "sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A=="
+  "resolved" "https://registry.npmjs.org/tree-kill/-/tree-kill-1.2.2.tgz"
+  "version" "1.2.2"
 
 "ts-pnp@^1.1.6", "ts-pnp@1.1.6":
   "integrity" "sha512-CrG5GqAAzMT7144Cl+UIFP7mz/iIhiy+xQ6GGcnjTezhALT02uPMRw7tgDSESgB5MsfKt55+GPWw4ir1kVtMIQ=="

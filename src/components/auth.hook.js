@@ -70,20 +70,27 @@ function Auth (props) {
                 display: none
             }`}
         </style>
+        
         <form className="secure">
         <img id="image" src={logo} width="100" height="100" alt="logo"/><h5 className="authTitle" style={{display: "inline-block"}}>BULK SMASHER</h5>
 
         <br />
             <h6>Enter a valid passphrase</h6>
-            <div className="form-group">
-                <input
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Passphrase</span>
+                </div>
+                <input 
                     style={{paddingTop: 4}}
-                    placeholder="Passphrase"
                     type="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     required
-                ></input>
+                    class="form-control"
+                    aria-label="Username" 
+                    aria-describedby="basic-addon1"
+                />
             </div>
 
             { showServerError   ? <ServerError/> : null }

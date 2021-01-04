@@ -196,7 +196,6 @@ router.route('/seo').post(async (req, res) => {
         let fetchHub = await fetch.getHub(authToken);
 
         const csvData = await parse.CSV(fileContents, searchKey);
-
         const updatedSEO = await update.seo(authToken, csvData);
 
         let log = updatedSEO.logObj;

@@ -2,15 +2,17 @@ import React, {
     useState, 
     useEffect,
     useRef
-} from 'react';
-import { useHistory } from "react-router-dom";
-import { CsvToHtmlTable } from 'react-csv-to-table';
-import Axios from 'axios';
+} from 'react'
+import { useHistory } from "react-router-dom"
+import { CsvToHtmlTable } from 'react-csv-to-table'
+import Axios from 'axios'
 import Alert from 'react-bootstrap/Alert'
 
+import Progress from "./sub-components/serverProgress"
+import Success from "./sub-components/serverSuccess"
+import Error from "./sub-components/serverError"
+
 import create from '../images/create.png'
-import check from '../images/check.png'
-import cross from '../images/cross.png'
 import newWindow from '../images/newWindow.png'
 import Loader from 'react-loader-spinner'
 import '../styles/container.css'
@@ -28,6 +30,7 @@ function Create (props) {
     const [fileName, setFileName] = useState('');
     const [hubId, setHubId] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [uploadPercentage, setUploadPercentage] = useState(0);
 
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
@@ -72,8 +75,8 @@ function Create (props) {
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "Items" || selectValue === "User Profiles" || selectValue === "Test") {
-            clientIdRef.current.placeholder = "API Key";
-            clientSecretRef.current.placeholder = "API Secret";
+            // clientIdRef.current.placeholder = "API Key";
+            // clientSecretRef.current.placeholder = "API Secret";
             setShowUpload(true);
             setShowCSVPreview(false);
             setShowServerSuccess(false);
@@ -92,8 +95,8 @@ function Create (props) {
             setShowLogDownload(false);
             setShowLegacyFields(true);
         } else {
-            clientIdRef.current.placeholder = "API Key";
-            clientSecretRef.current.placeholder = "API Secret";
+            // clientIdRef.current.placeholder = "API Key";
+            // clientSecretRef.current.placeholder = "API Secret";
             setShowUpload(false);
             setShowCSVPreview(false);
             setShowServerSuccess(false);
@@ -120,21 +123,11 @@ function Create (props) {
     }
 
     const ServerSuccess = () => (
-        <Alert variant="success">
-            <div className="form-group componentElements">
-                <img style={{marginRight: 5, marginBottom: 3}} src={check} width="20" height="20" alt="Check"/>
-                <label> {serverSuccess}</label>
-            </div>
-        </Alert>
+        <Success serverSuccess={serverSuccess}/>
     )
 
     const ServerError = () => (
-        <Alert variant="danger">
-            <div className="form-group componentElements">
-                <img style={{marginRight: 5, marginBottom: 3}} src={cross} width="20" height="20" alt="Check"/>
-                <label> {serverError.status} {serverError.data.message}</label>
-            </div>
-        </Alert>
+        <Error serverError={serverError}/>
     )
 
     const LogDownload = () => (
@@ -148,17 +141,15 @@ function Create (props) {
 
     const CSVUpload = () => (
         <div className="form-group">
-            <input
-                placeholder="Unique Search and Replace Key"
-                type="text"
-                value={searchKey}
-                onChange={e => setSearchKey(e.target.value)}
-            ></input>
-            <div className="componentElements">
-                <input type="file"
+            <div className="custom-file">
+                <input 
+                    type="file" 
+                    className="custom-file-input" 
+                    id="customFile"
                     accept=".csv"
                     onChange={e => readFile(e.target.files[0])}
                 />
+                <label className="custom-file-label">{fileName}</label>
             </div>
         </div>   
     )
@@ -187,6 +178,8 @@ function Create (props) {
                 />
                 <label style={{marginLeft: -15}}>Executing operator...</label>
             </div>
+
+            <Progress percentage={uploadPercentage}/>
         </div>
     )
 
@@ -206,6 +199,12 @@ function Create (props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const options = {
+            onUploadProgress: progressEvent => {
+                setUploadPercentage(parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total)))
+            }
+        }
 
         const data = {
             APIKey, 
@@ -421,7 +420,7 @@ function Create (props) {
                 setShowLegacyFields(false);
                 setShowLoader(true);
 
-                Axios.post('create/test', data)
+                Axios.post('create/test', data, options)
                 .then((res) => {
                     if (res.status >= 200 && res.status < 300) {
                         setShowLoader(false);
@@ -465,42 +464,55 @@ function Create (props) {
             <h3 style={{display: 'inline'}}>Bulk Create</h3>
                 <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
-                    <input 
-                        ref={clientIdRef}
-                        placeholder="API Key"
-                        type="text"
-                        value={APIKey}
-                        onChange={e => setAPIKey(e.target.value)}
-                        required
-                    ></input>
-                </div>
-                <div className="form-group">
-                    <input
-                        ref={clientSecretRef}
-                        placeholder="API Secret"
-                        type="text"
-                        value={APISecret}
-                        onChange={e => setAPISecret(e.target.value)}
-                        required
-                    ></input>
+
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" id="basic-addon1">API Key</span>
+                        </div>
+                        <input
+                            type="text"
+                            ref={clientIdRef}
+                            value={APIKey}
+                            onChange={e => setAPIKey(e.target.value)}
+                            required
+                            className="form-control" 
+                            aria-describedby="basic-addon1"
+                        ></input>
+                    </div>
+
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" id="basic-addon1">API Secret</span>
+                        </div>
+                        <input
+                            type="text"
+                            ref={clientSecretRef}
+                            value={APISecret}
+                            onChange={e => setAPISecret(e.target.value)}
+                            required
+                            className="form-control" 
+                            aria-describedby="basic-addon1"
+                        ></input>
+                    </div>
                 </div>
 
                 { showLegacyFields ? <LegacyFields /> : null }
 
-                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#create"}>Select Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#create"}>Bulk Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <select
+                        className="form-control"
                         style= {{cursor: 'pointer'}}
                         value={selectValue}
                         onChange={e => setSelectValue(e.target.value)}
                     >
-                        <option default value="null">Please Select...</option>
+                        <option default value="null">Please select...</option>
                         <option value="Items">Items</option>
                         <option value="Tags">Tags</option>                        
                         <option value="PDF">PDFs</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        {/* <option value="Test">***Test***</option> */}
+                        <option value="Test">***Test***</option>
                     </select>
                 </div>
 

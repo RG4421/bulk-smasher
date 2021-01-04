@@ -108,7 +108,7 @@ router.route('/items').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
         
-        const csvData = await parse(fileContents, searchKey);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const deletedItems = await deleteFunc.items(authToken, csvData);
 
         let log = deletedItems.logObj;
@@ -149,7 +149,7 @@ router.route('/streamItems').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
         
-        const csvData = await parse(fileContents, searchKey);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const deletedStreamsItems = await deleteFunc.deleteStreamItems(authToken, csvData);
 
         let log = deletedStreamsItems.logObj;
@@ -190,7 +190,7 @@ router.route('/hiddenItems').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
         
-        const csvData = await parse(fileContents, searchKey);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const hiddenItems = await fetch.hiddenStreamItems(authToken, csvData);
         const deletedItems = await deleteFunc.deleteStreamItems(authToken, hiddenItems);
 
@@ -272,7 +272,7 @@ router.route('/streams').post(async (req, res) => {
         let authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         let fetchHub = await fetch.getHub(authToken);
 
-        const csvData = await parse(fileContents, searchKey);
+        const csvData = await parse.CSV(fileContents, searchKey);
         const deletedStreams = await deleteFunc.streams(authToken, csvData);
 
         let log = deletedStreams.logObj;

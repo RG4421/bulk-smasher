@@ -1,4 +1,4 @@
-async function CSV(csv, keySearch) {
+async function CSV(csv, searchKey) {
     const comma = ",";
     let tempObj = {};
     let tempResult = [];
@@ -25,11 +25,12 @@ async function CSV(csv, keySearch) {
         for (let k = 0; k < headers.length; k++) {
             obj[headers[k]] = currentRow[k];
 
-            if (keySearch !== "" && obj.seo_description) {
-                replaceObj = obj.seo_description.replaceAll(keySearch, comma);
-                obj['seo_description'] = replaceObj; 
+            if (searchKey !== "" && obj.description) {
+                replaceObj = obj.description.replaceAll(searchKey, comma);
+                console.log(replaceObj);
+                obj['description'] = replaceObj; 
             } else {
-                obj['seo_description'] = replaceObj;
+                obj['description'] = replaceObj;
             }
         }
         result.push(obj);
