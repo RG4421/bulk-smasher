@@ -4,7 +4,7 @@ import check from '../../images/check.png';
 
 const serverSuccess = ({serverSuccess}) => {
     return (
-        <div class="alert alert-success" role="alert">
+        <div className="alert alert-success" role="alert">
             <div className="form-group componentElements alert-dismissible fade show">
                 <img style={{marginRight: 5, marginBottom: 3}} src={check} width="20" height="20" alt="Check"/>
                 <label> {serverSuccess}</label>
@@ -14,7 +14,7 @@ const serverSuccess = ({serverSuccess}) => {
 }
 
 serverSuccess.propTypes = {
-    serverSuccess: PropTypes.number.isRequired
+    serverSuccess: PropTypes.string.isRequired
 }
 
 export default serverSuccess

@@ -73,6 +73,14 @@ function Home (props) {
 
             If the tag doesn't exist within the Hub, it will be created and then applied to the item.
 
+            <Alert variant="warning">
+                <p>
+                    Tags have a <b>75 character</b> length limit
+
+                    Tags <b>cannot</b> contain commas
+                </p>
+            </Alert>
+
             </Card.Body>
             </Accordion.Collapse>
         </Card>

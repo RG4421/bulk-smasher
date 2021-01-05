@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { CsvToHtmlTable } from 'react-csv-to-table'
 
 const csvPreview = ({fileName, fileContents}) => {
@@ -17,9 +17,9 @@ const csvPreview = ({fileName, fileContents}) => {
     )
 }
 
-csvPreview.propTypes = {
-    fileName: PropTypes.number.isRequired,
-    fileContents: PropTypes.number.isRequired
-}
+// csvPreview.propTypes = {
+//     fileName: PropTypes.number.isRequired,
+//     fileContents: PropTypes.number.isRequired
+// }
 
 export default csvPreview

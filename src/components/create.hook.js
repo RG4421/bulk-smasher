@@ -1,18 +1,16 @@
-// REACT
 import React, { 
     useState, 
-    useEffect,
-    useRef
-} from 'react'
-import { useHistory } from "react-router-dom"
+    useEffect
+} from 'react';
 import Axios from 'axios'
+import { useHistory } from "react-router-dom"
+import { CsvToHtmlTable } from 'react-csv-to-table'
 
-// SUB-COMPONENTS
-import Progress from "./sub-components/serverProgress"
-import Success from "./sub-components/serverSuccess"
-import Error from "./sub-components/serverError"
-import DataDownload from "./sub-components/logDownload"
-import DataPreview from "./sub-components/csvPreview"
+// MODULES
+import Progress from "./modules/serverProgress"
+import Success from "./modules/serverSuccess"
+import Error from "./modules/serverError"
+import DataDownload from "./modules/logDownload"
 
 // CSS
 import newWindow from '../images/newWindow.png'
@@ -25,6 +23,7 @@ function Create (props) {
 
     const [APIKey, setAPIKey] = useState('');
     const [APISecret, setAPISecret] = useState('');
+    const [APISecretText, setAPISecretText] = useState('');
     const [selectValue, setSelectValue] = useState('null');
     const [fileContents, setFileContents] = useState('');
     const [serverSuccess, setServerSuccess] = useState('');
@@ -39,12 +38,10 @@ function Create (props) {
     const [showCSVPreview, setShowCSVPreview] = useState(false);
     const [showServerSuccess, setShowServerSuccess] = useState(false);
     const [showServerError, setShowServerError] = useState(false);
+    const [showSymbolReplace, setShowSymbolReplace] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
     const [showLogDownload, setShowLogDownload] = useState(false);
     const [showLegacyFields, setShowLegacyFields] = useState(false);
-
-    const clientIdRef = useRef();
-    const clientSecretRef = useRef();
 
     // AUTHENTICATION
     const history = useHistory();
@@ -77,29 +74,39 @@ function Create (props) {
 
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
-        if (selectValue === "Tags" || selectValue === "Streams" || selectValue === "Items" || selectValue === "User Profiles" || selectValue === "Test") {
-            // clientIdRef.current.placeholder = "API Key";
-            // clientSecretRef.current.placeholder = "API Secret";
-            setShowUpload(true);
-            setShowCSVPreview(false);
-            setShowServerSuccess(false);
-            setShowServerError(false);
-            setShowLoader(false);
-            setShowLogDownload(false);
-            setShowLegacyFields(false);
+        if (selectValue === "Streams" || selectValue === "Items" || selectValue === "User Profiles" || selectValue === "Test") {
+            setAPISecretText('API Secret')
+            setShowSymbolReplace(true)
+            setShowUpload(true)
+            setShowCSVPreview(false)
+            setShowServerSuccess(false)
+            setShowServerError(false)
+            setShowLoader(false)
+            setShowLogDownload(false)
+            setShowLegacyFields(false)
+        } else if (selectValue === "Tags") {
+            setAPISecretText('API Secret')
+            setShowSymbolReplace(false)
+            setShowUpload(true)
+            setShowCSVPreview(false)
+            setShowServerSuccess(false)
+            setShowServerError(false)
+            setShowLoader(false)
+            setShowLogDownload(false)
+            setShowLegacyFields(false)
         } else if (selectValue === "PDF") {
-            clientIdRef.current.placeholder = "API Key";
-            clientSecretRef.current.placeholder = "Signature";
-            setShowUpload(true);
-            setShowCSVPreview(false);
-            setShowServerSuccess(false);
-            setShowServerError(false);
-            setShowLoader(false);
-            setShowLogDownload(false);
-            setShowLegacyFields(true);
+            setAPISecretText('Signature')
+            setShowSymbolReplace(true)
+            setShowUpload(true)
+            setShowCSVPreview(false)
+            setShowServerSuccess(false)
+            setShowServerError(false)
+            setShowLoader(false)
+            setShowLogDownload(false)
+            setShowLegacyFields(true)
         } else {
-            // clientIdRef.current.placeholder = "API Key";
-            // clientSecretRef.current.placeholder = "API Secret";
+            setAPISecretText('API Secret')
+            setShowSymbolReplace(false)
             setShowUpload(false);
             setShowCSVPreview(false);
             setShowServerSuccess(false);
@@ -153,7 +160,16 @@ function Create (props) {
     )
 
     const CSVPreview = () => (
-        <DataPreview fileName={fileName} fileContents={fileContents}/>
+        <div className="form-group">
+           <h5 style={{marginTop: 30}}><b>{fileName}</b></h5>
+            <div>
+                <CsvToHtmlTable
+                    data={fileContents}
+                    csvDelimiter=","
+                    tableClassName="table table-striped table-hover"
+                />
+            </div>
+        </div>
     )
 
     const APILoader = () => (
@@ -172,20 +188,6 @@ function Create (props) {
         </div>
     )
 
-    const LegacyFields = () => (
-        <div className="form-group">
-            <div className="form-group">
-                <input
-                    placeholder="Hub ID"
-                    type="text"
-                    value={hubId}
-                    onChange={e => setHubId(e.target.value)}
-                    required
-                ></input>
-            </div>
-        </div>
-    )
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -195,263 +197,277 @@ function Create (props) {
             }
         }
 
-        const data = {
+        const payload = {
             APIKey, 
             APISecret,
-            fileContents,
             hubId,
-            searchKey
+            searchKey,
+            fileContents
         };
 
-        // Create tags
-        if (selectValue === "Tags") {
-            if (window.confirm("Are you sure you want to CREATE and TAG these items?")) {
-                setShowUpload(false);
-                setShowCSVPreview(false);
-                setShowServerSuccess(false);
-                setShowServerError(false);
-                setShowLogDownload(false);
-                setShowLegacyFields(false);
-                setShowLoader(true);
+        switch(selectValue) {
+            case "Tags":
+                if (window.confirm("Are you sure you want to CREATE and TAG these items?")) {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setShowServerSuccess(false);
+                    setShowServerError(false);
+                    setShowLogDownload(false);
+                    setShowLegacyFields(false);
+                    setShowSymbolReplace(false)
+                    setShowLoader(true);
+    
+                    Axios.post('/create/tags/', payload, options)
+                    .then((res) => {
+                        if (res.status >= 200 && res.status < 300) {
+                            setShowLoader(false);
+                            setServerSuccess(res.data.message);
+                            setLogURL(res.data.log_name);
+                            setShowServerSuccess(true);
+                            setShowLogDownload(true);
+                            console.log(res.data);    
+                        }
+                    }).catch((e) => {
+                        if (e.response) {
+                            setShowLoader(false);
+                            setShowUpload(false);
+                            setShowCSVPreview(false);
+                            setShowLogDownload(false);
+                            setServerError(e.response)
+                            setShowServerError(true);
+                        } else if (e.request) {
+                            console.log('Client never recieved request: ' + e.request);
+                        } else {
+                            console.log('Error:' + e.message);
+                        }
+                    });
+                } else {
+                    console.log("Create operation cancelled.");
+                }
+                break;
 
-                Axios.post('/create/tags/', data)
-                .then((res) => {
-                    if (res.status >= 200 && res.status < 300) {
-                        setShowLoader(false);
-                        setServerSuccess(res.data.message);
-                        setLogURL(res.data.log_name);
-                        setShowServerSuccess(true);
-                        setShowLogDownload(true);
-                        console.log(res.data);    
-                    }
-                }).catch((e) => {
-                    if (e.response) {
-                        setShowLoader(false);
-                        setShowUpload(false);
-                        setShowCSVPreview(false);
-                        setShowLogDownload(false);
-                        setServerError(e.response)
-                        setShowServerError(true);
-                    } else if (e.request) {
-                        console.log('Client never recieved request: ' + e.request);
-                    } else {
-                        console.log('Error:' + e.message);
-                    }
-                });
-            } else {
-                console.log("Create operation cancelled.");
-            }
-        // Create streams
-        } else if (selectValue === "Streams") {
-            if (window.confirm("Are you sure you want to CREATE these STREAMS?")) {
-                setShowUpload(false);
-                setShowCSVPreview(false);
-                setShowServerSuccess(false);
-                setShowServerError(false);
-                setShowLogDownload(false);
-                setShowLegacyFields(false);
-                setShowLoader(true);
+            case 'Streams':
+                if (window.confirm("Are you sure you want to CREATE these STREAMS?")) {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setShowServerSuccess(false);
+                    setShowServerError(false);
+                    setShowLogDownload(false);
+                    setShowLegacyFields(false);
+                    setShowSymbolReplace(false)
+                    setShowLoader(true);
+    
+                    Axios.post('create/streams', payload, options)
+                    .then((res) => {
+                        if (res.status >= 200 && res.status < 300) {
+                            setShowLoader(false);
+                            setServerSuccess(res.data.message);
+                            setLogURL(res.data.log_name);
+                            setShowServerSuccess(true);
+                            setShowLogDownload(true);
+                            console.log(res.data);    
+                        }
+                    }).catch((e) => {
+                        if (e.response) {
+                            setShowLoader(false);
+                            setShowUpload(false);
+                            setShowCSVPreview(false);
+                            setShowLogDownload(false);
+                            setServerError(e.response);
+                            setShowServerError(true);
+                        } else if (e.request) {
+                            console.log('Client never recieved request: ' + e.request);
+                        } else {
+                            console.log('Error:' + e.message);
+                        }
+                    });
+                } else {
+                    console.log("Create operation cancelled.");
+                }
+                break;
 
-                Axios.post('create/streams', data)
-                .then((res) => {
-                    if (res.status >= 200 && res.status < 300) {
-                        setShowLoader(false);
-                        setServerSuccess(res.data.message);
-                        setLogURL(res.data.log_name);
-                        setShowServerSuccess(true);
-                        setShowLogDownload(true);
-                        console.log(res.data);    
-                    }
-                }).catch((e) => {
-                    if (e.response) {
-                        setShowLoader(false);
-                        setShowUpload(false);
-                        setShowCSVPreview(false);
-                        setShowLogDownload(false);
-                        setServerError(e.response);
-                        setShowServerError(true);
-                    } else if (e.request) {
-                        console.log('Client never recieved request: ' + e.request);
-                    } else {
-                        console.log('Error:' + e.message);
-                    }
-                });
-            } else {
-                console.log("Create operation cancelled.");
-            }
-        // Create user profiles
-        } else if (selectValue === "Items") {
-            if (window.confirm("Are you sure you want to CREATE these ITEMS?")) {
-                setShowUpload(false);
-                setShowCSVPreview(false);
-                setShowServerSuccess(false);
-                setShowServerError(false);
-                setShowLogDownload(false);
-                setShowLegacyFields(false);
-                setShowLoader(true);
+            case 'Items':
+                if (window.confirm("Are you sure you want to CREATE these ITEMS?")) {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setShowServerSuccess(false);
+                    setShowServerError(false);
+                    setShowLogDownload(false);
+                    setShowLegacyFields(false);
+                    setShowSymbolReplace(false)
+                    setShowLoader(true);
+    
+                    Axios.post('create/items', payload, options)
+                    .then((res) => {
+                        if (res.status >= 200 && res.status < 300) {
+                            setShowLoader(false);
+                            setServerSuccess(res.data.message);
+                            setLogURL(res.data.log_name);
+                            setShowServerSuccess(true);
+                            setShowLogDownload(true);
+                            console.log(res.data);    
+                        }
+                    }).catch((e) => {
+                        if (e.response) {
+                            setShowLoader(false);
+                            setShowUpload(false);
+                            setShowCSVPreview(false);
+                            setShowLogDownload(false);
+                            setServerError(e.response);
+                            setShowServerError(true);
+                        } else if (e.request) {
+                            console.log('Client never recieved request: ' + e.request);
+                        } else {
+                            console.log('Error:' + e.message);
+                        }
+                    });
+                } else {
+                    console.log("Create operation cancelled.");
+                }
+                break;
 
-                Axios.post('create/items', data)
-                .then((res) => {
-                    if (res.status >= 200 && res.status < 300) {
-                        setShowLoader(false);
-                        setServerSuccess(res.data.message);
-                        setLogURL(res.data.log_name);
-                        setShowServerSuccess(true);
-                        setShowLogDownload(true);
-                        console.log(res.data);    
-                    }
-                }).catch((e) => {
-                    if (e.response) {
-                        setShowLoader(false);
-                        setShowUpload(false);
-                        setShowCSVPreview(false);
-                        setShowLogDownload(false);
-                        setServerError(e.response);
-                        setShowServerError(true);
-                    } else if (e.request) {
-                        console.log('Client never recieved request: ' + e.request);
-                    } else {
-                        console.log('Error:' + e.message);
-                    }
-                });
-            } else {
-                console.log("Create operation cancelled.");
-            }
-        } else if (selectValue === "User Profiles") {
-            if (window.confirm("Are you sure you want to CREATE these USERS?")) {
-                setShowUpload(false);
-                setShowCSVPreview(false);
-                setShowServerSuccess(false);
-                setShowServerError(false);
-                setShowLogDownload(false);
-                setShowLegacyFields(false);
-                setShowLoader(true);
+            case 'User Profiles':
+                if (window.confirm("Are you sure you want to CREATE these ITEMS?")) {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setShowServerSuccess(false);
+                    setShowServerError(false);
+                    setShowLogDownload(false);
+                    setShowLegacyFields(false);
+                    setShowSymbolReplace(false)
+                    setShowLoader(true);
 
-                Axios.post('create/users', data)
-                .then((res) => {
-                    if (res.status >= 200 && res.status < 300) {
-                        setShowLoader(false);
-                        setServerSuccess(res.data.message);
-                        setLogURL(res.data.log_name);
-                        setShowServerSuccess(true);
-                        setShowLogDownload(true);
-                        console.log(res.data);    
-                    }
-                }).catch((e) => {
-                    console.log(e);
-                    console.debug(e);
+                    Axios.post('create/items', payload)
+                    .then((res) => {
+                        if (res.status >= 200 && res.status < 300) {
+                            setShowLoader(false);
+                            setServerSuccess(res.data.message);
+                            setLogURL(res.data.log_name);
+                            setShowServerSuccess(true);
+                            setShowLogDownload(true);
+                            console.log(res.data);    
+                        }
+                    }).catch((e) => {
+                        if (e.response) {
+                            setShowLoader(false);
+                            setShowUpload(false);
+                            setShowCSVPreview(false);
+                            setShowLogDownload(false);
+                            setServerError(e.response);
+                            setShowServerError(true);
+                        } else if (e.request) {
+                            console.log('Client never recieved request: ' + e.request);
+                        } else {
+                            console.log('Error:' + e.message);
+                        }
+                    });
+                } else {
+                    console.log("Create operation cancelled.");
+                }
+                break;
 
-                    if (e.response) {
-                        setShowLoader(false);
-                        setShowUpload(false);
-                        setShowCSVPreview(false);
-                        setShowLogDownload(false);
-                        setServerError(e.response);
-                        setShowServerError(true);
-                    } else if (e.request) {
-                        console.log('Client never recieved request: ' + e.request);
-                    } else {
-                        console.log('Error:' + e.message);
-                    }
-                });
-            } else {
-                console.log("Create operation cancelled.");
-            }
-        } else if (selectValue === "PDF") {
-            if (window.confirm("Are you sure you want to CREATE these PDFs?")) {
-                setShowUpload(false);
-                setShowCSVPreview(false);
-                setShowServerSuccess(false);
-                setShowServerError(false);
-                setShowLogDownload(false);
-                setShowLegacyFields(true);
-                setShowLoader(true);
+            case 'PDF':
+                if (window.confirm("Are you sure you want to CREATE these PDFs?")) {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setShowServerSuccess(false);
+                    setShowServerError(false);
+                    setShowLogDownload(false);
+                    setShowLegacyFields(true);
+                    setShowSymbolReplace(false)
+                    setShowLoader(true);
+    
+                    Axios.post('create/pdfs', payload)
+                    .then((res) => {
+                        if (res.status >= 200 && res.status < 300) {
+                            setShowLoader(false);
+                            setServerSuccess(res.data.message);
+                            setLogURL(res.data.log_name);
+                            setShowServerSuccess(true);
+                            setShowLogDownload(true);
+                            console.log(res.data);    
+                        } else if (res.status <= 300){
+                            throw new Error('API ERROR');
+                        }
+                    }).catch((e) => {
+                        console.log(e);
+                        console.debug(e);
+    
+                        if (e.response) {
+                            setShowLoader(false);
+                            setShowUpload(false);
+                            setShowCSVPreview(false);
+                            setShowLogDownload(false);
+                            setServerError(e.response);
+                            setShowServerError(true);
+                        } else if (e.request) {
+                            console.log('Client never recieved request: ' + e.request);
+                        } else {
+                            console.log('Error:' + e.message);
+                        }
+                    });
+                } else {
+                    console.log("Create operation cancelled.");
+                }
+                break;
 
-                Axios.post('create/pdfs', data)
-                .then((res) => {
-                    if (res.status >= 200 && res.status < 300) {
-                        setShowLoader(false);
-                        setServerSuccess(res.data.message);
-                        setLogURL(res.data.log_name);
-                        setShowServerSuccess(true);
-                        setShowLogDownload(true);
-                        console.log(res.data);    
-                    } else if (res.status <= 300){
-                        throw new Error('API ERROR');
-                    }
-                }).catch((e) => {
-                    console.log(e);
-                    console.debug(e);
+            case 'Test':
 
-                    if (e.response) {
-                        setShowLoader(false);
-                        setShowUpload(false);
-                        setShowCSVPreview(false);
-                        setShowLogDownload(false);
-                        setServerError(e.response);
-                        setShowServerError(true);
-                    } else if (e.request) {
-                        console.log('Client never recieved request: ' + e.request);
-                    } else {
-                        console.log('Error:' + e.message);
-                    }
-                });
-            } else {
-                console.log("Create operation cancelled.");
-            }
-        } else if (selectValue === "Test") {
-            if (window.confirm("Are you sure you want to this TEST call?")) {
-                setShowUpload(false);
-                setShowCSVPreview(false);
-                setShowServerSuccess(false);
-                setShowServerError(false);
-                setShowLogDownload(false);
-                setShowLegacyFields(false);
-                setShowLoader(true);
-
-                Axios.post('create/test', data, options)
-                .then((res) => {
-                    if (res.status >= 200 && res.status < 300) {
-                        setShowLoader(false);
-                        setServerSuccess(res.data.message);
-                        setLogURL(res.data.log_name);
-                        setShowServerSuccess(true);
-                        setShowLogDownload(true);
-                        console.log(res.data);    
-                    } else if (res.status <= 300){
-                        throw new Error('API ERROR');
-                    }
-                }).catch((e) => {
-                    console.log(e);
-                    console.debug(e);
-
-                    if (e.response) {
-                        setShowLoader(false);
-                        setShowUpload(false);
-                        setShowCSVPreview(false);
-                        setShowLogDownload(false);
-                        setServerError(e.response);
-                        setShowServerError(true);
-                    } else if (e.request) {
-                        console.log('Client never recieved request: ' + e.request);
-                    } else {
-                        console.log('Error:' + e.message);
-                    }
-                });
-            } else {
-                console.log("Create operation cancelled.");
-            }
+                if (window.confirm("Are you sure you want to run this TEST call?")) {
+                    setShowUpload(false);
+                    setShowCSVPreview(false);
+                    setShowServerSuccess(false);
+                    setShowServerError(false);
+                    setShowLogDownload(false);
+                    setShowLegacyFields(false);
+                    setShowSymbolReplace(false)
+                    setShowLoader(true);
+    
+                    Axios.post('create/test', payload, options)
+                    .then((res) => {
+                        if (res.status >= 200 && res.status < 300) {
+                            setShowLoader(false);
+                            setServerSuccess(res.data.message);
+                            setLogURL(res.data.log_name);
+                            setShowServerSuccess(true);
+                            setShowLogDownload(true);
+                            console.log(res.data);    
+                        } else if (res.status <= 300){
+                            throw new Error('API ERROR');
+                        }
+                    }).catch((e) => {
+                        console.log(e);
+                        console.debug(e);
+    
+                        if (e.response) {
+                            setShowLoader(false);
+                            setShowUpload(false);
+                            setShowCSVPreview(false);
+                            setShowLogDownload(false);
+                            setServerError(e.response);
+                            setShowServerError(true);
+                        } else if (e.request) {
+                            console.log('Client never recieved request: ' + e.request);
+                        } else {
+                            console.log('Error:' + e.message);
+                        }
+                    });
+                } else {
+                    console.log("Create operation cancelled.");
+                }
+                break;
+            
+            default: console.log('No valid user input')
         }
     }
     
-    // Build of webpage
     return (
     <>
         <div className="newContainer">
             <form>
             <img style={{marginRight: 5, marginTop: -10}} src={create} width="20" height="20" alt="create"/>
             <h3 style={{display: 'inline'}}>Bulk Create</h3>
-                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
 
                     <div className="input-group mb-3">
@@ -460,7 +476,6 @@ function Create (props) {
                         </div>
                         <input
                             type="text"
-                            ref={clientIdRef}
                             value={APIKey}
                             onChange={e => setAPIKey(e.target.value)}
                             required
@@ -471,11 +486,10 @@ function Create (props) {
 
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
-                            <span className="input-group-text" id="basic-addon1">API Secret</span>
+                            <span className="input-group-text" id="basic-addon1">{APISecretText}</span>
                         </div>
                         <input
                             type="text"
-                            ref={clientSecretRef}
                             value={APISecret}
                             onChange={e => setAPISecret(e.target.value)}
                             required
@@ -485,9 +499,22 @@ function Create (props) {
                     </div>
                 </div>
 
-                { showLegacyFields ? <LegacyFields /> : null }
+                { showLegacyFields ? 
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" id="basic-addon1">Hub ID</span>
+                        </div>
+                        <input
+                            type="text"
+                            value={hubId}
+                            onChange={e => setHubId(e.target.value)}
+                            className="form-control" 
+                            aria-describedby="basic-addon1"
+                        />
+                    </div>
+                : null }
 
-                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#create"}>Bulk Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#create"}>Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <select
                         className="form-control"
@@ -505,6 +532,22 @@ function Create (props) {
                     </select>
                 </div>
 
+                { showSymbolReplace ? 
+                
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">Symbol Replace</span>
+                    </div>
+                    <input
+                        type="text"
+                        value={searchKey}
+                        onChange={e => setSearchKey(e.target.value)}
+                        className="form-control" 
+                        aria-describedby="basic-addon1"
+                    ></input>
+                </div>
+                : null }
+
                 { showLoader        ? <APILoader/> : null } 
                 { showServerSuccess ? <ServerSuccess/> : null }
                 { showServerError   ? <ServerError/> : null } 
@@ -513,7 +556,7 @@ function Create (props) {
                 { showCSVPreview    ? <CSVPreview/> : null }
 
                 <div className="form-group" style={{marginTop: 30}}>
-                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
+                    <input onClick={handleSubmit} type="submit" value="Bulk Smash!" className="btn btn-success"/>
                 </div> 
             </form>
         </div>

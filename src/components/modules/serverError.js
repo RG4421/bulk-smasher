@@ -4,7 +4,7 @@ import cross from '../../images/cross.png'
 
 const serverError = ({serverError}) => {
     return (
-        <div class="alert alert-danger" role="alert">
+        <div className="alert alert-danger" role="alert">
             <div className="form-group componentElements alert-dismissible fade show">
                 <img style={{marginRight: 5, marginBottom: 3}} src={cross} width="20" height="20" alt="Check"/>
                 <label> [{serverError.status}] {serverError.data.message}</label>            
@@ -14,7 +14,7 @@ const serverError = ({serverError}) => {
 }
 
 serverError.propTypes = {
-    serverError: PropTypes.number.isRequired
+    serverError: PropTypes.object.isRequired
 }
 
 export default serverError

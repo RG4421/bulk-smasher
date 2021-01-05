@@ -47,3 +47,7 @@
     padding: 10px;
     border-bottom: 3px solid #0e8643;
 }
+
+.input-group-text {
+   width: 140px;
+}
