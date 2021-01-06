@@ -29,8 +29,6 @@ async function CSV(csv, searchKey) {
             if (searchKey !== "" && obj[headers[k]]) {
                 replaceObj = obj[headers[k]].replaceAll(searchKey, comma);
                 obj[headers[k]] = replaceObj;
-            } else {
-                obj[headers[k]] = replaceObj;
             }
         }
         result.push(obj);

@@ -226,31 +226,18 @@ router.route('/test').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    //const fileSize = req.body.fileSize;
     const searchKey = req.body.searchKey;
     dateFormat(new Date(), "yyyy-mm-dd");
 
     try {
         timer.start();
-        //await auth.authenticateCredsV2(APIKey, APISecret);
+        await auth.authenticateCredsV2(APIKey, APISecret);
         //let fetchHub = await fetch.getHub(authToken);
-
-        const csvData = await parse.CSV(fileContents, searchKey);
-        console.log(csvData);
+        await parse.CSV(fileContents, searchKey);
 
         let time = timer.stop();
-        // let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
-
-        // let executions = 790;
-        // time = {
-        //     name: 'default',
-        //     time: 145439.30117,
-        //     words: '2.42 min',
-        //     preciseWords: '2.4166666666666665 min',
-        //     verboseWords: '2 minutes 25 seconds 439 milliseconds 301 microseconds 170 nanoseconds'
-        // }
-
-        //await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
-
+        
         return res.status(201).json({
                 message: `TEST CALL RAN (${time.words})`,
                 log_name: `BulkSmasherLog.txt`
@@ -266,3 +253,18 @@ router.route('/test').post(async (req, res) => {
 });
 
 module.exports = router;
+
+// LOGGING
+
+// let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
+
+        // let executions = 790;
+        // time = {
+        //     name: 'default',
+        //     time: 145439.30117,
+        //     words: '2.42 min',
+        //     preciseWords: '2.4166666666666665 min',
+        //     verboseWords: '2 minutes 25 seconds 439 milliseconds 301 microseconds 170 nanoseconds'
+        // }
+
+        //await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);

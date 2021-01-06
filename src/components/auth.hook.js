@@ -23,7 +23,7 @@ function Auth (props) {
     )
 
     const APILoader = () => (
-        <div className="form-group" style={{marginTop: 30, marginLeft: -15}}>
+        <div className="form-group" style={{marginTop: 15, marginLeft: -15}}>
             <div style={{display: "flex"}}>
                 <Loader
                     type="Puff"
@@ -77,19 +77,16 @@ function Auth (props) {
         <br />
             <h6>Enter a valid passphrase</h6>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Passphrase</span>
-                </div>
+            <div className="input-group-prepend">
                 <input 
-                    style={{paddingTop: 4}}
+                    className="form-control"
+                    style={{paddingTop: 4, marginBottom: 8}}
                     type="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    aria-label="Small" 
+                    aria-describedby="inputGroup-sizing-sm"
                     required
-                    class="form-control"
-                    aria-label="Username" 
-                    aria-describedby="basic-addon1"
                 />
             </div>
 
@@ -97,7 +94,12 @@ function Auth (props) {
             { showLoader        ? <APILoader/> : null } 
 
             <div className="form-group">
-                <input onClick={handleSubmit} type="submit" value="Bulk Smash!" className="btn btn-success"/>
+                <input 
+                    onClick={handleSubmit} 
+                    type="submit" 
+                    value="Bulk Smash!"
+                    className="btn btn-success"
+                />
             </div>
         </form>
     </>

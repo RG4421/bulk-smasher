@@ -1,6 +1,7 @@
 import React, { 
     useState, 
-    useEffect
+    useEffect,
+    useRef
 } from 'react';
 import Axios from 'axios'
 import socketIOClient from "socket.io-client";
@@ -9,6 +10,7 @@ import { CsvToHtmlTable } from 'react-csv-to-table'
 
 // MODULES
 import Success from "./modules/serverSuccess"
+import Cancel from "./modules/serverCancel"
 import Error from "./modules/serverError"
 import DataDownload from "./modules/logDownload"
 
@@ -22,6 +24,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 function Create (props) {
 
     const ENDPOINT = process.env.PUBLIC_URL;
+    const CancelToken = Axios.CancelToken;
+    const cancelSource = useRef(null);
 
     const [APIKey, setAPIKey] = useState('');
     const [APISecret, setAPISecret] = useState('');
@@ -35,9 +39,11 @@ function Create (props) {
     const [fileSize, setFileSize] = useState(0);
     const [hubId, setHubId] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [cancelMessage, setCancelMessage] = useState('');
 
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
+    const [showCancel, setShowCancel] = useState(false);
     const [showServerSuccess, setShowServerSuccess] = useState(false);
     const [showServerError, setShowServerError] = useState(false);
     const [showSymbolReplace, setShowSymbolReplace] = useState(false);
@@ -72,6 +78,12 @@ function Create (props) {
     // On Component Mounted
     useEffect(() => {
         checkSessionStatus();
+
+        cancelSource.current = CancelToken.source();
+
+        return () => {
+            cancelSource.current.cancel();
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -164,6 +176,12 @@ function Create (props) {
         </div>
     )
 
+    const cancelAPICall = () => {
+        console.log('Operator Cancelled')
+        setCancelMessage('User cancelled operation')
+        cancelSource.current.cancel();
+    };
+
     const APILoader = () => (
         <div className="form-group" style={{marginTop: 30}}>
             <div style={{display: "flex"}}>
@@ -174,6 +192,11 @@ function Create (props) {
                     weight="30"
                 />
                 <label style={{marginLeft: -15, marginTop: 2}}>Hold on, smashing...</label>
+                <span
+                    style={{cursor: 'pointer', marginLeft: 'auto'}} 
+                    className="text-danger" 
+                    onClick={cancelAPICall}
+                >Cancel</span>
             </div>
         </div>
     )
@@ -182,7 +205,11 @@ function Create (props) {
         e.preventDefault();
 
         const options = {
-
+            cancelToken: cancelSource.current.token
+            // cancelToken: new this.props.CancelToken(function executor(c) {
+            //     cancel = c;
+            //     this.props.onRequest(c);
+            // })
         }
 
         const payload = {
@@ -224,6 +251,12 @@ function Create (props) {
                             setShowLogDownload(false);
                             setServerError(e.response)
                             setShowServerError(true);
+                        } else if (Axios.isCancel(e)) {
+                            setShowLoader(false);
+                            setShowUpload(false);
+                            setShowCSVPreview(false);
+                            setShowLogDownload(false);
+                            setShowCancel(true);
                         } else if (e.request) {
                             console.log('Client never recieved request: ' + e.request);
                         } else {
@@ -544,6 +577,7 @@ function Create (props) {
 
                 { showLoader        ? <APILoader/> : null } 
                 { showServerSuccess ? <Success serverSuccess={serverSuccess}/> : null }
+                { showCancel         ? <Cancel cancelMessage={cancelMessage}/> : null }
                 { showServerError   ? <Error serverError={serverError}/> : null } 
                 { showLogDownload   ?  <DataDownload logURL={logURL}/> : null }
                 { showUpload        ? <CSVUpload/> : null }

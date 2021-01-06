@@ -4,6 +4,8 @@ const cors       = require('cors');
 const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
 const path       = require('path');
+const socket     = require('socket.io');
+let interval;
 
 require('dotenv').config();
 const port = process.env.HTTP_PORT || 4001;
@@ -38,10 +40,8 @@ app.use('/create', createRouter);
 app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);
 
-
-
 // Server deployment
-app.listen(port, function(err) 
+const server = app.listen(port, function(err) 
 {
     if (err) {
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
@@ -77,3 +77,25 @@ app.listen(port, function(err)
         console.log('Server deployed...listening at port:' + port + '\n');
     }
 });
+
+const io = socket(server);
+
+io.on('connection', function (socket) {
+    console.log('Connection made: ', socket.id);
+
+    setTimeout(emitProgress, 30000, socket);
+
+    // if (interval) {
+    //     clearInterval(interval);
+    // }
+    // interval = setInterval( () => emitProgress(socket), 1000);
+    //     socket.on("disconnect", () => {
+    //     console.log("Client disconnected");
+    //     clearInterval(interval);
+    // });
+});
+
+const emitProgress = socket => {
+    const response = 'Request pending...'
+    socket.emit("APIProgress", response);
+};

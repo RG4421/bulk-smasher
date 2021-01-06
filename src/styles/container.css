@@ -51,3 +51,9 @@
 .input-group-text {
    width: 140px;
 }
+
+.csv-preview {
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height: 400px;
+}
