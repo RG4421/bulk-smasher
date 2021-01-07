@@ -5,7 +5,6 @@ const dateFormat = require('dateformat');
 const nodemailer = require('nodemailer');
 const path       = require('path');
 const socket     = require('socket.io');
-let interval;
 
 require('dotenv').config();
 const port = process.env.HTTP_PORT || 4001;
