@@ -234,7 +234,9 @@ router.route('/test').post(async (req, res) => {
         timer.start();
         await auth.authenticateCredsV2(APIKey, APISecret);
         //let fetchHub = await fetch.getHub(authToken);
-        await parse.CSV(fileContents, searchKey);
+        const data = await parse.CSV(fileContents, searchKey);
+
+        console.log(data);
 
         let time = timer.stop();
         

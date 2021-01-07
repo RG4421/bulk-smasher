@@ -66,7 +66,7 @@ function Home (props) {
             <Accordion.Collapse eventKey="1">
             <Card.Body>
 
-            This operator can tag items with one or many tags.
+            This operator can tag items with one or many tags. <b>Tags are case sensitive.</b> If you want to update an item using an existing tag, be sure the .CSV and tag in Uberflip match.
 
             <br />
             <br />
@@ -75,9 +75,12 @@ function Home (props) {
 
             <Alert variant="warning">
                 <p>
-                    Tags have a <b>75 character</b> length limit
+                    Tags have a <b>75 character</b> length limit.
 
-                    Tags <b>cannot</b> contain commas
+                    <br />
+                    <br />
+
+                    Tags <b>cannot</b> contain commas.
                 </p>
             </Alert>
 
@@ -365,7 +368,7 @@ function Home (props) {
 
                 <br />
 
-                <b>Prepend/append value to Canonical</b> = 'testPrepend'
+                <b>Value to add to Canonical</b> = 'testPrepend'
 
                 <br />
                 <br />

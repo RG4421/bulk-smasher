@@ -137,23 +137,21 @@ function Create (props) {
     }
 
     const CSVUpload = () => (
-        <div className="form-group">
-            <div className="custom-file">
-                <input
-                    type="file" 
-                    className="custom-file-input" 
-                    id="customFile"
-                    accept=".csv"
-                    onChange={e => readFile(e.target.files[0])}
-                />
-                <label className="custom-file-label">{fileName}</label>
-            </div>
+        <div className="custom-file form-group">
+            <input
+                type="file" 
+                className="custom-file-input" 
+                id="customFile"
+                accept=".csv"
+                onChange={e => readFile(e.target.files[0])}
+            />
+            <label className="custom-file-label">{fileName}</label>
         </div>
     )
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}><b>{fileName}</b></h5>
+           <h5 style={{marginTop: 30}}><b>{fileName}</b> | {fileSize}B</h5>
             <div className='csv-preview'>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -477,7 +475,6 @@ function Create (props) {
                             aria-describedby="basic-addon1"
                         ></input>
                     </div>
-
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">{APISecretText}</span>
@@ -522,30 +519,29 @@ function Create (props) {
                         <option value="PDF">PDFs</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        <option value="Test">***Test***</option>
+                        {/* <option value="Test">***Test***</option> */}
                     </select>
                 </div>
 
                 { showSymbolReplace ? 
-                
-                <div className="input-group mb-3">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Symbol Replace</span>
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" id="basic-addon1">Symbol Replace</span>
+                        </div>
+                        <input
+                            type="text"
+                            value={searchKey}
+                            onChange={e => setSearchKey(e.target.value)}
+                            className="form-control" 
+                            aria-describedby="basic-addon1"
+                        ></input>
                     </div>
-                    <input
-                        type="text"
-                        value={searchKey}
-                        onChange={e => setSearchKey(e.target.value)}
-                        className="form-control" 
-                        aria-describedby="basic-addon1"
-                    ></input>
-                </div>
                 : null }
 
                 { showLoader        ? <APILoader/> : null } 
                 { showServerSuccess ? <Success serverSuccess={serverSuccess}/> : null }
                 { showServerError   ? <Error serverError={serverError}/> : null } 
-                { showLogDownload   ?  <DataDownload logURL={logURL}/> : null }
+                { showLogDownload   ? <DataDownload logURL={logURL}/> : null }
                 { showUpload        ? <CSVUpload/> : null }
                 { showCSVPreview    ? <CSVPreview/> : null }
 
