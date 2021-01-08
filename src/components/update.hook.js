@@ -208,7 +208,7 @@ function Update(props) {
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}><b>{fileName}</b> | {fileSize}B</h5>
+           <h5 style={{marginTop: 30}}><b>{fileName}</b> ({fileSize}B)</h5>
             <div className='csv-preview'>
                 <CsvToHtmlTable
                     data={fileContents}

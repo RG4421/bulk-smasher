@@ -21,7 +21,6 @@ function createProdBuildFolder() {
     fs.mkdirSync(dir);
     log('📁  folder created:', dir);
   }
-
   return Promise.resolve('the value is ignored');
 }
 
@@ -46,11 +45,11 @@ function copyNodeJSCodeTask() {
         .pipe(dest(`${paths.prod_build}`))
 }
 
-// function copyEBCodeTask() {
-//   log('building and copying ebconfig files into the directory')
-//   return src(['./backend/.ebextensions/**'])
-//         .pipe(dest(`${paths.prod_build}/.ebextensions`))
-// }
+function copyEBCodeTask() {
+  log('building and copying ebconfig files into the directory')
+  return src(['./backend/.ebextensions/**'])
+        .pipe(dest(`${paths.prod_build}/.ebextensions`))
+}
 
 function zippingTask() {
   log('zipping the code ')
@@ -62,6 +61,6 @@ function zippingTask() {
 exports.default = series(
   createProdBuildFolder,
   buildReactCodeTask,
-  parallel(copyReactCodeTask, copyNodeJSCodeTask),
+  parallel(copyReactCodeTask, copyNodeJSCodeTask, copyEBCodeTask),
   zippingTask
 );

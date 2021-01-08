@@ -3,7 +3,7 @@ import React, {
     useEffect
 } from 'react';
 import Axios from 'axios'
-import socketIOClient from "socket.io-client";
+// import socketIOClient from "socket.io-client";
 import { useHistory } from "react-router-dom"
 import { CsvToHtmlTable } from 'react-csv-to-table'
 
@@ -21,7 +21,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 function Create (props) {
 
-    const ENDPOINT = process.env.PUBLIC_URL;
+    // const ENDPOINT = process.env.PUBLIC_URL;
 
     const [APIKey, setAPIKey] = useState('');
     const [APISecret, setAPISecret] = useState('');
@@ -151,7 +151,7 @@ function Create (props) {
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}><b>{fileName}</b> | {fileSize}B</h5>
+           <h5 style={{marginTop: 30}}><b>{fileName}</b> ({fileSize}B)</h5>
             <div className='csv-preview'>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -447,10 +447,10 @@ function Create (props) {
             default: console.log('No valid user input')
         }
 
-        const socket = socketIOClient(ENDPOINT);
-        socket.on("APIProgress", data => {
-            console.log(data);
-        });
+        // const socket = socketIOClient(ENDPOINT);
+        // socket.on("APIProgress", data => {
+        //     console.log(data);
+        // });
     }
     
     return (
