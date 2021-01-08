@@ -23,7 +23,7 @@ function Auth (props) {
     )
 
     const APILoader = () => (
-        <div className="form-group" style={{marginTop: 30, marginLeft: -15}}>
+        <div className="form-group" style={{marginTop: 15, marginLeft: -15}}>
             <div style={{display: "flex"}}>
                 <Loader
                     type="Puff"
@@ -70,27 +70,36 @@ function Auth (props) {
                 display: none
             }`}
         </style>
+        
         <form className="secure">
         <img id="image" src={logo} width="100" height="100" alt="logo"/><h5 className="authTitle" style={{display: "inline-block"}}>BULK SMASHER</h5>
 
         <br />
             <h6>Enter a valid passphrase</h6>
-            <div className="form-group">
-                <input
-                    style={{paddingTop: 4}}
-                    placeholder="Passphrase"
+
+            <div className="input-group-prepend">
+                <input 
+                    className="form-control"
+                    style={{paddingTop: 4, marginBottom: 8}}
                     type="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    aria-label="Small" 
+                    aria-describedby="inputGroup-sizing-sm"
                     required
-                ></input>
+                />
             </div>
 
             { showServerError   ? <ServerError/> : null }
             { showLoader        ? <APILoader/> : null } 
 
             <div className="form-group">
-                <input onClick={handleSubmit} type="submit" value="Bulk Smash!" className="btn btn-success"/>
+                <input 
+                    onClick={handleSubmit} 
+                    type="submit" 
+                    value="Bulk Smash!"
+                    className="btn btn-success"
+                />
             </div>
         </form>
     </>

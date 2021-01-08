@@ -66,12 +66,23 @@ function Home (props) {
             <Accordion.Collapse eventKey="1">
             <Card.Body>
 
-            This operator can tag items with one or many tags.
+            This operator can tag items with one or many tags. <b>Tags are case sensitive.</b> If you want to update an item using an existing tag, be sure the .CSV and tag in Uberflip match.
 
             <br />
             <br />
 
             If the tag doesn't exist within the Hub, it will be created and then applied to the item.
+
+            <Alert variant="warning">
+                <p>
+                    Tags have a <b>75 character</b> length limit.
+
+                    <br />
+                    <br />
+
+                    Tags <b>cannot</b> contain commas.
+                </p>
+            </Alert>
 
             </Card.Body>
             </Accordion.Collapse>
@@ -103,10 +114,10 @@ function Home (props) {
             </Accordion.Collapse>
         </Card>
         <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="2">
+            <Accordion.Toggle as={Card.Header} eventKey="20">
             Streams
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey="2">
+            <Accordion.Collapse eventKey="20">
             <Card.Body>
                 
             This operator can create streams within an Uberflip Hub.
@@ -210,6 +221,8 @@ function Home (props) {
                 <Card.Body>
 
                 This operator can update item's SEO metadata.
+
+                <b>NOTE</b> The seo title may not be greater than 100 characters.
 
                 </Card.Body>
                 </Accordion.Collapse>
@@ -355,7 +368,7 @@ function Home (props) {
 
                 <br />
 
-                <b>Prepend/append value to Canonical</b> = 'testPrepend'
+                <b>Value to add to Canonical</b> = 'testPrepend'
 
                 <br />
                 <br />

@@ -1,0 +1,23 @@
+--- BULK BUSTER LOG - DELETE - ITEMS (Runtime 3.48 s) ---
+
+- HUBS - 
+Hub Name: Contract Management Resources - Icertis
+Id: 96418
+Hub Name: Icertis Inc
+Id: 119120
+
+- ACTIVITY LOG -
+2020-12-22 4:15:00  -  DELETED ITEMS  -  Deleted item '641196409
+2020-12-22 4:15:01  -  DELETED ITEMS  -  Deleted item '641196412
+2020-12-22 4:15:01  -  DELETED ITEMS  -  Deleted item '641196406
+2020-12-22 4:15:01  -  DELETED ITEMS  -  Deleted item '641369632
+2020-12-22 4:15:01  -  DELETED ITEMS  -  Deleted item '641196418
+2020-12-22 4:15:01  -  DELETED ITEMS  -  Deleted item '641196415
+2020-12-22 4:15:02  -  DELETED ITEMS  -  Deleted item '641196400
+2020-12-22 4:15:02  -  DELETED ITEMS  -  Deleted item '641369626
+2020-12-22 4:15:02  -  DELETED ITEMS  -  Deleted item '641196421
+2020-12-22 4:15:02  -  DELETED ITEMS  -  Deleted item '641196403
+2020-12-22 4:15:02  -  DELETED ITEMS  -  Deleted item '641369629
+2020-12-22 4:15:03  -  DELETED ITEMS  -  Deleted item '641196397
+2020-12-22 4:15:03  -  DELETED ITEMS  -  Deleted item '641369623
+2020-12-22 4:15:03  -  DELETED ITEMS  -  Deleted item '641196424

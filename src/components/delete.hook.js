@@ -1,17 +1,19 @@
 import React, { 
     useState, 
-    useEffect, 
-    useRef 
+    useEffect 
 } from 'react';
 import Axios from 'axios';
-import Alert from 'react-bootstrap/Alert'
 import { useHistory } from "react-router-dom";
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import DatePicker from 'react-datepicker';
 
+// MODULES
+import Success from "./modules/serverSuccess"
+import Error from "./modules/serverError"
+import DataDownload from "./modules/logDownload"
+
+// CSS
 import deleteImg from '../images/delete.png';
-import check from '../images/check.png'
-import cross from '../images/cross.png'
 import newWindow from '../images/newWindow.png'
 import Loader from 'react-loader-spinner'
 import '../styles/container.css'
@@ -28,7 +30,9 @@ function Delete (props)
     const [serverError, setServerError] = useState('');
     const [selectDate, setSelectDate] = useState(new Date());
     const [logURL, setLogURL] = useState('');
-    const [fileName, setFileName] = useState('');
+    const [fileName, setFileName] = useState('Choose file');
+    const [fileSize, setFileSize] = useState(0);
+    const [searchKey, setSearchKey] = useState('');
 
     const [checked, setChecked] = useState(false);
     const [showDeleteAll, setShowDeleteAll] = useState(false);
@@ -40,9 +44,7 @@ function Delete (props)
     const [showServerError, setShowServerError] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
     const [showLogDownload, setShowLogDownload] = useState(false);
-
-    const clientIdRef = useRef();
-    const clientSecretRef = useRef();
+    const [showSymbolReplace, setShowSymbolReplace] = useState(false);
 
     // AUTHENTICATION
     const history = useHistory();
@@ -76,8 +78,6 @@ function Delete (props)
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "All Tags") {
-            clientIdRef.current.placeholder = "API Key";
-            clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(true);
             setShowDatePicker(false);
             setShowUpload(false);
@@ -87,9 +87,8 @@ function Delete (props)
             setShowLegacyFields(false);
             setShowLoader(false);
             setShowLogDownload(false);
+            setShowSymbolReplace(false);
         } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items" || selectValue === "Streams" || selectValue === "Items") {
-            clientIdRef.current.placeholder = "API Key";
-            clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(false);
             setShowDatePicker(false);
             setShowUpload(true);
@@ -99,9 +98,8 @@ function Delete (props)
             setShowLegacyFields(false);
             setShowLoader(false);
             setShowLogDownload(false);
+            setShowSymbolReplace(false);
         } else if (selectValue === "Past Content") {
-            clientIdRef.current.placeholder = "API Key";
-            clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(false);
             setShowDatePicker(true);
             setShowUpload(false);
@@ -111,21 +109,8 @@ function Delete (props)
             setShowLegacyFields(false);
             setShowLoader(false);
             setShowLogDownload(false);
-        } else if (selectValue === "Flipbook Folders") {
-            clientIdRef.current.placeholder = "API Key";
-            clientSecretRef.current.placeholder = "Signature";
-            setShowDeleteAll(false);
-            setShowDatePicker(false);
-            setShowUpload(false);
-            setShowCSVPreview(false);
-            setShowServerSuccess(false);
-            setShowServerError(false);            
-            setShowLegacyFields(true);
-            setShowLoader(false);
-            setShowLogDownload(false);
+            setShowSymbolReplace(false);
         } else {
-            clientIdRef.current.placeholder = "API Key";
-            clientSecretRef.current.placeholder = "API Secret";
             setShowDeleteAll(false);
             setShowDatePicker(false);
             setShowUpload(false);
@@ -135,6 +120,7 @@ function Delete (props)
             setShowLegacyFields(false);
             setShowLoader(false);
             setShowLogDownload(false);
+            setShowSymbolReplace(false);
         }
     }, [selectValue]);
 
@@ -148,6 +134,7 @@ function Delete (props)
         let fileData = new FileReader();
         fileData.onloadend = HandleFile;
         fileData.readAsText(file);
+        setFileSize(file.size);
         setShowCSVPreview(true);
         setFileName(file.name);
         console.log(file.name);
@@ -165,48 +152,23 @@ function Delete (props)
         </div>
     )
 
-    const ServerSuccess = () => (
-        <Alert variant="success">
-            <div className="form-group componentElements">
-                <img style={{marginRight: 5, marginBottom: 3}} src={check} width="20" height="20" alt="Check"/>
-                <label> {serverSuccess}</label>
-            </div>
-        </Alert>
-    )
-
-    const ServerError = () => (
-        <Alert variant="danger">
-            <div className="form-group componentElements">
-                <img style={{marginRight: 5, marginBottom: 3}} src={cross} width="20" height="20" alt="Check"/>
-                <label> {serverError.status} {serverError.data.message}</label>
-            </div>
-        </Alert>
-    )
-
-    const LogDownload = () => (
-        <Alert variant="info">
-            <div className="form-group" style={{marginTop: 15}}>
-                <a href={process.env.PUBLIC_URL + '/server-logs/' + logURL} rel="noopener noreferrer" target="_blank">View Bulk Smasher Log
-                <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a>
-            </div>
-        </Alert>
-    )
-
     const CSVUpload = () => (
-        <div className="form-group">
-            <div style={{marginTop: 30}}>
-                <input type="file"
-                    accept=".csv"
-                    onChange={e => ReadFile(e.target.files[0])}
-                />
-            </div>
-        </div>   
+        <div className="custom-file form-group">
+            <input 
+                type="file" 
+                className="custom-file-input" 
+                id="customFile"
+                accept=".csv"
+                onChange={e => ReadFile(e.target.files[0])}
+            />
+            <label className="custom-file-label">{fileName}</label>
+        </div>     
     )
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}><b>{fileName}</b></h5>
-            <div>
+           <h5 style={{marginTop: 30}}><b>{fileName}</b> ({fileSize}B)</h5>
+           <div className='csv-preview'>
                 <CsvToHtmlTable
                     data={fileContents}
                     csvDelimiter=","
@@ -225,7 +187,7 @@ function Delete (props)
                     height="30"
                     weight="30"
                 />
-                <label style={{marginLeft: -15}}>Executing operator...</label>
+                <label style={{marginLeft: -15, marginTop: 2}}>Hold on, smashing...</label>
             </div>
         </div>
     )
@@ -233,7 +195,7 @@ function Delete (props)
     const DateSelector = () => (
         <div className="form-group">
             <label>Select date to remove past content: </label>
-            <div>
+            <div style={{width: '100px'}}>
                 <DatePicker
                     selected={selectDate}
                     onChange={date => setSelectDate(date)}
@@ -263,7 +225,8 @@ function Delete (props)
             APIKey,
             APISecret,
             selectDate,
-            fileContents
+            fileContents,
+            searchKey
         };
 
         // Run delete all tags function
@@ -541,38 +504,45 @@ function Delete (props)
             <form>
             <img style={{marginRight: 5, marginTop: -10}} src={deleteImg} width="20" height="20" alt="delete"/>
             <h3 style={{display: 'inline'}}>Bulk Delete</h3>
-                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">Enter REST API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
-                <div className="form-group">
+                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">API Key</span>
+                    </div>
                     <input
-                        ref={clientIdRef}
-                        placeholder="API Key"
                         type="text"
                         value={APIKey}
                         onChange={e => setAPIKey(e.target.value)}
                         required
+                        className="form-control" 
+                        aria-describedby="basic-addon1"
                     ></input>
                 </div>
-                <div className="form-group">
-                    <input 
-                        ref={clientSecretRef}
-                        placeholder="API Secret"
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">API Secret</span>
+                    </div>
+                    <input
                         type="text"
                         value={APISecret}
                         onChange={e => setAPISecret(e.target.value)}
                         required
+                        className="form-control" 
+                        aria-describedby="basic-addon1"
                     ></input>
                 </div>
 
                 { showLegacyFields ? <LegacyFields /> : null }
 
-                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#delete"}>Select Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#delete"}>Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
                 <div className="form-group">
                     <select
+                        className="form-control"
                         style= {{cursor: 'pointer'}}
                         value={selectValue}
                         onChange={e => setSelectValue(e.target.value)}
                     >
-                        <option default>Please Select...</option>
+                        <option default>Please select...</option>
                         <option value="Tag List">Tag List</option>
                         <option value="Items">Items</option>
                         <option value="Stream Items">Marketing Stream Items</option>
@@ -583,17 +553,32 @@ function Delete (props)
                     </select>
                 </div>
 
-                { showLoader ? <APILoader/> : null } 
-                { showServerSuccess ? <ServerSuccess/> : null }
-                { showServerError   ? <ServerError/> : null } 
-                { showLogDownload   ? <LogDownload/> : null }
-                { showDeleteAll  ? <DeleteAll /> : null }
-                { showDatePicker ? <DateSelector/> : null } 
-                { showUpload ? <CSVUpload/> : null }
-                { showCSVPreview ? <CSVPreview/> : null } 
+                { showSymbolReplace ? 
+                    <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text" id="basic-addon1">Symbol Replace</span>
+                        </div>
+                        <input
+                            type="text"
+                            value={searchKey}
+                            onChange={e => setSearchKey(e.target.value)}
+                            className="form-control" 
+                            aria-describedby="basic-addon1"
+                        ></input>
+                    </div>
+                : null }
+
+                { showLoader        ? <APILoader/> : null } 
+                { showServerSuccess ? <Success serverSuccess={serverSuccess}/> : null }
+                { showServerError   ? <Error serverError={serverError}/> : null } 
+                { showLogDownload   ? <DataDownload logURL={logURL}/> : null }
+                { showDeleteAll     ? <DeleteAll /> : null }
+                { showDatePicker    ? <DateSelector/> : null } 
+                { showUpload        ? <CSVUpload/> : null }
+                { showCSVPreview    ? <CSVPreview/> : null } 
 
                 <div className="form-group" style={{marginTop: 30}}>
-                    <input onClick={handleSubmit} type="submit" value="Execute" className="btn btn-success"/>
+                    <input onClick={handleSubmit} type="submit" value="Bulk Smash!" className="btn btn-success"/>
                 </div>
             </form>
         </div>

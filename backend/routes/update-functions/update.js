@@ -650,6 +650,8 @@ async function items (token, csv) {
         let bool = 0;
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
         let pubDate;
+        let firstName;
+        let lastName;
 
         if (status === 'Show') {
             bool = false;
@@ -657,9 +659,11 @@ async function items (token, csv) {
             bool = true;
         }
 
-        let name = author.split(' ');
-        let firstName = name[0];
-        let lastName = name[1];
+        if (author) {
+            let name = author.split(' ');
+            firstName = name[0];
+            lastName = name[1];    
+        }
 
         try {
             const result = await axios({

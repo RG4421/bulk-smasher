@@ -43,13 +43,11 @@ router.route('/tags').post(async (req, res) => {
         const time = timer.stop();
         const logId = await fileHandler.createLog(`--- BULK BUSTER LOG - CREATE - TAGS (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n` + log.join(""));
 
-        console.log(time);
-
         // Appending data to Google Drive
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'TAGS', execution, time);
 
         return res.status(201).json({
-            message: `Tags successfully created and applied - (Runtime: ${time.words})`,
+            message: `Tags successfully created and applied (${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
         
@@ -90,7 +88,7 @@ router.route('/streams').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'STREAMS', createdStreams.runCount, time);
 
         return res.status(201).json({
-            message: `Streams successfully created and populated - (Runtime: ${time.words})`,
+            message: `Streams successfully created and populated (${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -136,7 +134,7 @@ router.route('/users').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'USERS', executions, time);
 
         return res.status(201).json({
-            message: `User profiles created and groups assigned - (Runtime: ${time.words})`,
+            message: `User profiles created and groups assigned (${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -177,7 +175,7 @@ router.route('/items').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'ITEMS', createdItems.runCount, time);
 
         return res.status(201).json({
-            message: `Items created and published - (Runtime: ${time.words})`,
+            message: `Items created and published (${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -211,7 +209,7 @@ router.route('/pdfs').post(async (req, res) => {
         await auth.googleAuth(creds, dateTime, logId, 'CREATE', 'PDFS', createdPDFs.runCount, time);
 
         return res.status(201).json({
-            message: `PDFs uploaded to Hub ${hubId} - (Runtime: ${time.words})`,
+            message: `PDFs uploaded to Hub ${hubId} (${time.words})`,
             log_name: `BulkSmasherLog-${logId}.txt`
         });
 
@@ -228,6 +226,7 @@ router.route('/test').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
+    //const fileSize = req.body.fileSize;
     const searchKey = req.body.searchKey;
     dateFormat(new Date(), "yyyy-mm-dd");
 
@@ -235,26 +234,14 @@ router.route('/test').post(async (req, res) => {
         timer.start();
         await auth.authenticateCredsV2(APIKey, APISecret);
         //let fetchHub = await fetch.getHub(authToken);
+        const data = await parse.CSV(fileContents, searchKey);
 
-        const csvData = await parse.CSV(fileContents, searchKey);
-        console.log(csvData);
+        console.log(data);
 
         let time = timer.stop();
-        // let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
-
-        // let executions = 790;
-        // time = {
-        //     name: 'default',
-        //     time: 145439.30117,
-        //     words: '2.42 min',
-        //     preciseWords: '2.4166666666666665 min',
-        //     verboseWords: '2 minutes 25 seconds 439 milliseconds 301 microseconds 170 nanoseconds'
-        // }
-
-        //await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
-
+        
         return res.status(201).json({
-                message: `TEST CALL RAN - (Runtime: ${time.words})`,
+                message: `TEST CALL RAN (${time.words})`,
                 log_name: `BulkSmasherLog.txt`
             });
 
@@ -268,3 +255,18 @@ router.route('/test').post(async (req, res) => {
 });
 
 module.exports = router;
+
+// LOGGING
+
+// let logId = await fileHandler.createLog(`--- TEST TEST TEST (Runtime ${time.words}) ---\n\n- HUBS - \n` + fetchHub.join("") + `\n- ACTIVITY LOG -\n`);
+
+        // let executions = 790;
+        // time = {
+        //     name: 'default',
+        //     time: 145439.30117,
+        //     words: '2.42 min',
+        //     preciseWords: '2.4166666666666665 min',
+        //     verboseWords: '2 minutes 25 seconds 439 milliseconds 301 microseconds 170 nanoseconds'
+        // }
+
+        //await auth.googleAuth(creds, dateTime, logId, 'Test Type', 'Test Op', executions, time);
