@@ -40,7 +40,7 @@ app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);
 
 // Server deployment
-const server = app.listen(port, function(err) 
+app.listen(port, function(err) 
 {
     if (err) {
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
