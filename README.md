@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 ### `nodemon server.js`
 
 Navigate to the `backend` directory.<br />
-Deploys express server at [http://localhost:8080](http://localhost:8080) to handle requests sent from client.
+Deploys express server at [http://localhost:4001](http://localhost:4001) to handle requests sent from client.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
