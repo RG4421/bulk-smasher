@@ -29,7 +29,7 @@ async function tags (token, data) {
             console.log(resultString);
 
         } catch (err) {
-            let thrownError = err.response.data.errors[0].message;
+            let thrownError = err;
             const errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating tag '${tagName}'\n`;
             runCount++;
             logObj.push(errorMessage);
@@ -88,7 +88,7 @@ async function users (token, data) {
             console.log(resultString);
 
         } catch (err) {
-            let thrownError = err.response.data.errors[0].message;
+            let thrownError = err;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating user '${firstName} ${lastName}'\n`;
             runCount++;
             console.log(errorMessage);
@@ -178,7 +178,7 @@ async function streams (token, data) {
                     console.log(resultString);
         
                 } catch (err) {
-                    let thrownError = err.response.data.errors[0].message;
+                    let thrownError = err;
                     let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Adding item '${itemId}' to stream '${streamTitle}'\n`;
                     runCount++;
                     console.log(errorMessage);
@@ -187,7 +187,7 @@ async function streams (token, data) {
             }
 
         } catch (err) {
-            let thrownError = err.response.data.errors[0].message;
+            let thrownError = err;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating stream '${title}'\n`;
             runCount++;
             console.log(errorMessage);
@@ -210,7 +210,7 @@ async function items (token, data) {
         let streamId = prop.stream_id;
         let title = prop.title;
         let description = prop.description;
-        let content = prop.content;
+        let content = prop.source_content;
         let thumbnailUrl = prop.thumbnail_url;
         let author = prop.author;
         let seoTitle = prop.seo_title;
@@ -276,14 +276,14 @@ async function items (token, data) {
                 console.log(resultString);
 
             } catch (err) {
-                let thrownError = err.response.data.errors[0].message;
+                let thrownError = err;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
                 runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
         } catch (err) {
-            let thrownError = err.response.data.errors[0].message;
+            let thrownError = err;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating item '${title}'\n`;
             runCount++;
             logObj.push(errorMessage);
@@ -302,6 +302,7 @@ async function pdfs (apiKey, apiSignature, hubId, data) {
         let folderId = prop.folder_id;
         let fileName = prop.file_name;
         let fileURL = prop.file_url;
+
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
         
         try {
@@ -328,7 +329,7 @@ async function pdfs (apiKey, apiSignature, hubId, data) {
             console.log(resultString);
 
         } catch (err) {
-            let thrownError = err.response.data.errors[0].message;
+            let thrownError = err;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Creating PDF '${fileURL}'\n`;
             runCount++;
             logObj.push(errorMessage);

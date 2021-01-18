@@ -1,6 +1,6 @@
 {
   "name": "bulk-smasher",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "dependencies": {
     "@hapi/boom": "^9.1.0",

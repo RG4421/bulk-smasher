@@ -79,6 +79,9 @@ function Create (props) {
     useEffect(() => {
         if (selectValue === "Streams" || selectValue === "Items" || selectValue === "User Profiles" || selectValue === "Test") {
             setAPISecretText('API Secret')
+            setFileName('');
+            setHubId('');
+            setSearchKey('');
             setShowSymbolReplace(true)
             setShowUpload(true)
             setShowCSVPreview(false)
@@ -89,6 +92,9 @@ function Create (props) {
             setShowLegacyFields(false)
         } else if (selectValue === "Tags") {
             setAPISecretText('API Secret')
+            setFileName('');
+            setHubId('');
+            setSearchKey('');
             setShowSymbolReplace(false)
             setShowUpload(true)
             setShowCSVPreview(false)
@@ -99,6 +105,9 @@ function Create (props) {
             setShowLegacyFields(false)
         } else if (selectValue === "PDF") {
             setAPISecretText('Signature')
+            setFileName('');
+            setHubId('');
+            setSearchKey('');
             setShowSymbolReplace(true)
             setShowUpload(true)
             setShowCSVPreview(false)
@@ -109,6 +118,9 @@ function Create (props) {
             setShowLegacyFields(true)
         } else {
             setAPISecretText('API Secret')
+            setFileName('');
+            setHubId('');
+            setSearchKey('');
             setShowSymbolReplace(false)
             setShowUpload(false);
             setShowCSVPreview(false);

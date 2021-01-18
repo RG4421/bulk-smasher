@@ -87,6 +87,8 @@ function Update(props) {
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "Hide Past Content") {
+            setFileName('');
+            setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(true);
             setShowUpload(false);
@@ -100,6 +102,8 @@ function Update(props) {
             setShowSymbolReplace(false);
             setShowHide('hide');
         } else if (selectValue === "Show Past Content") {
+            setFileName('');
+            setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(true);
             setShowUpload(false);
@@ -113,6 +117,8 @@ function Update(props) {
             setShowSymbolReplace(false);
             setShowHide('show');
         } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream" || selectValue === "Items") {
+            setFileName('');
+            setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(true);
@@ -125,6 +131,8 @@ function Update(props) {
             setShowLogDownload(false);            
             setShowSymbolReplace(true);
         } else if (selectValue === "Item Embedded Content") {
+            setFileName('');
+            setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(false);
@@ -137,6 +145,8 @@ function Update(props) {
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else if (selectValue === "Stream Embedded Content") {
+            setFileName('');
+            setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(false);
@@ -149,6 +159,8 @@ function Update(props) {
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else if (selectValue === "Tag Search") {
+            setFileName('');
+            setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(false);
@@ -161,6 +173,8 @@ function Update(props) {
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else {
+            setFileName('');
+            setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
             setShowUpload(false);

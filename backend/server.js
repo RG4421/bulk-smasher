@@ -14,6 +14,7 @@ const authRouter   = require('./routes/auth-router');
 const createRouter = require('./routes/create-router');
 const updateRouter = require('./routes/update-router');
 const deleteRouter = require('./routes/delete-router');
+const jobsRouter   = require('./routes/jobs-router')
 
 // Middleware
 app.use(cors());
@@ -38,6 +39,7 @@ app.use('/auth', authRouter);
 app.use('/create', createRouter);
 app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);
+app.use('/jobs', jobsRouter);
 
 // Server deployment
 app.listen(port, function(err) 

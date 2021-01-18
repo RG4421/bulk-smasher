@@ -235,7 +235,7 @@ async function seo (token, csv) {
                 console.log(resultString);
                 
             } catch (err) {
-                let thrownError = err.response.data.errors[0].message;
+                let thrownError = err;
                 let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
                 runCount++;
                 console.log(errorMessage);
@@ -243,7 +243,7 @@ async function seo (token, csv) {
             }
 
         } catch (err) {
-            let thrownError = err.response.data.errors[0].message;
+            let thrownError = err;
             let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}'\n`;
             runCount++;
             console.log(errorMessage);
@@ -640,7 +640,7 @@ async function items (token, csv) {
         let itemId = prop.item_id;
         let title = prop.title;
         let description = prop.description;
-        let content = prop.content;
+        let content = prop.source_content;
         let author = prop.author;
         let thumbnailUrl = prop.thumbnail_url;
         let seoTitle = prop.seo_title;
