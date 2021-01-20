@@ -210,7 +210,7 @@ async function items (token, data) {
         let streamId = prop.stream_id;
         let title = prop.title;
         let description = prop.description;
-        let content = prop.content;
+        let content = prop.source_content;
         let thumbnailUrl = prop.thumbnail_url;
         let author = prop.author;
         let seoTitle = prop.seo_title;
