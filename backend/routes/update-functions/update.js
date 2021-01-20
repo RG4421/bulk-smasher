@@ -640,7 +640,7 @@ async function items (token, csv) {
         let itemId = prop.item_id;
         let title = prop.title;
         let description = prop.description;
-        let content = prop.content;
+        let content = prop.source_content;
         let author = prop.author;
         let thumbnailUrl = prop.thumbnail_url;
         let seoTitle = prop.seo_title;
