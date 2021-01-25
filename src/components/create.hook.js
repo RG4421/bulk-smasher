@@ -35,6 +35,7 @@ function Create (props) {
     const [fileSize, setFileSize] = useState(0);
     const [hubId, setHubId] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const operatorType = 'Create';
 
     const [showUpload, setShowUpload] = useState(false);
     const [showCSVPreview, setShowCSVPreview] = useState(false);
@@ -79,7 +80,7 @@ function Create (props) {
     useEffect(() => {
         if (selectValue === "Streams" || selectValue === "Items" || selectValue === "User Profiles" || selectValue === "Test") {
             setAPISecretText('API Secret')
-            setFileName('');
+            setFileName('Choose file');
             setHubId('');
             setSearchKey('');
             setShowSymbolReplace(true)
@@ -92,7 +93,7 @@ function Create (props) {
             setShowLegacyFields(false)
         } else if (selectValue === "Tags") {
             setAPISecretText('API Secret')
-            setFileName('');
+            setFileName('Choose file');
             setHubId('');
             setSearchKey('');
             setShowSymbolReplace(false)
@@ -105,7 +106,7 @@ function Create (props) {
             setShowLegacyFields(false)
         } else if (selectValue === "PDF") {
             setAPISecretText('Signature')
-            setFileName('');
+            setFileName('Choose file');
             setHubId('');
             setSearchKey('');
             setShowSymbolReplace(true)
@@ -118,7 +119,7 @@ function Create (props) {
             setShowLegacyFields(true)
         } else {
             setAPISecretText('API Secret')
-            setFileName('');
+            setFileName('Choose file');
             setHubId('');
             setSearchKey('');
             setShowSymbolReplace(false)
@@ -198,6 +199,8 @@ function Create (props) {
         const payload = {
             APIKey, 
             APISecret,
+            operatorType,
+            selectValue,
             hubId,
             searchKey,
             fileContents,
@@ -411,7 +414,6 @@ function Create (props) {
                 break;
 
             case 'Test':
-
                 if (window.confirm("Are you sure you want to run this TEST call?")) {
                     setShowUpload(false);
                     setShowCSVPreview(false);
@@ -422,14 +424,14 @@ function Create (props) {
                     setShowSymbolReplace(false)
                     setShowLoader(true);
     
-                    Axios.post('create/test', payload, options)
+                    Axios.post('jobs/create', payload, options)
                     .then((res) => {
                         if (res.status >= 200 && res.status < 300) {
                             setShowLoader(false);
                             setServerSuccess(res.data.message);
                             setLogURL(res.data.log_name);
                             setShowServerSuccess(true);
-                            setShowLogDownload(true);
+                            setShowLogDownload(false);
                             console.log(res.data);    
                         } else if (res.status <= 300){
                             throw new Error('API ERROR');
@@ -531,7 +533,7 @@ function Create (props) {
                         <option value="PDF">PDFs</option>
                         <option value="Streams">Streams</option>
                         <option value="User Profiles">User Profiles</option>
-                        {/* <option value="Test">***Test***</option> */}
+                        <option value="Test">***Test***</option>
                     </select>
                 </div>
 

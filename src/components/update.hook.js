@@ -87,7 +87,7 @@ function Update(props) {
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "Hide Past Content") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(true);
@@ -102,7 +102,7 @@ function Update(props) {
             setShowSymbolReplace(false);
             setShowHide('hide');
         } else if (selectValue === "Show Past Content") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(true);
@@ -117,7 +117,7 @@ function Update(props) {
             setShowSymbolReplace(false);
             setShowHide('show');
         } else if (selectValue === "Author" || selectValue === "SEO" || selectValue === "Metadata" || selectValue === "Populate Stream" || selectValue === "Items") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
@@ -131,7 +131,7 @@ function Update(props) {
             setShowLogDownload(false);            
             setShowSymbolReplace(true);
         } else if (selectValue === "Item Embedded Content") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
@@ -145,7 +145,7 @@ function Update(props) {
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else if (selectValue === "Stream Embedded Content") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
@@ -159,7 +159,7 @@ function Update(props) {
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else if (selectValue === "Tag Search") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);
@@ -173,7 +173,7 @@ function Update(props) {
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowLoader(false);
             setShowDatePicker(false);

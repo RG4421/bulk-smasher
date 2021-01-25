@@ -17,7 +17,7 @@ function Auth (props) {
 
     const ServerError = () => (
         <div className="form-group componentElements">
-            <img style={{marginRight: 5}} src={cross} width="20" height="20" alt="Check"/>
+            <img style={{marginRight: 5, marginBottom: 4}} src={cross} width="20" height="20" alt="Check"/>
             <label>{serverError.data.message}</label>
         </div>
     )

@@ -78,7 +78,7 @@ function Delete (props)
     // Handling what fields are displayed depending on selectValue
     useEffect(() => {
         if (selectValue === "All Tags") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowDeleteAll(true);
             setShowDatePicker(false);
@@ -91,7 +91,7 @@ function Delete (props)
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else if (selectValue === "Tag List" || selectValue === "Stream Items" || selectValue === "Hidden Items" || selectValue === "Streams" || selectValue === "Items") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowDeleteAll(false);
             setShowDatePicker(false);
@@ -104,7 +104,7 @@ function Delete (props)
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else if (selectValue === "Past Content") {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowDeleteAll(false);
             setShowDatePicker(true);
@@ -117,7 +117,7 @@ function Delete (props)
             setShowLogDownload(false);
             setShowSymbolReplace(false);
         } else {
-            setFileName('');
+            setFileName('Choose file');
             setSearchKey('');
             setShowDeleteAll(false);
             setShowDatePicker(false);

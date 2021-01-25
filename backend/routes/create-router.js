@@ -153,9 +153,9 @@ router.route('/users').post(async (req, res) => {
 -----------
 */
 router.route('/items').post(async (req, res) => {
-    var APIKey = req.body.APIKey;
-    var APISecret = req.body.APISecret;
-    var fileContents = req.body.fileContents;
+    const APIKey = req.body.APIKey;
+    const APISecret = req.body.APISecret;
+    const fileContents = req.body.fileContents;
     const searchKey = req.body.searchKey;
     const dateTime = dateFormat(new Date(), "yyyy-mm-dd");
 
@@ -226,7 +226,6 @@ router.route('/test').post(async (req, res) => {
     const APIKey = req.body.APIKey;
     const APISecret = req.body.APISecret;
     const fileContents = req.body.fileContents;
-    //const fileSize = req.body.fileSize;
     const searchKey = req.body.searchKey;
     dateFormat(new Date(), "yyyy-mm-dd");
 
@@ -241,9 +240,9 @@ router.route('/test').post(async (req, res) => {
         let time = timer.stop();
         
         return res.status(201).json({
-                message: `TEST CALL RAN (${time.words})`,
-                log_name: `BulkSmasherLog.txt`
-            });
+            message: `TEST CALL RAN (${time.words})`,
+            log_name: `BulkSmasherLog.txt`
+        });
 
     } catch (e) {
         console.log(e);

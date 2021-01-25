@@ -1,0 +1,409 @@
+--- BULK BUSTER LOG - UPDATE - UPDATE ITEMS (Runtime 1.28 min) ---
+
+- HUBS - 
+Hub Name: Workplace Safety & Prevention Services
+Id: 111303
+
+- ACTIVITY LOG -
+2021-01-19 2:01:33  -  UPDATED ITEMS  -  Item '645131740' metadata updated
+2021-01-19 2:01:33  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131740'
+2021-01-19 2:01:34  -  UPDATED ITEMS  -  Item '645131743' metadata updated
+2021-01-19 2:01:34  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131743'
+2021-01-19 2:01:34  -  UPDATED ITEMS  -  Item '645131746' metadata updated
+2021-01-19 2:01:34  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131746'
+2021-01-19 2:01:34  -  UPDATED ITEMS  -  Item '645131749' metadata updated
+2021-01-19 2:01:34  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131749'
+2021-01-19 2:01:34  -  UPDATED ITEMS  -  Item '645131752' metadata updated
+2021-01-19 2:01:34  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131752'
+2021-01-19 2:01:35  -  UPDATED ITEMS  -  Item '645131755' metadata updated
+2021-01-19 2:01:35  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131755'
+2021-01-19 2:01:35  -  UPDATED ITEMS  -  Item '645131758' metadata updated
+2021-01-19 2:01:35  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131758'
+2021-01-19 2:01:35  -  UPDATED ITEMS  -  Item '645131761' metadata updated
+2021-01-19 2:01:35  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131761'
+2021-01-19 2:01:35  -  UPDATED ITEMS  -  Item '645131764' metadata updated
+2021-01-19 2:01:35  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131764'
+2021-01-19 2:01:36  -  UPDATED ITEMS  -  Item '645131767' metadata updated
+2021-01-19 2:01:36  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131767'
+2021-01-19 2:01:36  -  UPDATED ITEMS  -  Item '645131770' metadata updated
+2021-01-19 2:01:36  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131770'
+2021-01-19 2:01:36  -  UPDATED ITEMS  -  Item '645131773' metadata updated
+2021-01-19 2:01:36  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131773'
+2021-01-19 2:01:37  -  UPDATED ITEMS  -  Item '645131776' metadata updated
+2021-01-19 2:01:37  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131776'
+2021-01-19 2:01:37  -  UPDATED ITEMS  -  Item '645131779' metadata updated
+2021-01-19 2:01:37  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131779'
+2021-01-19 2:01:37  -  UPDATED ITEMS  -  Item '645131782' metadata updated
+2021-01-19 2:01:37  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131782'
+2021-01-19 2:01:37  -  UPDATED ITEMS  -  Item '645131788' metadata updated
+2021-01-19 2:01:37  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131788'
+2021-01-19 2:01:38  -  UPDATED ITEMS  -  Item '645131791' metadata updated
+2021-01-19 2:01:38  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131791'
+2021-01-19 2:01:38  -  UPDATED ITEMS  -  Item '645131794' metadata updated
+2021-01-19 2:01:38  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131794'
+2021-01-19 2:01:38  -  UPDATED ITEMS  -  Item '645131797' metadata updated
+2021-01-19 2:01:38  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131797'
+2021-01-19 2:01:38  -  UPDATED ITEMS  -  Item '645131800' metadata updated
+2021-01-19 2:01:38  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131800'
+2021-01-19 2:01:39  -  UPDATED ITEMS  -  Item '645131803' metadata updated
+2021-01-19 2:01:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131803'
+2021-01-19 2:01:39  -  UPDATED ITEMS  -  Item '645131806' metadata updated
+2021-01-19 2:01:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131806'
+2021-01-19 2:01:39  -  UPDATED ITEMS  -  Item '645131809' metadata updated
+2021-01-19 2:01:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131809'
+2021-01-19 2:01:40  -  UPDATED ITEMS  -  Item '645131728' metadata updated
+2021-01-19 2:01:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131728'
+2021-01-19 2:01:40  -  UPDATED ITEMS  -  Item '645131812' metadata updated
+2021-01-19 2:01:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131812'
+2021-01-19 2:01:42  -  UPDATED ITEMS  -  Item '645131815' metadata updated
+2021-01-19 2:01:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131815'
+2021-01-19 2:01:42  -  UPDATED ITEMS  -  Item '645131818' metadata updated
+2021-01-19 2:01:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131818'
+2021-01-19 2:01:42  -  UPDATED ITEMS  -  Item '645131821' metadata updated
+2021-01-19 2:01:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131821'
+2021-01-19 2:01:42  -  UPDATED ITEMS  -  Item '645131824' metadata updated
+2021-01-19 2:01:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131824'
+2021-01-19 2:01:43  -  UPDATED ITEMS  -  Item '645131827' metadata updated
+2021-01-19 2:01:43  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131827'
+2021-01-19 2:01:43  -  UPDATED ITEMS  -  Item '645131830' metadata updated
+2021-01-19 2:01:43  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131830'
+2021-01-19 2:01:43  -  UPDATED ITEMS  -  Item '645131833' metadata updated
+2021-01-19 2:01:43  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131833'
+2021-01-19 2:01:44  -  UPDATED ITEMS  -  Item '645131836' metadata updated
+2021-01-19 2:01:44  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131836'
+2021-01-19 2:01:44  -  UPDATED ITEMS  -  Item '645131839' metadata updated
+2021-01-19 2:01:44  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131839'
+2021-01-19 2:01:44  -  UPDATED ITEMS  -  Item '645131842' metadata updated
+2021-01-19 2:01:44  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131842'
+2021-01-19 2:01:44  -  UPDATED ITEMS  -  Item '645131845' metadata updated
+2021-01-19 2:01:44  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131845'
+2021-01-19 2:01:45  -  UPDATED ITEMS  -  Item '645131848' metadata updated
+2021-01-19 2:01:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131848'
+2021-01-19 2:01:45  -  UPDATED ITEMS  -  Item '645131851' metadata updated
+2021-01-19 2:01:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131851'
+2021-01-19 2:01:45  -  UPDATED ITEMS  -  Item '645131854' metadata updated
+2021-01-19 2:01:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131854'
+2021-01-19 2:01:45  -  UPDATED ITEMS  -  Item '645131857' metadata updated
+2021-01-19 2:01:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131857'
+2021-01-19 2:01:46  -  UPDATED ITEMS  -  Item '645131860' metadata updated
+2021-01-19 2:01:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131860'
+2021-01-19 2:01:46  -  UPDATED ITEMS  -  Item '645131731' metadata updated
+2021-01-19 2:01:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131731'
+2021-01-19 2:01:46  -  UPDATED ITEMS  -  Item '645131719' metadata updated
+2021-01-19 2:01:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131719'
+2021-01-19 2:01:47  -  UPDATED ITEMS  -  Item '645131863' metadata updated
+2021-01-19 2:01:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131863'
+2021-01-19 2:01:47  -  UPDATED ITEMS  -  Item '645131866' metadata updated
+2021-01-19 2:01:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131866'
+2021-01-19 2:01:47  -  UPDATED ITEMS  -  Item '645131869' metadata updated
+2021-01-19 2:01:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131869'
+2021-01-19 2:01:48  -  UPDATED ITEMS  -  Item '645131872' metadata updated
+2021-01-19 2:01:48  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131872'
+2021-01-19 2:01:48  -  UPDATED ITEMS  -  Item '645131875' metadata updated
+2021-01-19 2:01:48  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131875'
+2021-01-19 2:01:48  -  UPDATED ITEMS  -  Item '645131734' metadata updated
+2021-01-19 2:01:48  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131734'
+2021-01-19 2:01:49  -  UPDATED ITEMS  -  Item '645131716' metadata updated
+2021-01-19 2:01:49  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131716'
+2021-01-19 2:01:49  -  UPDATED ITEMS  -  Item '645131725' metadata updated
+2021-01-19 2:01:49  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131725'
+2021-01-19 2:01:50  -  UPDATED ITEMS  -  Item '645131878' metadata updated
+2021-01-19 2:01:50  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131878'
+2021-01-19 2:01:50  -  UPDATED ITEMS  -  Item '645131881' metadata updated
+2021-01-19 2:01:50  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131881'
+2021-01-19 2:01:50  -  UPDATED ITEMS  -  Item '645131884' metadata updated
+2021-01-19 2:01:50  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131884'
+2021-01-19 2:01:50  -  UPDATED ITEMS  -  Item '645131887' metadata updated
+2021-01-19 2:01:50  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131887'
+2021-01-19 2:01:52  -  UPDATED ITEMS  -  Item '645131890' metadata updated
+2021-01-19 2:01:52  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131890'
+2021-01-19 2:01:52  -  UPDATED ITEMS  -  Item '645131893' metadata updated
+2021-01-19 2:01:52  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131893'
+2021-01-19 2:01:52  -  UPDATED ITEMS  -  Item '645131896' metadata updated
+2021-01-19 2:01:52  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131896'
+2021-01-19 2:01:52  -  UPDATED ITEMS  -  Item '645131899' metadata updated
+2021-01-19 2:01:52  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131899'
+2021-01-19 2:01:53  -  UPDATED ITEMS  -  Item '645131737' metadata updated
+2021-01-19 2:01:53  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131737'
+2021-01-19 2:01:53  -  UPDATED ITEMS  -  Item '645131902' metadata updated
+2021-01-19 2:01:53  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131902'
+2021-01-19 2:01:53  -  UPDATED ITEMS  -  Item '645131905' metadata updated
+2021-01-19 2:01:53  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131905'
+2021-01-19 2:01:53  -  UPDATED ITEMS  -  Item '645131908' metadata updated
+2021-01-19 2:01:53  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131908'
+2021-01-19 2:01:54  -  UPDATED ITEMS  -  Item '645131911' metadata updated
+2021-01-19 2:01:54  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131911'
+2021-01-19 2:01:54  -  UPDATED ITEMS  -  Item '645131914' metadata updated
+2021-01-19 2:01:54  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131914'
+2021-01-19 2:01:54  -  UPDATED ITEMS  -  Item '645131917' metadata updated
+2021-01-19 2:01:54  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131917'
+2021-01-19 2:01:54  -  UPDATED ITEMS  -  Item '645131722' metadata updated
+2021-01-19 2:01:54  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131722'
+2021-01-19 2:01:54  -  UPDATED ITEMS  -  Item '645131959' metadata updated
+2021-01-19 2:01:54  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131959'
+2021-01-19 2:01:55  -  UPDATED ITEMS  -  Item '645131986' metadata updated
+2021-01-19 2:01:55  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131986'
+2021-01-19 2:01:55  -  UPDATED ITEMS  -  Item '645131989' metadata updated
+2021-01-19 2:01:55  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131989'
+2021-01-19 2:01:55  -  UPDATED ITEMS  -  Item '645131992' metadata updated
+2021-01-19 2:01:55  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131992'
+2021-01-19 2:01:56  -  UPDATED ITEMS  -  Item '645131965' metadata updated
+2021-01-19 2:01:56  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131965'
+2021-01-19 2:01:56  -  UPDATED ITEMS  -  Item '645131995' metadata updated
+2021-01-19 2:01:56  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131995'
+2021-01-19 2:01:57  -  UPDATED ITEMS  -  Item '645131998' metadata updated
+2021-01-19 2:01:57  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131998'
+2021-01-19 2:01:57  -  UPDATED ITEMS  -  Item '645132001' metadata updated
+2021-01-19 2:01:57  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132001'
+2021-01-19 2:01:58  -  UPDATED ITEMS  -  Item '645132004' metadata updated
+2021-01-19 2:01:58  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132004'
+2021-01-19 2:01:58  -  UPDATED ITEMS  -  Item '645132007' metadata updated
+2021-01-19 2:01:58  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132007'
+2021-01-19 2:01:58  -  UPDATED ITEMS  -  Item '645132010' metadata updated
+2021-01-19 2:01:58  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132010'
+2021-01-19 2:01:59  -  UPDATED ITEMS  -  Item '645132013' metadata updated
+2021-01-19 2:01:59  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132013'
+2021-01-19 2:01:59  -  UPDATED ITEMS  -  Item '645132016' metadata updated
+2021-01-19 2:01:59  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132016'
+2021-01-19 2:01:59  -  UPDATED ITEMS  -  Item '645132019' metadata updated
+2021-01-19 2:01:59  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132019'
+2021-01-19 2:01:59  -  UPDATED ITEMS  -  Item '645131956' metadata updated
+2021-01-19 2:01:59  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131956'
+2021-01-19 2:02:00  -  UPDATED ITEMS  -  Item '645132022' metadata updated
+2021-01-19 2:02:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132022'
+2021-01-19 2:02:00  -  UPDATED ITEMS  -  Item '645132025' metadata updated
+2021-01-19 2:02:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132025'
+2021-01-19 2:02:00  -  UPDATED ITEMS  -  Item '645132028' metadata updated
+2021-01-19 2:02:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132028'
+2021-01-19 2:02:00  -  UPDATED ITEMS  -  Item '645131968' metadata updated
+2021-01-19 2:02:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131968'
+2021-01-19 2:02:01  -  UPDATED ITEMS  -  Item '645132031' metadata updated
+2021-01-19 2:02:01  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132031'
+2021-01-19 2:02:01  -  UPDATED ITEMS  -  Item '645131974' metadata updated
+2021-01-19 2:02:01  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131974'
+2021-01-19 2:02:01  -  UPDATED ITEMS  -  Item '645131953' metadata updated
+2021-01-19 2:02:01  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131953'
+2021-01-19 2:02:02  -  UPDATED ITEMS  -  Item '645131977' metadata updated
+2021-01-19 2:02:02  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131977'
+2021-01-19 2:02:02  -  UPDATED ITEMS  -  Item '645132034' metadata updated
+2021-01-19 2:02:02  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132034'
+2021-01-19 2:02:02  -  UPDATED ITEMS  -  Item '645131980' metadata updated
+2021-01-19 2:02:02  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131980'
+2021-01-19 2:02:03  -  UPDATED ITEMS  -  Item '645132037' metadata updated
+2021-01-19 2:02:03  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132037'
+2021-01-19 2:02:03  -  UPDATED ITEMS  -  Item '645131971' metadata updated
+2021-01-19 2:02:03  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131971'
+2021-01-19 2:02:03  -  UPDATED ITEMS  -  Item '645132040' metadata updated
+2021-01-19 2:02:03  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132040'
+2021-01-19 2:02:04  -  UPDATED ITEMS  -  Item '645132043' metadata updated
+2021-01-19 2:02:04  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132043'
+2021-01-19 2:02:04  -  UPDATED ITEMS  -  Item '645131983' metadata updated
+2021-01-19 2:02:04  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131983'
+2021-01-19 2:02:04  -  UPDATED ITEMS  -  Item '645132046' metadata updated
+2021-01-19 2:02:04  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132046'
+2021-01-19 2:02:05  -  UPDATED ITEMS  -  Item '645132049' metadata updated
+2021-01-19 2:02:05  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132049'
+2021-01-19 2:02:05  -  UPDATED ITEMS  -  Item '645132052' metadata updated
+2021-01-19 2:02:05  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132052'
+2021-01-19 2:02:05  -  UPDATED ITEMS  -  Item '645132055' metadata updated
+2021-01-19 2:02:05  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132055'
+2021-01-19 2:02:06  -  UPDATED ITEMS  -  Item '645132058' metadata updated
+2021-01-19 2:02:06  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132058'
+2021-01-19 2:02:10  -  UPDATED ITEMS  -  Item '645132061' metadata updated
+2021-01-19 2:02:10  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132061'
+2021-01-19 2:02:11  -  UPDATED ITEMS  -  Item '645132064' metadata updated
+2021-01-19 2:02:11  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132064'
+2021-01-19 2:02:12  -  UPDATED ITEMS  -  Item '645132067' metadata updated
+2021-01-19 2:02:12  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132067'
+2021-01-19 2:02:13  -  UPDATED ITEMS  -  Item '645131962' metadata updated
+2021-01-19 2:02:13  -  ERROR: An error prevented your request from being completed  -  Publishing item '645131962'
+2021-01-19 2:02:13  -  UPDATED ITEMS  -  Item '645132085' metadata updated
+2021-01-19 2:02:13  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132085'
+2021-01-19 2:02:14  -  UPDATED ITEMS  -  Item '645132088' metadata updated
+2021-01-19 2:02:14  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132088'
+2021-01-19 2:02:14  -  UPDATED ITEMS  -  Item '645132091' metadata updated
+2021-01-19 2:02:14  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132091'
+2021-01-19 2:02:14  -  UPDATED ITEMS  -  Item '645132094' metadata updated
+2021-01-19 2:02:14  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132094'
+2021-01-19 2:02:14  -  UPDATED ITEMS  -  Item '645132097' metadata updated
+2021-01-19 2:02:14  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132097'
+2021-01-19 2:02:15  -  UPDATED ITEMS  -  Item '645132100' metadata updated
+2021-01-19 2:02:15  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132100'
+2021-01-19 2:02:15  -  UPDATED ITEMS  -  Item '645132103' metadata updated
+2021-01-19 2:02:15  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132103'
+2021-01-19 2:02:15  -  UPDATED ITEMS  -  Item '645132106' metadata updated
+2021-01-19 2:02:15  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132106'
+2021-01-19 2:02:15  -  UPDATED ITEMS  -  Item '645132109' metadata updated
+2021-01-19 2:02:15  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132109'
+2021-01-19 2:02:16  -  UPDATED ITEMS  -  Item '645132112' metadata updated
+2021-01-19 2:02:16  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132112'
+2021-01-19 2:02:16  -  UPDATED ITEMS  -  Item '645132115' metadata updated
+2021-01-19 2:02:16  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132115'
+2021-01-19 2:02:16  -  UPDATED ITEMS  -  Item '645132118' metadata updated
+2021-01-19 2:02:16  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132118'
+2021-01-19 2:02:16  -  UPDATED ITEMS  -  Item '645132121' metadata updated
+2021-01-19 2:02:16  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132121'
+2021-01-19 2:02:17  -  UPDATED ITEMS  -  Item '645132124' metadata updated
+2021-01-19 2:02:17  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132124'
+2021-01-19 2:02:19  -  UPDATED ITEMS  -  Item '645132127' metadata updated
+2021-01-19 2:02:19  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132127'
+2021-01-19 2:02:19  -  UPDATED ITEMS  -  Item '645132130' metadata updated
+2021-01-19 2:02:19  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132130'
+2021-01-19 2:02:20  -  UPDATED ITEMS  -  Item '645132133' metadata updated
+2021-01-19 2:02:20  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132133'
+2021-01-19 2:02:20  -  UPDATED ITEMS  -  Item '645132136' metadata updated
+2021-01-19 2:02:20  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132136'
+2021-01-19 2:02:20  -  UPDATED ITEMS  -  Item '645132139' metadata updated
+2021-01-19 2:02:20  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132139'
+2021-01-19 2:02:20  -  UPDATED ITEMS  -  Item '645132142' metadata updated
+2021-01-19 2:02:20  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132142'
+2021-01-19 2:02:21  -  UPDATED ITEMS  -  Item '645132145' metadata updated
+2021-01-19 2:02:21  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132145'
+2021-01-19 2:02:21  -  UPDATED ITEMS  -  Item '645132148' metadata updated
+2021-01-19 2:02:21  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132148'
+2021-01-19 2:02:22  -  UPDATED ITEMS  -  Item '645132151' metadata updated
+2021-01-19 2:02:22  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132151'
+2021-01-19 2:02:22  -  UPDATED ITEMS  -  Item '645132154' metadata updated
+2021-01-19 2:02:22  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132154'
+2021-01-19 2:02:22  -  UPDATED ITEMS  -  Item '645132157' metadata updated
+2021-01-19 2:02:22  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132157'
+2021-01-19 2:02:22  -  UPDATED ITEMS  -  Item '645132160' metadata updated
+2021-01-19 2:02:22  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132160'
+2021-01-19 2:02:22  -  UPDATED ITEMS  -  Item '645132163' metadata updated
+2021-01-19 2:02:22  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132163'
+2021-01-19 2:02:23  -  UPDATED ITEMS  -  Item '645132166' metadata updated
+2021-01-19 2:02:23  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132166'
+2021-01-19 2:02:23  -  UPDATED ITEMS  -  Item '645132169' metadata updated
+2021-01-19 2:02:23  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132169'
+2021-01-19 2:02:25  -  UPDATED ITEMS  -  Item '645132172' metadata updated
+2021-01-19 2:02:25  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132172'
+2021-01-19 2:02:25  -  UPDATED ITEMS  -  Item '645132175' metadata updated
+2021-01-19 2:02:25  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132175'
+2021-01-19 2:02:26  -  UPDATED ITEMS  -  Item '645132178' metadata updated
+2021-01-19 2:02:26  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132178'
+2021-01-19 2:02:26  -  UPDATED ITEMS  -  Item '645132181' metadata updated
+2021-01-19 2:02:26  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132181'
+2021-01-19 2:02:26  -  UPDATED ITEMS  -  Item '645132184' metadata updated
+2021-01-19 2:02:26  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132184'
+2021-01-19 2:02:26  -  UPDATED ITEMS  -  Item '645132187' metadata updated
+2021-01-19 2:02:26  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132187'
+2021-01-19 2:02:26  -  UPDATED ITEMS  -  Item '645132190' metadata updated
+2021-01-19 2:02:26  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132190'
+2021-01-19 2:02:27  -  UPDATED ITEMS  -  Item '645132193' metadata updated
+2021-01-19 2:02:27  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132193'
+2021-01-19 2:02:27  -  UPDATED ITEMS  -  Item '645132196' metadata updated
+2021-01-19 2:02:27  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132196'
+2021-01-19 2:02:27  -  UPDATED ITEMS  -  Item '645132199' metadata updated
+2021-01-19 2:02:27  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132199'
+2021-01-19 2:02:27  -  UPDATED ITEMS  -  Item '645132202' metadata updated
+2021-01-19 2:02:27  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132202'
+2021-01-19 2:02:28  -  UPDATED ITEMS  -  Item '645132205' metadata updated
+2021-01-19 2:02:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132205'
+2021-01-19 2:02:28  -  UPDATED ITEMS  -  Item '645132208' metadata updated
+2021-01-19 2:02:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132208'
+2021-01-19 2:02:28  -  UPDATED ITEMS  -  Item '645132211' metadata updated
+2021-01-19 2:02:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132211'
+2021-01-19 2:02:28  -  UPDATED ITEMS  -  Item '645132214' metadata updated
+2021-01-19 2:02:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132214'
+2021-01-19 2:02:29  -  UPDATED ITEMS  -  Item '645132217' metadata updated
+2021-01-19 2:02:29  -  ERROR: An error prevented your request from being completed  -  Publishing item '645132217'
+2021-01-19 2:02:29  -  UPDATED ITEMS  -  Item '642381211' metadata updated
+2021-01-19 2:02:29  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381211'
+2021-01-19 2:02:29  -  UPDATED ITEMS  -  Item '642381214' metadata updated
+2021-01-19 2:02:29  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381214'
+2021-01-19 2:02:29  -  UPDATED ITEMS  -  Item '642381217' metadata updated
+2021-01-19 2:02:29  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381217'
+2021-01-19 2:02:30  -  UPDATED ITEMS  -  Item '642381220' metadata updated
+2021-01-19 2:02:30  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381220'
+2021-01-19 2:02:30  -  UPDATED ITEMS  -  Item '642381223' metadata updated
+2021-01-19 2:02:30  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381223'
+2021-01-19 2:02:30  -  UPDATED ITEMS  -  Item '642381226' metadata updated
+2021-01-19 2:02:30  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381226'
+2021-01-19 2:02:31  -  UPDATED ITEMS  -  Item '642380851' metadata updated
+2021-01-19 2:02:31  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380851'
+2021-01-19 2:02:31  -  UPDATED ITEMS  -  Item '642380815' metadata updated
+2021-01-19 2:02:31  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380815'
+2021-01-19 2:02:32  -  UPDATED ITEMS  -  Item '642381022' metadata updated
+2021-01-19 2:02:32  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381022'
+2021-01-19 2:02:32  -  UPDATED ITEMS  -  Item '642381124' metadata updated
+2021-01-19 2:02:32  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381124'
+2021-01-19 2:02:33  -  UPDATED ITEMS  -  Item '642381091' metadata updated
+2021-01-19 2:02:33  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381091'
+2021-01-19 2:02:33  -  UPDATED ITEMS  -  Item '642381127' metadata updated
+2021-01-19 2:02:33  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381127'
+2021-01-19 2:02:33  -  UPDATED ITEMS  -  Item '642381130' metadata updated
+2021-01-19 2:02:33  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381130'
+2021-01-19 2:02:34  -  UPDATED ITEMS  -  Item '642381025' metadata updated
+2021-01-19 2:02:34  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381025'
+2021-01-19 2:02:34  -  UPDATED ITEMS  -  Item '642380803' metadata updated
+2021-01-19 2:02:34  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380803'
+2021-01-19 2:02:34  -  UPDATED ITEMS  -  Item '642380806' metadata updated
+2021-01-19 2:02:34  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380806'
+2021-01-19 2:02:35  -  UPDATED ITEMS  -  Item '642381277' metadata updated
+2021-01-19 2:02:35  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381277'
+2021-01-19 2:02:35  -  UPDATED ITEMS  -  Item '642381028' metadata updated
+2021-01-19 2:02:35  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381028'
+2021-01-19 2:02:36  -  UPDATED ITEMS  -  Item '642381031' metadata updated
+2021-01-19 2:02:36  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381031'
+2021-01-19 2:02:36  -  UPDATED ITEMS  -  Item '642380902' metadata updated
+2021-01-19 2:02:36  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380902'
+2021-01-19 2:02:37  -  UPDATED ITEMS  -  Item '642381133' metadata updated
+2021-01-19 2:02:37  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381133'
+2021-01-19 2:02:38  -  UPDATED ITEMS  -  Item '642381073' metadata updated
+2021-01-19 2:02:38  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381073'
+2021-01-19 2:02:39  -  UPDATED ITEMS  -  Item '642381058' metadata updated
+2021-01-19 2:02:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381058'
+2021-01-19 2:02:39  -  UPDATED ITEMS  -  Item '642381229' metadata updated
+2021-01-19 2:02:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381229'
+2021-01-19 2:02:40  -  UPDATED ITEMS  -  Item '642381232' metadata updated
+2021-01-19 2:02:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381232'
+2021-01-19 2:02:40  -  UPDATED ITEMS  -  Item '642381235' metadata updated
+2021-01-19 2:02:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381235'
+2021-01-19 2:02:40  -  UPDATED ITEMS  -  Item '642381238' metadata updated
+2021-01-19 2:02:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381238'
+2021-01-19 2:02:41  -  UPDATED ITEMS  -  Item '642381241' metadata updated
+2021-01-19 2:02:41  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381241'
+2021-01-19 2:02:42  -  UPDATED ITEMS  -  Item '642381244' metadata updated
+2021-01-19 2:02:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381244'
+2021-01-19 2:02:42  -  UPDATED ITEMS  -  Item '642381076' metadata updated
+2021-01-19 2:02:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381076'
+2021-01-19 2:02:42  -  UPDATED ITEMS  -  Item '642381034' metadata updated
+2021-01-19 2:02:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381034'
+2021-01-19 2:02:43  -  UPDATED ITEMS  -  Item '642380731' metadata updated
+2021-01-19 2:02:43  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380731'
+2021-01-19 2:02:43  -  UPDATED ITEMS  -  Item '642380833' metadata updated
+2021-01-19 2:02:43  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380833'
+2021-01-19 2:02:43  -  UPDATED ITEMS  -  Item '642381037' metadata updated
+2021-01-19 2:02:43  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381037'
+2021-01-19 2:02:44  -  UPDATED ITEMS  -  Item '642380893' metadata updated
+2021-01-19 2:02:44  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380893'
+2021-01-19 2:02:44  -  UPDATED ITEMS  -  Item '642381280' metadata updated
+2021-01-19 2:02:44  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381280'
+2021-01-19 2:02:45  -  UPDATED ITEMS  -  Item '642380890' metadata updated
+2021-01-19 2:02:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380890'
+2021-01-19 2:02:45  -  UPDATED ITEMS  -  Item '642381283' metadata updated
+2021-01-19 2:02:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381283'
+2021-01-19 2:02:45  -  UPDATED ITEMS  -  Item '642381169' metadata updated
+2021-01-19 2:02:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381169'
+2021-01-19 2:02:46  -  UPDATED ITEMS  -  Item '642381172' metadata updated
+2021-01-19 2:02:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381172'
+2021-01-19 2:02:46  -  UPDATED ITEMS  -  Item '642381175' metadata updated
+2021-01-19 2:02:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381175'
+2021-01-19 2:02:47  -  UPDATED ITEMS  -  Item '642381040' metadata updated
+2021-01-19 2:02:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381040'
+2021-01-19 2:02:47  -  UPDATED ITEMS  -  Item '642381286' metadata updated
+2021-01-19 2:02:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381286'
+2021-01-19 2:02:47  -  UPDATED ITEMS  -  Item '640334662' metadata updated
+2021-01-19 2:02:47  -  Published item '640334662'
+2021-01-19 2:02:48  -  UPDATED ITEMS  -  Item '641001385' metadata updated
+2021-01-19 2:02:48  -  Published item '641001385'
+2021-01-19 2:02:48  -  UPDATED ITEMS  -  Item '642381043' metadata updated
+2021-01-19 2:02:48  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381043'
+2021-01-19 2:02:48  -  UPDATED ITEMS  -  Item '642381136' metadata updated
+2021-01-19 2:02:48  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381136'
+2021-01-19 2:02:49  -  UPDATED ITEMS  -  Item '642380818' metadata updated
+2021-01-19 2:02:49  -  ERROR: An error prevented your request from being completed  -  Publishing item '642380818'
+2021-01-19 2:02:49  -  UPDATED ITEMS  -  Item '642381079' metadata updated
+2021-01-19 2:02:49  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381079'
+2021-01-19 2:02:49  -  UPDATED ITEMS  -  Item '642381061' metadata updated
+2021-01-19 2:02:49  -  ERROR: An error prevented your request from being completed  -  Publishing item '642381061'

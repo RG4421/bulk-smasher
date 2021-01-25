@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "aws-sdk": "^2.831.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "boom": "^7.3.0",
@@ -44,7 +45,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "client": "npm start",
-    "server": "nodemon server.js --prefix backend",
+    "server": "nodemon ./backend/server.js",
     "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "proxy": "http://localhost:4001",

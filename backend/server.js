@@ -14,7 +14,7 @@ const authRouter   = require('./routes/auth-router');
 const createRouter = require('./routes/create-router');
 const updateRouter = require('./routes/update-router');
 const deleteRouter = require('./routes/delete-router');
-const jobsRouter   = require('./routes/jobs-router')
+const jobsRouter   = require('./routes/jobs-router');
 
 // Middleware
 app.use(cors());
@@ -35,11 +35,11 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, './build')));
 app.use(express.static(path.join(__dirname, './build/server-logs')));
-app.use('/auth', authRouter);
+app.use('/auth',   authRouter);
 app.use('/create', createRouter);
 app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);
-app.use('/jobs', jobsRouter);
+app.use('/jobs',   jobsRouter);
 
 // Server deployment
 app.listen(port, function(err) 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Axios from 'axios';
-import Accordion from 'react-bootstrap/Accordion'
-import Alert from 'react-bootstrap/Alert'
-import Card from 'react-bootstrap/Card'
+// import Accordion from 'react-bootstrap/Accordion'
+// import Alert from 'react-bootstrap/Alert'
+// import Card from 'react-bootstrap/Card'
 
 import newWindow from '../images/newWindow.png'
-import logo from '../images/uf.png'
+// import logo from '../images/uf.png'
 
 function Jobs (props) {
 

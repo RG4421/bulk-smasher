@@ -41,15 +41,15 @@ function copyReactCodeTask() {
 
 function copyNodeJSCodeTask() {
   log('building and copying server code into the directory')
-  return src(['package.json', './backend/**', './backend/.env', './backend/.ebextensions**'])
+  return src(['package.json', './backend/**', './backend/.env'])
         .pipe(dest(`${paths.prod_build}`))
 }
 
-function copyEBCodeTask() {
-  log('building and copying ebconfig files into the directory')
-  return src(['./backend/.ebextensions/**'])
-        .pipe(dest(`${paths.prod_build}/.ebextensions`))
-}
+// function copyEBCodeTask() {
+//   log('building and copying ebconfig files into the directory')
+//   return src(['./backend/.ebextensions/**'])
+//         .pipe(dest(`${paths.prod_build}/.ebextensions`))
+// }
 
 function zippingTask() {
   log('zipping the code ')
@@ -61,6 +61,6 @@ function zippingTask() {
 exports.default = series(
   createProdBuildFolder,
   buildReactCodeTask,
-  parallel(copyReactCodeTask, copyNodeJSCodeTask, copyEBCodeTask),
+  parallel(copyReactCodeTask, copyNodeJSCodeTask),
   zippingTask
 );
