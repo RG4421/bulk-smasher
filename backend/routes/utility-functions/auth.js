@@ -83,13 +83,13 @@ async function authenticateCredsV2(key, secret) {
 async function googleAuth (creds, date, logId, type, operator, executions, time) {
 
     let convertedRuntime;
-    let emet = parseFloat((executions * 0.5) / 60).toFixed(2);
+    let emet = parseFloat((executions * 0.8) / 60).toFixed(2);
     let value = time.time;
     let unit = time.words.split(' ')[1];
 
     // convert runtime into minutes for reporting
     if (unit === 's') {
-        convertedRuntime = parseFloat(value / 1000).toFixed(2);
+        convertedRuntime = parseFloat(value / 1000 / 60).toFixed(2);
     } else if (unit === 'min') {
         convertedRuntime = parseFloat(value / 1000 / 60).toFixed(2);
     } else if (unit === 'h') {

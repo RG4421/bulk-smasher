@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const uniqid = require('uniqid');
+const dateFormat = require('dateformat');
 
 // AWS CONFIG
 const AWS = require('aws-sdk');
@@ -7,8 +9,6 @@ const DB = require('../db_config');
 // FUNCTIONS
 const auth = require('./utility-functions/auth');
 const fetch = require('./utility-functions/fetch');
-const uniqid = require('uniqid');
-const dateFormat = require('dateformat');
 
 router.route('/create').post(async (req, res) => {
     const APIKey = req.body.APIKey;
@@ -19,13 +19,14 @@ router.route('/create').post(async (req, res) => {
     const hubId = req.body.hubId;
     const operatorType = req.body.operatorType;
     const selectValue = req.body.selectValue;
+    const email = req.body.email
     
     try {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         const hub = await fetch.getHubId(authToken);
         const _id = uniqid().toString();
         const jobGroup = hub[0].id.toString();
-        const status = 'queued';
+        const status = 'Queued';
         const date = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
 
         AWS.config.update(DB.aws_remote_config);
@@ -42,7 +43,8 @@ router.route('/create').post(async (req, res) => {
             fileContents,
             fileSize,
             searchKey,
-            hubId
+            hubId,
+            email
         };
 
         var params = {
@@ -98,7 +100,7 @@ router.route('/view').post(async (req, res) => {
             },
             FilterExpression: "#JG = :job",
             ProjectionExpression: "#D, #ID, #JG, #FS, #OP, #SV, #S",
-            TableName: DB.bulksmasher_queue,
+            TableName: DB.bulksmasher_jobs,
         };
 
         dynamoDB.scan(params, function (err, data) {

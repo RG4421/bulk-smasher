@@ -92,77 +92,70 @@ async function author (token, csv) {
     for (let i = 0; i < csv.length; i++) {
         let temp = csv[i];
         let itemId = temp.item_id;
-        let authorId = temp.author_id;
-        let props = Object.keys(temp);
+        let userId = temp.user_id;
+        let firstName = temp.first_name;
+        let lastName = temp.last_name;
         let dateTime = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
         let pubDate;
 
-        for (let j = 2; j < props.length; j++) {
-            let authorName = props[j];
-            let fullName = temp[authorName];
-            let name = fullName.split(' ');
-            let firstName = name[0];
-            let lastName = name[1];
+        try {
+            const result = await axios({
+                url: `https://v2.api.uberflip.com/items/${itemId}`,
+                method: 'patch',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                params: {
+                    limit: 100,
+                },
+                data: {
+                    author: {
+                        id: userId,
+                        first_name: firstName,
+                        last_name: lastName
+                    }
+                },
+            });
+            let resultString = `${dateTime}  -  UPDATED AUTHOR  -  Item '${itemId}' updated to '${firstName} ${lastName}'\n`;
+            runCount++;
+            logObj.push(resultString);
+
+            if (result.data.published_at != null) {
+                pubDate = result.data.published_at
+            } else {
+                pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
+            }
 
             try {
-                const result = await axios({
-                    url: `https://v2.api.uberflip.com/items/${itemId}`,
-                    method: 'patch',
+                await axios({
+                    url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
+                    method: 'post',
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     },
-                    params: {
-                        limit: 100,
-                    },
                     data: {
-                        author: {
-                            id: authorId,
-                            first_name: firstName,
-                            last_name: lastName
-                        }
-                    },
+                        published_at: pubDate
+                    }
                 });
-                let resultString = `${dateTime}  -  UPDATED AUTHOR  -  Item '${itemId}' updated to '${fullName}'\n`;
+                let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
                 runCount++;
                 logObj.push(resultString);
-
-                if (result.data.published_at != null) {
-                    pubDate = result.data.published_at
-                } else {
-                    pubDate = dateFormat(new Date(), "yyyy-mm-dd h:MM:ss");
-                }
-
-                try {
-                    await axios({
-                        url: `https://v2.api.uberflip.com/items/${itemId}/publish`,
-                        method: 'post',
-                        headers: {
-                            'Authorization': `Bearer ${token}`,
-                        },
-                        data: {
-                            published_at: pubDate
-                        }
-                    });
-                    let resultString = `${dateTime}  -  Published item '${itemId}'\n`;
-                    runCount++;
-                    logObj.push(resultString);
-                    console.log(resultString);
-                    
-                } catch (err) {
-                    let thrownError = err.response.data.errors[0].message;
-                    let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
-                    runCount++;
-                    console.log(errorMessage);
-                    logObj.push(errorMessage);
-                }
-
+                console.log(resultString);
+                
             } catch (err) {
                 let thrownError = err.response.data.errors[0].message;
-                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}' to author '${fullName}'\n`;
+                let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Publishing item '${itemId}'\n`;
                 runCount++;
                 console.log(errorMessage);
                 logObj.push(errorMessage);
             }
+
+        } catch (err) {
+            let thrownError = err.response.data.errors[0].message;
+            let errorMessage = `${dateTime}  -  ERROR: ${thrownError}  -  Updating item '${itemId}' to author '${firstName} ${lastName}'\n`;
+            runCount++;
+            console.log(errorMessage);
+            logObj.push(errorMessage);
         }
     }
     let returnObj = { logObj, runCount };
