@@ -74,7 +74,7 @@ function Jobs (props) {
                     console.log(res.data);
 
                 } else if (res.data.data.length === 0) {
-                    setShowSuccess(true);
+                    setShowSuccess(false);
                     setShowError(true);
                 }
             }
