@@ -49,7 +49,7 @@ function Home (props) {
             <Accordion.Collapse eventKey="0">
             <Card.Body>
                 
-            This operator has the capability to create blog items in within a Hub. 
+            This operator has the capability to create blog items in a Hub. 
             
             <br />
             <br />

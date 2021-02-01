@@ -1,0 +1,429 @@
+--- BULK BUSTER LOG - UPDATE - ITEM SEO (Runtime 1.38 min) ---
+
+- HUBS - 
+Hub Name: Resources
+Id: 101305
+
+- ACTIVITY LOG -
+2021-01-13 12:13:00  -  UPDATED SEO -  Item '639500488' SEO metadata updated
+2021-01-13 12:13:00  -  Published item '639500488'
+2021-01-13 12:13:00  -  UPDATED SEO -  Item '641760646' SEO metadata updated
+2021-01-13 12:13:00  -  Published item '641760646'
+2021-01-13 12:13:00  -  UPDATED SEO -  Item '641759893' SEO metadata updated
+2021-01-13 12:13:00  -  Published item '641759893'
+2021-01-13 12:13:01  -  UPDATED SEO -  Item '641761723' SEO metadata updated
+2021-01-13 12:13:01  -  Published item '641761723'
+2021-01-13 12:13:01  -  UPDATED SEO -  Item '639989176' SEO metadata updated
+2021-01-13 12:13:01  -  Published item '639989176'
+2021-01-13 12:13:02  -  UPDATED SEO -  Item '639989704' SEO metadata updated
+2021-01-13 12:13:02  -  Published item '639989704'
+2021-01-13 12:13:02  -  UPDATED SEO -  Item '639989482' SEO metadata updated
+2021-01-13 12:13:02  -  Published item '639989482'
+2021-01-13 12:13:03  -  UPDATED SEO -  Item '637177048' SEO metadata updated
+2021-01-13 12:13:03  -  Published item '637177048'
+2021-01-13 12:13:03  -  UPDATED SEO -  Item '639982213' SEO metadata updated
+2021-01-13 12:13:03  -  Published item '639982213'
+2021-01-13 12:13:04  -  UPDATED SEO -  Item '641761474' SEO metadata updated
+2021-01-13 12:13:04  -  Published item '641761474'
+2021-01-13 12:13:04  -  UPDATED SEO -  Item '639987202' SEO metadata updated
+2021-01-13 12:13:04  -  Published item '639987202'
+2021-01-13 12:13:05  -  UPDATED SEO -  Item '641762005' SEO metadata updated
+2021-01-13 12:13:05  -  Published item '641762005'
+2021-01-13 12:13:05  -  UPDATED SEO -  Item '639990244' SEO metadata updated
+2021-01-13 12:13:05  -  Published item '639990244'
+2021-01-13 12:13:05  -  UPDATED SEO -  Item '639990667' SEO metadata updated
+2021-01-13 12:13:05  -  Published item '639990667'
+2021-01-13 12:13:06  -  UPDATED SEO -  Item '639978622' SEO metadata updated
+2021-01-13 12:13:06  -  Published item '639978622'
+2021-01-13 12:13:06  -  UPDATED SEO -  Item '639978133' SEO metadata updated
+2021-01-13 12:13:06  -  Published item '639978133'
+2021-01-13 12:13:07  -  UPDATED SEO -  Item '640276828' SEO metadata updated
+2021-01-13 12:13:07  -  Published item '640276828'
+2021-01-13 12:13:07  -  UPDATED SEO -  Item '641758582' SEO metadata updated
+2021-01-13 12:13:07  -  Published item '641758582'
+2021-01-13 12:13:07  -  UPDATED SEO -  Item '639621925' SEO metadata updated
+2021-01-13 12:13:07  -  Published item '639621925'
+2021-01-13 12:13:08  -  UPDATED SEO -  Item '639624940' SEO metadata updated
+2021-01-13 12:13:08  -  Published item '639624940'
+2021-01-13 12:13:08  -  UPDATED SEO -  Item '639979831' SEO metadata updated
+2021-01-13 12:13:08  -  Published item '639979831'
+2021-01-13 12:13:09  -  UPDATED SEO -  Item '639987727' SEO metadata updated
+2021-01-13 12:13:09  -  Published item '639987727'
+2021-01-13 12:13:09  -  UPDATED SEO -  Item '639502816' SEO metadata updated
+2021-01-13 12:13:09  -  Published item '639502816'
+2021-01-13 12:13:09  -  UPDATED SEO -  Item '639624328' SEO metadata updated
+2021-01-13 12:13:09  -  Published item '639624328'
+2021-01-13 12:13:10  -  UPDATED SEO -  Item '638179849' SEO metadata updated
+2021-01-13 12:13:10  -  Published item '638179849'
+2021-01-13 12:13:10  -  UPDATED SEO -  Item '639623014' SEO metadata updated
+2021-01-13 12:13:10  -  Published item '639623014'
+2021-01-13 12:13:11  -  UPDATED SEO -  Item '639988312' SEO metadata updated
+2021-01-13 12:13:11  -  Published item '639988312'
+2021-01-13 12:13:11  -  UPDATED SEO -  Item '639990460' SEO metadata updated
+2021-01-13 12:13:11  -  Published item '639990460'
+2021-01-13 12:13:12  -  UPDATED SEO -  Item '631527170' SEO metadata updated
+2021-01-13 12:13:12  -  Published item '631527170'
+2021-01-13 12:13:12  -  UPDATED SEO -  Item '641763898' SEO metadata updated
+2021-01-13 12:13:12  -  Published item '641763898'
+2021-01-13 12:13:13  -  UPDATED SEO -  Item '641762728' SEO metadata updated
+2021-01-13 12:13:13  -  Published item '641762728'
+2021-01-13 12:13:13  -  UPDATED SEO -  Item '641575087' SEO metadata updated
+2021-01-13 12:13:13  -  Published item '641575087'
+2021-01-13 12:13:13  -  UPDATED SEO -  Item '639989302' SEO metadata updated
+2021-01-13 12:13:13  -  Published item '639989302'
+2021-01-13 12:13:14  -  UPDATED SEO -  Item '636163678' SEO metadata updated
+2021-01-13 12:13:14  -  Published item '636163678'
+2021-01-13 12:13:14  -  UPDATED SEO -  Item '639977404' SEO metadata updated
+2021-01-13 12:13:14  -  Published item '639977404'
+2021-01-13 12:13:14  -  UPDATED SEO -  Item '639989860' SEO metadata updated
+2021-01-13 12:13:14  -  Published item '639989860'
+2021-01-13 12:13:15  -  UPDATED SEO -  Item '638958127' SEO metadata updated
+2021-01-13 12:13:15  -  Published item '638958127'
+2021-01-13 12:13:15  -  UPDATED SEO -  Item '639988537' SEO metadata updated
+2021-01-13 12:13:15  -  Published item '639988537'
+2021-01-13 12:13:16  -  UPDATED SEO -  Item '641576395' SEO metadata updated
+2021-01-13 12:13:16  -  Published item '641576395'
+2021-01-13 12:13:16  -  UPDATED SEO -  Item '639984622' SEO metadata updated
+2021-01-13 12:13:16  -  Published item '639984622'
+2021-01-13 12:13:16  -  UPDATED SEO -  Item '638182573' SEO metadata updated
+2021-01-13 12:13:16  -  Published item '638182573'
+2021-01-13 12:13:17  -  UPDATED SEO -  Item '639988780' SEO metadata updated
+2021-01-13 12:13:17  -  Published item '639988780'
+2021-01-13 12:13:17  -  UPDATED SEO -  Item '639985723' SEO metadata updated
+2021-01-13 12:13:17  -  Published item '639985723'
+2021-01-13 12:13:18  -  UPDATED SEO -  Item '639987055' SEO metadata updated
+2021-01-13 12:13:18  -  Published item '639987055'
+2021-01-13 12:13:18  -  UPDATED SEO -  Item '641763436' SEO metadata updated
+2021-01-13 12:13:18  -  Published item '641763436'
+2021-01-13 12:13:18  -  UPDATED SEO -  Item '639987340' SEO metadata updated
+2021-01-13 12:13:18  -  Published item '639987340'
+2021-01-13 12:13:19  -  UPDATED SEO -  Item '639988414' SEO metadata updated
+2021-01-13 12:13:19  -  Published item '639988414'
+2021-01-13 12:13:19  -  UPDATED SEO -  Item '641760886' SEO metadata updated
+2021-01-13 12:13:19  -  Published item '641760886'
+2021-01-13 12:13:20  -  UPDATED SEO -  Item '639505843' SEO metadata updated
+2021-01-13 12:13:20  -  Published item '639505843'
+2021-01-13 12:13:20  -  UPDATED SEO -  Item '641763076' SEO metadata updated
+2021-01-13 12:13:20  -  Published item '641763076'
+2021-01-13 12:13:20  -  UPDATED SEO -  Item '639982621' SEO metadata updated
+2021-01-13 12:13:20  -  Published item '639982621'
+2021-01-13 12:13:21  -  UPDATED SEO -  Item '639988648' SEO metadata updated
+2021-01-13 12:13:21  -  Published item '639988648'
+2021-01-13 12:13:21  -  UPDATED SEO -  Item '639980746' SEO metadata updated
+2021-01-13 12:13:21  -  Published item '639980746'
+2021-01-13 12:13:21  -  UPDATED SEO -  Item '642203002' SEO metadata updated
+2021-01-13 12:13:21  -  Published item '642203002'
+2021-01-13 12:13:22  -  UPDATED SEO -  Item '639626161' SEO metadata updated
+2021-01-13 12:13:22  -  Published item '639626161'
+2021-01-13 12:13:22  -  UPDATED SEO -  Item '639983677' SEO metadata updated
+2021-01-13 12:13:22  -  Published item '639983677'
+2021-01-13 12:13:23  -  UPDATED SEO -  Item '639981460' SEO metadata updated
+2021-01-13 12:13:23  -  Published item '639981460'
+2021-01-13 12:13:23  -  UPDATED SEO -  Item '639988996' SEO metadata updated
+2021-01-13 12:13:23  -  Published item '639988996'
+2021-01-13 12:13:24  -  UPDATED SEO -  Item '639985291' SEO metadata updated
+2021-01-13 12:13:24  -  Published item '639985291'
+2021-01-13 12:13:24  -  UPDATED SEO -  Item '639623692' SEO metadata updated
+2021-01-13 12:13:24  -  Published item '639623692'
+2021-01-13 12:13:24  -  UPDATED SEO -  Item '632668516' SEO metadata updated
+2021-01-13 12:13:24  -  Published item '632668516'
+2021-01-13 12:13:25  -  UPDATED SEO -  Item '639979360' SEO metadata updated
+2021-01-13 12:13:25  -  Published item '639979360'
+2021-01-13 12:13:25  -  UPDATED SEO -  Item '639979663' SEO metadata updated
+2021-01-13 12:13:25  -  Published item '639979663'
+2021-01-13 12:13:26  -  UPDATED SEO -  Item '631525313' SEO metadata updated
+2021-01-13 12:13:26  -  Published item '631525313'
+2021-01-13 12:13:26  -  UPDATED SEO -  Item '639990877' SEO metadata updated
+2021-01-13 12:13:26  -  Published item '639990877'
+2021-01-13 12:13:26  -  UPDATED SEO -  Item '641763316' SEO metadata updated
+2021-01-13 12:13:26  -  Published item '641763316'
+2021-01-13 12:13:27  -  UPDATED SEO -  Item '641359267' SEO metadata updated
+2021-01-13 12:13:27  -  Published item '641359267'
+2021-01-13 12:13:27  -  UPDATED SEO -  Item '641762386' SEO metadata updated
+2021-01-13 12:13:27  -  Published item '641762386'
+2021-01-13 12:13:27  -  UPDATED SEO -  Item '641762386' SEO metadata updated
+2021-01-13 12:13:27  -  Published item '641762386'
+2021-01-13 12:13:28  -  UPDATED SEO -  Item '625445258' SEO metadata updated
+2021-01-13 12:13:28  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625445258'
+2021-01-13 12:13:28  -  UPDATED SEO -  Item '625445264' SEO metadata updated
+2021-01-13 12:13:28  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625445264'
+2021-01-13 12:13:29  -  UPDATED SEO -  Item '625445273' SEO metadata updated
+2021-01-13 12:13:29  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625445273'
+2021-01-13 12:13:29  -  UPDATED SEO -  Item '625445261' SEO metadata updated
+2021-01-13 12:13:29  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625445261'
+2021-01-13 12:13:30  -  UPDATED SEO -  Item '625445276' SEO metadata updated
+2021-01-13 12:13:30  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625445276'
+2021-01-13 12:13:30  -  UPDATED SEO -  Item '625445270' SEO metadata updated
+2021-01-13 12:13:30  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625445270'
+2021-01-13 12:13:30  -  UPDATED SEO -  Item '640834666' SEO metadata updated
+2021-01-13 12:13:30  -  ERROR: Error: Request failed with status code 500  -  Publishing item '640834666'
+2021-01-13 12:13:31  -  UPDATED SEO -  Item '639986518' SEO metadata updated
+2021-01-13 12:13:31  -  ERROR: Error: Request failed with status code 500  -  Publishing item '639986518'
+2021-01-13 12:13:31  -  UPDATED SEO -  Item '639986518' SEO metadata updated
+2021-01-13 12:13:31  -  ERROR: Error: Request failed with status code 500  -  Publishing item '639986518'
+2021-01-13 12:13:31  -  UPDATED SEO -  Item '545624233' SEO metadata updated
+2021-01-13 12:13:31  -  ERROR: Error: Request failed with status code 500  -  Publishing item '545624233'
+2021-01-13 12:13:32  -  UPDATED SEO -  Item '545624230' SEO metadata updated
+2021-01-13 12:13:32  -  ERROR: Error: Request failed with status code 500  -  Publishing item '545624230'
+2021-01-13 12:13:32  -  UPDATED SEO -  Item '628929320' SEO metadata updated
+2021-01-13 12:13:32  -  Published item '628929320'
+2021-01-13 12:13:32  -  UPDATED SEO -  Item '624152597' SEO metadata updated
+2021-01-13 12:13:32  -  Published item '624152597'
+2021-01-13 12:13:33  -  UPDATED SEO -  Item '624148709' SEO metadata updated
+2021-01-13 12:13:33  -  Published item '624148709'
+2021-01-13 12:13:33  -  UPDATED SEO -  Item '633990721' SEO metadata updated
+2021-01-13 12:13:33  -  Published item '633990721'
+2021-01-13 12:13:34  -  UPDATED SEO -  Item '624150272' SEO metadata updated
+2021-01-13 12:13:34  -  Published item '624150272'
+2021-01-13 12:13:34  -  UPDATED SEO -  Item '625408301' SEO metadata updated
+2021-01-13 12:13:34  -  Published item '625408301'
+2021-01-13 12:13:35  -  UPDATED SEO -  Item '624805760' SEO metadata updated
+2021-01-13 12:13:35  -  Published item '624805760'
+2021-01-13 12:13:35  -  UPDATED SEO -  Item '624149513' SEO metadata updated
+2021-01-13 12:13:35  -  Published item '624149513'
+2021-01-13 12:13:35  -  UPDATED SEO -  Item '624151319' SEO metadata updated
+2021-01-13 12:13:35  -  Published item '624151319'
+2021-01-13 12:13:36  -  UPDATED SEO -  Item '642138964' SEO metadata updated
+2021-01-13 12:13:36  -  Published item '642138964'
+2021-01-13 12:13:36  -  UPDATED SEO -  Item '624147602' SEO metadata updated
+2021-01-13 12:13:36  -  Published item '624147602'
+2021-01-13 12:13:37  -  UPDATED SEO -  Item '625388132' SEO metadata updated
+2021-01-13 12:13:37  -  Published item '625388132'
+2021-01-13 12:13:37  -  UPDATED SEO -  Item '624806057' SEO metadata updated
+2021-01-13 12:13:37  -  Published item '624806057'
+2021-01-13 12:13:38  -  UPDATED SEO -  Item '642139069' SEO metadata updated
+2021-01-13 12:13:38  -  Published item '642139069'
+2021-01-13 12:13:38  -  UPDATED SEO -  Item '642139306' SEO metadata updated
+2021-01-13 12:13:38  -  Published item '642139306'
+2021-01-13 12:13:38  -  UPDATED SEO -  Item '642139291' SEO metadata updated
+2021-01-13 12:13:38  -  Published item '642139291'
+2021-01-13 12:13:39  -  UPDATED SEO -  Item '636718174' SEO metadata updated
+2021-01-13 12:13:39  -  Published item '636718174'
+2021-01-13 12:13:39  -  UPDATED SEO -  Item '624150947' SEO metadata updated
+2021-01-13 12:13:39  -  Published item '624150947'
+2021-01-13 12:13:40  -  UPDATED SEO -  Item '624151757' SEO metadata updated
+2021-01-13 12:13:40  -  Published item '624151757'
+2021-01-13 12:13:40  -  UPDATED SEO -  Item '637888999' SEO metadata updated
+2021-01-13 12:13:40  -  ERROR: Error: Request failed with status code 500  -  Publishing item '637888999'
+2021-01-13 12:13:40  -  UPDATED SEO -  Item '631994881' SEO metadata updated
+2021-01-13 12:13:40  -  Published item '631994881'
+2021-01-13 12:13:41  -  UPDATED SEO -  Item '639592015' SEO metadata updated
+2021-01-13 12:13:41  -  Published item '639592015'
+2021-01-13 12:13:41  -  UPDATED SEO -  Item '622632695' SEO metadata updated
+2021-01-13 12:13:41  -  ERROR: Error: Request failed with status code 400  -  Publishing item '622632695'
+2021-01-13 12:13:41  -  ERROR: Error: Request failed with status code 404  -  Updating item 'infrastructure projects."'
+2021-01-13 12:13:41  -  UPDATED SEO -  Item '633553117' SEO metadata updated
+2021-01-13 12:13:41  -  ERROR: Error: Request failed with status code 500  -  Publishing item '633553117'
+2021-01-13 12:13:42  -  UPDATED SEO -  Item '633553117' SEO metadata updated
+2021-01-13 12:13:42  -  ERROR: Error: Request failed with status code 500  -  Publishing item '633553117'
+2021-01-13 12:13:42  -  UPDATED SEO -  Item '633553117' SEO metadata updated
+2021-01-13 12:13:42  -  ERROR: Error: Request failed with status code 500  -  Publishing item '633553117'
+2021-01-13 12:13:42  -  UPDATED SEO -  Item '633553117' SEO metadata updated
+2021-01-13 12:13:42  -  ERROR: Error: Request failed with status code 500  -  Publishing item '633553117'
+2021-01-13 12:13:43  -  UPDATED SEO -  Item '545622697' SEO metadata updated
+2021-01-13 12:13:43  -  ERROR: Error: Request failed with status code 500  -  Publishing item '545622697'
+2021-01-13 12:13:43  -  UPDATED SEO -  Item '622633769' SEO metadata updated
+2021-01-13 12:13:43  -  ERROR: Error: Request failed with status code 500  -  Publishing item '622633769'
+2021-01-13 12:13:44  -  UPDATED SEO -  Item '622634426' SEO metadata updated
+2021-01-13 12:13:44  -  Published item '622634426'
+2021-01-13 12:13:44  -  UPDATED SEO -  Item '622634171' SEO metadata updated
+2021-01-13 12:13:44  -  ERROR: Error: Request failed with status code 500  -  Publishing item '622634171'
+2021-01-13 12:13:44  -  UPDATED SEO -  Item '622634696' SEO metadata updated
+2021-01-13 12:13:44  -  Published item '622634696'
+2021-01-13 12:13:45  -  ERROR: Error: Request failed with status code 404  -  Updating item 'wirelessly transfer data such as 3D designs'
+2021-01-13 12:13:45  -  ERROR: Error: Request failed with status code 404  -  Updating item 'to the construction site, increasing efficiency'
+2021-01-13 12:13:45  -  ERROR: Error: Request failed with status code 404  -  Updating item 'and saving drive time and money."'
+2021-01-13 12:13:45  -  UPDATED SEO -  Item '633553120' SEO metadata updated
+2021-01-13 12:13:45  -  ERROR: Error: Request failed with status code 500  -  Publishing item '633553120'
+2021-01-13 12:13:46  -  UPDATED SEO -  Item '625444925' SEO metadata updated
+2021-01-13 12:13:46  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625444925'
+2021-01-13 12:13:46  -  UPDATED SEO -  Item '625444934' SEO metadata updated
+2021-01-13 12:13:46  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625444934'
+2021-01-13 12:13:46  -  UPDATED SEO -  Item '625444919' SEO metadata updated
+2021-01-13 12:13:46  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625444919'
+2021-01-13 12:13:47  -  UPDATED SEO -  Item '625444943' SEO metadata updated
+2021-01-13 12:13:47  -  Published item '625444943'
+2021-01-13 12:13:47  -  UPDATED SEO -  Item '625444940' SEO metadata updated
+2021-01-13 12:13:47  -  Published item '625444940'
+2021-01-13 12:13:47  -  UPDATED SEO -  Item '625444916' SEO metadata updated
+2021-01-13 12:13:47  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625444916'
+2021-01-13 12:13:48  -  UPDATED SEO -  Item '625444922' SEO metadata updated
+2021-01-13 12:13:48  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625444922'
+2021-01-13 12:13:48  -  UPDATED SEO -  Item '625444928' SEO metadata updated
+2021-01-13 12:13:48  -  ERROR: Error: Request failed with status code 500  -  Publishing item '625444928'
+2021-01-13 12:13:48  -  UPDATED SEO -  Item '625444946' SEO metadata updated
+2021-01-13 12:13:48  -  Published item '625444946'
+2021-01-13 12:13:49  -  UPDATED SEO -  Item '628923044' SEO metadata updated
+2021-01-13 12:13:49  -  Published item '628923044'
+2021-01-13 12:13:49  -  UPDATED SEO -  Item '640185796' SEO metadata updated
+2021-01-13 12:13:49  -  Published item '640185796'
+2021-01-13 12:13:50  -  UPDATED SEO -  Item '642337939' SEO metadata updated
+2021-01-13 12:13:50  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642337939'
+2021-01-13 12:13:50  -  UPDATED SEO -  Item '631542623' SEO metadata updated
+2021-01-13 12:13:50  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542623'
+2021-01-13 12:13:50  -  UPDATED SEO -  Item '' SEO metadata updated
+2021-01-13 12:13:50  -  ERROR: Error: Request failed with status code 404  -  Publishing item ''
+2021-01-13 12:13:51  -  ERROR: Error: Request failed with status code 404  -  Updating item 'Share your central model in the cloud according to BIM requirements (BIM "'
+2021-01-13 12:13:52  -  UPDATED SEO -  Item '636854539' SEO metadata updated
+2021-01-13 12:13:52  -  Published item '636854539'
+2021-01-13 12:13:52  -  UPDATED SEO -  Item '636854536' SEO metadata updated
+2021-01-13 12:13:52  -  Published item '636854536'
+2021-01-13 12:13:52  -  UPDATED SEO -  Item '636854542' SEO metadata updated
+2021-01-13 12:13:52  -  Published item '636854542'
+2021-01-13 12:13:53  -  UPDATED SEO -  Item '636854545' SEO metadata updated
+2021-01-13 12:13:53  -  Published item '636854545'
+2021-01-13 12:13:53  -  UPDATED SEO -  Item '637572463' SEO metadata updated
+2021-01-13 12:13:53  -  Published item '637572463'
+2021-01-13 12:13:54  -  UPDATED SEO -  Item '637572457' SEO metadata updated
+2021-01-13 12:13:54  -  Published item '637572457'
+2021-01-13 12:13:54  -  UPDATED SEO -  Item '637572454' SEO metadata updated
+2021-01-13 12:13:54  -  Published item '637572454'
+2021-01-13 12:13:54  -  UPDATED SEO -  Item '636836362' SEO metadata updated
+2021-01-13 12:13:54  -  Published item '636836362'
+2021-01-13 12:13:55  -  UPDATED SEO -  Item '636836356' SEO metadata updated
+2021-01-13 12:13:55  -  Published item '636836356'
+2021-01-13 12:13:55  -  UPDATED SEO -  Item '' SEO metadata updated
+2021-01-13 12:13:55  -  ERROR: Error: Request failed with status code 404  -  Publishing item ''
+2021-01-13 12:13:56  -  UPDATED SEO -  Item '636836359' SEO metadata updated
+2021-01-13 12:13:56  -  Published item '636836359'
+2021-01-13 12:13:56  -  UPDATED SEO -  Item '636836350' SEO metadata updated
+2021-01-13 12:13:56  -  Published item '636836350'
+2021-01-13 12:13:57  -  UPDATED SEO -  Item '637572460' SEO metadata updated
+2021-01-13 12:13:57  -  Published item '637572460'
+2021-01-13 12:13:57  -  UPDATED SEO -  Item '637190227' SEO metadata updated
+2021-01-13 12:13:57  -  Published item '637190227'
+2021-01-13 12:13:57  -  UPDATED SEO -  Item '637190233' SEO metadata updated
+2021-01-13 12:13:57  -  Published item '637190233'
+2021-01-13 12:13:58  -  UPDATED SEO -  Item '637190236' SEO metadata updated
+2021-01-13 12:13:58  -  Published item '637190236'
+2021-01-13 12:13:58  -  UPDATED SEO -  Item '637190242' SEO metadata updated
+2021-01-13 12:13:58  -  Published item '637190242'
+2021-01-13 12:13:59  -  UPDATED SEO -  Item '637190239' SEO metadata updated
+2021-01-13 12:13:59  -  Published item '637190239'
+2021-01-13 12:13:59  -  UPDATED SEO -  Item '637190230' SEO metadata updated
+2021-01-13 12:13:59  -  Published item '637190230'
+2021-01-13 12:13:59  -  UPDATED SEO -  Item '636703591' SEO metadata updated
+2021-01-13 12:13:59  -  Published item '636703591'
+2021-01-13 12:14:00  -  UPDATED SEO -  Item '636712324' SEO metadata updated
+2021-01-13 12:14:00  -  Published item '636712324'
+2021-01-13 12:14:00  -  UPDATED SEO -  Item '636712321' SEO metadata updated
+2021-01-13 12:14:00  -  Published item '636712321'
+2021-01-13 12:14:01  -  UPDATED SEO -  Item '636712318' SEO metadata updated
+2021-01-13 12:14:01  -  Published item '636712318'
+2021-01-13 12:14:01  -  UPDATED SEO -  Item '636712315' SEO metadata updated
+2021-01-13 12:14:01  -  Published item '636712315'
+2021-01-13 12:14:01  -  UPDATED SEO -  Item '636712312' SEO metadata updated
+2021-01-13 12:14:01  -  Published item '636712312'
+2021-01-13 12:14:02  -  UPDATED SEO -  Item '636712309' SEO metadata updated
+2021-01-13 12:14:02  -  Published item '636712309'
+2021-01-13 12:14:02  -  UPDATED SEO -  Item '636712306' SEO metadata updated
+2021-01-13 12:14:02  -  Published item '636712306'
+2021-01-13 12:14:03  -  UPDATED SEO -  Item '636836353' SEO metadata updated
+2021-01-13 12:14:03  -  Published item '636836353'
+2021-01-13 12:14:03  -  UPDATED SEO -  Item '642124153' SEO metadata updated
+2021-01-13 12:14:03  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642124153'
+2021-01-13 12:14:03  -  UPDATED SEO -  Item '642337933' SEO metadata updated
+2021-01-13 12:14:03  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642337933'
+2021-01-13 12:14:04  -  UPDATED SEO -  Item '631542632' SEO metadata updated
+2021-01-13 12:14:04  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542632'
+2021-01-13 12:14:04  -  UPDATED SEO -  Item '631542635' SEO metadata updated
+2021-01-13 12:14:04  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542635'
+2021-01-13 12:14:05  -  UPDATED SEO -  Item '642337945' SEO metadata updated
+2021-01-13 12:14:05  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642337945'
+2021-01-13 12:14:05  -  UPDATED SEO -  Item '634838176' SEO metadata updated
+2021-01-13 12:14:05  -  Published item '634838176'
+2021-01-13 12:14:05  -  UPDATED SEO -  Item '637712461' SEO metadata updated
+2021-01-13 12:14:05  -  Published item '637712461'
+2021-01-13 12:14:06  -  UPDATED SEO -  Item '640938427' SEO metadata updated
+2021-01-13 12:14:06  -  ERROR: Error: Request failed with status code 400  -  Publishing item '640938427'
+2021-01-13 12:14:07  -  UPDATED SEO -  Item '634020454' SEO metadata updated
+2021-01-13 12:14:07  -  ERROR: Error: Request failed with status code 400  -  Publishing item '634020454'
+2021-01-13 12:14:07  -  UPDATED SEO -  Item '642337954' SEO metadata updated
+2021-01-13 12:14:07  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642337954'
+2021-01-13 12:14:08  -  UPDATED SEO -  Item '642337957' SEO metadata updated
+2021-01-13 12:14:08  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642337957'
+2021-01-13 12:14:08  -  UPDATED SEO -  Item '642337960' SEO metadata updated
+2021-01-13 12:14:08  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642337960'
+2021-01-13 12:14:08  -  UPDATED SEO -  Item '635706244' SEO metadata updated
+2021-01-13 12:14:08  -  ERROR: Error: Request failed with status code 400  -  Publishing item '635706244'
+2021-01-13 12:14:09  -  UPDATED SEO -  Item '639487981' SEO metadata updated
+2021-01-13 12:14:09  -  ERROR: Error: Request failed with status code 400  -  Publishing item '639487981'
+2021-01-13 12:14:09  -  UPDATED SEO -  Item '631542614' SEO metadata updated
+2021-01-13 12:14:09  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542614'
+2021-01-13 12:14:09  -  UPDATED SEO -  Item '637165315' SEO metadata updated
+2021-01-13 12:14:09  -  ERROR: Error: Request failed with status code 400  -  Publishing item '637165315'
+2021-01-13 12:14:10  -  UPDATED SEO -  Item '637165315' SEO metadata updated
+2021-01-13 12:14:10  -  ERROR: Error: Request failed with status code 400  -  Publishing item '637165315'
+2021-01-13 12:14:10  -  UPDATED SEO -  Item '634161082' SEO metadata updated
+2021-01-13 12:14:10  -  ERROR: Error: Request failed with status code 400  -  Publishing item '634161082'
+2021-01-13 12:14:10  -  UPDATED SEO -  Item '634161082' SEO metadata updated
+2021-01-13 12:14:10  -  ERROR: Error: Request failed with status code 400  -  Publishing item '634161082'
+2021-01-13 12:14:11  -  UPDATED SEO -  Item '634161082' SEO metadata updated
+2021-01-13 12:14:11  -  ERROR: Error: Request failed with status code 400  -  Publishing item '634161082'
+2021-01-13 12:14:11  -  UPDATED SEO -  Item '634161082' SEO metadata updated
+2021-01-13 12:14:11  -  ERROR: Error: Request failed with status code 400  -  Publishing item '634161082'
+2021-01-13 12:14:11  -  UPDATED SEO -  Item '634161082' SEO metadata updated
+2021-01-13 12:14:11  -  ERROR: Error: Request failed with status code 400  -  Publishing item '634161082'
+2021-01-13 12:14:12  -  UPDATED SEO -  Item '641986303' SEO metadata updated
+2021-01-13 12:14:12  -  ERROR: Error: Request failed with status code 400  -  Publishing item '641986303'
+2021-01-13 12:14:12  -  ERROR: Error: Request failed with status code 404  -  Updating item '"'
+2021-01-13 12:14:12  -  UPDATED SEO -  Item '636883642' SEO metadata updated
+2021-01-13 12:14:12  -  ERROR: Error: Request failed with status code 400  -  Publishing item '636883642'
+2021-01-13 12:14:13  -  ERROR: Error: Request failed with status code 404  -  Updating item '1. This workflow will start with showing how to georeference PDF plan drawings into Trimble Business Center. '
+2021-01-13 12:14:13  -  ERROR: Error: Request failed with status code 404  -  Updating item '2. Then Adam will"'
+2021-01-13 12:14:13  -  UPDATED SEO -  Item '636514498' SEO metadata updated
+2021-01-13 12:14:13  -  ERROR: Error: Request failed with status code 400  -  Publishing item '636514498'
+2021-01-13 12:14:13  -  UPDATED SEO -  Item '642337936' SEO metadata updated
+2021-01-13 12:14:13  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642337936'
+2021-01-13 12:14:14  -  UPDATED SEO -  Item '631542611' SEO metadata updated
+2021-01-13 12:14:14  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542611'
+2021-01-13 12:14:14  -  UPDATED SEO -  Item '631542626' SEO metadata updated
+2021-01-13 12:14:14  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542626'
+2021-01-13 12:14:14  -  UPDATED SEO -  Item '631542629' SEO metadata updated
+2021-01-13 12:14:14  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542629'
+2021-01-13 12:14:15  -  UPDATED SEO -  Item '631542617' SEO metadata updated
+2021-01-13 12:14:15  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542617'
+2021-01-13 12:14:15  -  UPDATED SEO -  Item '631542620' SEO metadata updated
+2021-01-13 12:14:15  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631542620'
+2021-01-13 12:14:15  -  UPDATED SEO -  Item '631503155' SEO metadata updated
+2021-01-13 12:14:15  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503155'
+2021-01-13 12:14:16  -  UPDATED SEO -  Item '631503158' SEO metadata updated
+2021-01-13 12:14:16  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503158'
+2021-01-13 12:14:16  -  UPDATED SEO -  Item '631503161' SEO metadata updated
+2021-01-13 12:14:16  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503161'
+2021-01-13 12:14:16  -  UPDATED SEO -  Item '631503188' SEO metadata updated
+2021-01-13 12:14:16  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503188'
+2021-01-13 12:14:17  -  UPDATED SEO -  Item '631503197' SEO metadata updated
+2021-01-13 12:14:17  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503197'
+2021-01-13 12:14:17  -  UPDATED SEO -  Item '631503194' SEO metadata updated
+2021-01-13 12:14:17  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503194'
+2021-01-13 12:14:17  -  UPDATED SEO -  Item '631503191' SEO metadata updated
+2021-01-13 12:14:17  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503191'
+2021-01-13 12:14:18  -  UPDATED SEO -  Item '631503089' SEO metadata updated
+2021-01-13 12:14:18  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503089'
+2021-01-13 12:14:18  -  UPDATED SEO -  Item '' SEO metadata updated
+2021-01-13 12:14:18  -  ERROR: Error: Request failed with status code 404  -  Publishing item ''
+2021-01-13 12:14:19  -  ERROR: Error: Request failed with status code 404  -  Updating item 'Share your central model in the cloud according to BIM requirements (BIM "'
+2021-01-13 12:14:19  -  UPDATED SEO -  Item '631503098' SEO metadata updated
+2021-01-13 12:14:19  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503098'
+2021-01-13 12:14:20  -  UPDATED SEO -  Item '639487975' SEO metadata updated
+2021-01-13 12:14:20  -  Published item '639487975'
+2021-01-13 12:14:20  -  UPDATED SEO -  Item '642129418' SEO metadata updated
+2021-01-13 12:14:20  -  ERROR: Error: Request failed with status code 400  -  Publishing item '642129418'
+2021-01-13 12:14:20  -  UPDATED SEO -  Item '631503092' SEO metadata updated
+2021-01-13 12:14:20  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503092'
+2021-01-13 12:14:21  -  UPDATED SEO -  Item '631503095' SEO metadata updated
+2021-01-13 12:14:21  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631503095'
+2021-01-13 12:14:21  -  UPDATED SEO -  Item '636883612' SEO metadata updated
+2021-01-13 12:14:21  -  ERROR: Error: Request failed with status code 400  -  Publishing item '636883612'
+2021-01-13 12:14:21  -  ERROR: TypeError [ERR_UNESCAPED_CHARACTERS]: Request path contains unescaped characters  -  Updating item 'Adding Background Images to Siteworks using Trimble Business Center – "'
+2021-01-13 12:14:21  -  UPDATED SEO -  Item '631502981' SEO metadata updated
+2021-01-13 12:14:21  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631502981'
+2021-01-13 12:14:22  -  UPDATED SEO -  Item '636514492' SEO metadata updated
+2021-01-13 12:14:22  -  ERROR: Error: Request failed with status code 400  -  Publishing item '636514492'
+2021-01-13 12:14:22  -  UPDATED SEO -  Item '631550606' SEO metadata updated
+2021-01-13 12:14:22  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631550606'
+2021-01-13 12:14:22  -  UPDATED SEO -  Item '636523837' SEO metadata updated
+2021-01-13 12:14:22  -  ERROR: Error: Request failed with status code 400  -  Publishing item '636523837'
+2021-01-13 12:14:23  -  UPDATED SEO -  Item '631502978' SEO metadata updated
+2021-01-13 12:14:23  -  ERROR: Error: Request failed with status code 400  -  Publishing item '631502978'

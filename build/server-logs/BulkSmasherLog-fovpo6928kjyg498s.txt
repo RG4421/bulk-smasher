@@ -1,0 +1,22 @@
+--- BULK BUSTER LOG - CREATE - TAGS (Runtime 4.65 s) ---
+
+- HUBS - 
+Hub Name: Uberflip (TV1)
+Id: 118529
+Hub Name: Uberflip (TV2)
+Id: 119497
+
+- ACTIVITY LOG -
+2021-01-15 10:37:45  -  ERROR: Error: Request failed with status code 400  -  Creating tag ''
+2021-01-15 10:37:47  -  UPDATED ITEM  -  Item '644706997' tagged with 'Expiration Date: 2020/06/14'
+2021-01-15 10:37:47  -  UPDATED ITEM  -  Item '644706997' tagged with 'tempTag'
+2021-01-15 10:37:47  -  UPDATED ITEM  -  Item '623119745' tagged with 'Expiration Date: 2021/06/15'
+2021-01-15 10:37:47  -  UPDATED ITEM  -  Item '623119745' tagged with 'test'
+2021-01-15 10:37:47  -  UPDATED ITEM  -  Item '623119745' tagged with 'tempTag'
+2021-01-15 10:37:47  -  UPDATED ITEM  -  Item '641442604' tagged with 'Expiration Date: 2021/01/10'
+2021-01-15 10:37:47  -  UPDATED ITEM  -  Item '641442604' tagged with 'tempTag'
+2021-01-15 10:37:48  -  UPDATED ITEM  -  Item '636523888' tagged with 'Expiration Date: 2022/06/17'
+2021-01-15 10:37:48  -  UPDATED ITEM  -  Item '636523888' tagged with 'test'
+2021-01-15 10:37:48  -  UPDATED ITEM  -  Item '624773411' tagged with 'Expiration Date: 2020/01/18'
+2021-01-15 10:37:48  -  UPDATED ITEM  -  Item '624773411' tagged with 'test'
+2021-01-15 10:37:48  -  UPDATED ITEM  -  Item '624773411' tagged with 'tempTag'

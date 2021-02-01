@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Axios from 'axios';
-// import Accordion from 'react-bootstrap/Accordion'
-// import Alert from 'react-bootstrap/Alert'
-// import Card from 'react-bootstrap/Card'
+import JobsTable from './modules/jobsTable'
+import Success from './modules/jobSuccess'
+import Error from './modules/jobError'
 
 import newWindow from '../images/newWindow.png'
-// import logo from '../images/uf.png'
+import jobs from '../images/jobs.png'
 
 function Jobs (props) {
 
     const [APIKey, setAPIKey] = useState('');
     const [APISecret, setAPISecret] = useState('');
+    const [hubName, setHubName] = useState('');
+    const [resData, setResData] = useState('');
 
+    const [showTable, setShowTable] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [showError, setShowError] = useState(false);
 
     // AUTHENTICATION
     const history = useHistory();
@@ -58,7 +63,20 @@ function Jobs (props) {
         Axios.post('jobs/view', payload, options)
         .then((res) => {
             if (res.status >= 200 && res.status < 300) {
-                console.log(res.data);    
+                setHubName(res.data.hubName)
+
+                // If there are jobs
+                if (res.data.data.length !== 0) {
+                    setShowSuccess(true);
+                    setShowError(false);
+                    setResData(res.data.data);
+                    setShowTable(true);
+                    console.log(res.data);
+
+                } else if (res.data.data.length === 0) {
+                    setShowSuccess(true);
+                    setShowError(true);
+                }
             }
         }).catch((e) => {
             if (e.response) {
@@ -74,7 +92,8 @@ function Jobs (props) {
     return (
         <div className="form-group">
             <div className="newContainer">
-                <p>View all jobs status</p>
+                <img style={{marginRight: 5, marginTop: -10}} src={jobs} width="20" height="20" alt="create"/>
+                <h4 style={{display: 'inline'}}>View Jobs</h4>
 
                 <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
 
@@ -110,12 +129,14 @@ function Jobs (props) {
                 <div className="form-group" style={{marginTop: 30}}>
                     <input onClick={handleSubmit} type="submit" value="View Jobs" className="btn btn-success"/>
                 </div> 
+
+                { showSuccess ? <Success hubName={hubName}/> : null }
+                { showError   ? <Error hubName={hubName}/> : null }                 
+                { showTable   ? <JobsTable tableData={resData}/> : null }
+
             </div>
         </div>
     )
-
 }
-
-
 
 export default Jobs;

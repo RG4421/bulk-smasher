@@ -175,7 +175,7 @@ function Delete (props)
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}><b>{fileName}</b> ({fileSize}B)</h5>
+           <h6 style={{marginTop: 30}}><b>{fileName}</b> ({fileSize}B)</h6>
            <div className='csv-preview'>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -511,8 +511,8 @@ function Delete (props)
         <div className="newContainer">
             <form>
             <img style={{marginRight: 5, marginTop: -10}} src={deleteImg} width="20" height="20" alt="delete"/>
-            <h3 style={{display: 'inline'}}>Bulk Delete</h3>
-                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+            <h4 style={{display: 'inline'}}>Bulk Delete</h4>
+                <h6 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h6>
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">API Key</span>
@@ -542,7 +542,7 @@ function Delete (props)
 
                 { showLegacyFields ? <LegacyFields /> : null }
 
-                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#delete"}>Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h6 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#delete"}>Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h6>
                 <div className="form-group">
                     <select
                         className="form-control"

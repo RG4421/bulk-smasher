@@ -4464,6 +4464,11 @@
     "pify" "^4.0.1"
     "rimraf" "^2.6.3"
 
+"delay@^4.4.0":
+  "integrity" "sha512-txgOrJu3OdtOfTiEOT2e76dJVfG/1dz2NZ4F0Pyt4UGZJryssMRp5vdM5wQoLwSOBNdrJv3F9PAhp/heqd7vrA=="
+  "resolved" "https://registry.npmjs.org/delay/-/delay-4.4.0.tgz"
+  "version" "4.4.0"
+
 "delayed-stream@~1.0.0":
   "integrity" "sha1-3zrhmayt+31ECqrgsp4icrJOxhk="
   "resolved" "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
@@ -10829,6 +10834,11 @@
   optionalDependencies:
     "fsevents" "2.1.2"
 
+"react-table@^7.6.3":
+  "integrity" "sha512-hfPF13zDLxPMpLKzIKCE8RZud9T/XrRTsaCIf8zXpWZIZ2juCl7qrGpo3AQw9eAetXV5DP7s2GDm+hht7qq5Dw=="
+  "resolved" "https://registry.npmjs.org/react-table/-/react-table-7.6.3.tgz"
+  "version" "7.6.3"
+
 "react-transition-group@^4.4.1":
   "integrity" "sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw=="
   "resolved" "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.1.tgz"
@@ -10846,7 +10856,7 @@
   dependencies:
     "envify" "^3.0.0"
 
-"react@^16.14.0", "react@^16.8.0", "react@^16.8.6", "react@>=0.13.3", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.3.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0":
+"react@^16.14.0", "react@^16.8.0", "react@^16.8.3 || ^17.0.0-0", "react@^16.8.6", "react@>=0.13.3", "react@>=0.14.0", "react@>=15.0.0", "react@>=16.3.0", "react@>=16.3.2", "react@>=16.6.0", "react@>=16.8.0":
   "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
   "version" "16.14.0"

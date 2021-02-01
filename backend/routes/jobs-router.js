@@ -79,6 +79,7 @@ router.route('/view').post(async (req, res) => {
     try {
         const authToken = await auth.authenticateCredsV2(APIKey, APISecret);
         const hub = await fetch.getHubId(authToken);
+        const hubName = hub[0].name;
         const jobGroup = hub[0].id;
 
         AWS.config.update(DB.aws_remote_config);
@@ -112,12 +113,11 @@ router.route('/view').post(async (req, res) => {
                     message: err
                 });
             } else {
-                // const { Count } = data;
-
                 res.send({
                     success: true,
-                    message: `Job fetched`,
-                    data: data.Items
+                    message: `Jobs fetched`,
+                    data: data.Items,
+                    hubName: hubName
                 });
             }
         });

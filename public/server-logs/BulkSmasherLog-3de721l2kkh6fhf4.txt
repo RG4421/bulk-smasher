@@ -1,0 +1,45 @@
+--- BULK BUSTER LOG - CREATE - TAGS (Runtime 10 s) ---
+
+- HUBS - 
+Hub Name: Death Star
+Id: 117867
+Hub Name: Death Star 2
+Id: 117990
+
+- ACTIVITY LOG -
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'pct:One Pager'
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'pse:Acute Care'
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'ppe:CMIO'
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'ppc:Decision Maker'
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'pbs:Solution Exploration'
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'pso:Solutions For CMO and CMIO'
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'ppr:Integrated Care Coordination'
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'pp:Harmony'
+2021-01-28 1:14:07  -  UPDATED ITEM  -  Item '634845619' tagged with 'pt:Transitions of Care'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'pct:Video – Animated Explainer'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'pse:Acute Care'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'ppe:IT'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'ppc:Influencer'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'pbs:Solution Exploration'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'pso:Solutions for CIO and IT Directors'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'ppr:Integrated Care Coordination'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'pp:Harmony'
+2021-01-28 1:14:09  -  UPDATED ITEM  -  Item '634845622' tagged with 'pt:Transitions of Care'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'pct:Video – Animated Explainer'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'pse:Acute Care'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'ppe:CMIO'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'ppc:Decision Maker'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'pbs:Solution Exploration'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'pso:Solutions For CMO and CMIO'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'ppr:Integrated Care Coordination'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'pp:Harmony'
+2021-01-28 1:14:10  -  UPDATED ITEM  -  Item '634836916' tagged with 'pt:Transitions of Care'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'pct:Customer Success Story'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'pse:Acute Care'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'ppe:CMIO'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'ppc:Decision Maker'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'pbs:Supplier Selection'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'pso:Solutions For CMO and CMIO'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'ppr:Integrated Care Coordination'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'pp:Harmony'
+2021-01-28 1:14:12  -  UPDATED ITEM  -  Item '634836919' tagged with 'pt:Transitions of Care'

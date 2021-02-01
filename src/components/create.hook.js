@@ -35,6 +35,7 @@ function Create (props) {
     const [fileSize, setFileSize] = useState(0);
     const [hubId, setHubId] = useState('');
     const [searchKey, setSearchKey] = useState('');
+    const [email, setEmail] = useState('')
     const operatorType = 'Create';
 
     const [showUpload, setShowUpload] = useState(false);
@@ -164,7 +165,7 @@ function Create (props) {
 
     const CSVPreview = () => (
         <div className="form-group">
-           <h5 style={{marginTop: 30}}><b>{fileName}</b> ({fileSize}B)</h5>
+           <h6 style={{marginTop: 30}}><b>{fileName}</b> ({fileSize}B)</h6>
             <div className='csv-preview'>
                 <CsvToHtmlTable
                     data={fileContents}
@@ -204,7 +205,8 @@ function Create (props) {
             hubId,
             searchKey,
             fileContents,
-            fileSize
+            fileSize,
+            email
         };
 
         switch(selectValue) {
@@ -472,8 +474,23 @@ function Create (props) {
         <div className="newContainer">
             <form>
             <img style={{marginRight: 5, marginTop: -10}} src={create} width="20" height="20" alt="create"/>
-            <h3 style={{display: 'inline'}}>Bulk Create</h3>
-                <h5 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+            <h4 style={{display: 'inline'}}>Bulk Create</h4>
+                <h6 style={{marginTop: 30, color: '#212529'}}>Setup Email Notification</h6>
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">Email</span>
+                    </div>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                        className="form-control" 
+                        aria-describedby="basic-addon1"
+                    ></input>
+                </div>
+
+                <h6 className="headerText"><a style={{color: '#212529'}} href="https://help.uberflip.com/hc/en-us/articles/360019084031-Get-Your-Uberflip-API-Key-and-Secret-Account-ID-and-Hub-IDs" rel="noopener noreferrer" target="_blank">API Credentials <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h6>
                 <div className="form-group">
 
                     <div className="input-group mb-3">
@@ -519,7 +536,7 @@ function Create (props) {
                     </div>
                 : null }
 
-                <h5 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#create"}>Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h5>
+                <h6 className="operatorSelect"><a style={{color: '#212529'}} href={process.env.PUBLIC_URL + "/#create"}>Operator <img style={{marginLeft: 5}} src={newWindow} width="20" height="20" alt="newWindow"/></a></h6>
                 <div className="form-group">
                     <select
                         className="form-control"

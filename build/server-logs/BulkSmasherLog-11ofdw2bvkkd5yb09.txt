@@ -1,0 +1,133 @@
+--- BULK BUSTER LOG - UPDATE - UPDATE ITEMS (Runtime 16 s) ---
+
+- HUBS - 
+Hub Name: Instructure
+Id: 116094
+Hub Name: NORAM-Instructure
+Id: 119743
+Hub Name: apac-instructure
+Id: 119746
+Hub Name: latam-instructure
+Id: 119749
+
+- ACTIVITY LOG -
+2021-01-25 5:49:31  -  UPDATED ITEMS  -  Item '642007447' metadata updated
+2021-01-25 5:49:31  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007447'
+2021-01-25 5:49:32  -  UPDATED ITEMS  -  Item '641018950' metadata updated
+2021-01-25 5:49:32  -  Published item '641018950'
+2021-01-25 5:49:32  -  UPDATED ITEMS  -  Item '641018953' metadata updated
+2021-01-25 5:49:32  -  Published item '641018953'
+2021-01-25 5:49:32  -  UPDATED ITEMS  -  Item '641018959' metadata updated
+2021-01-25 5:49:32  -  Published item '641018959'
+2021-01-25 5:49:33  -  UPDATED ITEMS  -  Item '641018980' metadata updated
+2021-01-25 5:49:33  -  Published item '641018980'
+2021-01-25 5:49:33  -  UPDATED ITEMS  -  Item '641018983' metadata updated
+2021-01-25 5:49:33  -  Published item '641018983'
+2021-01-25 5:49:33  -  UPDATED ITEMS  -  Item '641018995' metadata updated
+2021-01-25 5:49:33  -  ERROR: Cannot publish item with empty content  -  Publishing item '641018995'
+2021-01-25 5:49:33  -  UPDATED ITEMS  -  Item '641018998' metadata updated
+2021-01-25 5:49:33  -  ERROR: Cannot publish item with empty content  -  Publishing item '641018998'
+2021-01-25 5:49:34  -  UPDATED ITEMS  -  Item '642007276' metadata updated
+2021-01-25 5:49:34  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007276'
+2021-01-25 5:49:34  -  UPDATED ITEMS  -  Item '642007279' metadata updated
+2021-01-25 5:49:34  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007279'
+2021-01-25 5:49:34  -  UPDATED ITEMS  -  Item '642007282' metadata updated
+2021-01-25 5:49:34  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007282'
+2021-01-25 5:49:34  -  UPDATED ITEMS  -  Item '642007285' metadata updated
+2021-01-25 5:49:34  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007285'
+2021-01-25 5:49:35  -  UPDATED ITEMS  -  Item '642007294' metadata updated
+2021-01-25 5:49:35  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007294'
+2021-01-25 5:49:35  -  UPDATED ITEMS  -  Item '642007297' metadata updated
+2021-01-25 5:49:35  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007297'
+2021-01-25 5:49:35  -  UPDATED ITEMS  -  Item '642007300' metadata updated
+2021-01-25 5:49:35  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007300'
+2021-01-25 5:49:35  -  UPDATED ITEMS  -  Item '642007303' metadata updated
+2021-01-25 5:49:35  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007303'
+2021-01-25 5:49:36  -  UPDATED ITEMS  -  Item '642007312' metadata updated
+2021-01-25 5:49:36  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007312'
+2021-01-25 5:49:36  -  UPDATED ITEMS  -  Item '642007315' metadata updated
+2021-01-25 5:49:36  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007315'
+2021-01-25 5:49:36  -  UPDATED ITEMS  -  Item '642007318' metadata updated
+2021-01-25 5:49:36  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007318'
+2021-01-25 5:49:36  -  UPDATED ITEMS  -  Item '642007321' metadata updated
+2021-01-25 5:49:36  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007321'
+2021-01-25 5:49:37  -  UPDATED ITEMS  -  Item '642007333' metadata updated
+2021-01-25 5:49:37  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007333'
+2021-01-25 5:49:37  -  UPDATED ITEMS  -  Item '642007342' metadata updated
+2021-01-25 5:49:37  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007342'
+2021-01-25 5:49:37  -  UPDATED ITEMS  -  Item '642007348' metadata updated
+2021-01-25 5:49:37  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007348'
+2021-01-25 5:49:38  -  UPDATED ITEMS  -  Item '642007357' metadata updated
+2021-01-25 5:49:38  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007357'
+2021-01-25 5:49:38  -  UPDATED ITEMS  -  Item '642007363' metadata updated
+2021-01-25 5:49:38  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007363'
+2021-01-25 5:49:38  -  UPDATED ITEMS  -  Item '642007366' metadata updated
+2021-01-25 5:49:38  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007366'
+2021-01-25 5:49:39  -  UPDATED ITEMS  -  Item '642007393' metadata updated
+2021-01-25 5:49:39  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007393'
+2021-01-25 5:49:39  -  UPDATED ITEMS  -  Item '642007396' metadata updated
+2021-01-25 5:49:39  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007396'
+2021-01-25 5:49:39  -  UPDATED ITEMS  -  Item '642007405' metadata updated
+2021-01-25 5:49:39  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007405'
+2021-01-25 5:49:39  -  UPDATED ITEMS  -  Item '642007426' metadata updated
+2021-01-25 5:49:39  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007426'
+2021-01-25 5:49:39  -  UPDATED ITEMS  -  Item '642007429' metadata updated
+2021-01-25 5:49:39  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007429'
+2021-01-25 5:49:40  -  UPDATED ITEMS  -  Item '642007432' metadata updated
+2021-01-25 5:49:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007432'
+2021-01-25 5:49:40  -  UPDATED ITEMS  -  Item '642007438' metadata updated
+2021-01-25 5:49:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007438'
+2021-01-25 5:49:40  -  UPDATED ITEMS  -  Item '642007441' metadata updated
+2021-01-25 5:49:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007441'
+2021-01-25 5:49:40  -  UPDATED ITEMS  -  Item '642007444' metadata updated
+2021-01-25 5:49:40  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007444'
+2021-01-25 5:49:41  -  UPDATED ITEMS  -  Item '642007450' metadata updated
+2021-01-25 5:49:41  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007450'
+2021-01-25 5:49:41  -  UPDATED ITEMS  -  Item '642007453' metadata updated
+2021-01-25 5:49:41  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007453'
+2021-01-25 5:49:41  -  UPDATED ITEMS  -  Item '642007459' metadata updated
+2021-01-25 5:49:41  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007459'
+2021-01-25 5:49:41  -  UPDATED ITEMS  -  Item '642007462' metadata updated
+2021-01-25 5:49:41  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007462'
+2021-01-25 5:49:42  -  UPDATED ITEMS  -  Item '642007465' metadata updated
+2021-01-25 5:49:42  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007465'
+2021-01-25 5:49:42  -  UPDATED ITEMS  -  Item '642007468' metadata updated
+2021-01-25 5:49:42  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007468'
+2021-01-25 5:49:42  -  UPDATED ITEMS  -  Item '642007471' metadata updated
+2021-01-25 5:49:42  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007471'
+2021-01-25 5:49:43  -  UPDATED ITEMS  -  Item '642007477' metadata updated
+2021-01-25 5:49:43  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007477'
+2021-01-25 5:49:43  -  UPDATED ITEMS  -  Item '642007480' metadata updated
+2021-01-25 5:49:43  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007480'
+2021-01-25 5:49:43  -  UPDATED ITEMS  -  Item '642007483' metadata updated
+2021-01-25 5:49:43  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007483'
+2021-01-25 5:49:43  -  UPDATED ITEMS  -  Item '642007486' metadata updated
+2021-01-25 5:49:43  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007486'
+2021-01-25 5:49:44  -  UPDATED ITEMS  -  Item '642007489' metadata updated
+2021-01-25 5:49:44  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007489'
+2021-01-25 5:49:44  -  UPDATED ITEMS  -  Item '642007492' metadata updated
+2021-01-25 5:49:44  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007492'
+2021-01-25 5:49:44  -  UPDATED ITEMS  -  Item '642007495' metadata updated
+2021-01-25 5:49:44  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007495'
+2021-01-25 5:49:44  -  UPDATED ITEMS  -  Item '642007498' metadata updated
+2021-01-25 5:49:44  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007498'
+2021-01-25 5:49:45  -  UPDATED ITEMS  -  Item '642007501' metadata updated
+2021-01-25 5:49:45  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007501'
+2021-01-25 5:49:45  -  UPDATED ITEMS  -  Item '642007510' metadata updated
+2021-01-25 5:49:45  -  ERROR: Cannot publish item with empty content  -  Publishing item '642007510'
+2021-01-25 5:49:45  -  UPDATED ITEMS  -  Item '642130642' metadata updated
+2021-01-25 5:49:45  -  Published item '642130642'
+2021-01-25 5:49:45  -  UPDATED ITEMS  -  Item '642130648' metadata updated
+2021-01-25 5:49:45  -  Published item '642130648'
+2021-01-25 5:49:46  -  UPDATED ITEMS  -  Item '642130669' metadata updated
+2021-01-25 5:49:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '642130669'
+2021-01-25 5:49:46  -  UPDATED ITEMS  -  Item '642130822' metadata updated
+2021-01-25 5:49:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '642130822'
+2021-01-25 5:49:46  -  UPDATED ITEMS  -  Item '642130849' metadata updated
+2021-01-25 5:49:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '642130849'
+2021-01-25 5:49:46  -  UPDATED ITEMS  -  Item '644704753' metadata updated
+2021-01-25 5:49:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '644704753'
+2021-01-25 5:49:47  -  UPDATED ITEMS  -  Item '644832433' metadata updated
+2021-01-25 5:49:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '644832433'
+2021-01-25 5:49:47  -  UPDATED ITEMS  -  Item '644705488' metadata updated
+2021-01-25 5:49:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '644705488'

@@ -1,0 +1,680 @@
+--- BULK BUSTER LOG - UPDATE - UPDATE ITEMS (Runtime 1.72 min) ---
+
+- HUBS - 
+Hub Name: McKesson Medical-Surgical
+Id: 118997
+
+- ACTIVITY LOG -
+2021-01-25 2:48:18  -  UPDATED ITEMS  -  Item '636973534' metadata updated
+2021-01-25 2:48:18  -  ERROR: The published at is not a valid date.  -  Publishing item '636973534'
+2021-01-25 2:48:18  -  UPDATED ITEMS  -  Item '636239740' metadata updated
+2021-01-25 2:48:18  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239740'
+2021-01-25 2:48:18  -  UPDATED ITEMS  -  Item '641113618' metadata updated
+2021-01-25 2:48:18  -  Published item '641113618'
+2021-01-25 2:48:19  -  UPDATED ITEMS  -  Item '636973582' metadata updated
+2021-01-25 2:48:19  -  ERROR: The published at is not a valid date.  -  Publishing item '636973582'
+2021-01-25 2:48:19  -  UPDATED ITEMS  -  Item '636973528' metadata updated
+2021-01-25 2:48:19  -  ERROR: The published at is not a valid date.  -  Publishing item '636973528'
+2021-01-25 2:48:19  -  UPDATED ITEMS  -  Item '636240643' metadata updated
+2021-01-25 2:48:19  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240643'
+2021-01-25 2:48:19  -  UPDATED ITEMS  -  Item '636973570' metadata updated
+2021-01-25 2:48:19  -  ERROR: The published at is not a valid date.  -  Publishing item '636973570'
+2021-01-25 2:48:20  -  UPDATED ITEMS  -  Item '636239794' metadata updated
+2021-01-25 2:48:20  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239794'
+2021-01-25 2:48:20  -  UPDATED ITEMS  -  Item '636974212' metadata updated
+2021-01-25 2:48:20  -  ERROR: The published at is not a valid date.  -  Publishing item '636974212'
+2021-01-25 2:48:20  -  UPDATED ITEMS  -  Item '636974305' metadata updated
+2021-01-25 2:48:20  -  ERROR: The published at is not a valid date.  -  Publishing item '636974305'
+2021-01-25 2:48:20  -  UPDATED ITEMS  -  Item '641113657' metadata updated
+2021-01-25 2:48:20  -  Published item '641113657'
+2021-01-25 2:48:21  -  UPDATED ITEMS  -  Item '636527866' metadata updated
+2021-01-25 2:48:21  -  ERROR: An error prevented your request from being completed  -  Publishing item '636527866'
+2021-01-25 2:48:21  -  UPDATED ITEMS  -  Item '636240412' metadata updated
+2021-01-25 2:48:21  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240412'
+2021-01-25 2:48:21  -  UPDATED ITEMS  -  Item '636973555' metadata updated
+2021-01-25 2:48:21  -  ERROR: The published at is not a valid date.  -  Publishing item '636973555'
+2021-01-25 2:48:22  -  UPDATED ITEMS  -  Item '639895801' metadata updated
+2021-01-25 2:48:22  -  Published item '639895801'
+2021-01-25 2:48:22  -  UPDATED ITEMS  -  Item '636239830' metadata updated
+2021-01-25 2:48:22  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239830'
+2021-01-25 2:48:22  -  UPDATED ITEMS  -  Item '636975730' metadata updated
+2021-01-25 2:48:22  -  ERROR: The published at is not a valid date.  -  Publishing item '636975730'
+2021-01-25 2:48:22  -  UPDATED ITEMS  -  Item '641113666' metadata updated
+2021-01-25 2:48:22  -  Published item '641113666'
+2021-01-25 2:48:23  -  UPDATED ITEMS  -  Item '636973747' metadata updated
+2021-01-25 2:48:23  -  ERROR: The published at is not a valid date.  -  Publishing item '636973747'
+2021-01-25 2:48:23  -  UPDATED ITEMS  -  Item '639988939' metadata updated
+2021-01-25 2:48:23  -  Published item '639988939'
+2021-01-25 2:48:23  -  UPDATED ITEMS  -  Item '636973762' metadata updated
+2021-01-25 2:48:23  -  ERROR: The published at is not a valid date.  -  Publishing item '636973762'
+2021-01-25 2:48:23  -  UPDATED ITEMS  -  Item '641113561' metadata updated
+2021-01-25 2:48:23  -  Published item '641113561'
+2021-01-25 2:48:24  -  UPDATED ITEMS  -  Item '636975808' metadata updated
+2021-01-25 2:48:24  -  Published item '636975808'
+2021-01-25 2:48:24  -  UPDATED ITEMS  -  Item '636239812' metadata updated
+2021-01-25 2:48:24  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239812'
+2021-01-25 2:48:24  -  UPDATED ITEMS  -  Item '636239803' metadata updated
+2021-01-25 2:48:24  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239803'
+2021-01-25 2:48:24  -  UPDATED ITEMS  -  Item '636239818' metadata updated
+2021-01-25 2:48:24  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239818'
+2021-01-25 2:48:24  -  UPDATED ITEMS  -  Item '636972358' metadata updated
+2021-01-25 2:48:24  -  Published item '636972358'
+2021-01-25 2:48:25  -  UPDATED ITEMS  -  Item '636975784' metadata updated
+2021-01-25 2:48:25  -  ERROR: The published at is not a valid date.  -  Publishing item '636975784'
+2021-01-25 2:48:25  -  UPDATED ITEMS  -  Item '636240652' metadata updated
+2021-01-25 2:48:25  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240652'
+2021-01-25 2:48:25  -  UPDATED ITEMS  -  Item '636973951' metadata updated
+2021-01-25 2:48:25  -  ERROR: The published at is not a valid date.  -  Publishing item '636973951'
+2021-01-25 2:48:25  -  UPDATED ITEMS  -  Item '636973588' metadata updated
+2021-01-25 2:48:25  -  ERROR: The published at is not a valid date.  -  Publishing item '636973588'
+2021-01-25 2:48:26  -  UPDATED ITEMS  -  Item '636973918' metadata updated
+2021-01-25 2:48:26  -  ERROR: The published at is not a valid date.  -  Publishing item '636973918'
+2021-01-25 2:48:26  -  UPDATED ITEMS  -  Item '639725599' metadata updated
+2021-01-25 2:48:26  -  ERROR: The published at is not a valid date.  -  Publishing item '639725599'
+2021-01-25 2:48:26  -  UPDATED ITEMS  -  Item '638968501' metadata updated
+2021-01-25 2:48:26  -  ERROR: The published at is not a valid date.  -  Publishing item '638968501'
+2021-01-25 2:48:26  -  UPDATED ITEMS  -  Item '636239959' metadata updated
+2021-01-25 2:48:26  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239959'
+2021-01-25 2:48:27  -  UPDATED ITEMS  -  Item '636239797' metadata updated
+2021-01-25 2:48:27  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239797'
+2021-01-25 2:48:27  -  UPDATED ITEMS  -  Item '636973516' metadata updated
+2021-01-25 2:48:27  -  Published item '636973516'
+2021-01-25 2:48:27  -  UPDATED ITEMS  -  Item '639754432' metadata updated
+2021-01-25 2:48:27  -  Published item '639754432'
+2021-01-25 2:48:27  -  UPDATED ITEMS  -  Item '636974368' metadata updated
+2021-01-25 2:48:27  -  ERROR: The published at is not a valid date.  -  Publishing item '636974368'
+2021-01-25 2:48:28  -  UPDATED ITEMS  -  Item '636239704' metadata updated
+2021-01-25 2:48:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239704'
+2021-01-25 2:48:28  -  UPDATED ITEMS  -  Item '636239734' metadata updated
+2021-01-25 2:48:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239734'
+2021-01-25 2:48:28  -  UPDATED ITEMS  -  Item '635693515' metadata updated
+2021-01-25 2:48:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '635693515'
+2021-01-25 2:48:28  -  UPDATED ITEMS  -  Item '636975745' metadata updated
+2021-01-25 2:48:28  -  ERROR: The published at is not a valid date.  -  Publishing item '636975745'
+2021-01-25 2:48:28  -  UPDATED ITEMS  -  Item '636239821' metadata updated
+2021-01-25 2:48:28  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239821'
+2021-01-25 2:48:29  -  UPDATED ITEMS  -  Item '641113603' metadata updated
+2021-01-25 2:48:29  -  Published item '641113603'
+2021-01-25 2:48:29  -  UPDATED ITEMS  -  Item '636239836' metadata updated
+2021-01-25 2:48:29  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239836'
+2021-01-25 2:48:29  -  UPDATED ITEMS  -  Item '641113579' metadata updated
+2021-01-25 2:48:29  -  Published item '641113579'
+2021-01-25 2:48:29  -  UPDATED ITEMS  -  Item '636239746' metadata updated
+2021-01-25 2:48:29  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239746'
+2021-01-25 2:48:30  -  UPDATED ITEMS  -  Item '636239785' metadata updated
+2021-01-25 2:48:30  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239785'
+2021-01-25 2:48:30  -  UPDATED ITEMS  -  Item '636975769' metadata updated
+2021-01-25 2:48:30  -  ERROR: The published at is not a valid date.  -  Publishing item '636975769'
+2021-01-25 2:48:30  -  UPDATED ITEMS  -  Item '636974356' metadata updated
+2021-01-25 2:48:30  -  ERROR: The published at is not a valid date.  -  Publishing item '636974356'
+2021-01-25 2:48:30  -  UPDATED ITEMS  -  Item '641113621' metadata updated
+2021-01-25 2:48:30  -  Published item '641113621'
+2021-01-25 2:48:31  -  UPDATED ITEMS  -  Item '636239827' metadata updated
+2021-01-25 2:48:31  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239827'
+2021-01-25 2:48:31  -  UPDATED ITEMS  -  Item '635693431' metadata updated
+2021-01-25 2:48:31  -  ERROR: An error prevented your request from being completed  -  Publishing item '635693431'
+2021-01-25 2:48:31  -  UPDATED ITEMS  -  Item '636239956' metadata updated
+2021-01-25 2:48:31  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239956'
+2021-01-25 2:48:31  -  UPDATED ITEMS  -  Item '639765202' metadata updated
+2021-01-25 2:48:31  -  Published item '639765202'
+2021-01-25 2:48:32  -  UPDATED ITEMS  -  Item '639765187' metadata updated
+2021-01-25 2:48:32  -  Published item '639765187'
+2021-01-25 2:48:32  -  UPDATED ITEMS  -  Item '641113663' metadata updated
+2021-01-25 2:48:32  -  Published item '641113663'
+2021-01-25 2:48:32  -  UPDATED ITEMS  -  Item '639765208' metadata updated
+2021-01-25 2:48:32  -  ERROR: Cannot publish item with empty content  -  Publishing item '639765208'
+2021-01-25 2:48:33  -  ERROR: The seo title may not be greater than 100 characters.  -  Updating item '636241726'
+2021-01-25 2:48:33  -  UPDATED ITEMS  -  Item '636239563' metadata updated
+2021-01-25 2:48:33  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239563'
+2021-01-25 2:48:33  -  UPDATED ITEMS  -  Item '638043694' metadata updated
+2021-01-25 2:48:33  -  Published item '638043694'
+2021-01-25 2:48:33  -  UPDATED ITEMS  -  Item '636973549' metadata updated
+2021-01-25 2:48:33  -  ERROR: The published at is not a valid date.  -  Publishing item '636973549'
+2021-01-25 2:48:33  -  UPDATED ITEMS  -  Item '636973513' metadata updated
+2021-01-25 2:48:33  -  ERROR: The published at is not a valid date.  -  Publishing item '636973513'
+2021-01-25 2:48:34  -  UPDATED ITEMS  -  Item '636974338' metadata updated
+2021-01-25 2:48:34  -  ERROR: The published at is not a valid date.  -  Publishing item '636974338'
+2021-01-25 2:48:34  -  UPDATED ITEMS  -  Item '636974272' metadata updated
+2021-01-25 2:48:34  -  ERROR: The published at is not a valid date.  -  Publishing item '636974272'
+2021-01-25 2:48:34  -  UPDATED ITEMS  -  Item '636975715' metadata updated
+2021-01-25 2:48:34  -  ERROR: The published at is not a valid date.  -  Publishing item '636975715'
+2021-01-25 2:48:35  -  UPDATED ITEMS  -  Item '636974350' metadata updated
+2021-01-25 2:48:35  -  ERROR: The published at is not a valid date.  -  Publishing item '636974350'
+2021-01-25 2:48:35  -  UPDATED ITEMS  -  Item '636974362' metadata updated
+2021-01-25 2:48:35  -  ERROR: The published at is not a valid date.  -  Publishing item '636974362'
+2021-01-25 2:48:35  -  UPDATED ITEMS  -  Item '636240646' metadata updated
+2021-01-25 2:48:35  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240646'
+2021-01-25 2:48:36  -  UPDATED ITEMS  -  Item '636974347' metadata updated
+2021-01-25 2:48:36  -  Published item '636974347'
+2021-01-25 2:48:36  -  UPDATED ITEMS  -  Item '636975787' metadata updated
+2021-01-25 2:48:36  -  ERROR: The published at is not a valid date.  -  Publishing item '636975787'
+2021-01-25 2:48:36  -  UPDATED ITEMS  -  Item '636972334' metadata updated
+2021-01-25 2:48:36  -  ERROR: The published at is not a valid date.  -  Publishing item '636972334'
+2021-01-25 2:48:37  -  UPDATED ITEMS  -  Item '636974332' metadata updated
+2021-01-25 2:48:37  -  ERROR: The published at is not a valid date.  -  Publishing item '636974332'
+2021-01-25 2:48:37  -  UPDATED ITEMS  -  Item '636239929' metadata updated
+2021-01-25 2:48:37  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239929'
+2021-01-25 2:48:37  -  UPDATED ITEMS  -  Item '636975727' metadata updated
+2021-01-25 2:48:37  -  Published item '636975727'
+2021-01-25 2:48:38  -  UPDATED ITEMS  -  Item '636975781' metadata updated
+2021-01-25 2:48:38  -  ERROR: The published at is not a valid date.  -  Publishing item '636975781'
+2021-01-25 2:48:38  -  UPDATED ITEMS  -  Item '636239743' metadata updated
+2021-01-25 2:48:38  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239743'
+2021-01-25 2:48:38  -  UPDATED ITEMS  -  Item '636974281' metadata updated
+2021-01-25 2:48:38  -  ERROR: The published at is not a valid date.  -  Publishing item '636974281'
+2021-01-25 2:48:39  -  UPDATED ITEMS  -  Item '636975724' metadata updated
+2021-01-25 2:48:39  -  Published item '636975724'
+2021-01-25 2:48:39  -  UPDATED ITEMS  -  Item '641113576' metadata updated
+2021-01-25 2:48:39  -  Published item '641113576'
+2021-01-25 2:48:39  -  UPDATED ITEMS  -  Item '636240622' metadata updated
+2021-01-25 2:48:39  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240622'
+2021-01-25 2:48:40  -  UPDATED ITEMS  -  Item '639983488' metadata updated
+2021-01-25 2:48:40  -  Published item '639983488'
+2021-01-25 2:48:40  -  UPDATED ITEMS  -  Item '636239749' metadata updated
+2021-01-25 2:48:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239749'
+2021-01-25 2:48:41  -  UPDATED ITEMS  -  Item '636973831' metadata updated
+2021-01-25 2:48:41  -  ERROR: The published at is not a valid date.  -  Publishing item '636973831'
+2021-01-25 2:48:41  -  UPDATED ITEMS  -  Item '636974233' metadata updated
+2021-01-25 2:48:41  -  Published item '636974233'
+2021-01-25 2:48:41  -  UPDATED ITEMS  -  Item '639725596' metadata updated
+2021-01-25 2:48:41  -  ERROR: The published at is not a valid date.  -  Publishing item '639725596'
+2021-01-25 2:48:42  -  UPDATED ITEMS  -  Item '636975793' metadata updated
+2021-01-25 2:48:42  -  ERROR: The published at is not a valid date.  -  Publishing item '636975793'
+2021-01-25 2:48:42  -  UPDATED ITEMS  -  Item '636975721' metadata updated
+2021-01-25 2:48:42  -  ERROR: The published at is not a valid date.  -  Publishing item '636975721'
+2021-01-25 2:48:42  -  UPDATED ITEMS  -  Item '636239761' metadata updated
+2021-01-25 2:48:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239761'
+2021-01-25 2:48:43  -  UPDATED ITEMS  -  Item '636975802' metadata updated
+2021-01-25 2:48:43  -  Published item '636975802'
+2021-01-25 2:48:43  -  UPDATED ITEMS  -  Item '636975805' metadata updated
+2021-01-25 2:48:43  -  ERROR: The published at is not a valid date.  -  Publishing item '636975805'
+2021-01-25 2:48:43  -  UPDATED ITEMS  -  Item '636975733' metadata updated
+2021-01-25 2:48:43  -  ERROR: The published at is not a valid date.  -  Publishing item '636975733'
+2021-01-25 2:48:44  -  UPDATED ITEMS  -  Item '636975718' metadata updated
+2021-01-25 2:48:44  -  Published item '636975718'
+2021-01-25 2:48:44  -  UPDATED ITEMS  -  Item '636239557' metadata updated
+2021-01-25 2:48:44  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239557'
+2021-01-25 2:48:45  -  UPDATED ITEMS  -  Item '636239791' metadata updated
+2021-01-25 2:48:45  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239791'
+2021-01-25 2:48:45  -  UPDATED ITEMS  -  Item '636973546' metadata updated
+2021-01-25 2:48:45  -  ERROR: The published at is not a valid date.  -  Publishing item '636973546'
+2021-01-25 2:48:45  -  UPDATED ITEMS  -  Item '636973537' metadata updated
+2021-01-25 2:48:45  -  ERROR: The published at is not a valid date.  -  Publishing item '636973537'
+2021-01-25 2:48:46  -  UPDATED ITEMS  -  Item '636239554' metadata updated
+2021-01-25 2:48:46  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239554'
+2021-01-25 2:48:46  -  UPDATED ITEMS  -  Item '636975751' metadata updated
+2021-01-25 2:48:46  -  ERROR: The published at is not a valid date.  -  Publishing item '636975751'
+2021-01-25 2:48:46  -  UPDATED ITEMS  -  Item '636973522' metadata updated
+2021-01-25 2:48:46  -  ERROR: The published at is not a valid date.  -  Publishing item '636973522'
+2021-01-25 2:48:47  -  UPDATED ITEMS  -  Item '636239806' metadata updated
+2021-01-25 2:48:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239806'
+2021-01-25 2:48:47  -  UPDATED ITEMS  -  Item '636239815' metadata updated
+2021-01-25 2:48:47  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239815'
+2021-01-25 2:48:47  -  UPDATED ITEMS  -  Item '636973558' metadata updated
+2021-01-25 2:48:47  -  ERROR: The published at is not a valid date.  -  Publishing item '636973558'
+2021-01-25 2:48:48  -  UPDATED ITEMS  -  Item '636973579' metadata updated
+2021-01-25 2:48:48  -  ERROR: The published at is not a valid date.  -  Publishing item '636973579'
+2021-01-25 2:48:48  -  UPDATED ITEMS  -  Item '636974278' metadata updated
+2021-01-25 2:48:48  -  ERROR: The published at is not a valid date.  -  Publishing item '636974278'
+2021-01-25 2:48:48  -  UPDATED ITEMS  -  Item '636239833' metadata updated
+2021-01-25 2:48:48  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239833'
+2021-01-25 2:48:49  -  UPDATED ITEMS  -  Item '636239788' metadata updated
+2021-01-25 2:48:49  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239788'
+2021-01-25 2:48:49  -  UPDATED ITEMS  -  Item '636239782' metadata updated
+2021-01-25 2:48:49  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239782'
+2021-01-25 2:48:49  -  UPDATED ITEMS  -  Item '636239926' metadata updated
+2021-01-25 2:48:49  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239926'
+2021-01-25 2:48:50  -  UPDATED ITEMS  -  Item '636239737' metadata updated
+2021-01-25 2:48:50  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239737'
+2021-01-25 2:48:50  -  UPDATED ITEMS  -  Item '636239971' metadata updated
+2021-01-25 2:48:50  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239971'
+2021-01-25 2:48:50  -  UPDATED ITEMS  -  Item '639725602' metadata updated
+2021-01-25 2:48:50  -  Published item '639725602'
+2021-01-25 2:48:51  -  UPDATED ITEMS  -  Item '636973774' metadata updated
+2021-01-25 2:48:51  -  ERROR: The published at is not a valid date.  -  Publishing item '636973774'
+2021-01-25 2:48:51  -  UPDATED ITEMS  -  Item '636974299' metadata updated
+2021-01-25 2:48:51  -  ERROR: The published at is not a valid date.  -  Publishing item '636974299'
+2021-01-25 2:48:51  -  UPDATED ITEMS  -  Item '636239953' metadata updated
+2021-01-25 2:48:51  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239953'
+2021-01-25 2:48:52  -  UPDATED ITEMS  -  Item '636973777' metadata updated
+2021-01-25 2:48:52  -  ERROR: The published at is not a valid date.  -  Publishing item '636973777'
+2021-01-25 2:48:52  -  UPDATED ITEMS  -  Item '636239560' metadata updated
+2021-01-25 2:48:52  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239560'
+2021-01-25 2:48:52  -  UPDATED ITEMS  -  Item '641113684' metadata updated
+2021-01-25 2:48:52  -  Published item '641113684'
+2021-01-25 2:48:53  -  UPDATED ITEMS  -  Item '636974242' metadata updated
+2021-01-25 2:48:53  -  Published item '636974242'
+2021-01-25 2:48:53  -  UPDATED ITEMS  -  Item '636974221' metadata updated
+2021-01-25 2:48:53  -  ERROR: The published at is not a valid date.  -  Publishing item '636974221'
+2021-01-25 2:48:53  -  UPDATED ITEMS  -  Item '636974236' metadata updated
+2021-01-25 2:48:53  -  Published item '636974236'
+2021-01-25 2:48:54  -  UPDATED ITEMS  -  Item '639754429' metadata updated
+2021-01-25 2:48:54  -  ERROR: The published at is not a valid date.  -  Publishing item '639754429'
+2021-01-25 2:48:54  -  UPDATED ITEMS  -  Item '636974224' metadata updated
+2021-01-25 2:48:54  -  ERROR: The published at is not a valid date.  -  Publishing item '636974224'
+2021-01-25 2:48:54  -  UPDATED ITEMS  -  Item '641113597' metadata updated
+2021-01-25 2:48:54  -  Published item '641113597'
+2021-01-25 2:48:55  -  UPDATED ITEMS  -  Item '636973531' metadata updated
+2021-01-25 2:48:55  -  ERROR: The published at is not a valid date.  -  Publishing item '636973531'
+2021-01-25 2:48:55  -  UPDATED ITEMS  -  Item '636973561' metadata updated
+2021-01-25 2:48:55  -  ERROR: The published at is not a valid date.  -  Publishing item '636973561'
+2021-01-25 2:48:56  -  UPDATED ITEMS  -  Item '636975790' metadata updated
+2021-01-25 2:48:56  -  ERROR: The published at is not a valid date.  -  Publishing item '636975790'
+2021-01-25 2:48:56  -  UPDATED ITEMS  -  Item '636239752' metadata updated
+2021-01-25 2:48:56  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239752'
+2021-01-25 2:48:56  -  UPDATED ITEMS  -  Item '636239758' metadata updated
+2021-01-25 2:48:56  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239758'
+2021-01-25 2:48:57  -  UPDATED ITEMS  -  Item '641113639' metadata updated
+2021-01-25 2:48:57  -  Published item '641113639'
+2021-01-25 2:48:57  -  UPDATED ITEMS  -  Item '636973543' metadata updated
+2021-01-25 2:48:57  -  ERROR: The published at is not a valid date.  -  Publishing item '636973543'
+2021-01-25 2:48:58  -  UPDATED ITEMS  -  Item '639765190' metadata updated
+2021-01-25 2:48:58  -  Published item '639765190'
+2021-01-25 2:48:58  -  UPDATED ITEMS  -  Item '636239809' metadata updated
+2021-01-25 2:48:58  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239809'
+2021-01-25 2:48:59  -  UPDATED ITEMS  -  Item '636240637' metadata updated
+2021-01-25 2:48:59  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240637'
+2021-01-25 2:48:59  -  UPDATED ITEMS  -  Item '636240634' metadata updated
+2021-01-25 2:48:59  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240634'
+2021-01-25 2:48:59  -  UPDATED ITEMS  -  Item '636240628' metadata updated
+2021-01-25 2:48:59  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240628'
+2021-01-25 2:49:00  -  UPDATED ITEMS  -  Item '636240625' metadata updated
+2021-01-25 2:49:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240625'
+2021-01-25 2:49:00  -  UPDATED ITEMS  -  Item '636240631' metadata updated
+2021-01-25 2:49:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240631'
+2021-01-25 2:49:00  -  UPDATED ITEMS  -  Item '636240613' metadata updated
+2021-01-25 2:49:00  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240613'
+2021-01-25 2:49:01  -  UPDATED ITEMS  -  Item '636973798' metadata updated
+2021-01-25 2:49:01  -  ERROR: The published at is not a valid date.  -  Publishing item '636973798'
+2021-01-25 2:49:01  -  UPDATED ITEMS  -  Item '636973576' metadata updated
+2021-01-25 2:49:01  -  ERROR: The published at is not a valid date.  -  Publishing item '636973576'
+2021-01-25 2:49:01  -  UPDATED ITEMS  -  Item '636240526' metadata updated
+2021-01-25 2:49:01  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240526'
+2021-01-25 2:49:02  -  UPDATED ITEMS  -  Item '636240541' metadata updated
+2021-01-25 2:49:02  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240541'
+2021-01-25 2:49:02  -  UPDATED ITEMS  -  Item '636240523' metadata updated
+2021-01-25 2:49:02  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240523'
+2021-01-25 2:49:02  -  UPDATED ITEMS  -  Item '636240538' metadata updated
+2021-01-25 2:49:02  -  Published item '636240538'
+2021-01-25 2:49:03  -  UPDATED ITEMS  -  Item '636240535' metadata updated
+2021-01-25 2:49:03  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240535'
+2021-01-25 2:49:03  -  UPDATED ITEMS  -  Item '636240532' metadata updated
+2021-01-25 2:49:03  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240532'
+2021-01-25 2:49:03  -  UPDATED ITEMS  -  Item '636240529' metadata updated
+2021-01-25 2:49:03  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240529'
+2021-01-25 2:49:04  -  UPDATED ITEMS  -  Item '636240580' metadata updated
+2021-01-25 2:49:04  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240580'
+2021-01-25 2:49:04  -  UPDATED ITEMS  -  Item '636240583' metadata updated
+2021-01-25 2:49:04  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240583'
+2021-01-25 2:49:04  -  UPDATED ITEMS  -  Item '636240589' metadata updated
+2021-01-25 2:49:04  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240589'
+2021-01-25 2:49:05  -  UPDATED ITEMS  -  Item '636240586' metadata updated
+2021-01-25 2:49:05  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240586'
+2021-01-25 2:49:05  -  UPDATED ITEMS  -  Item '636240121' metadata updated
+2021-01-25 2:49:05  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240121'
+2021-01-25 2:49:05  -  UPDATED ITEMS  -  Item '636240124' metadata updated
+2021-01-25 2:49:05  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240124'
+2021-01-25 2:49:06  -  UPDATED ITEMS  -  Item '636240127' metadata updated
+2021-01-25 2:49:06  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240127'
+2021-01-25 2:49:06  -  UPDATED ITEMS  -  Item '636240130' metadata updated
+2021-01-25 2:49:06  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240130'
+2021-01-25 2:49:07  -  UPDATED ITEMS  -  Item '636973786' metadata updated
+2021-01-25 2:49:07  -  ERROR: The published at is not a valid date.  -  Publishing item '636973786'
+2021-01-25 2:49:07  -  UPDATED ITEMS  -  Item '636972280' metadata updated
+2021-01-25 2:49:07  -  ERROR: The published at is not a valid date.  -  Publishing item '636972280'
+2021-01-25 2:49:07  -  UPDATED ITEMS  -  Item '639765196' metadata updated
+2021-01-25 2:49:07  -  Published item '639765196'
+2021-01-25 2:49:08  -  UPDATED ITEMS  -  Item '636975706' metadata updated
+2021-01-25 2:49:08  -  Published item '636975706'
+2021-01-25 2:49:08  -  UPDATED ITEMS  -  Item '636239962' metadata updated
+2021-01-25 2:49:08  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239962'
+2021-01-25 2:49:08  -  UPDATED ITEMS  -  Item '636239974' metadata updated
+2021-01-25 2:49:08  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239974'
+2021-01-25 2:49:09  -  UPDATED ITEMS  -  Item '636240118' metadata updated
+2021-01-25 2:49:09  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240118'
+2021-01-25 2:49:09  -  UPDATED ITEMS  -  Item '636240115' metadata updated
+2021-01-25 2:49:09  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240115'
+2021-01-25 2:49:09  -  UPDATED ITEMS  -  Item '636527506' metadata updated
+2021-01-25 2:49:09  -  ERROR: An error prevented your request from being completed  -  Publishing item '636527506'
+2021-01-25 2:49:10  -  UPDATED ITEMS  -  Item '636973933' metadata updated
+2021-01-25 2:49:10  -  ERROR: The published at is not a valid date.  -  Publishing item '636973933'
+2021-01-25 2:49:10  -  UPDATED ITEMS  -  Item '636973873' metadata updated
+2021-01-25 2:49:10  -  ERROR: The published at is not a valid date.  -  Publishing item '636973873'
+2021-01-25 2:49:10  -  UPDATED ITEMS  -  Item '636973573' metadata updated
+2021-01-25 2:49:10  -  ERROR: The published at is not a valid date.  -  Publishing item '636973573'
+2021-01-25 2:49:11  -  UPDATED ITEMS  -  Item '636973750' metadata updated
+2021-01-25 2:49:11  -  ERROR: The published at is not a valid date.  -  Publishing item '636973750'
+2021-01-25 2:49:11  -  UPDATED ITEMS  -  Item '636973825' metadata updated
+2021-01-25 2:49:11  -  ERROR: The published at is not a valid date.  -  Publishing item '636973825'
+2021-01-25 2:49:11  -  UPDATED ITEMS  -  Item '636973912' metadata updated
+2021-01-25 2:49:11  -  ERROR: The published at is not a valid date.  -  Publishing item '636973912'
+2021-01-25 2:49:12  -  UPDATED ITEMS  -  Item '636972400' metadata updated
+2021-01-25 2:49:12  -  ERROR: The published at is not a valid date.  -  Publishing item '636972400'
+2021-01-25 2:49:12  -  UPDATED ITEMS  -  Item '636973882' metadata updated
+2021-01-25 2:49:12  -  ERROR: The published at is not a valid date.  -  Publishing item '636973882'
+2021-01-25 2:49:12  -  UPDATED ITEMS  -  Item '636973942' metadata updated
+2021-01-25 2:49:12  -  ERROR: The published at is not a valid date.  -  Publishing item '636973942'
+2021-01-25 2:49:13  -  UPDATED ITEMS  -  Item '636973867' metadata updated
+2021-01-25 2:49:13  -  Published item '636973867'
+2021-01-25 2:49:13  -  UPDATED ITEMS  -  Item '636973837' metadata updated
+2021-01-25 2:49:13  -  ERROR: The published at is not a valid date.  -  Publishing item '636973837'
+2021-01-25 2:49:13  -  UPDATED ITEMS  -  Item '636973876' metadata updated
+2021-01-25 2:49:13  -  ERROR: The published at is not a valid date.  -  Publishing item '636973876'
+2021-01-25 2:49:14  -  UPDATED ITEMS  -  Item '636973891' metadata updated
+2021-01-25 2:49:14  -  ERROR: The published at is not a valid date.  -  Publishing item '636973891'
+2021-01-25 2:49:14  -  UPDATED ITEMS  -  Item '636973900' metadata updated
+2021-01-25 2:49:14  -  ERROR: The published at is not a valid date.  -  Publishing item '636973900'
+2021-01-25 2:49:15  -  UPDATED ITEMS  -  Item '636973858' metadata updated
+2021-01-25 2:49:15  -  ERROR: The published at is not a valid date.  -  Publishing item '636973858'
+2021-01-25 2:49:15  -  UPDATED ITEMS  -  Item '636973864' metadata updated
+2021-01-25 2:49:15  -  ERROR: The published at is not a valid date.  -  Publishing item '636973864'
+2021-01-25 2:49:15  -  UPDATED ITEMS  -  Item '636973846' metadata updated
+2021-01-25 2:49:15  -  ERROR: The published at is not a valid date.  -  Publishing item '636973846'
+2021-01-25 2:49:16  -  UPDATED ITEMS  -  Item '636972403' metadata updated
+2021-01-25 2:49:16  -  ERROR: The published at is not a valid date.  -  Publishing item '636972403'
+2021-01-25 2:49:16  -  UPDATED ITEMS  -  Item '636973564' metadata updated
+2021-01-25 2:49:16  -  ERROR: The published at is not a valid date.  -  Publishing item '636973564'
+2021-01-25 2:49:16  -  UPDATED ITEMS  -  Item '636973567' metadata updated
+2021-01-25 2:49:16  -  ERROR: The published at is not a valid date.  -  Publishing item '636973567'
+2021-01-25 2:49:17  -  UPDATED ITEMS  -  Item '636973753' metadata updated
+2021-01-25 2:49:17  -  ERROR: The published at is not a valid date.  -  Publishing item '636973753'
+2021-01-25 2:49:17  -  UPDATED ITEMS  -  Item '636973756' metadata updated
+2021-01-25 2:49:17  -  ERROR: The published at is not a valid date.  -  Publishing item '636973756'
+2021-01-25 2:49:17  -  UPDATED ITEMS  -  Item '636973768' metadata updated
+2021-01-25 2:49:17  -  ERROR: The published at is not a valid date.  -  Publishing item '636973768'
+2021-01-25 2:49:18  -  UPDATED ITEMS  -  Item '636972370' metadata updated
+2021-01-25 2:49:18  -  ERROR: The published at is not a valid date.  -  Publishing item '636972370'
+2021-01-25 2:49:18  -  UPDATED ITEMS  -  Item '636972352' metadata updated
+2021-01-25 2:49:18  -  ERROR: The published at is not a valid date.  -  Publishing item '636972352'
+2021-01-25 2:49:18  -  UPDATED ITEMS  -  Item '636972349' metadata updated
+2021-01-25 2:49:18  -  ERROR: The published at is not a valid date.  -  Publishing item '636972349'
+2021-01-25 2:49:19  -  UPDATED ITEMS  -  Item '636973741' metadata updated
+2021-01-25 2:49:19  -  ERROR: The published at is not a valid date.  -  Publishing item '636973741'
+2021-01-25 2:49:19  -  UPDATED ITEMS  -  Item '636975736' metadata updated
+2021-01-25 2:49:19  -  ERROR: The published at is not a valid date.  -  Publishing item '636975736'
+2021-01-25 2:49:20  -  UPDATED ITEMS  -  Item '636975712' metadata updated
+2021-01-25 2:49:20  -  ERROR: The published at is not a valid date.  -  Publishing item '636975712'
+2021-01-25 2:49:20  -  UPDATED ITEMS  -  Item '636972340' metadata updated
+2021-01-25 2:49:20  -  ERROR: The published at is not a valid date.  -  Publishing item '636972340'
+2021-01-25 2:49:20  -  UPDATED ITEMS  -  Item '636974392' metadata updated
+2021-01-25 2:49:20  -  ERROR: The published at is not a valid date.  -  Publishing item '636974392'
+2021-01-25 2:49:21  -  UPDATED ITEMS  -  Item '636974389' metadata updated
+2021-01-25 2:49:21  -  ERROR: The published at is not a valid date.  -  Publishing item '636974389'
+2021-01-25 2:49:21  -  UPDATED ITEMS  -  Item '636972298' metadata updated
+2021-01-25 2:49:21  -  ERROR: The published at is not a valid date.  -  Publishing item '636972298'
+2021-01-25 2:49:21  -  UPDATED ITEMS  -  Item '636972301' metadata updated
+2021-01-25 2:49:21  -  ERROR: The published at is not a valid date.  -  Publishing item '636972301'
+2021-01-25 2:49:22  -  UPDATED ITEMS  -  Item '636972283' metadata updated
+2021-01-25 2:49:22  -  ERROR: The published at is not a valid date.  -  Publishing item '636972283'
+2021-01-25 2:49:22  -  UPDATED ITEMS  -  Item '636972388' metadata updated
+2021-01-25 2:49:22  -  ERROR: The published at is not a valid date.  -  Publishing item '636972388'
+2021-01-25 2:49:22  -  UPDATED ITEMS  -  Item '636972307' metadata updated
+2021-01-25 2:49:22  -  ERROR: The published at is not a valid date.  -  Publishing item '636972307'
+2021-01-25 2:49:23  -  UPDATED ITEMS  -  Item '636972394' metadata updated
+2021-01-25 2:49:23  -  ERROR: The published at is not a valid date.  -  Publishing item '636972394'
+2021-01-25 2:49:23  -  UPDATED ITEMS  -  Item '636972292' metadata updated
+2021-01-25 2:49:23  -  ERROR: The published at is not a valid date.  -  Publishing item '636972292'
+2021-01-25 2:49:23  -  UPDATED ITEMS  -  Item '636972319' metadata updated
+2021-01-25 2:49:23  -  ERROR: The published at is not a valid date.  -  Publishing item '636972319'
+2021-01-25 2:49:24  -  UPDATED ITEMS  -  Item '636974395' metadata updated
+2021-01-25 2:49:24  -  ERROR: The published at is not a valid date.  -  Publishing item '636974395'
+2021-01-25 2:49:24  -  UPDATED ITEMS  -  Item '636974326' metadata updated
+2021-01-25 2:49:24  -  ERROR: The published at is not a valid date.  -  Publishing item '636974326'
+2021-01-25 2:49:25  -  UPDATED ITEMS  -  Item '636974311' metadata updated
+2021-01-25 2:49:25  -  ERROR: The published at is not a valid date.  -  Publishing item '636974311'
+2021-01-25 2:49:25  -  UPDATED ITEMS  -  Item '636974308' metadata updated
+2021-01-25 2:49:25  -  ERROR: The published at is not a valid date.  -  Publishing item '636974308'
+2021-01-25 2:49:25  -  UPDATED ITEMS  -  Item '636974263' metadata updated
+2021-01-25 2:49:25  -  ERROR: The published at is not a valid date.  -  Publishing item '636974263'
+2021-01-25 2:49:26  -  UPDATED ITEMS  -  Item '636974293' metadata updated
+2021-01-25 2:49:26  -  ERROR: The published at is not a valid date.  -  Publishing item '636974293'
+2021-01-25 2:49:26  -  UPDATED ITEMS  -  Item '636972316' metadata updated
+2021-01-25 2:49:26  -  ERROR: The published at is not a valid date.  -  Publishing item '636972316'
+2021-01-25 2:49:26  -  UPDATED ITEMS  -  Item '636974260' metadata updated
+2021-01-25 2:49:26  -  ERROR: The published at is not a valid date.  -  Publishing item '636974260'
+2021-01-25 2:49:27  -  UPDATED ITEMS  -  Item '636974284' metadata updated
+2021-01-25 2:49:27  -  ERROR: The published at is not a valid date.  -  Publishing item '636974284'
+2021-01-25 2:49:27  -  UPDATED ITEMS  -  Item '636974365' metadata updated
+2021-01-25 2:49:27  -  ERROR: The published at is not a valid date.  -  Publishing item '636974365'
+2021-01-25 2:49:27  -  UPDATED ITEMS  -  Item '636974353' metadata updated
+2021-01-25 2:49:27  -  ERROR: The published at is not a valid date.  -  Publishing item '636974353'
+2021-01-25 2:49:28  -  UPDATED ITEMS  -  Item '636974398' metadata updated
+2021-01-25 2:49:28  -  ERROR: The published at is not a valid date.  -  Publishing item '636974398'
+2021-01-25 2:49:28  -  UPDATED ITEMS  -  Item '636972364' metadata updated
+2021-01-25 2:49:28  -  ERROR: The published at is not a valid date.  -  Publishing item '636972364'
+2021-01-25 2:49:28  -  UPDATED ITEMS  -  Item '636974314' metadata updated
+2021-01-25 2:49:28  -  ERROR: The published at is not a valid date.  -  Publishing item '636974314'
+2021-01-25 2:49:29  -  UPDATED ITEMS  -  Item '636972343' metadata updated
+2021-01-25 2:49:29  -  ERROR: The published at is not a valid date.  -  Publishing item '636972343'
+2021-01-25 2:49:29  -  UPDATED ITEMS  -  Item '636974386' metadata updated
+2021-01-25 2:49:29  -  ERROR: The published at is not a valid date.  -  Publishing item '636974386'
+2021-01-25 2:49:29  -  UPDATED ITEMS  -  Item '636974323' metadata updated
+2021-01-25 2:49:29  -  ERROR: The published at is not a valid date.  -  Publishing item '636974323'
+2021-01-25 2:49:30  -  UPDATED ITEMS  -  Item '636974266' metadata updated
+2021-01-25 2:49:30  -  ERROR: The published at is not a valid date.  -  Publishing item '636974266'
+2021-01-25 2:49:30  -  UPDATED ITEMS  -  Item '636972382' metadata updated
+2021-01-25 2:49:30  -  ERROR: The published at is not a valid date.  -  Publishing item '636972382'
+2021-01-25 2:49:30  -  UPDATED ITEMS  -  Item '636972304' metadata updated
+2021-01-25 2:49:30  -  ERROR: The published at is not a valid date.  -  Publishing item '636972304'
+2021-01-25 2:49:31  -  UPDATED ITEMS  -  Item '636974317' metadata updated
+2021-01-25 2:49:31  -  ERROR: The published at is not a valid date.  -  Publishing item '636974317'
+2021-01-25 2:49:31  -  UPDATED ITEMS  -  Item '636974374' metadata updated
+2021-01-25 2:49:31  -  ERROR: The published at is not a valid date.  -  Publishing item '636974374'
+2021-01-25 2:49:32  -  UPDATED ITEMS  -  Item '636974269' metadata updated
+2021-01-25 2:49:32  -  ERROR: The published at is not a valid date.  -  Publishing item '636974269'
+2021-01-25 2:49:32  -  ERROR: The description may not be greater than 200 characters.  -  Updating item '636974329'
+2021-01-25 2:49:32  -  UPDATED ITEMS  -  Item '636972313' metadata updated
+2021-01-25 2:49:32  -  ERROR: The published at is not a valid date.  -  Publishing item '636972313'
+2021-01-25 2:49:33  -  UPDATED ITEMS  -  Item '636974290' metadata updated
+2021-01-25 2:49:33  -  ERROR: The published at is not a valid date.  -  Publishing item '636974290'
+2021-01-25 2:49:33  -  UPDATED ITEMS  -  Item '636974302' metadata updated
+2021-01-25 2:49:33  -  ERROR: The published at is not a valid date.  -  Publishing item '636974302'
+2021-01-25 2:49:33  -  UPDATED ITEMS  -  Item '636972286' metadata updated
+2021-01-25 2:49:33  -  ERROR: The published at is not a valid date.  -  Publishing item '636972286'
+2021-01-25 2:49:34  -  UPDATED ITEMS  -  Item '636972376' metadata updated
+2021-01-25 2:49:34  -  ERROR: The published at is not a valid date.  -  Publishing item '636972376'
+2021-01-25 2:49:34  -  UPDATED ITEMS  -  Item '636972277' metadata updated
+2021-01-25 2:49:34  -  ERROR: The published at is not a valid date.  -  Publishing item '636972277'
+2021-01-25 2:49:34  -  UPDATED ITEMS  -  Item '636974320' metadata updated
+2021-01-25 2:49:34  -  ERROR: The published at is not a valid date.  -  Publishing item '636974320'
+2021-01-25 2:49:34  -  UPDATED ITEMS  -  Item '636972385' metadata updated
+2021-01-25 2:49:34  -  ERROR: The published at is not a valid date.  -  Publishing item '636972385'
+2021-01-25 2:49:35  -  UPDATED ITEMS  -  Item '636972355' metadata updated
+2021-01-25 2:49:35  -  ERROR: The published at is not a valid date.  -  Publishing item '636972355'
+2021-01-25 2:49:35  -  UPDATED ITEMS  -  Item '636972322' metadata updated
+2021-01-25 2:49:35  -  ERROR: The published at is not a valid date.  -  Publishing item '636972322'
+2021-01-25 2:49:35  -  UPDATED ITEMS  -  Item '636972328' metadata updated
+2021-01-25 2:49:35  -  ERROR: The published at is not a valid date.  -  Publishing item '636972328'
+2021-01-25 2:49:36  -  UPDATED ITEMS  -  Item '636974341' metadata updated
+2021-01-25 2:49:36  -  ERROR: The published at is not a valid date.  -  Publishing item '636974341'
+2021-01-25 2:49:36  -  UPDATED ITEMS  -  Item '636972331' metadata updated
+2021-01-25 2:49:36  -  ERROR: The published at is not a valid date.  -  Publishing item '636972331'
+2021-01-25 2:49:36  -  UPDATED ITEMS  -  Item '636972325' metadata updated
+2021-01-25 2:49:36  -  ERROR: The published at is not a valid date.  -  Publishing item '636972325'
+2021-01-25 2:49:36  -  UPDATED ITEMS  -  Item '636974287' metadata updated
+2021-01-25 2:49:36  -  ERROR: The published at is not a valid date.  -  Publishing item '636974287'
+2021-01-25 2:49:37  -  UPDATED ITEMS  -  Item '636974335' metadata updated
+2021-01-25 2:49:37  -  ERROR: The published at is not a valid date.  -  Publishing item '636974335'
+2021-01-25 2:49:37  -  UPDATED ITEMS  -  Item '636972295' metadata updated
+2021-01-25 2:49:37  -  ERROR: The published at is not a valid date.  -  Publishing item '636972295'
+2021-01-25 2:49:37  -  UPDATED ITEMS  -  Item '636972379' metadata updated
+2021-01-25 2:49:37  -  ERROR: The published at is not a valid date.  -  Publishing item '636972379'
+2021-01-25 2:49:37  -  UPDATED ITEMS  -  Item '636974296' metadata updated
+2021-01-25 2:49:37  -  ERROR: The published at is not a valid date.  -  Publishing item '636974296'
+2021-01-25 2:49:38  -  UPDATED ITEMS  -  Item '636974257' metadata updated
+2021-01-25 2:49:38  -  ERROR: The published at is not a valid date.  -  Publishing item '636974257'
+2021-01-25 2:49:38  -  UPDATED ITEMS  -  Item '636974275' metadata updated
+2021-01-25 2:49:38  -  ERROR: The published at is not a valid date.  -  Publishing item '636974275'
+2021-01-25 2:49:38  -  UPDATED ITEMS  -  Item '636972391' metadata updated
+2021-01-25 2:49:38  -  ERROR: The published at is not a valid date.  -  Publishing item '636972391'
+2021-01-25 2:49:38  -  UPDATED ITEMS  -  Item '636972337' metadata updated
+2021-01-25 2:49:38  -  ERROR: The published at is not a valid date.  -  Publishing item '636972337'
+2021-01-25 2:49:38  -  UPDATED ITEMS  -  Item '636972346' metadata updated
+2021-01-25 2:49:38  -  ERROR: The published at is not a valid date.  -  Publishing item '636972346'
+2021-01-25 2:49:39  -  UPDATED ITEMS  -  Item '636972367' metadata updated
+2021-01-25 2:49:39  -  ERROR: The published at is not a valid date.  -  Publishing item '636972367'
+2021-01-25 2:49:39  -  UPDATED ITEMS  -  Item '636972361' metadata updated
+2021-01-25 2:49:39  -  ERROR: The published at is not a valid date.  -  Publishing item '636972361'
+2021-01-25 2:49:39  -  UPDATED ITEMS  -  Item '636974344' metadata updated
+2021-01-25 2:49:39  -  ERROR: The published at is not a valid date.  -  Publishing item '636974344'
+2021-01-25 2:49:39  -  UPDATED ITEMS  -  Item '636974377' metadata updated
+2021-01-25 2:49:39  -  ERROR: The published at is not a valid date.  -  Publishing item '636974377'
+2021-01-25 2:49:40  -  UPDATED ITEMS  -  Item '636240415' metadata updated
+2021-01-25 2:49:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240415'
+2021-01-25 2:49:40  -  UPDATED ITEMS  -  Item '641113600' metadata updated
+2021-01-25 2:49:40  -  Published item '641113600'
+2021-01-25 2:49:40  -  UPDATED ITEMS  -  Item '636240649' metadata updated
+2021-01-25 2:49:40  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240649'
+2021-01-25 2:49:40  -  UPDATED ITEMS  -  Item '641113687' metadata updated
+2021-01-25 2:49:40  -  Published item '641113687'
+2021-01-25 2:49:41  -  UPDATED ITEMS  -  Item '638803525' metadata updated
+2021-01-25 2:49:41  -  ERROR: The published at is not a valid date.  -  Publishing item '638803525'
+2021-01-25 2:49:41  -  UPDATED ITEMS  -  Item '636975739' metadata updated
+2021-01-25 2:49:41  -  ERROR: The published at is not a valid date.  -  Publishing item '636975739'
+2021-01-25 2:49:41  -  UPDATED ITEMS  -  Item '636975709' metadata updated
+2021-01-25 2:49:41  -  ERROR: The published at is not a valid date.  -  Publishing item '636975709'
+2021-01-25 2:49:41  -  UPDATED ITEMS  -  Item '636239707' metadata updated
+2021-01-25 2:49:41  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239707'
+2021-01-25 2:49:42  -  UPDATED ITEMS  -  Item '636975796' metadata updated
+2021-01-25 2:49:42  -  Published item '636975796'
+2021-01-25 2:49:42  -  UPDATED ITEMS  -  Item '636975799' metadata updated
+2021-01-25 2:49:42  -  ERROR: The published at is not a valid date.  -  Publishing item '636975799'
+2021-01-25 2:49:42  -  UPDATED ITEMS  -  Item '636239824' metadata updated
+2021-01-25 2:49:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239824'
+2021-01-25 2:49:42  -  UPDATED ITEMS  -  Item '636239755' metadata updated
+2021-01-25 2:49:42  -  ERROR: An error prevented your request from being completed  -  Publishing item '636239755'
+2021-01-25 2:49:43  -  UPDATED ITEMS  -  Item '641113564' metadata updated
+2021-01-25 2:49:43  -  Published item '641113564'
+2021-01-25 2:49:43  -  UPDATED ITEMS  -  Item '636240619' metadata updated
+2021-01-25 2:49:43  -  ERROR: An error prevented your request from being completed  -  Publishing item '636240619'
+2021-01-25 2:49:43  -  ERROR: The description may not be greater than 200 characters.  -  Updating item '636240616'
+2021-01-25 2:49:43  -  UPDATED ITEMS  -  Item '641113654' metadata updated
+2021-01-25 2:49:43  -  Published item '641113654'
+2021-01-25 2:49:44  -  UPDATED ITEMS  -  Item '641113645' metadata updated
+2021-01-25 2:49:44  -  Published item '641113645'
+2021-01-25 2:49:44  -  UPDATED ITEMS  -  Item '641113678' metadata updated
+2021-01-25 2:49:44  -  Published item '641113678'
+2021-01-25 2:49:44  -  UPDATED ITEMS  -  Item '641113660' metadata updated
+2021-01-25 2:49:44  -  Published item '641113660'
+2021-01-25 2:49:44  -  UPDATED ITEMS  -  Item '641113591' metadata updated
+2021-01-25 2:49:44  -  Published item '641113591'
+2021-01-25 2:49:45  -  UPDATED ITEMS  -  Item '641113633' metadata updated
+2021-01-25 2:49:45  -  Published item '641113633'
+2021-01-25 2:49:45  -  UPDATED ITEMS  -  Item '641113612' metadata updated
+2021-01-25 2:49:45  -  Published item '641113612'
+2021-01-25 2:49:45  -  UPDATED ITEMS  -  Item '641113606' metadata updated
+2021-01-25 2:49:45  -  Published item '641113606'
+2021-01-25 2:49:45  -  UPDATED ITEMS  -  Item '636973924' metadata updated
+2021-01-25 2:49:45  -  ERROR: The published at is not a valid date.  -  Publishing item '636973924'
+2021-01-25 2:49:46  -  UPDATED ITEMS  -  Item '636973930' metadata updated
+2021-01-25 2:49:46  -  ERROR: The published at is not a valid date.  -  Publishing item '636973930'
+2021-01-25 2:49:46  -  UPDATED ITEMS  -  Item '636973915' metadata updated
+2021-01-25 2:49:46  -  ERROR: The published at is not a valid date.  -  Publishing item '636973915'
+2021-01-25 2:49:46  -  UPDATED ITEMS  -  Item '636973927' metadata updated
+2021-01-25 2:49:46  -  ERROR: The published at is not a valid date.  -  Publishing item '636973927'
+2021-01-25 2:49:47  -  UPDATED ITEMS  -  Item '641113609' metadata updated
+2021-01-25 2:49:47  -  Published item '641113609'
+2021-01-25 2:49:47  -  UPDATED ITEMS  -  Item '641113642' metadata updated
+2021-01-25 2:49:47  -  Published item '641113642'
+2021-01-25 2:49:47  -  UPDATED ITEMS  -  Item '636973843' metadata updated
+2021-01-25 2:49:47  -  ERROR: The published at is not a valid date.  -  Publishing item '636973843'
+2021-01-25 2:49:47  -  UPDATED ITEMS  -  Item '636973957' metadata updated
+2021-01-25 2:49:47  -  ERROR: The published at is not a valid date.  -  Publishing item '636973957'
+2021-01-25 2:49:48  -  UPDATED ITEMS  -  Item '636973954' metadata updated
+2021-01-25 2:49:48  -  ERROR: The published at is not a valid date.  -  Publishing item '636973954'
+2021-01-25 2:49:48  -  UPDATED ITEMS  -  Item '636973870' metadata updated
+2021-01-25 2:49:48  -  ERROR: The published at is not a valid date.  -  Publishing item '636973870'
+2021-01-25 2:49:48  -  UPDATED ITEMS  -  Item '641113585' metadata updated
+2021-01-25 2:49:48  -  Published item '641113585'
+2021-01-25 2:49:48  -  UPDATED ITEMS  -  Item '641113651' metadata updated
+2021-01-25 2:49:48  -  Published item '641113651'
+2021-01-25 2:49:49  -  UPDATED ITEMS  -  Item '636973885' metadata updated
+2021-01-25 2:49:49  -  ERROR: The published at is not a valid date.  -  Publishing item '636973885'
+2021-01-25 2:49:49  -  UPDATED ITEMS  -  Item '641113690' metadata updated
+2021-01-25 2:49:49  -  Published item '641113690'
+2021-01-25 2:49:49  -  UPDATED ITEMS  -  Item '641113630' metadata updated
+2021-01-25 2:49:49  -  Published item '641113630'
+2021-01-25 2:49:50  -  UPDATED ITEMS  -  Item '636973852' metadata updated
+2021-01-25 2:49:50  -  ERROR: The published at is not a valid date.  -  Publishing item '636973852'
+2021-01-25 2:49:50  -  UPDATED ITEMS  -  Item '636973861' metadata updated
+2021-01-25 2:49:50  -  ERROR: The published at is not a valid date.  -  Publishing item '636973861'
+2021-01-25 2:49:50  -  UPDATED ITEMS  -  Item '636973849' metadata updated
+2021-01-25 2:49:50  -  ERROR: The published at is not a valid date.  -  Publishing item '636973849'
+2021-01-25 2:49:50  -  UPDATED ITEMS  -  Item '641113615' metadata updated
+2021-01-25 2:49:50  -  Published item '641113615'
+2021-01-25 2:49:51  -  UPDATED ITEMS  -  Item '641113567' metadata updated
+2021-01-25 2:49:51  -  Published item '641113567'
+2021-01-25 2:49:51  -  UPDATED ITEMS  -  Item '636973978' metadata updated
+2021-01-25 2:49:51  -  ERROR: The published at is not a valid date.  -  Publishing item '636973978'
+2021-01-25 2:49:51  -  UPDATED ITEMS  -  Item '636973975' metadata updated
+2021-01-25 2:49:51  -  ERROR: The published at is not a valid date.  -  Publishing item '636973975'
+2021-01-25 2:49:51  -  UPDATED ITEMS  -  Item '636973966' metadata updated
+2021-01-25 2:49:51  -  ERROR: The published at is not a valid date.  -  Publishing item '636973966'
+2021-01-25 2:49:52  -  UPDATED ITEMS  -  Item '641113648' metadata updated
+2021-01-25 2:49:52  -  Published item '641113648'
+2021-01-25 2:49:52  -  UPDATED ITEMS  -  Item '636975778' metadata updated
+2021-01-25 2:49:52  -  Published item '636975778'
+2021-01-25 2:49:52  -  UPDATED ITEMS  -  Item '636974215' metadata updated
+2021-01-25 2:49:52  -  ERROR: The published at is not a valid date.  -  Publishing item '636974215'
+2021-01-25 2:49:52  -  UPDATED ITEMS  -  Item '636975772' metadata updated
+2021-01-25 2:49:52  -  Published item '636975772'
+2021-01-25 2:49:53  -  UPDATED ITEMS  -  Item '636974230' metadata updated
+2021-01-25 2:49:53  -  ERROR: The published at is not a valid date.  -  Publishing item '636974230'
+2021-01-25 2:49:53  -  UPDATED ITEMS  -  Item '639772915' metadata updated
+2021-01-25 2:49:53  -  Published item '639772915'
+2021-01-25 2:49:53  -  UPDATED ITEMS  -  Item '636974227' metadata updated
+2021-01-25 2:49:53  -  ERROR: The published at is not a valid date.  -  Publishing item '636974227'
+2021-01-25 2:49:53  -  UPDATED ITEMS  -  Item '639772918' metadata updated
+2021-01-25 2:49:53  -  Published item '639772918'
+2021-01-25 2:49:54  -  UPDATED ITEMS  -  Item '638830450' metadata updated
+2021-01-25 2:49:54  -  Published item '638830450'
+2021-01-25 2:49:54  -  UPDATED ITEMS  -  Item '641113627' metadata updated
+2021-01-25 2:49:54  -  Published item '641113627'
+2021-01-25 2:49:54  -  UPDATED ITEMS  -  Item '641113675' metadata updated
+2021-01-25 2:49:54  -  Published item '641113675'
+2021-01-25 2:49:55  -  UPDATED ITEMS  -  Item '641113669' metadata updated
+2021-01-25 2:49:55  -  Published item '641113669'
+2021-01-25 2:49:55  -  UPDATED ITEMS  -  Item '641113588' metadata updated
+2021-01-25 2:49:55  -  Published item '641113588'
+2021-01-25 2:49:55  -  UPDATED ITEMS  -  Item '641113636' metadata updated
+2021-01-25 2:49:55  -  Published item '641113636'
+2021-01-25 2:49:55  -  UPDATED ITEMS  -  Item '641113594' metadata updated
+2021-01-25 2:49:55  -  Published item '641113594'
+2021-01-25 2:49:56  -  UPDATED ITEMS  -  Item '638935735' metadata updated
+2021-01-25 2:49:56  -  Published item '638935735'
+2021-01-25 2:49:56  -  UPDATED ITEMS  -  Item '641113624' metadata updated
+2021-01-25 2:49:56  -  Published item '641113624'
+2021-01-25 2:49:56  -  UPDATED ITEMS  -  Item '636973909' metadata updated
+2021-01-25 2:49:56  -  ERROR: The published at is not a valid date.  -  Publishing item '636973909'
+2021-01-25 2:49:57  -  UPDATED ITEMS  -  Item '636973960' metadata updated
+2021-01-25 2:49:57  -  ERROR: The published at is not a valid date.  -  Publishing item '636973960'
+2021-01-25 2:49:57  -  UPDATED ITEMS  -  Item '636973972' metadata updated
+2021-01-25 2:49:57  -  ERROR: The published at is not a valid date.  -  Publishing item '636973972'
+2021-01-25 2:49:57  -  UPDATED ITEMS  -  Item '636973903' metadata updated
+2021-01-25 2:49:57  -  ERROR: The published at is not a valid date.  -  Publishing item '636973903'
+2021-01-25 2:49:57  -  UPDATED ITEMS  -  Item '636973906' metadata updated
+2021-01-25 2:49:57  -  ERROR: The published at is not a valid date.  -  Publishing item '636973906'
+2021-01-25 2:49:58  -  UPDATED ITEMS  -  Item '636973888' metadata updated
+2021-01-25 2:49:58  -  ERROR: The published at is not a valid date.  -  Publishing item '636973888'
+2021-01-25 2:49:58  -  UPDATED ITEMS  -  Item '641113570' metadata updated
+2021-01-25 2:49:58  -  Published item '641113570'
+2021-01-25 2:49:58  -  UPDATED ITEMS  -  Item '636973879' metadata updated
+2021-01-25 2:49:58  -  ERROR: The published at is not a valid date.  -  Publishing item '636973879'
+2021-01-25 2:49:58  -  UPDATED ITEMS  -  Item '639765205' metadata updated
+2021-01-25 2:49:58  -  Published item '639765205'
+2021-01-25 2:49:58  -  UPDATED ITEMS  -  Item '636973894' metadata updated
+2021-01-25 2:49:58  -  ERROR: The published at is not a valid date.  -  Publishing item '636973894'
+2021-01-25 2:49:59  -  UPDATED ITEMS  -  Item '641113672' metadata updated
+2021-01-25 2:49:59  -  Published item '641113672'
+2021-01-25 2:49:59  -  UPDATED ITEMS  -  Item '636973855' metadata updated
+2021-01-25 2:49:59  -  ERROR: The published at is not a valid date.  -  Publishing item '636973855'
+2021-01-25 2:49:59  -  UPDATED ITEMS  -  Item '641113582' metadata updated
+2021-01-25 2:49:59  -  Published item '641113582'
+2021-01-25 2:50:00  -  UPDATED ITEMS  -  Item '636972373' metadata updated
+2021-01-25 2:50:00  -  Published item '636972373'
+2021-01-25 2:50:00  -  UPDATED ITEMS  -  Item '639765199' metadata updated
+2021-01-25 2:50:00  -  Published item '639765199'
+2021-01-25 2:50:00  -  UPDATED ITEMS  -  Item '636973945' metadata updated
+2021-01-25 2:50:00  -  ERROR: The published at is not a valid date.  -  Publishing item '636973945'
+2021-01-25 2:50:00  -  UPDATED ITEMS  -  Item '638693992' metadata updated
+2021-01-25 2:50:00  -  Published item '638693992'
